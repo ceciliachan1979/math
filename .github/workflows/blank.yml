@@ -10,12 +10,17 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            Integral/Integral.tex
+            Books/Neukirch/Neukirch.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
+            Misc/Integral/Integral.tex
+            Misc/Recurrence/Recurrence.tex
       - name: Upload LaTeX document
         uses: actions/upload-artifact@v2
         with:
           name: PDF
           path: |
-            Integral.pdf
+            Neukirch.pdf
             NumberTheory.pdf
+            Integral.pdf
+            Recurrence.pdf
+
