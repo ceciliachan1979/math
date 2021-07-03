@@ -276,7 +276,59 @@ Now we evaluate the values:
 So now we verify $ \left(\frac{-6}{p}\right) = 1 \iff p \pmod{12} \in \{1, 5, 7, 11\}$.
 \subsection*{(2)}
 Qwq
+
 \section*{Question 5}
 Since $ x^2 + y^2 = (z^2)^2 $ is a primitive pythagorean triple, we can let $ m > n, (m, n) = 1 $ such that $ x = m^2 - n^2, y = 2mn, z^2 = m^2 + n^2 $. Now we can use the same trick again and let $ s > t, (s, t) = 1 $ such that $ m = s^2 - t^2, n = 2st, z = s^2 + t^2 $. Now we get $ x = m^2 - n^2 = (s^2 - t^2)^2 - (2st)^2 = s^4 - 6s^2t^2 + t^4 $ and $ y = 2mn = 2(s^2 - t^2)2st = 4s^3t - 4st^3 $.
+
+\section*{Question 6}
+The repetitive work is best left for the computer, here is the source code for computing finite continued fraction.
+\begin{verbatim}
+def finite_continued_fraction(n, d):
+  result = []
+  finite_continued_fraction_helper(n, d, result)
+  return result
+
+def finite_continued_fraction_helper(n, d, l):
+  if d == 0:
+    return
+  i = n // d
+  l.append(i)
+  finite_continued_fraction_helper(d, n - i * d, l)
+
+def expression(continued_fraction_list):
+  if len(continued_fraction_list) == 1:
+    return str(continued_fraction_list[0])
+  else:
+    head = continued_fraction_list[0]
+    tail = list(continued_fraction_list)
+    tail.pop(0)
+    return "%s + 1/(%s)" % (head, expression(tail))
+
+def value(continued_fraction_list):
+    if len(continued_fraction_list) == 1:
+        return (continued_fraction_list[0], 1)
+    else:
+        head = continued_fraction_list[0]
+        tail = list(continued_fraction_list)
+        tail.pop(0)
+        (n, d) = value(tail)
+        return (head * n + d, n)
+\end{verbatim}
+
+And here are the results:
+\begin{verbatim}
+>>> finite_continued_fraction(53, 75)
+[0, 1, 2, 2, 2, 4]
+
+>>> finite_continued_fraction(117, 41)
+[2, 1, 5, 1, 5]
+
+>>> value([2, 3, 1, 4, 3, 5])
+(733, 324)
+
+>>> value([1, 3, 5, 7, 9, 2])
+(2911, 2217)
+
+\end{verbatim}
 
 \end{document}
