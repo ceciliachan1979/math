@@ -59,4 +59,120 @@ As $ L | K $ is a finite extension, the set of vectors $ 1, \beta, \beta^2, \cdo
 
 The "hence the same holds for all coefficients" is tricky. The coefficients are sum and products of the roots, so if the roots are integral, so are the coefficients.
 
+$ T_x $ is a linear transformation, to see that, we have:
+\begin{eqnarray*}
+  & & T_x(\alpha + \beta) \\
+  &=& x(\alpha + \beta)   \\
+  &=& x\alpha + x\beta    \\
+  &=& T_x(\alpha) + T_x(\beta)
+\end{eqnarray*}
+And also:
+\begin{eqnarray*}
+  & & a T_x(\alpha) \\
+  &=& ax\alpha      \\
+  &=& xa\alpha      \\
+  &=& T_x(a\alpha)
+\end{eqnarray*}
+Now it makes sense to talk about the trace and determinant of the matrix representation of this linear transformation. The definition is independent of basis because trace and determinant are the same for similar matrices.
+
+\section*{Page 9}
+The characteristic polynomial is defined as $ \det(tI - T_x) $ is because the coefficient of $ t^n $ will always be 1.
+
+The trace is a homomorphism from the addition group of $ L $ to the addition group of $ K $.
+
+The norm is a homomorphism from the multiplication group of $ L $ to the addition group of $ K $. The $ L^* $ is actually $ L^{\times} $, the groups of units.
+
+Consider $ y = \sum_{i=1}^{d}\sum_{j=0}^{m-1}d_{ij}\alpha_i x^j $, then we have
+
+\begin{eqnarray*}
+  & & T_x(y) \\
+  &=& x(\sum_{i=1}^{d}\sum_{j=0}^{m-1}d_{ij}\alpha_i x^j) \\
+  &=& \sum_{i=1}^{d}\sum_{j=0}^{m-1}d_{ij}\alpha_i x^{j+1} \\
+  &=& \sum_{i=1}^{d}\sum_{j=1}^{m}d_{i(j-1)}\alpha_i x^j \\
+  &=& \sum_{i=1}^{d}(\sum_{j=1}^{m-1}d_{i(j-1)}\alpha_i x^j + d_{i(m-1)}\alpha_i x^m) \\
+  &=& \sum_{i=1}^{d}(\sum_{j=1}^{m-1}d_{i(j-1)}\alpha_i x^j - d_{i(m-1)}\alpha_i(\sum_{j=0}^{m-1}c_{m-j}x^j)) \\
+  &=& \sum_{i=1}^{d}(\sum_{j=1}^{m-1}d_{i(j-1)}\alpha_i x^j - d_{i(m-1)}\alpha_i(\sum_{j=1}^{m-1}c_{m-j}x^j) - d_{i(m-1)}\alpha_ic_m) \\
+  &=& \sum_{i=1}^{d}(\sum_{j=1}^{m-1}(d_{i(j-1)} - d_{i(m-1)}c_{m-j}) \alpha_i x^j - d_{i(m-1)}\alpha_ic_m) \\
+\end{eqnarray*}
+
+To make sense out of the matrix expression in the book, the transformation is actually encoded as multiplying the row vector on the left. That will match with the expression above.
+
+\section*{Page 10}
+To understand why the characteristic polynomial of the transformation is the minimal polynomial, we consider the Laplace expansion on the last row, if could claim the determinant of the submatrix corresponding to the coefficient is a power of $ t $ with proper sign, then we are done.
+
+To see why the submatrix's determinant is as such, we consider an example by octave code as follow:
+
+\begin{verbatim}
+clear
+clc
+t = 3
+n = 5
+source = [t * eye(n,n) zeros(n, 1)] + [zeros(n, 1) (-1 * eye(n,n))];
+for i = 1:n
+  matrix = source;
+  matrix(:,[i]) = []
+  det(matrix)
+end 
+\end{verbatim}
+
+and the result as follow:
+
+\begin{verbatim}
+t = 3
+n = 5
+matrix =
+
+  -1   0   0   0   0
+   3  -1   0   0   0
+   0   3  -1   0   0
+   0   0   3  -1   0
+   0   0   0   3  -1
+
+ans = -1
+matrix =
+
+   3   0   0   0   0
+   0  -1   0   0   0
+   0   3  -1   0   0
+   0   0   3  -1   0
+   0   0   0   3  -1
+
+ans = 3
+matrix =
+
+   3  -1   0   0   0
+   0   3   0   0   0
+   0   0  -1   0   0
+   0   0   3  -1   0
+   0   0   0   3  -1
+
+ans = -9
+matrix =
+
+   3  -1   0   0   0
+   0   3  -1   0   0
+   0   0   3   0   0
+   0   0   0  -1   0
+   0   0   0   3  -1
+
+ans = 27
+matrix =
+
+   3  -1   0   0   0
+   0   3  -1   0   0
+   0   0   3  -1   0
+   0   0   0   3   0
+   0   0   0   0  -1
+
+ans = -81
+\end{verbatim}
+
+Now it is fairly obvious why, the determinant is simply the product of the diagonal, this is because either the right hand side of -1 or the below of the 3 is always a series of zero, making the Laplace expansion trivial. It is a power because we get more and more 3 as we eliminate the column further right, and the sign is right because we are eliminating one -1 at a time make the sign flips just right.
+
+$ x $ is a root of $ p(x) $, therefore $ \sigma(x) $ must map $ x $ to one of the $ m $ root of $ p(x) $. The conclude why we have $ m $ equivalence classes.
+
+Let assume $ L = K(x)(y) $, now the minimal polynomial $ g $ of $ y $ over $ K(x) $ has degree $ d $, therefore each group has $ d $ element, each element maps $ y $ to a different root of $ g $ in $ \overline{K} $.
+
+The fact that $ L = K(x)(y) $ should come from the fundamental theorem of Galois theory (so that we claim $ L | K(x) $ is separable given $ L | K $ is separable and the primitive element theorem (so that a separable extension is a simple extension). I still need to read through those make sure I understand. For now I assume I know.
+
 \end{document}

@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts} 
+\DeclareMathOperator{\fractionfield}{frac}
 
 \title{Neukirch}
 \author{Cecilia}
@@ -10,12 +11,13 @@
 \begin{document}
 \maketitle
 
-\section*{Exercise 1}
+\section{1.1}
+\subsection{Exercise 1}
 If $ \alpha $ is a unit, then $ N(\alpha) N(\alpha^{-1}) = N(1) = 1 $, but $ N $ is positive integer, so $ N(\alpha) = 1 $.
 
 If $ N(\alpha) = 1 $, then $ N(\overline{\alpha}) = 1 $ and $ N(\alpha \overline{\alpha}) = 1 $. But $ \alpha \overline{\alpha}$ is real so $ \alpha \overline{\alpha} = 1 $ and $ \overline{\alpha} $ is a multiplicative inverse of $ \alpha $, $ \alpha $ is a unit.
 
-\section*{Exercise 2}
+\subsection{Exercise 2}
 $ Z[i] $ is UFD, so we can prime factorize both side.
 
 The right hand side consists of a unit times a pile of factors, each repeated n times.
@@ -24,7 +26,7 @@ The left hand side consist of two groups, with some prime power factors comes fr
 
 Now, we can do the matching, the key is that one factor belong to exactly one of $ \alpha $ or $ \beta $, and they always get repeated $ n $ times, that is why we can express the answer in the required form.
 
-\section*{Exercise 3}
+\subsection{Exercise 3}
 
 $ \gcd((x + yi), (x - yi)) = \gcd((x + yi), 2x) = 1 $ since $ \gcd(x, y) = 1 $.
 
@@ -38,7 +40,7 @@ By Exercise 2, $ (x + yi)(x - yi) = z^2 => x + yi = e \alpha^2 $
 
 Units of Gaussian integers are $ 1, -1, i, -i, $ so changing $ e $ only permute the solution.
 
-\section*{Exercise 4}
+\subsection{Exercise 4}
 Recall the ordered field axioms:
 
 \begin{enumerate}
@@ -54,17 +56,17 @@ but since $ 0 < -1 $, then $ 1 = 0 + 1 < -1 + 1 = 0 $ (by axiom 1) contradicts w
 
 Therefore the field cannot be ordered.
 
-\section*{Exercise 5}
+\subsection{Exercise 5}
 
-Define $ N(\alpha) = |\alpha|^2 $, $ N $ is multiplicative, therefore $ N(\alpha) = 1 $ if $ \alpha $ is a unit. Now $ d > 1 $, so $ (a + b\sqrt(-d))(a - b\sqrt(-d)) = a^2 + b^2d $ , so $ b $ must be 0, $ a $ must be 1 or -1.
+Define $ N(\alpha) = |\alpha|^2 $, $ N $ is multiplicative, therefore $ N(\alpha) = 1 $ if $ \alpha $ is a unit. Now $ d > 1 $, so $ (a + b\sqrt{-d})(a - b\sqrt{-d}) = a^2 + b^2d $ , so $ b $ must be 0, $ a $ must be 1 or -1.
 
-\section*{Exercise 6}
+\subsection{Exercise 6}
 
 The theory of Pell's equation gives us infinite solutions for the Diophantine equation $ x^2 - dy^2 = 1 $.
 
 Now for every such solution $ (x + y \sqrt{d})(x - y \sqrt{d}) = x^2 - d^2y = 1 $, therefore $ (x \pm y \sqrt{d}) $ is a unit. In other words, we have infinitely many units.
 
-\section*{Exercise 7}
+\subsection{Exercise 7}
 To prove that $ \mathbb{Z}[\sqrt{2}] $ is Euclidean, we will divide two arbitrary values in $ \mathbb{Z}[\sqrt{2}] $ and show that the remainder have a smaller norm given by our chosen norm function. 
 
 The division algorithm is simple, the quoient is chosen to be the rounded result of the usual division is $ \mathbb{Q}[\sqrt{2}] $, the norm function is chosen to be $ n(a + b\sqrt{2}) = |a^2 - 2b^2| $.
@@ -103,10 +105,38 @@ For prime $ p $, $ x^2 - 2y^2 = p $ has solutions if and only if $ 2 $ is a quad
 
 Now suppose the norm of $ v $ is a prime $ p $, in this case, $ v $ cannot be a product of more than one non unit element. So $ n(v) = n(a + b\sqrt{2}) = a^2 - 2b^2 = p $, and therefore $ 2 $ must be a quadratic residue mod $ p $.
 
-Now suppose the norm of $ v $ is $ p^2 $ where $ p $ is a prime and 2 is not a quadratic residue mod $ p $. Now if $ v = mn $ can be factorized into non units, then $ m\bar{m}n\bar{n} = p^2 $ has 4 non unit factors on the left hand side but only two prime factors on the right hand side, that contradicts unique factorization. Therefore $ v $ is a prime and cannot be factorized. In that case, $ v $ has to be the integer $ p $.
+Now suppose the norm of $ v $ is $ p^2 $ where $ p $ is a prime and 2 is not a quadratic residue mod $ p $. Now if $ v = mn $ can be factorized into non units, then $ m\overline{m}n\overline{n} = p^2 $ has 4 non unit factors on the left hand side but only two prime factors on the right hand side, that contradicts unique factorization. Therefore $ v $ is a prime and cannot be factorized. In that case, $ v $ has to be the integer $ p $.
 
-Otherwise, the value cannot be prime. If we consider the prime factorization on both sides, the left hand side of $ v\bar{v} $ has only two factors with identical norm but the left hand side will have at least two factors with distinct norms, which again contradicts unique factorization.
+Otherwise, the value cannot be prime. If we consider the prime factorization on both sides, the left hand side of $ v\overline{v} $ has only two factors with identical norm but the left hand side will have at least two factors with distinct norms, which again contradicts unique factorization.
 
 That shows the primes in $ \mathbf{Z}[\sqrt{2}] $ are either integer primes with 2 not a quadratic residue mod $ p $ or solutions to the generalized Pell's equation $ x^2 - 2y^2 = p $ with $ p $ a quadratic mod $ p $.
+
+\section{1.2}
+\subsection{Exercise 1}
+Observe that $ \frac{3 + 2\sqrt{6}}{1 - \sqrt{6}} = 3 + \sqrt{6} $. This is a sum of two algebraic integers $ 3 $ and $ \sqrt{6} $ and therefore also an algebraic integer. The minimal polynomial is $ (x - (3 + \sqrt{6}))(x - (3 - \sqrt{6})) = x^2 - 6x + 3 $
+\subsection{Exercise 2}
+If $ A $ is finite, then $ A $ is a finite integral domain, which is also a finite field. $ A[t] $ is known to be an Euclidean ring, and is therefore factorial and integrally closed. Therefore we assume $ A $ is infinite.
+
+Suppose $ A[t] $ is not integrally closed, then there exists $ p, q \in A[t] $ such that $ \frac{p}{q} $ is integral over $ A[t] $. The polynomial $ q(x) $ and $ q(x) - 1 $ has only finitely many roots, and $ A $ is infinite, therefore there exists $ u \in A $ such that $ q(u) \ne 0 $ and $ q(u) \ne 1 $. 
+
+Consider $ A\left(\frac{p(u)}{q(u)}\right) $, any element in this ring can be written as $ f\left(\frac{p(u)}{q(u)}\right) $ where $ f \in A[t] $. Since we assumed $ \frac{p(t)}{q(t)} $ is integral over $ A[t] $, so $ A[t]\left(\frac{p}{q}\right) $ is a finitely generated module, meaning the element $ f\left(\frac{p}{q}\right) $ can be written as a finite basis expansion $ f\left(\frac{p}{q}\right) = \sum \omega_i \alpha_i $ where $ \omega_i \in A[t] $ and $ \alpha_i \in A[t]\left(\frac{p}{q}\right) $. But then we can substitute $ t = u $ to get a finite basis expansion for any element in $ A\left(\frac{p(u)}{q(u)}\right) $, meaning $ \frac{p(u)}{q(u)} $ is also an integral over $ A $, contradicting the fact that $ A $ is integrally closed. Therefore $ A[t] $ is integrally closed.
+
+\subsection{Exercise 3}
+Since $ X^2 - Y^3 $ is irreducible and $ Q[X, Y] $ is a UFD, so, $ <X^2 - Y^3> $ is a prime ideal.
+
+Consider the equation $ t^2 - 2t + 1 $ and $ t = \frac{X^2}{Y^3} $, now 
+\begin{eqnarray*}
+  & & t^2 - 2t + 1 \\
+  &=& \frac{X^4}{Y^6} - \frac{2X^2}{Y^3} + 1 \\
+  &=& \frac{X^4}{Y^6} - \frac{2X^2Y^3}{Y^6} + \frac{Y^6}{Y^6} \\
+  &=& \frac{(X^2 - Y^3)^2}{Y^6}  \\
+  &=& 0 \pmod{X^2 - Y^3} 
+\end{eqnarray*}
+So $ \frac{X^2}{Y^3} \in \fractionfield(\frac{Q[X,Y]}{X^2 - Y^3}) $ is integral over $ Q[X,Y] $. So $ \frac{Q[X,Y]}{X^2 - Y^3} $ is not integrally closed.
+\subsubsection{Thought process}
+It is rather meaningless to consider linear monic equation, so let's get started with quadratic ones. We want to get
+$ \frac{p^2}{q^2} + A\frac{p}{q} + B = 0 $. We are likely going to exploit the fact that it is quotient ring, so we might as well think of the right hand side being a multiple of $ X^2 - Y^3 $
+
+Multiplying $ q^2 $, we get $ p^2 + Apq + Bq^2 = kq^2(X^2 - Y^3) $, at this point it is not hard to come up with the example I gave above.
 
 \end{document}
