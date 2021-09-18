@@ -16,6 +16,7 @@ jobs:
             Misc/Bernoulli/Bernoulli.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
+            Misc/pde/pde.tex
       - name: Upload LaTeX document
         uses: actions/upload-artifact@v2
         with:
@@ -27,4 +28,4 @@ jobs:
             NumberTheory.pdf
             Integral.pdf
             Recurrence.pdf
-
+            pde.pdf

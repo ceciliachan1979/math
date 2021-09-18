@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\title{PDE}
+\author{Cecilia}
+\date{April 2021}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem}
+The goal of this document is to solve this PDE using Fourier transform.
+\begin{eqnarray*}
+      u_t &=& ku_{xx} \\
+  u(0, x) &=& \phi(x)
+\end{eqnarray*}
+
+\section*{Fourier transform}
+Different authors defines Fourier transform differently, to avoid confusion. In this document, we will adopt this particular definition. In this section, we will derive the necessary results.
+
+The Fourier transform of $ f(x) $ to defined to be $ F(\omega) = \int\limits_{-\infty}^{\infty}f(x)e^{-j\omega x} $
+
+\subsection*{Gaussian}
+
+\begin{eqnarray*}
+  & & \mathcal{F}(e^{-x^2}) \\
+  &=& \int\limits_{-\infty}^{\infty}e^{-x^2}e^{-j\omega x}dx \\
+  &=& \int\limits_{-\infty}^{\infty}e^{-(x^2+j\omega x)}dx \\
+  &=& \int\limits_{-\infty}^{\infty}e^{-\left(x^2+2x\frac{j\omega }{2}+\left(\frac{j\omega}{2}\right)^2-\left(\frac{j\omega}{2}\right)^2\right)}dx \\
+  &=& \int\limits_{-\infty}^{\infty}e^{-\left(x + \frac{j\omega}{2}\right)^2}e^{\left(\frac{j\omega}{2}\right)^2}dx \\  
+  &=& e^{\left(\frac{j\omega}{2}\right)^2}\int\limits_{-\infty}^{\infty}e^{-\left(x + \frac{j\omega}{2}\right)^2}dx \\
+  &=& e^{-\frac{\omega^2}{4}}\int\limits_{-\infty}^{\infty}e^{-\left(x + \frac{j\omega}{2}\right)^2}dx \\  
+  &=& e^{-\frac{\omega^2}{4}}\int\limits_{-\infty}^{\infty}e^{-\left( \frac{2x + j\omega}{2}\right)^2}dx \\ 
+  &=& e^{-\frac{\omega^2}{4}}\frac{1}{2}\int\limits_{-\infty}^{\infty}e^{-\frac{(2x + j\omega)^2}{2(2)}}d(2x) \\
+  &=& e^{-\frac{\omega^2}{4}}\frac{1}{2}(\sqrt{2\pi}\sqrt{2}) \\
+  &=& e^{-\frac{\omega^2}{4}}\sqrt{\pi}
+\end{eqnarray*}
+
+\subsection*{Time scaling}
+\begin{eqnarray*}
+  & & \mathcal{F}(f(\frac{x}{a})) \\
+  &=& \int\limits_{-\infty}^{\infty}{f(\frac{x}{a})e^{-j \omega x}dx} \\
+  &=& a\int\limits_{-\infty}^{\infty}{f(\frac{x}{a})e^{-j\omega a\frac{x}{a}}d(\frac{x}{a})} \\
+  &=& a\mathcal{F}(f)(a\omega)
+\end{eqnarray*}
+
+\subsection*{Differentiation}
+\begin{eqnarray*}
+  & & \mathcal{F}(f'(x)) \\
+  &=& \int\limits_{-\infty}^{\infty}{f'(x)e^{-j \omega x}dx} \\
+  &=& \int\limits_{-\infty}^{\infty}{e^{-j \omega x}df(x)} \\
+  &=& f(x)e^{-j \omega x}|_{-\infty}^{\infty} - \int\limits_{-\infty}^{\infty}{f(x)de^{-j \omega x}} \\
+  &=&  - \int\limits_{-\infty}^{\infty}{-j \omega f(x)e^{-j \omega x}dx} \\
+  &=&  j\omega \mathcal{F}(x)
+\end{eqnarray*}
+
+\subsection*{Inverse}
+\begin{eqnarray*}
+  & & \int\limits_{-\infty}^{\infty}{\int\limits_{-\infty}^{\infty}{f(\tau)e^{-j\omega \tau}d\tau}e^{j\omega t}d\omega} \\
+  &=& \int\limits_{-\infty}^{\infty}{f(\tau)\int\limits_{-\infty}^{\infty}{e^{-j\omega \tau}e^{j\omega t}d\omega}d\tau} \\
+  &=& \int\limits_{-\infty}^{\infty}{f(\tau)\delta(t - \tau)d\tau} \\
+  &=& f(t)
+\end{eqnarray*}
+
+\subsection*{Convolution}
+\begin{eqnarray*}
+  & & \mathcal{F}(f * g) \\
+  &=& \int\limits_{-\infty}^{\infty}{\left(\int\limits_{-\infty}^{\infty}{f(\tau)g(t - \tau)d \tau}\right)e^{-j\omega t}dt} \\
+  &=& \int\limits_{-\infty}^{\infty}{\left(\int\limits_{-\infty}^{\infty}{f(\tau)g(t - \tau)d \tau}\right)e^{-j\omega \tau}e^{-j\omega (t - \tau)}dt} \\
+  &=& \int\limits_{-\infty}^{\infty}{\int\limits_{-\infty}^{\infty}{f(\tau)e^{-j\omega \tau}g(t - \tau)e^{-j\omega (t - \tau)}dt d\tau}} \\
+  &=& \mathcal{F}(f) \mathcal{F}(g) \\
+\end{eqnarray*}
+
+\subsection*{A simple differential equation}
+\begin{eqnarray*}
+     \frac{dy}{dx} &=& Ay        \\
+  \int\frac{dy}{y} &=& \int{Adx} \\
+           \ln(y) &=& Ax + C     \\
+                y &=& De^{Ax}    \\
+             y(0) &=& D
+\end{eqnarray*}
+
+\section*{Solution}
+Let $ \tilde{u}(t, \omega) = \mathcal{F}(u(t, x)) , \tilde{\phi}(\omega) = \mathcal{F}(\phi(x)) $
+
+\begin{eqnarray*}
+  \frac{\partial \tilde{u}(t, \omega)}{\partial t} &=& k(jw)^2\tilde{u}(t, \omega) \\
+                                                   &=& -kw^2\tilde{u}(t, \omega)  \\
+  \tilde{u}(t, \omega) &=& \tilde{\phi}(\omega)e^{-kw^2t}  \\
+       u(t, x) &=& \mathcal{F}^{-1} (\tilde{\phi}(\omega)) * \mathcal{F}^{-1} (e^{-k \omega^2t}) \\
+               &=& \frac{1}{\sqrt{4\pi kt}} \phi(x) * \mathcal{F}^{-1}\left(\sqrt{4kt}\sqrt{\pi}e^{-\frac{(\sqrt{4kt}\omega)^2}{4}}\right) \\
+               &=& \frac{1}{\sqrt{4\pi kt}} \phi(x) * e^{-\left(\frac{x}{\sqrt{4kt}}\right)^2} \\
+               &=& \frac{1}{\sqrt{4\pi kt}} \phi(x) * e^{-\frac{x^2}{4kt}} \\
+\end{eqnarray*}
+
+\section*{Conclusion}
+Many of the derivations are not rigorous. That makes me wonder, what does it take to make sure this is rigorous. Turn out there are a lot of analytic background required for many of the operations. For example, check out the \href{https://en.wikipedia.org/wiki/Leibniz_integral_rule}{Leibniz integral rule} or \href{https://en.wikipedia.org/wiki/Distribution_(mathematics)}{Distribution}.
+
+\end{document}
