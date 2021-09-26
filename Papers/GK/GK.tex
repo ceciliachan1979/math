@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\title{Space-Efficient Online Computation of Quantile Summaries Reading Notes}
+\author{Cecilia}
+\date{September 2021}
+
+\begin{document}
+\maketitle
+\section*{About section 2.1}
+\subsection*{Before Proposition 1}
+Since we are only maintaining a summary. In general we do not know the true rank of an input. Therefore we can only have $ r_{min} $ and $ r_{max} $ as (inclusive) bounds to the real rank.
+
+Unlike array index, rank starts from 1 in this paper. So for $ n $ numbers, the ranks are 1 to $ n $.
+
+The rank bounds for the minimum and maximum is obvious. It is $ r_{min}(v_0) = r_{max}(v_0)= 1 $, $ r_{min}(v_{s-1}) = r_{max}(v_{s-1})= n $
+
+In order to make $ r_{min}(v_i) = \sum\limits_{i \le j}g_i $ work, $ g_0 $ has to be defined to be 1. [Obviously, there is no $ v_{-1} $], so we need an alternative definition. With that, the sum relation follows by telescoping.
+
+\begin{eqnarray*}
+  & & \sum\limits_{i \le j}g_i \\
+  &=& 1 + \sum\limits_{i=1}^{j}g_i \\
+  &=& 1 + \sum\limits_{i=1}^{j}{\left(r_{min}(v_i) -r_{min}(v_{i-1})\right)} \\
+  &=& 1 + \sum\limits_{i=1}^{j}{r_{min}(v_i)} - \sum\limits_{i=1}^{j}{r_{min}(v_{i-1})} \\
+  &=& 1 + \sum\limits_{i=1}^{j}{r_{min}(v_i)} - \sum\limits_{i=0}^{j-1}{r_{min}(v_{i})} \\
+  &=& 1 + \left(\sum\limits_{i=1}^{j-1}{r_{min}(v_i)} + r_{min}(v_j)\right) - \left(r_{min}(v_0) + \sum\limits_{i=1}^{j-1}{r_{min}(v_i)}\right) \\
+  &=& 1 + r_{min}(v_j) - r_{min}(v_0) \\
+  &=& 1 + r_{min}(v_j) - 1 \\
+  &=& r_{min}(v_j)
+\end{eqnarray*}
+
+The number of observations that may have fallen between $ v_i $ and $ v_{i-1} $ is $ r_{max}(v_i) - r_{min}(v_{i-1}) - 1 $. The bound is exclusive.
+\begin{eqnarray*}
+  & & r_{max}(v_i) - r_{min}(v_{i-1}) - 1 \\
+  &=& \left(\sum\limits_{j=1}^{i}g_j + \Delta_i\right) - \left(\sum\limits_{j=1}^{i-1}g_j\right) - 1\\
+  &=& g_j + \Delta_i - 1
+\end{eqnarray*}
+
+$ \sum{g_i} = n $ follows as that is $ r_{min}(v_{s-1}) $
+
+\subsection*{Proposition 1}
+In the $ r > n - e $ case, $ r - e \le r_{min}(v_{s-1}) $ is trivial as any rank must be less than $ n $.
+$ r + e \ge r_{max}(v_{s-1}) $ is basically $ r \ge n - e $ which is given in the case.
+
+The "It follows that part" in the a bit confusing in writing, it is actually the conclusion of the proof that is coming up right after. Instead, let's assume (for the purpose of contradiction) that $ r - e > r_{min}(v_{j-1}) $ 
+
+In the other case, we have:
+\begin{eqnarray*}
+  r_{max}(v_j) &>& r + e \\
+  r_{min}(v_j) + \Delta_{j} &>& r + e \\
+  r_{min}(v_{j-1}) + g_j + \Delta_{j} &>& r + e \\
+  r_{min}(v_{j-1}) + g_j + \Delta_{j} &>& r - e + 2e \\
+                                      &>& r_{min}(v_{j-1}) + 2e \\
+                     g_j + \Delta_{j} &>& 2e 
+\end{eqnarray*}
+But recall $ e = \max(\frac{g_j + \Delta_{j}}{2}) $, so we have a contradiction and therefore $ r - e \le r_{min}(v_{j-1}) $
+
+\subsection*{After Proposition 1}
+The concept of capacity is unclear, what does it mean by $ g_i $ counting certain observations? Looking backward from the algorithm analysis, since $ \Delta_i $ never changes and $ g_i + \Delta_i < 2\epsilon n $, it make sense to think of a tuple has space to grow if $ g_i $ is small.
+
+\subsection*{Band}
+The subtraction by $ p \pmod 2^\alpha $ make sure the band boundaries are at powers of two. 
+
+The larger the $ \alpha $, the wider is the band, the smaller are the $ \Delta $ values, the earlier its insertion time.
+
+Notice later in the insertion algorithm, the $ \Delta $ values are set to be the $ \lfloor 2\epsilon n \rfloor $, so the first $ \lfloor \frac{1}{2\epsilon} \rfloor $ observations has $ \Delta = 0 $ when they were inserted.  
+
+Notice the paper said the first $ \frac{1}{2\epsilon} $ observations. That does not make sense as $ \frac{1}{2\epsilon} $ is not an integer.
+
+The exact property is that if two elements were in the same band, they cannot become in different bands as $ n $ increases. A $ \Delta $ value does increase band when $ n $ increases.
+
+\subsection*{Tree representation}
+It is unclear what does it mean by children order - the author only specify which node should be the parent of which. Anyway, here is how I interpreted it.
+
+Imagine an algorithm as follow. Scanning from the left to right, for each node, we find its parent and add it to the list of children. Now we have a definition of children ordering.
+
+Suppose in this children list, B goes after A but B's band is larger than A, then B should be the parent of A and therefore they should not be siblings. That proves proposition 3.
+
+For proposition 4, suppose we have a gap in the descendent of $ P $ such that $ R $ has a node $ Q $ before it which is a descendent of $ P $ yet $ R $ is not. Then 
+
+$ R $ must have a rank higher than $ P $, or else it must be a descendent of $ P $.
+$ Q $ must have a rank lower than $ P $, or else it cannot be a descendent of $ P $.
+
+Now we $ R $ should be the parent of $ Q $ instead, then $ R $ is not a descendent of $ P $, this contradiction shows the descendent must by contiguous with no gap.
+
+\subsection*{Operations}
+It is unclear how compress should be implemented. In particular, how to I walk the descendants?
+
+What does it meant by $ n \equiv 0 \pmod{\frac{1}{2\epsilon}} $ as $ \frac{1}{2\epsilon} $ may not be an integer? Note that since $ \Delta = \lfloor 2\epsilon n \rfloor $, so $ \Delta $ increase by 1 roughly when $ n $ increase by $ \frac{1}{2\epsilon} $, is that what it meant? Do a compress every time when $ \Delta $ increase? Is it possible that COMPRESS is not going to be productive if $ \Delta $ does not increase? Why?
+
+\subsection*{Analysis}
+It is unclear why these operations maintain the $\epsilon$-approximate summary. To prove that these operations indeed maintain an $\epsilon$-approximate summary, it suffice to prove by induction, that is, every operations maintain it. We need two facts:
+
+\begin{enumerate}
+  \item $ {r_{min}(v_i) \le rank(v_i) \le r_{max}(v_i)} $ (condition 1), and
+  \item $ \max(g_i + \Delta_i) \leq \lfloor 2\epsilon n \rfloor $ (condition 2)
+\end{enumerate}
+
+\subsubsection*{Insertion}
+Denote by $ i $ the index of the newly inserted item. We know that (condition 1) is unchanged for all tuples with index less than $ i $ and (condition 2) holds for all items (including $ i $). So the only thing to worry about it (condition 1) for tuples with index $ \ge i $.
+
+The notation get a bit tricky because $ rank(v_i) $, $ r_{min} $ and $ r_{max} $ for tuples with index $ \ge i $ changes during the insertion, so we will mark the with before and after. Tuple indexes change as well, so when we refer to a tuple, we always use the post insertion index.
+
+It is clear than 
+\begin{align*}
+    r_{min}(v_{i-1}) &\le rank(v_{i-1}) & \text{Induction hypothesis} \\
+                     &\le rank(v_i) - 1 & \text{Earlier tuple is at most 1 before me} \\
+r_{min}(v_{i-1}) + 1 &\le rank(v_i) \\
+     r_{min}(v_{i})  &\le rank(v_i) & g_i = 1
+\end{align*}
+Also 
+\begin{align*}
+rank(v_i) & <     rank_{after}(v_{i+1})  & \text{This is obvious} \\
+          & =     rank_{before}(v_{i+1}) + 1 & \text{Insertion increases rank by 1} \\
+          & \leq  r_{max-before}(v_{i+1}) + 1 & \text{Induction hypothesis} \\
+          & =     r_{min-before}(v_{i+1}) + \Delta_{i+1} + 1 \\
+          & =     g_{i+1} + r_{min}(v_{i-1}) + \Delta_{i+1} + 1 \\
+          & \leq     r_{min}(v_{i-1}) + 1 + \lfloor 2\epsilon (n-1 )\rfloor & \text{Induction} \\
+          & \leq     r_{min}(v_{i-1}) + 1 + \lfloor 2\epsilon n \rfloor \\
+          & =        r_{min}(v_{i-1}) + 1 + \Delta_i \\
+          & =     r_{min}(v_i) + \Delta_i & g_i = 1 \\
+          & =     r_{max}(v_i)
+\end{align*}
+
+For all tuples with index $ > i$, their rank increase by 1, and so are the bounds, so we are good there as well.
+
+\subsubsection*{Deletion}
+Deletion do not change $ r_{min} $ or $ r_{max} $, so condition 1 is good. In compress, deletion is guard by condition 2, so condition 2 is good as well.
+
+\subsection*{Lemma 1}
+The clause "an observation from a band < $\alpha$" is unclear. An observation don't have a band. I believe the correct interpretation of this clause is "an observation that was covered by a band < $\alpha$ any time before now.
+
+\subsection*{Lemma 2}
+The proof said there is no more than $ \frac{1}{2\epsilon} $ observations for each $ \Delta $, but that is not always true.
+
+When $ \epsilon = 0.3 $, $ \lfloor 2(0.3)5 \rfloor = \lfloor 2(0.3)6 \rfloor = 3 $. So there are two tuples with $ \Delta =  3 $, but $ \frac{1}{2\epsilon} = \frac{5}{3} < 2 $. 
+
+Maybe we should say there is no more than $ \lceil \frac{1}{2\epsilon} \rceil $ observations for each $ \Delta $.
+
+\subsection*{Lemma 3}
+$ m_{min} $ cannot be exactly $ \frac{\cdots}{2\epsilon} $ as it is a fraction, same for $ m_{max} $
+
+I don't think it is possible to have any node between the rightmost child (my interpretation, the one with largest $ j $) and its parent $ V_i $. If such a $ V_k $ has band $ \ge \alpha $, then $ V_k $ would be the parent. Otherwise $ V_k $ must be a descendent of $ V_i $, contradicting the fact $ V_j $ is the rightmost child.
+
+I guess the author meant the leftmost (i.e. the one with least $ j $) instead. Now it is totally possible that $ V_K $ exists, $ \cdots $
+
+
+\subsection*{Links}
+\begin{enumerate}
+    \item {\href{http://www.mathcs.emory.edu/~cheung/Courses/584/Syllabus/08-Quantile/Greenwald2.html}{Notes from emory}}
+\end{enumerate}
+
+
+\end{document}
