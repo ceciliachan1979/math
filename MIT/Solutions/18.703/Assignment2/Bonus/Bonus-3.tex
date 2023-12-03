@@ -1,0 +1,47 @@
+\section*{Bonus-3}
+Finding the Bezout's identity can be done by the Extended Euclidean algorithm. The observation is that we can build an equation if we have the equation of the subproblem.
+
+Let's recall the Euclidean algorithm. Given $ a, b \in \mathbb{Z} $, we want to find the GCD, here is how we do it.
+
+\begin{verbatim}
+def gcd(a, b):
+    if a < 0:
+        return gcd(-a, b)
+    if b < 0:
+        return gcd(a, -b)
+    if a < b:
+        return gcd(b, a)
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+\end{verbatim}
+
+Imagine now we want to extend the algorithm so that it also give us the Bezout's identity. The cases are relative straight forward, we just need to add a few lines.
+
+\begin{verbatim}
+def gcd(a, b):
+    if a < 0:
+        # (m)(-a) + (n)(b) = g => (-m)(a) + (n)(b) = g
+        (m, n, g) = gcd(-a, b)
+        return (-m, n, g)
+    if b < 0:
+        # (m)(a) + (n)(-b) = g => (m)(a) + (-n)(b) = g
+        (m, n, g) = gcd(a, -b)
+        return (m, -n, g)
+    if a < b:
+        # (m)(b) + (n)(a) = g => (n)(a) + (m)(b) = g
+        (m, n, g) = gcd(b, a)
+        return (m, m, g)
+    if b == 0:
+        # (1)(a) + (0)(b) = a
+        return (1, 0, a)
+    else:
+        # a = bq + r
+        # (m)(b) + (n)(r) = g
+        # => (m)(b) + (n)(a - bq) = g
+        # => (n)(a) + (m-nq)(b) = g
+        (m, n, g) = gcd(b, a % b)
+        return (n, m - n * (a // b), g)
+\end{verbatim}
+
+With the Bezout's identity, we can find multiplicative inverses, and then we can find the $ k $ of the Chinese Remainder Theorem.

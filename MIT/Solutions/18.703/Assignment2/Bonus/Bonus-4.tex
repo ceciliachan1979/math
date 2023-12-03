@@ -1,0 +1,16 @@
+\section*{Bonus-4}
+This given is simply not true. Two identical cycle obviously intersects and commutes. Here I will investigate the conditions for two cycles to commute.
+
+Cycles with length 1 is simply the identity function and always commute.
+
+With proper renaming of elements, we can always make $ \tau $ to be the cycle $ (1, 2, \cdots, n ) $. 
+
+To investigate commutativity, we will use this relationship:
+
+$ \sigma \tau = \tau \sigma \iff \sigma \tau \sigma^{-1} = \tau $
+
+Note that $ \sigma \tau \sigma^{-1} (\sigma(1)) = \sigma \tau 1 = \sigma (2) $, we can easily see that $ \sigma \tau \sigma^{-1} = (\sigma(1), \sigma(2), \cdots, \sigma(n)) $.
+
+In order for $ \sigma \tau \sigma^{-1} = \tau $, we must have $ \sigma(i) = (i + k) \pmod n $. That's a pretty severe restriction on $ \sigma $.
+
+One obvious case is that if the $ \sigma $'s cycle, as a set, is not exactly $ \{1, 2, \cdots, n \} $, then it is impossible for $ \sigma $ and $ \tau $ to commute.

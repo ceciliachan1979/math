@@ -1,0 +1,12 @@
+\section*{Bonus-1}
+Note that the problem is probably asking for $ (R,+) \to (R_>0,\times) $, not $ (R,+) \to (R_>0,x) $.
+
+This is equivalent to asking for all continuous function $ f $ such that $ f(x+y) = f(x)f(y) $.
+
+First, we show that $ f(0 + 0) = f(0)f(0) $, therefore $ f(0) = 1 $ since $ f(x) > 0 $.
+
+Inductively, we have $ f(kx) = f(x)^k $ for all $ k \in \mathbb{Z} $. Assume $ f(1) = a $, note that $ a > 0 $, then $ f(k) = a^k $ for all $ k \in \mathbb{Z} $.
+
+We can also use the formula backward to find $ f(n \times \frac{m}{n}) = f(\frac{m}{n})^n $, therefore $ f(\frac{m}{n}) = a^{\frac{m}{n}} $.
+
+Given $ f(x) $ is continuous, we have $ f(x) = a^x $ for all $ x \in \mathbb{R} $. 

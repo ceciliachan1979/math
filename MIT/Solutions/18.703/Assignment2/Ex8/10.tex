@@ -1,0 +1,41 @@
+\section*{Ex8 - 10}
+We know that groups with different cardinalities cannot be isomorphic. So we can quickly split the groups into these subsets:
+
+\subsection*{Group of size 2}
+There is only one group of size 2, therefore $\mathbb{Z}_2 $ and $ S_2 $ are isomorphic.
+
+\subsection*{Group of size 6}
+Notice that the given permutation is the product of cycles $ (1 3 4) (2 5) $, so it has order 6. Together with $ \mathbb{Z}_6 $ and $ S_6 $, these are all cyclic groups of size 6, so there are all isomorphic.
+
+\subsection*{Countable groups}
+It is obvious that $ \mathbb{Z} $, $ \mathbb{3Z} $, $ \mathbb{17Z} $ and $ \langle \pi \rangle $ are isomorphic. The interesting ones are $ \mathbb{Q} $ or $ \mathbb{Q}^* $. 
+
+For $ \mathbb{Q} $, we can use the following argument to show it is not isomorphic to $ \mathbb{Z} $. Suppose the contrary that an isomorphism exists, therefore the rational number $ r $ maps to the integer $ n $. Now $ r $ can be written as a sum of $ n + 1 $ identical rational number as $ r = \sum\limits_{i = 0}^{n+1}\frac{r}{n + 1} $, it is obvious that it is impossible to do so for the integer $ n $, so we proved that $ \mathbb{Q} $ is not isomorphic to $ \mathbb{Z} $.
+
+For $ \mathbb{Q}^* $, we need a different trick. We cannot infinitely take square root for rational numbers, so the trick above does not work. Instead, we leverage the fact that $ \mathbb{Z} $ is cyclic. Suppose the contrary that an isomorphism exists, $ \mathbb{Q}^* $ is cyclic as well. In particular, there exists a generator $ g $ such that both 2 and 3 are integral powers of $ g $.
+
+\begin{eqnarray*}
+                      2 &=& g^m \\
+                      3 &=& g^n \\
+                  \ln 2 &=& m \ln g \\
+                  \ln 3 &=& n \ln g \\
+    \frac{\ln 3}{\ln 2} &=& \frac{n}{m} \\
+                m \ln 3 &=& n\ln 2 \\
+                    3^m &=& 2^n
+\end{eqnarray*}
+
+The last line is an obvious contradiction since a power of 2 must be even and a power of 3 must be odd.
+
+Last, we also want to prove that $ \mathbb{Q} $ is not isomorphic to $ \mathbb{Q}^* $, and now we can use the non existence of square root. Suppose the contrary that an isomorphism exists, therefore the multiplicative rational number $ 2 $ maps to the additive rational number $ r $. Now $ r $ can be represented as $ \frac{r}{2} + \frac{r}{2} $, meaning the multiplicative 2 can be written as a product of two identical multiplicative rational number, which is impossible.
+
+\subsection*{Uncountable groups}
+We will solely use the square root properties. 
+
+\begin{enumerate}
+  \item{For $ \mathbb{R} $ under addition, any number can be written into a sum of two identical values in 1 way.}
+  \item{For $ \mathbb{R}^+ $ under multiplication, any number can be written into a product of two identical values in 1 way.}
+  \item{For $ \mathbb{R}^* $ under multiplication, negative number cannot be written into a product of two identical values.}
+  \item{For $ \mathbb{C}^* $ under multiplication, any number can be written into a product of two identical values in 2 way.}
+\end{enumerate}
+
+Therefore, all of these cannot be isomorphic except for $ \mathbb{R} $ under addition and $ \mathbb{R}^+ $. Indeed, the isomorphism is $ F(x) = e^x $ that maps $ \mathbb{R} $ to $ \mathbb{R}^+ $.
