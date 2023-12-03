@@ -1,11 +1,45 @@
 \section*{Question 3}
-Consider the multiplicative inverse of a general element of $ (a + bi) $ 
+Consider the multiplicative inverse of a general element $ (a + bi) \in R_p $ 
 
 \begin{eqnarray*}
   & & \frac{1}{a + bi} \\
   &=& \frac{a - bi}{a^2 + b^2} \\
 \end{eqnarray*}
 
-Now since $ a, b \in Z/pZ $ which is a field, so as long as $ a^2 + b^2 \ne 0 $, the multiplicative inverse of $ a^2 + b^2 $ exists and therefore the multiplicative inverse of $ a^2 + b^2 $ exists.
+Now since $ a, b \in Z/pZ $ which is a field, so as long as $ a^2 + b^2 \ne 0 \pmod{p} $, the multiplicative inverse of $ a^2 + b^2 $ exists in $ Z/pZ $ and therefore the multiplicative inverse of $ a + bi $ exists in $ R_p $.
 
-To be continued
+Therefore $ R_p $ is a field if for all $ a + bi \ne 0 \in R_p $, $ a^2 + b^2 \ne 0 \pmod{p} $.
+
+For $ p = 2 $, it is obvious that $ 1 + i \in R_2 $ does not have a multiplicative inverse since $ 1^2 + 1^2 = 0 \pmod{2} $, therefore $ R_2 $ is not a field.
+
+For $ p = 1 \pmod{4} $, the Fermat's theorem on sums of two squares show that there exists $ a^2 + b^2 = p $, which implies $ a + bi \in R_p $ does not have a multiplicative inverse, therefore $ R_p $ is not a field for all odd prime $ p = 1 \pmod{4} $.
+
+For $ p = 3 \pmod{4} $, suppose (for the sake of contradiction) that there exists an element $ a + bi \ne 0 \in R_p $ such that the multiplicative inverse does not exists. In that case
+
+\begin{eqnarray*}
+  (a + bi)(a - bi) &=& 0 \pmod{p} \\
+  (a + bi)(a - bi) &=& kp 
+\end{eqnarray*}
+
+Since $ p $ is a prime and $ p = 3 \pmod{4} $, $ p $ is a prime in the Gaussian integers and therefore it must a factor in either the (Gaussian) prime factorization of either $ (a+bi) $ or $ (a-bi) $. Either case, $ p $ must also be a factor of the other (because we can take conjugate to every prime factor to create a factorization of the other, and the Gaussian integers is a unique factorization domain), that means
+
+\begin{eqnarray*}
+  (a + bi)(a - bi) &=& kp^2 
+\end{eqnarray*}
+
+Since $ a^2 + b^2 \ge 0 $, so $ k \ge 0 $,  $ (a + bi) \ne 0 $, $ k \ne 0 $, the maximum value of $ a^2 + b^2 = (p-1)^2 + (p-1)^2 < 2p^2 $, therefore $ k < 2 $ and so $ k = 1 $. Since $ p^2 $ is a (Gaussian) prime factorization, the only way to satisfy $ (a + bi)(a - bi) = p^2 $ is $ (a + bi) = (a - bi) = p $, but that is not allowed because $ a = p \notin R_p $. 
+
+The contradiction concludes that every element in $ R_p $ has a multiplicative inverse and $ R_p $ is a field.
+
+\subsection*{Part a}
+\begin{enumerate}
+    \item We proved that $ R_2 $ is not a field.
+    \item $ 3 = 3 \pmod{4} $, therefore $ R_3 $ is a field.
+    \item $ 5 = 1 \pmod{4} $, therefore $ R_5 $ is a field.
+\end{enumerate}
+
+\subsection*{Part b}
+$ R_{53} $ is not a field because $ 53 = 1 \pmod{4} $.
+
+\subsection*{Part c}
+$ R_{251} $ is  a field because $ 251 = 3 \pmod{4} $.
