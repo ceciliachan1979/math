@@ -1,0 +1,34 @@
+\section*{Question 4}
+First, $ null(T) $ is a vector space and therefore has a basis $ t_1, t_2, ..., t_m \in U $. Also, $ null(S) $ and $ range(T) $ are vector spaces, so $ null(S) \cap range(T) $ is also a vector space and therefore has a basis $ v_1, v_2, \cdots v_n $. Each of these $ n $ vectors must have a preimage $ u_1, u_2, \cdots u_n \in U $ such that $ T(u_i) = v_i $. I claim that $ B = \{ t_1, t_2, ..., t_m, u_1, u_2, \cdots u_n \} $ is a basis for $ null(ST) $.
+
+To show that the $ B $ spans $ null(ST) $, consider a general vector $ v \in null(ST) $. $ T(v) \in null(S) \cap range(T) $, so it can be written as a unique linear combination $ T(v) = \sum c_i v_i $. Consider: 
+
+\begin{eqnarray*}
+  & & T(v - \sum c_i u_i) \\
+  &=& T(v) - \sum c_i T(u_i) \\
+  &=& T(v) - \sum c_i v_i \\
+  &=& T(v) - T(v) \\
+  &=& 0 
+\end{eqnarray*}
+
+That means $ (v - \sum c_i u_i) \in null(T) $ and therefore:
+
+\begin{eqnarray*}
+  v - \sum c_i u_i &=& \sum d_i t_i \\
+                 v &=& \sum c_i u_i + \sum d_i t_i 
+\end{eqnarray*}
+
+So $ B $ spans $ null(ST) $.
+
+To show that $ B $ is linearly independent, suppose (for the sake of contradiction) there exists a non-trivial linear combination $ \sum c_i u_i + \sum d_i t_i = 0 $. Suppose $ c_i = 0 $ for all $ i $, we have a non-trivial linear combination $ \sum d_i t_i = 0 $, contradicting the fact that $ t_i $ is a basis of $ null(T) $. Therefore, there must be an $ c_i \ne 0 $. Applying $ T $ on the linear combination, we get 
+
+\begin{eqnarray*}
+     \sum c_i u_i + \sum d_i t_i &=& 0 \\
+  T(\sum c_i u_i + \sum d_i t_i) &=& T(0) \\
+  \sum c_i T(u_i) + \sum d_i T(t_i) &=& 0 \\
+  \sum c_i v_i &=& 0 
+\end{eqnarray*}
+
+Now we have found a non-trivial linear combination of 0 of $ v_i $, that contradicts the fact that $ v_i $ is a basis of $ null(S) \cap range(T) $. Therefore $ B $ must be linearly independent.
+
+$ B $ spans $ null(ST) $ and is linearly independent, therefore $ B $ is a basis of $ null(ST) $ and $ dim(null(ST)) = m + n = dim(null(T)) + dim (null(S) \cap range(T)) $.
