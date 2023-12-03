@@ -1,4 +1,22 @@
 \section*{Question 6}
-Using the same idea as in question 5, we can construct a spanning set. To show that the dimension equals. We need to make sure the inequalities are tight. That implies the bases are disjoint and the spanning set is linearly independent. 
+Using the same idea as in question 5, except we claim that the generated spanning set is actually a basis.
 
-To be continued
+Suppose (for the sake of contradiction) that the spanning set is not linearly independent, then there exists a non-trivial linear combination. 
+
+\begin{eqnarray*}
+    w_1 b_1 + w_2 b_2 + \cdots w_k b_k = 0
+\end{eqnarray*}
+
+Furthermore, we can enforce some more conditions. First, $ w_j \ne 0 $ for all $ j $, this can be easily done by dropping the zero terms. Second, this sum must involve basis vectors coming from more than one vector space. This must be true because otherwise we contradict the fact that the vectors selected is a basis.
+
+Without loss of generality, we assume $ U_1 $ is involved in the sum, and we split the sum as follow:
+
+\begin{eqnarray*}
+    (w_{11} p_1 + w_{12} p_2 + \cdots w_{1k_1} p_{k_1}) + (w_{21} q_1 + w_{22} q_2 + \cdots w_{k_2} q_{k_2}) = 0
+\end{eqnarray*}
+
+Where $ p_j $ comes from $ U_1 $ and $ q_j $ does not come from $ U_1 $.
+
+Now it is clear that the first part of the sum is simply a vector (which we will call $ p $) in $ U_1 $, and we have found a linear combination of it by combining vectors in some other vector spaces.
+
+Now we have found our contradiction. $ p $ can be represented as either $ p $ or the linear combination we have just found, contradicting the fact that the combined vector space is a direct sum, which requires all vectors in it have a unique representation as a sum of individual vector spaces.
