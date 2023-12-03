@@ -1,0 +1,27 @@
+\section*{Question 1}
+Note that $ SS^* = S^*S = -S^2 $, therefore $ S $ is normal. By the spectral theorem, $ S $ has an orthonormal basis of eigenvectors.
+
+Consider $ \langle Sv , v \rangle $ for a normalized eigenvector $ v $ evaluated in both ways:
+
+\begin{eqnarray*}
+  & & \langle Sv , v \rangle      \\
+  &=& \langle \lambda v, v \rangle \\
+  &=& \lambda \langle v, v \rangle \\
+  &=& \lambda 
+\end{eqnarray*}
+
+But we can also evaluate it this way:
+
+\begin{eqnarray*}
+  & & \langle Sv , v \rangle   \\
+  &=& \langle v, S^* v \rangle \\
+  &=& \langle v, -Sv \rangle   \\
+  &=& \langle v, -\lambda v \rangle   \\
+  &=& \overline{ \langle -\lambda v, v \rangle }  \\
+  &=& \overline{ -\lambda \langle  v, v \rangle }  \\
+  &=& \overline{ -\lambda }  \\
+\end{eqnarray*}
+
+This shows that $ \lambda = \overline{-\lambda} $, therefore $ \lambda $ must be purely imaginary. This applies to all eigenvalues.
+
+For each eigenvector $ v_k $, we can have a vector space $ U_k = span(v_k) $, since $ v_k $ form a basis, every vector can be written uniquely as a linear combination of these vectors, i.e. they form a direct sum.

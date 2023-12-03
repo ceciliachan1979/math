@@ -1,0 +1,217 @@
+\section*{Question 2}
+\subsection*{Part a}
+\begin{eqnarray*}
+    & & \langle Sv , v \rangle     \\
+    &=& \langle v , S^* v \rangle  \\
+    &=& \langle v , -Sv \rangle   \\
+    &=& \langle -Sv , v \rangle   \\
+    &=& - \langle Sv , v \rangle
+\end{eqnarray*}
+Therefore $ \langle Sv , v \rangle = 0 $.
+
+\subsection*{Part b}
+Consider $ v $ to be a normalized eigenvector of $ S^2 $ with eigenvalue $ \lambda $, then
+\begin{eqnarray*}
+    & & \lambda \\
+    &=& \langle \lambda v , v \rangle     \\
+    &=& \langle S^2v , v \rangle     \\
+    &=& \langle Sv , S^* v \rangle  \\
+    &=& \langle Sv , -Sv \rangle   \\
+    &=& \langle -Sv , Sv \rangle   \\
+    &=& - \langle Sv , Sv \rangle
+\end{eqnarray*}
+
+So $ \lambda $ is a real number less than or equal to 0 because $ \langle Sv , Sv \rangle $ is a real number greater than 0 or equal to 0.
+
+\subsection*{Part c}
+We will show that the construction leads to a new complex inner product space by showing the axioms holds.
+
+\begin{enumerate}
+    \item{ 
+        Associativity/Commutativity/Identity/Inverse of vector addition follows from $ V $ since the definition of vector addition is unchanged.
+    }
+    \item {
+        Compatibility of scalar multiplication with field multiplication:
+        
+        For this purpose, we need to prove $ a(bv) = (ab)v $, we simply evaluate both the left and right hand side.
+
+        For the left hand side, we have:
+        \begin{eqnarray*}
+          & & a(bv) \\
+          &=& (p+qi)((r+si) v) \\
+          &=& (p+qi)(r+sS)v \\
+          &=& (p+qS)(r+sS)v \\
+          &=& (pq + qrS + psS + psS^2)v \\
+          &=& ((pr-qs) + (ps+qr)S)v
+        \end{eqnarray*}
+
+        On the right hand side, we have:
+        \begin{eqnarray*}
+          & & (ab)v \\
+          &=& ((p+qi)(r+si))v \\
+          &=& ((pr-qs)+(ps+qr)i)v \\
+          &=& ((pr-qs)+(ps+qr)S)v
+        \end{eqnarray*}
+
+        So the left hand side and the right hand side equals and we have the compatibility of scalar multiplication with field multiplication.
+    }
+    \item {
+        Identity element of scalar multiplication:
+
+        For this purpose, we need to prove $ 1v = v $, we simply evaluate.
+
+        \begin{eqnarray*}
+          & & 1v \\
+          &=& (1+0i)v \\
+          &=& v
+        \end{eqnarray*}
+
+        So we have the identity element of scalar multiplication
+    }
+    \item {
+        Distributivity of scalar multiplication with respect to vector addition:
+
+        For this purpose, we need to prove $ a(u+v) = au + av $, we simply evaluate both the left and right hand side.
+        
+        So the left hand side and the right hand side equals and we have the distributivity of scalar multiplication with respect to vector addition.
+    }
+    \item {
+        Distributivity of scalar multiplication with respect to field addition:
+
+        For this purpose, we need to prove $ (a + b)v = av + bv $, we simply evaluate both the left and right hand side.
+
+        For the left hand side, we have:
+        \begin{eqnarray*}
+          & & ((p+qi)+(r+si))v \\
+          &=& ((p+r)+(q+s)i)v \\
+          &=& ((p+r)+(q+s)S)v \\
+          &=& pv+rv+qSv+sSv
+        \end{eqnarray*}
+
+        On the right hand side, we have:
+        \begin{eqnarray*}
+          &=& (p+qi)v + (r+si)v  \\
+          &=& pv+qSv+rv+sSv \\
+          &=& pv+rv+qSv+sSv
+        \end{eqnarray*}
+
+        So the left hand side and the right hand side equals and we have the distributivity of scalar multiplication with respect to field addition.
+    }
+\end{enumerate}
+At this point, we have verified all the vector space axioms, next, we move on to the inner product space axioms.
+
+\begin{enumerate}
+    \item{
+        Conjugate symmetry:
+
+        For this purpose, we need to prove $ \langle x, y\rangle_\mathbf{C} = \overline{\langle y, x\rangle}_\mathbf{C}$, we simply evaluate both the left and right hand side.
+
+         For the left hand side, we have:
+        \begin{eqnarray*}
+          & & \langle x, y\rangle_\mathbf{C} \\
+          &=& \langle x, y\rangle - i \langle Sx, y\rangle
+        \end{eqnarray*}
+
+        On the right hand side, we have:
+        \begin{eqnarray*}
+          &=& \overline{\langle y, x\rangle}_\mathbf{C} \\
+          &=& \overline{\langle y, x\rangle - i \langle Sy, x\rangle} \\
+          &=& \langle y, x\rangle + i \langle Sy, x\rangle \\
+          &=& \langle y, x\rangle - i \langle y, Sx\rangle \\
+          &=& \langle x, y\rangle - i \langle Sx, y\rangle
+        \end{eqnarray*}
+
+        So the left hand side and the right hand side equals and we have the conjugate symmetry.
+    }
+    \item{
+        Linearity in the first argument:
+
+        For this purpose, we need to prove $ \langle ax+by, z\rangle_\mathbf{C} = a\langle x, z\rangle_\mathbf{C} + b\langle y, z\rangle_\mathbf{C} $, we simply evaluate both the left and right hand side.
+
+         For the left hand side, we have:
+        \begin{eqnarray*}
+          & & \langle ax + by, z\rangle_\mathbf{C} \\
+          &=& \langle ax + by, z\rangle - i \langle S(ax+by), z\rangle \\
+          &=& a\langle x, z\rangle + b\langle y, z\rangle - i a\langle Sx, z\rangle - i b\langle Sy, z\rangle
+        \end{eqnarray*}
+
+        On the right hand side, we have:
+        \begin{eqnarray*}
+          &=& a\langle x, z\rangle_\mathbf{C} + b\langle y, z\rangle_\mathbf{C} \\
+          &=& a(\langle x, z\rangle - i \langle Sx, z\rangle) + b(\langle y, z\rangle - i \langle Sy, z\rangle) \\
+          &=& a\langle x, z\rangle + b\langle y, z\rangle - i a\langle Sx, z\rangle - i b\langle Sy, z\rangle
+        \end{eqnarray*}
+
+        So the left hand side and the right hand side equals and we have the linearity in the first argument.
+    }
+    \item{
+        Positive-definiteness:
+
+        For this purpose, we need to prove $ \langle x, x\rangle_\mathbf{C} > 0 $ if $ x \ne 0 $
+
+        \begin{eqnarray*}
+          & & \langle x, x\rangle_\mathbf{C} \\
+          &=& \langle x, x\rangle - i \langle Sx, x\rangle \\
+          &=& \langle x, x\rangle \\
+          &>& 0
+        \end{eqnarray*}
+
+        So we have positive definiteness.
+    }
+\end{enumerate}
+
+Now we have proved that the new multiplication rule and inner product rule make $ V $ complex inner product space.
+
+To study the dimension of the new complex vector space, we first note that $ (S^2)^* = (S^*)^2 = (-S)^2 = S^2 $, so $ S^2 $ is self-adjoint. By the spectral theorem we know that $ S^2 $ can be diagonalized with an orthonormal basis of $ V $.
+
+Suppose $ S^2 v = \lambda v $ for $ \lambda \ne 0$, $ v \ne 0 $, we have $ S^2(Sv) = S(S^2v) = S \lambda v 
+ = \lambda Sv $, so $ Sv $ is also an eigenvector of $ S^2 $ with the same eigenvalue. Furthermore, as we proved in part (a), $ v $ and $ Sv $ are orthogonal. We claim that the eigenspaces of $ S^2 $ with non-zero eigenvalue can always be spanned by some $ v $ and $ Sv $ pairs which are mutually orthogonal.
+
+We already proved that $ v $ and $ Sv $ are there, suppose (for the purpose of induction) that we have already found $ v_1,  Sv_1 \cdots v_k, Sv_k $ and that that still doesn't span the whole eigenspace. Now can extend the basis to find $ v_{k+1} $ so that it is orthogonal to all of them and consider $ Sv_{k+1} $.
+
+First or all, we know $ Sv_{k+1} $ is also an eigenvector of $ S^2 $ with the same eigenvalue. Next, $ Sv_{k+1} $ is orthogonal to $ v_{k+1} $ by part (a). Also, for any $ 1 \le i \le k $ we have these orthogonality relations.
+
+\begin{eqnarray*}
+  & & \langle Sv_{k+1}, v_i \rangle \\
+  &=& \langle v_{k+1}, S^* v_i \rangle \\
+  &=& -\langle v_{k+1}, S v_i \rangle \\
+  &=& 0
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+  & & \langle Sv_{k+1}, Sv_i \rangle \\
+  &=& \langle v_{k+1}, S^*S v_i \rangle \\
+  &=& \langle v_{k+1}, -S^2 v_i \rangle \\
+  &=& -\lambda \langle v_{k+1}, v_i \rangle \\
+  &=& 0
+\end{eqnarray*}
+
+Therefore $ Sv_{k+1} $ is orthogonal to every earlier vectors, and therefore we can extend the basis by one more pair. By the principle of induction, we know that the eigenspace can be spanned by mutually orthogonal pairs.
+
+Note carefully that this fact is independent of the fact that $ S^2 = -I $, this is going to be useful for part (d).
+
+Since $ S^2 = -I $, $ S^2 $ is injective, so is $ S $, therefore $ Sv \ne 0 $ if $ v \ne 0 $, that means 0 is not an eigenvalue of $ S $. 
+
+Therefore the whole vector space V is spanned by the $ v, Sv $ pairs. Therefore $ N $, the dimension of $ V $ must be an even number.
+
+Last but not least, we claim that the dimension of the new complex vector space is $ \frac{N}{2} $, this can be seen by picking the $ v $ of the $ v, Sv $ pair basis By multiplying with a pure imaginary number will get us the $ Sv $ part of it. We also know the together they span the whole space. Knowing that the $ v, Sv $ pairs are all mutually orthogonal, we also know that these vectors are mutually orthogonal in the new complex vector space, therefore we have found the $ \frac{N}{2} $ orthogonal basis vectors.
+
+\subsection*{Part d}
+The earlier problem shows that eigenspaces of non-zero eigenvalues can be spanned by $ v, Sv $ pairs. Now, without the $ S^2 = -I $ constraint, 0 could be an eigenvalue for eigenvector $ v $. In that case, we might have
+
+\begin{eqnarray*}
+  & & \langle Sv, Sv \rangle \\
+  &=& \langle v, S^*Sv \rangle \\
+  &=& -\langle v, S^2v \rangle \\
+  &=& -\langle v, 0 \rangle \\
+  &=& 0
+\end{eqnarray*}
+
+So $ v $ is also an eigenvector of $ S $ with eigenvalue 0.
+
+This gives us all the ingredients we need. To pick the basis, for each non-zero eigenvalue $ -\lambda^2 $ with eigenvector pair $ v, Sv $, we choose $ \lambda v $ and $ Sv $ to be the basis. Transforming them with $ S $ give us $ S \lambda v = \lambda Sv $ and $ S(Sv) = S^2 v = -\lambda^2 v = -\lambda (\lambda v) $. This fits exactly with what we needed in the matrix.
+
+We also know that the eigenvectors with zero eigenvalues are also eigenvector of $ S $, so we can simply stick them at the end.
+
+Last but not least, since these are eigenvectors of $ S^2 $, we already knew they are orthogonal. To make it orthonormal, note that $ \langle Sv, Sv \rangle = \langle v, -S^2v \rangle = \lambda^2 \langle v, v \rangle = \langle \lambda v, \lambda v \rangle $, so all we need to do is to normalize the $ v $ such that $ \langle v, v \rangle = \frac{1}{\lambda} $, the $ Sv $ will be automatically normalized to 1, and we can also pick the eigenvectors of zero eigenvalue to be unit length, and now we get the orthonormal basis.
