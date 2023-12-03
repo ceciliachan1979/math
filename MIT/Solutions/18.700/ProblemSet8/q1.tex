@@ -1,0 +1,109 @@
+\section*{Question 1}
+\subsection*{Part a}
+We can easily find $ u_{11} $ to be $ \frac{1}{\sqrt{\langle t_1, t_1 \rangle}} $ because $ f_1 = u_{11}t_1 $ must be a unit vector, $ u_{11} > 0 $ because $ \langle t_1, t_1 \rangle > 0 $. Obviously, $ span(f_1) = span(t_1) $.
+
+Assume there exists unique $ u_{ij} $ values such that we can find $ f_1 $ to $ f_k $. Define $ r $ as follow:
+\begin{eqnarray*}
+  r &=& t_{k+1} - \sum\limits_{j=1}^{k} \langle t_{k+1}, f_j \rangle f_j
+\end{eqnarray*}
+
+Now $ r $ is orthogonal to all $ f_1 \cdots f_k $ because for $ 1 \le t \le k $
+
+\begin{eqnarray*}
+  & & \langle r, f_t \rangle \\
+  &=& \langle t_{k+1}, f_t \rangle - \sum\limits_{j=1}^{k} \langle t_{k+1}, f_j \rangle \langle f_j, f_t \rangle \\
+  &=& \langle t_{k+1}, f_t \rangle -  \langle t_{k+1}, f_t \rangle \langle f_t, f_t \rangle \\
+  &=& 0
+\end{eqnarray*}
+
+So $ r $ is the only direction where it is in the span of $ t_1 \cdots t_{k+1} $ and is also orthogonal to all $ f_1 \cdots f_k $. Since we also have the constraint that $ u_{k+1, k+1} > 0$, therefore the unique $ f_{k+1} $ is given by:
+
+\begin{eqnarray*}
+  & & f_{k+1} \\
+  &=& \frac{r}{\sqrt{\langle r, r \rangle}} \\
+  &=& \frac{1}{\sqrt{\langle r, r \rangle}}(t_{k+1} - \sum\limits_{j=1}^{k} \langle t_{k+1}, f_j \rangle f_j) \\
+  &=& \frac{1}{\sqrt{\langle r, r \rangle}}(t_{k+1} - \sum\limits_{j=1}^{k} \langle t_{k+1}, f_j \rangle \sum\limits_{i=1}^{j}u_{ij} t_j)
+\end{eqnarray*}
+
+So that proves the existence and uniqueness of the $ u_{ij} $ values.
+\subsection*{Part b}
+The formula $ f_j = \sum\limits_{i \le j} u_{ij} t_j $ can be rewritten as $ f_j = \sum\limits_{i = 1}^n  t_j u_{ij} $ and that can be interpreted as a block matrix formula as follow:
+
+\begin{eqnarray*}
+  (f_1, \cdots f_n) &=& (t_1, \cdots t_n) U \\
+                    &=& TU
+\end{eqnarray*}
+
+Therefore $ Q $ is the matrix formed by the column vectors of $ f $. We know $ f $ is an orthonormal basis, that means $ Q $ is an othronormal matrix and therefore an isometry.
+
+\subsection*{Part c}
+\begin{eqnarray*}
+  Q &=& TU \\
+  T &=& QU^{-1} 
+\end{eqnarray*}
+
+Therefore we need to prove that $ R = U^{-1} $ has the required property (i.e. strictly positive diagonal) and upper triangular.
+
+We already knew $ U $ has such properties, does it carry over to its inverse? The answer is yes, and we can show it using induction as follow:
+
+The upper left $ 1 \times 1 $ submatrix is obviously invertible, and the inverse is a single number that is $ \frac{1}{u_{11}} $ which is strictly positive.
+
+Suppose the upper left $ k \times k $ submatrix is invertible, and now we consider the equation with $ b $ being a scalar and $ b > 0 $
+
+\begin{eqnarray*}
+  \left(\begin{array}{cc}
+    U_k & a \\
+    0   & b
+  \end{array}\right)\left(\begin{array}{cc}
+    V_k & c \\
+    d   & e
+  \end{array}\right) &=& \left(\begin{array}{cc}
+  I & 0 \\
+  0 & 1
+  \end{array}\right)
+\end{eqnarray*}
+
+We first argue $ d $ must be 0, that is because $ 0 V_k + bd = 0 $. With that $ V_k = U^{-1}_k $, and that's because $ U_kV_k + a 0 = I $, also $ 0 c + b e = 0 $ shows that $ e = \frac{1}{b} > 0 $. Last, but least, $ U_k c+ a e = 0 $, so $ c = - U^{-1}_k ae $ is defined. 
+
+Applying that to the upper left $ k + 1 \times k + 1 $ submatrix, we proved that it is invertible, upper triangular, and the diagonal is also strictly positive.
+
+So by induction, we proved that the inverse of a upper triangular matrix with strictly positive diagonal exists and is also upper triangular with strictly positive diagonal.
+\subsection*{Part d}
+\begin{eqnarray*}
+  & & \langle t_1, t_1 \rangle \\
+  &=& 3^2 + 1^2 \\
+  &=& 10 \\
+  f_1 &=& (\frac{3}{\sqrt{10}},\frac{1}{\sqrt{10}}) \\
+  r &=& t_2 - \langle t_2, f_1 \rangle f_1 \\
+    &=& (4, 2) - ((4)\frac{3}{\sqrt{10}} + 2\frac{1}{\sqrt{10}}))(\frac{3}{\sqrt{10}},\frac{1}{\sqrt{10}}) \\
+    &=& (4, 2) - (\frac{21}{5}. \frac{7}{5}) \\
+    &=& (-\frac{1}{5}, \frac{3}{5}) \\
+  \langle r, r \rangle &=& (-\frac{1}{5})(-\frac{1}{5}) + (\frac{3}{5})(\frac{3}{5}) \\
+    &=& \frac{10}{25} \\
+  f_2 &=& \frac{r}{\sqrt{\langle r, r \rangle}} \\
+      &=& \frac{(-\frac{1}{5}, \frac{3}{5})}{\sqrt{\frac{10}{25}}} \\
+      &=& (\frac{-1}{\sqrt{10}},\frac{3}{\sqrt{10}})
+\end{eqnarray*}
+The computation of $ f_2 $ is not just tedious, it is also unnecessary, since we already knew $ \langle f_1, f_2 \rangle = 0 $, it would be easy to get $ f_2 $ that way. (But which direction?)
+
+So we have
+\begin{eqnarray*}
+  Q &=& \frac{1}{\sqrt{10}}\left(\begin{array}{cc}
+     3 & -1 \\
+     1 & 3 
+  \end{array}\right) \\
+  R &=& Q^{-1}T \\
+  &=& \frac{1}{\sqrt{10}}\left(\begin{array}{cc}
+     3 & 1 \\
+     -1 & 3 
+  \end{array}\right)\left(\begin{array}{cc}
+     3 & 4 \\
+     1 & 2 
+  \end{array}\right) \\
+  &=& \frac{1}{\sqrt{10}}\left(\begin{array}{cc}
+     10 & 14 \\
+     0 & 2
+  \end{array}\right)
+\end{eqnarray*}
+
+As an aside, the qr routine in Octave does not provide the same answer. It turns out that the qr routine in Octave does not guarantee strictly positive diagonal.
