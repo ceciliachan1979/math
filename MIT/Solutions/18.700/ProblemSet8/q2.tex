@@ -1,0 +1,96 @@
+\section*{Question 2}
+\subsection*{Part a}
+Consider the problem of finding the square root of $ T^* T = \left(\begin{array}{cc} 125 & 75 \\ 75 & 50 \end{array}\right) $ by assuming the square root is $ \left(\begin{array}{cc} x & y \\ y & z \end{array}\right)$. That gives us the equations:
+
+\begin{eqnarray*}
+  \left(\begin{array}{cc} x & y \\ y & z \end{array}\right)\left(\begin{array}{cc} x & y \\ y & z \end{array}\right) &=& \left(\begin{array}{cc} 125 & 75 \\ 75 & 50 \end{array}\right)
+\end{eqnarray*}
+
+or in an expanded form:
+\begin{eqnarray*}
+  x^2 + y^2 &=& 125 \\
+    xy + yz &=& 75  \\
+  y^2 + z^2 &=& 50
+\end{eqnarray*}
+
+These equations can be significantly simplified using Gröbner basis. We can find that basis using Sage easily as follows:
+
+\begin{verbatim}
+R.<x,y,z> = PolynomialRing(QQ, order='lex')
+ideal(x^2 + y^2 - 125, x*y + y*z - 75, y^2 + z^2 - 50).groebner_basis()
+\end{verbatim}
+
+This command will give us the basis as:
+\begin{eqnarray*}
+  x + \frac{1}{10}z^3 - \frac{9}{2}z \\
+  y + \frac{1}{10}z^3 - \frac{7}{2}z \\
+  z^4 - 30z^2 + 125 
+\end{eqnarray*}
+
+Note that the last equation is has root $ \pm 5, \pm \sqrt{5} $ simply solving it as a quadratic equation, and once we know $ z $, it is trivial to compute $ x $ and $ y $. Therefore the roots are:
+
+\begin{eqnarray*}
+  x = 10, y = 5, z = 5 \\
+  x = 10, y = -5, z = -5 \\
+  x = 4\sqrt{5}, y = 3\sqrt{5}, z = 5 \\
+  x = -4\sqrt{5}, y = -3\sqrt{5}, z = -5
+\end{eqnarray*}
+
+We simply pick the first one for simplicity. Once we know $ R $, we can simply compute $ S = TR^{-1} $ to find the full polar decomposition as :
+
+\begin{eqnarray*}
+  T &=& \left(\begin{array}{cc} 2 & -1 \\ 11 & 7 \end{array}\right) \\
+    &=& \frac{1}{5}\left(\begin{array}{cc}3 & -4 \\ 4 & 3\end{array}\right)\left(\begin{array}{cc} 10 & 5 \\ 5 & 5 \end{array}\right)
+\end{eqnarray*}
+
+\subsection*{Part b}
+We know that $ S $ is an isometry, so maximizing $ Tv $ is the same as maximizing $ Rv $, and $ R $ is much simpler. Consider $ v = \left(\begin{array}{c} x \\ y \end{array}\right)$
+
+\begin{eqnarray*}
+  |Tv|^2 &=& \left|\left(\begin{array}{cc} 10 & 5 \\ 5 & 5 \end{array}\right)\left(\begin{array}{c} x \\ y \end{array}\right)\right|^2 \\
+       &=& \left|\left(\begin{array}{c} 10x + 5y \\ 5x + 5y \end{array}\right)\right|^2 \\
+       &=& (10x + 5y)^2 + (5x + 5y)^2 \\
+       &=& 125x^2 + 150xy + 50y^2 \\
+\end{eqnarray*}
+
+To optimize it, we will use the Lagrangian
+\begin{eqnarray*}
+  L &=& 125x^2 + 150xy + 50y^2 - \lambda(x^2 + y^2 - 1) \\
+  \frac{\partial{L}}{\partial x} &=& 250x + 150y - 2\lambda x = 0 \\
+  \frac{\partial{L}}{\partial y} &=& 150x + 100y - 2\lambda y = 0
+\end{eqnarray*}
+
+Using Gröbner basis again:
+\begin{verbatim}
+R.<x,y,z> = PolynomialRing(QQ, order='lex')
+ideal(250*x + 150*y - 2*z*x,150*x + 100*y - 2*z*y,x^2+y^2-1).groebner_basis()
+\end{verbatim}
+
+We find the equations simplifies as follow:
+\begin{eqnarray*}
+  x - \frac{yz}{75} + \frac{2y}{3} &=& 0 \\
+  y^2 + \frac{z}{375} - \frac{11}{15} &=& 0 \\
+  z^2 - 175z + 625 &=& 0 
+\end{eqnarray*}
+
+And finally we solve as follows:
+\begin{eqnarray*}
+  z &=& \frac{25}{2}(7 \pm 3 \sqrt{5}) \\
+  y &=& \pm\sqrt{\frac{1}{2}\left(1 \pm \frac{1}{\sqrt{5}}\right)} \\
+  x &=& \pm\sqrt{\frac{1}{2}\left(1 \mp \frac{1}{\sqrt{5}}\right)} \\
+\end{eqnarray*}
+
+These four solutions correspond to two pairs of vectors, one pair that minimize $ |Tv| $, and one that maximize $ |Tv| $. The solution that maximize $ |Tv| $ is:
+
+\begin{eqnarray*}
+  x &=& \sqrt{\frac{1}{2}\left(1 + \frac{1}{\sqrt{5}}\right)} \\
+  y &=& \sqrt{\frac{1}{2}\left(1 - \frac{1}{\sqrt{5}}\right)}
+\end{eqnarray*}
+
+Last but not least, the maximum length is 
+\begin{eqnarray*}
+  & & \sqrt{125x^2 + 150xy + 50y^2} \\
+  &=& \sqrt{\frac{25}{2} (7 + 3 \sqrt{5})} \\
+  &=& 5\sqrt{\frac{7 + 3\sqrt{5}}{2}} \\
+  &=& 5\left(\frac{3 + \sqrt{5}}{2}\right)
+\end{eqnarray*}
