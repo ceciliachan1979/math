@@ -1,0 +1,27 @@
+\section*{Question 6}
+\subsection*{Part a}
+To prove $ \implies $, we have $ null(T) = \{0\} $ and assume $ T(v_1), \cdots  , T(v_p) $ is linearly dependent, there exists non-trivial $ c_i $ such that $ \sum c_i T(v_i) = 0 $. Simplifying, we get $ T(\sum c_i v_i) = T(0) = 0 $, but $ \sum c_i v_i \ne 0 $ because $ c_i $ is non-trivial and $ v_i $ are linearly independent, that contradicts $ null(T) = \{0\} $. This proves $ \implies $.
+
+To prove $ \impliedby $, assume $ v \ne 0 $ and $ T(v) = 0 $.  $ v $ can be written as $ \sum c_i v_i $ for a basis $ v_i $ of $ v $. Since $ v \ne 0 $, some of the $ c_i $ must be non zero. Now $ 0 = T(v) = T(\sum c_i v_i) = \sum c_i T(v_i) $. This is a non-trivial (since there exists a $ c_i \ne 0 $) linear combination of a list of linear independent vector to 0. That is a contradiction. This proves $ \impliedby $.
+
+\subsection*{Part b}
+To prove $ \implies $, we have $ range(T) = W $ and assume there exists a spanning list of $ V = \{v_1, \cdots v_p\}$, $ T(v_1), \cdots , T(v_p) $ is does not span $ W $. For any vector $ w \in W $, there exists a $ v \in V $ such that $ T(v) = w $, now $ v $ can be written as $ \sum c_i v_i $. By applying $ T $, we get $ w = T(v) = T(\sum c_i v_i) = \sum c_i T(v_i) $. Now we have show that any vector can be written as a linear combination of $ T(v_i) $ contradicting the assumption $ T(v_1), \cdots , T(v_p) $ is does not span $ W $. This proves $ \implies $.
+
+To prove $ \impliedby $, assume there exists $ w \in W \notin range(T) $. For a basis $ v_1, \cdots , v_n $, $ T(v_1), \cdots , T(v_n) $ span $ W $, so $ w $ can be written as $ w = \sum(c_i T(v_i)) $, but then $ T(\sum c_i v_i) = w $ and so $ w \in range(T) $. This contradiction proves $ \impliedby $.
+
+\subsection*{Part c}
+First, we prove this lemma that $ T$ is injective if and only if $ null(T) = \{0\} $.
+
+To prove $ \implies $. $ T $ is injective, so if $ T(x) = 0 $, we also have $ T(0) = 0 $, so $ T(x) = T(0) $, by the injectivity of $ T $, $ x = 0 $, so $ null(T) = \{0\} $.
+
+To prove $ \impliedby $. If $ T(x) = T(y) $, then $ T(x - y) = T(0) = 0 $, $ null(T) = \{0\} $ implies $ x - y = 0 $, and so $ x = y $ and we proved the injectivity of $ T $.
+
+Combining part a, part b and this lemma give us the proof:
+
+\begin{enumerate}
+    \item $ T $ is invertible.
+    \item if and only if $ T $ is injective and sujective.
+    \item if and only if $ null(T) = \{0\} $ and $ range(T) = W $
+    \item if and only if T takes linearly independent list to linearly independent list and T takes spanning set to spanning set.
+    \item if and only if T takes basis to basis.
+\end{enumerate}
