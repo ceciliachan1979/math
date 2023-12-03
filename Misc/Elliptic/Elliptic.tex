@@ -147,4 +147,34 @@ All of these are number of animals, so it must be the case that they are non-neg
 
 So the answer is obvious, $ t $ can only be $ 25, 26, 27, 28 $, and the corresponding number of rooster, hen and chicken are $ 0, 25, 75 $, $ 4, 18, 78 $, $ 8, 11, 81 $, $ 12, 4, 84 $ respectively.
 
+\section*{Problem 4}
+To simplify, we let $ x = (q + p) $ and $ y = (q - p) $, then we have:
+
+\begin{eqnarray*}
+  x^2 - 3xy + y^2 &=& 5 \\
+  (q+p)^2 - 3(q+p)(q-p) + (q-p)^2 &=& 5 \\
+  (q^2 + 2qp + p^2) - 3(q^2 - p^2) + (q^2 - 2qp + p^2) &=& 5 \\
+  5p^2 - q^2 &=& 5 \\
+\end{eqnarray*}
+
+Now it is obvious that $ (1, 0) $ is a point on the curve, so we consider $ p = mq + 1 $, substitute that into the curve, we get:
+
+\begin{eqnarray*}
+  5p^2 - q^2 &=& 5 \\
+  5(mq+1)^2 - q^2 &=& 5 \\
+  5(m^2q^2 +2mq + 1) - q^2 &=& 5 \\
+  (5m^2 - 1)q^2 + 10mq &=& 0 \\
+  q((5m^2 - 1)q + 10m) &=& 0 \\
+\end{eqnarray*}
+
+So we get the another root is $ \frac{10m}{1 - 5m^2} $. The corresponding $ p $ is $ m\left(\frac{10m}{1 - 5m^2}\right) + 1 = \frac{5m^2 + 1}{1 - 5m^2} $.
+
+The corresponding $ x $ and $ y $ are $ q + p = \frac{10m}{1 - 5m^2} + \frac{5m^2 + 1}{1 - 5m^2}  = \frac{5m^2 + 10m + 1}{1 - 5m^2} $ and $ \frac{10m}{1 - 5m^2} - \frac{5m^2 + 1}{1 - 5m^2} = \frac{5m^2 - 10m + 1}{5m^2 - 1} $ respectively.
+
+To complete the problem, we show that this parametrization covers all rational points on the curve. Indeed, if there is a rational point of the curve, then the corresponding $ (p, q) $ is a rational point as well.
+
+Suppose $ (p, q) \ne (1, 0) $ and $ (p, q) \ne (-1, 0) $, then $ (p, q) $ has a rational slope with $ (1, 0) $, so it is covered by the parametrization.
+
+That two specific points is not covered by the this parametrization, we can see that $ (-1, 0) $ is covered by the parametrization at $ m \to \infty $, this can also be argued geometrically.
+
 \end{document}
