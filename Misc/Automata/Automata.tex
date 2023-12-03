@@ -9,19 +9,17 @@
 \begin{document}
 \maketitle
 
-The problems are included at the end of the document.
-
 \includepdf[pages=14]{Misc/Automata/200-only-problems.pdf}
 
 \section*{Problem 1}
 \subsection*{Part 1}
 The fact that there exists at least one representation for the string $ w = v^1 $ where $ v = w $ is obvious. The challenge of this problem is to show that there is only one such representation such that $ v $ is primitive.
 
-Thought process: As we always do, we assume there are two such representations and try to achieve a contradiction, and therefore I think $ a^m = b^n $ such that $ m \ne n $. For simplicity, let's us try $ m = 3 $ and $ n = 2 $. We get $ aaa = bb $, and for futher simplicity, we set $ a = "AB" $ and $ "b = "CDE" $, then $ "ABABAB" = "CDECDE" $, the individual character matches actually give us a lot of equalities. "A" = "C" = "E" = "D"  (just by checking the two rows must be the same, so C,E,D must be A) and "B" = "D" = "C" = "E", so in fact all letters are the same. That"s great because now we can claim that both $ a $ and $ b $ ar not primitive, so we have a contradiction we wanted. The key idea here is how do we generalize the above to any $ (m, n) $ pairs. To that end, I noticed the mod pattern and figured it out.
+Thought process: As we always do, we assume there are two such representations and try to achieve a contradiction, and therefore I assume $ a^m = b^n $ such that $ m \ne n $. For simplicity, let's us try $ m = 3 $ and $ n = 2 $. We get $ aaa = bb $, and for futher simplicity, we set $ a = "AB" $ and $ "b = "CDE" $, then $ "ABABAB" = "CDECDE" $, the individual character matches actually give us a lot of equalities. "A" = "C" = "E" = "D"  (just by checking the two rows must be the same, so C,E,D must be A) and "B" = "D" = "C" = "E", so in fact all letters are the same. That"s great because now we can claim that both $ a $ and $ b $ are not primitive, so we have the contradiction we wanted. The key idea here is how do we generalize the above to any $ (m, n) $ pairs. To that end, I noticed the mod pattern and figured it out.
 
-Suppose we compute $ g = \gcd(a, b) $ and therefore $ a = gp, b = gq, \gcd(p, q) = 1 $, we come up with a pattern similiar to above. Let $ a = a_0 a_1 \cdots a_{p-1} $ and $ b = b_0 b_1 \cdots b_{q-1} $ where each component has length $ g $. Now we can claim $ a_{x \mod p} = b_{x \mod q} $ , just like what we did above.
+Suppose we compute $ g = \gcd(m, n) $ and therefore $ m = gp, n = gq, \gcd(p, q) = 1 $, we come up with a pattern similiar to above. Let $ a = a_0 a_1 \cdots a_{p-1} $ and $ b = b_0 b_1 \cdots b_{q-1} $ where each component has length $ g $. Now we can claim $ a_{x \mod p} = b_{x \mod q} $ , just like what we did above.
 
-Thought process again: Now we wanted to show in fact all components are equal, so let's show any two pieces of $ a $ is in fact the same. In fact, that's enough because all we needed to show is one of the string is not primitive. So let's say we want to show $ a_i = a_j $, we know that it must go through some $ b_k $ since all we have above is equality between $ a_* $ and $ b_* $, how to I strategically find that $ k $. Turn out the equations are forcing us so.
+Thought process again: Now we wanted to show in fact all components are equal, so let's show any two pieces of $ a $ is in fact the same. In fact, that's enough because all we needed to show is one of the string is not primitive. So let's say we want to show $ a_i = a_j $, we know that it must go through some $ b_k $ since all we have above is equality between $ a_* $ and $ b_* $, how do I strategically find that $ k $. Turn out the equations are forcing us so.
 
 \begin{eqnarray*}
   a_i = b_k &\implies& i \mod p = k \mod q \\
@@ -30,31 +28,31 @@ Thought process again: Now we wanted to show in fact all components are equal, s
 
 Rearranging, with additional arbitrary multipliers, we can have:
 \begin{eqnarray*}
-  i &=& k + \alpha p \\
-  k &=& j + \beta q \\
-  i &=& j + \beta q + \alpha p \\
+      i &=& k + \alpha p           \\
+      k &=& j + \beta q            \\
+      i &=& j + \beta q + \alpha p \\
   i - j &=& \beta q + \alpha p
 \end{eqnarray*}
 
 But remember that $ \gcd(p, q) = 1 $, so we can use Bezout's identity to find $ \alpha $ and $ \beta $ such that $ \alpha' p + \beta' q = 1 $, so multiplying both sides of this equation by $ (i - j) $, we will get what we wanted.
 
-Of course, now we go back to the presentation of the proof, we claim that for any $ (i, j) $ pair such that  $ 0 \le i < j < p $. We have, by the Bezout identity, there exists $ \alpha' $ and $ \beta' $ such that:
+Of course, now we go back to the presentation of the proof, we claim that by the Bezout identity, there exists $ \alpha' $ and $ \beta' $ such that:
 
 \begin{eqnarray*}
-  \alpha' p + \beta' q &=& 1 \\
-  (j-i)\alpha' p + (j-i)\beta' q &=& (j-i) \\
-  \alpha p + \beta q &=& j-i
+               \alpha' p + \beta' q &=& 1     \\
+  (j - i) \alpha' p + (j-i)\beta' q &=& j - i \\
+                 \alpha p + \beta q &=& j - i
 \end{eqnarray*}
 
 Now we can have:
 
 \begin{eqnarray*}
-  a_i &=& a_{(i + \alpha p) \mod p} \\
-      &=& a_{(i + j-i - \beta q) \mod p} \\
-      &=& a_{(j - \beta q) \mod p} \\
-      &=& b_{(j - \beta q) \mod q} \\
-      &=& b_{j \mod q} \\
-      &=& a_{j \mod p} \\
+  a_i &=& a_{(i + \alpha p) \mod p}        \\
+      &=& a_{(i + j - i - \beta q) \mod p} \\
+      &=& a_{(j - \beta q) \mod p}         \\
+      &=& b_{(j - \beta q) \mod q}         \\
+      &=& b_{j \mod q}                     \\
+      &=& a_{j \mod p}                     \\
       &=& a_j
 \end{eqnarray*}
 
@@ -75,10 +73,12 @@ Case 3: $ |b| = |p| $, then we can write $ b = p $ and $ a = q $, now we have $ 
 
 In all case, we have shown that $ w_1 \sim w_3 $, so we have proved that the relation is transitive.
 
+Now we move on and show that all conjugate words have the same exponent.
+
 Thought process: through the exercise above we notice that conjugation is really just rotating, so let's see what would happen if we rotate. If we rotate by $ n $ position, we can do that by rotating it $ 1 $ letter at a time $ n $ times. If we could show that rotating one letter is fine, rotating by any number of letters will just be fine. So let's learn more about rotating strings by just one charcter.
 
 Suppose we rotating a string $ v^n $ where $ |v| = 1 $, this is a trivial case since it will be the same.
-Suppose we rotating a string $ v^n $ where $ |v| > 1 $, now we can let $ v = (a+b) $, and so the rotated string will be $ b(a+b)^{n-1}a $, but if we look closely, this is simply $ (b+a)^n $, we just need to parenthesize it differently. 
+Suppose we rotating a string $ v^n $ where $ |v| > 1 $, now we can let $ v = ab $ such that $ |a| = 1 $ and $ |b| > 0 $, and so the rotated string will be $ b(ab)^{n-1}a $, but if we look closely, this is simply $ (ba)^n $, we just need to parenthesize it differently. 
 
 We can unify the both cases and say that if we rotate a string by one character, it is the same as rotating the primitive part and keep the exponent unchanged. Note that the result above holds even when $ n = 1 $. Immediately, we know this must be true for an arbitrary number of rotations, because we can just rotate one character at a time.
 
@@ -86,7 +86,7 @@ Now we can use this fact to argue rotating a string keep the exponent unchanged,
 
 Thought process - one last step, the size of the equivalence class. I wanted to claim the size of the equivalence class is simply the length of the primitive part, so we need to prove that rotations of a primitive part are unique strings. Let's see what happen if it isn't.
 
-Suppose $ v $ is primitive and $ v = p + q = q + p $, now we have the problem that we have seen in part 1, $ v $ cannot be primitive. So we have proved that rotations of a primitive part are unique strings.
+Suppose $ v $ is primitive and $ v = pq = qp $, now we have the problem that we have seen in part 1, $ v $ cannot be primitive. So we have proved that rotations of a primitive part are unique strings.
 
 With that, we can claim that the size of the equivalence class is simply the length of the primitive part.
 
