@@ -1,0 +1,12 @@
+\section*{Question 5}
+$ U $ is a vector space, so $ U $ has a basis.
+
+We can extend this basis to become a basis of $ V $, using the Gram Schmidt procedure, we can make this basis orthonormal.
+
+Let the dimension of $ U  $ and $ V $ be $ u $ and $ v $ respectively. Let $ W = U^\perp $ . The Gram Schmidt procedure guarantee the first $ u $ vector spans $ U $. With that, we can denote the extended basis by $ u_1, u_2, \cdots u_u, w_1, w_2, \cdots w_{v - u} $.
+
+Suppose a vector $ w \in W $. Since $ u_1, u_2, \cdots u_u, w_1, w_2, \cdots w_{v - u} $ span $ V $, $ w $ can be represented as unique linear combination of these vectors. But the coefficients associated with the $ u $ vectors must be 0 because $ w $ is othrogonal to all of them, therefore $ w \in span(w_1, w_2, \cdots w_{v - u}) $, or $ W \subset span(w_1, w_2, \cdots w_{v - u}) $.
+
+On the other hand, suppose $ w \in span(w_1, w_2, \cdots w_{v - u}) $, $ w $ must be orthogonal to every vector in $ U $ because if you take an inner product of $ u_x $ with the linear combination, all terms go to zero. Therefore we have $ span(w_1, w_2, \cdots w_{v - u}) \subset W $ as well.
+
+Therefore $ W = span(w_1, w_2, \cdots w_{v - u}) $ and $ dim(W) = v - u = dim(V) - dim(U) $.

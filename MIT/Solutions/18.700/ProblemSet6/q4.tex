@@ -1,0 +1,10 @@
+\section*{Question 4}
+We will prove it by induction on the number of vectors.
+
+In case of a single vector, this is easy because $ e_1 = \pm \frac{v_1}{\langle v_1, v_1 \rangle} $.
+
+Suppose it is true for $ k $ vector. In case of $ k + 1 $ vector. The first $ k $ vector can be spanned by $ e_1 \cdots e_k $ in $ 2^k $ ways.
+
+The only way to add the last vector is by the Gram Schmidt procedure, in particular $ f_{k+1} = v_{k+1} - \sum \langle e_i, v_{k+1} \rangle $, and $ e_{k+1} = \pm \frac{f_{k+1}}{\langle f_{k+1}, f_{k+1} \rangle }$.
+
+Since we have two new ways to span the $ k + 1 $ vector for each of the $ 2^k $ ways, we have in total $ 2^{k+1} $ ways to span the $ k + 1 $ vector. That concludes the induction.

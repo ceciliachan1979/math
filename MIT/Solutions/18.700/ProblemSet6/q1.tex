@@ -18,7 +18,7 @@ Consider $ D(x^k) $, we have these special cases:
 
 \begin{eqnarray*}
   D x^0 &=& f \\
-  D x^1 &=& dx + (e + f) \\
+  D x^1 &=& (d + f)x + e
 \end{eqnarray*}
 
 For $ k \ge 2 $, we have
@@ -30,9 +30,9 @@ For $ k \ge 2 $, we have
   &=& k(k-1)(ax^k + bx^{k-1} + cx^{k-2}) + k(dx^k + ex^{k-1}) + fx^k \\
 \end{eqnarray*}
 
-The diagonal entries of the matrix correspond to the coefficient of $ x_k $. The first two are $ f $ and $ d $, the remaining ones are $ k(k-1)a + kd +f $ for $ k \ge 2 $.
+The diagonal entries of the matrix correspond to the coefficient of $ x_k $. The first two are $ f $ and $ d + f $, the remaining ones are $ k(k-1)a + kd +f $ for $ k \ge 2 $.
 \subsection*{Part c}
-Suppose $ 0 < a < d $, 
+Suppose $ 0 < a < d $, we see those diagonal entries are distinct, in fact, it is an increasing sequence. In this case, the operator is diagonalizable (because the diagonal entries are eigenvalues, distinct eigenvalues implies we have $ m $ linearly independent eigenvectors and they will span $ P_m(R) $.
 
 \subsection*{Part d}
 In case $ a = 1. b = -1, c = 0, d = 2, e = -1, f = 0 $, we have the polynomials:

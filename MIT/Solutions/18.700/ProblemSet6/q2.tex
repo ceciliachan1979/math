@@ -27,4 +27,95 @@ x & $ \sqrt{x} $ & $ \frac{8}{63} (7 x^3 - 15 x^2 + 15 x + 1) $ \\
 1.000 & 1.000 & 1.016 
 \end{tabular}
 \subsection*{Part d}
-By inspection, the basis obtained from the Gram Schmidt orthogonalization procedure happens to be the eigenvectors for the $ D $ operator defined in problem 1 d.
+By inspection, the basis obtained from the Gram Schmidt orthogonalization procedure happens to be the eigenvectors for the $ D $ operator defined in problem 1 d. The challenge is to prove that it is the case.
+
+Here is the thought process:
+
+We already knew in part 1c that we have a unique eigenvector for each degree. Suppose we can also prove that the eigenvector of degree $ k + 1 $ is orthogonal (with respect to the inner product) to all the earlier eigenvectors, then we are done, because we can prove by induction that the direction match with the Gram Schmidt procedure.
+
+To show that, let's evaluate the inner product as follow:
+
+\begin{eqnarray*}
+  <v_{k+1}, v_{m}>
+\end{eqnarray*}
+
+But quickly, we notice, there is nothing we can evaluate without knowing what is the eigenvector $ v_{k+1} $. But we knew something, it has to be $ x^{k+1} + P $, where P is a polynomial with degree at most $ k $. We can further decompose $ P $ by the eigenvectors and we start to see something interesting.
+
+\begin{eqnarray*}
+  & & <x^{k+1} + \sum\alpha_i v_i, v_m> \\
+  &=& <x^{k+1}, v_m> + \alpha_m
+\end{eqnarray*}
+
+Here is something more we know about $ v_{k+1} $. it is an eigenvector, so if it is transformed by $ D $ it must only scale, so let's throw in $ D $ and see what happens.
+
+\begin{eqnarray*}
+  & & <D(x^{k+1} + \sum\alpha_i v_i), v_m> \\
+  &=& <D(x^{k+1}) + \sum \alpha_i \lambda_i v_i, v_m> \\
+  &=& <D(x^{k+1}) + \sum \alpha_i \lambda_i v_i, v_m> \\
+  &=& <D(x^{k+1}), v_k> + \lambda_i \alpha_m \\
+\end{eqnarray*}
+
+The whole point is to use the eigenvalue property, so alternatively we also have this.
+\begin{eqnarray*}
+  & & <D(x^{k+1} + \sum\alpha_i v_i), v_m> \\
+  &=& <\lambda_{k+1}((x^{k+1}) + \sum \alpha_i v_i), v_m> \\
+  &=& \lambda_{k+1}(<x^k, v_k> + \alpha_m) 
+\end{eqnarray*}
+
+No luck, how about moving the $ D $ to the other side?
+\begin{eqnarray*}
+  & & <(x^{k+1} + \sum\alpha_i v_i), D v_m> \\
+  &=& <(x^{k+1}) + \sum \alpha_i v_i), \lambda_m v_m> \\
+  &=& \lambda_{m}(<x^k, v_k> + \alpha_m) 
+\end{eqnarray*}
+
+Now we see something interesting, it looks like moving the operator from left to right changed only the $ \lambda $ multiplier. Suppose moving the operator from left to right should not change value, then in order for these two values to be equal, the only way that could happen is when both of them are zero, exactly what I wanted to prove. 
+
+Why moving the operator from the left to right should yield equal value? Let's take a look at what it actually does.
+
+\begin{eqnarray*}
+  & & <Df, g> \\
+  &=& \int_0^1 Df g dx \\
+  &=& \int_0^1 ((x^2 - x)f'' + (2x - 1)f') g dx \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  & & <Dg, f> \\
+  &=& \int_0^1 Dg f dx \\
+  &=& \int_0^1 ((x^2 - x)g'' + (2x - 1)g') f dx \\
+\end{eqnarray*}
+
+This just look very similar to integration by parts - but how? Here is a crucial observation:
+
+\begin{eqnarray*}
+   & & ((x^2 - x)f')' \\
+   &=& (2x - 1)f' + (x^2 - x)f''
+\end{eqnarray*}
+
+So we can proceed as follow:
+
+\begin{eqnarray*}
+  & & <Df, g> \\
+  &=& \int_0^1 Df g dx \\
+  &=& \int_0^1 ((x^2 - x)f'' + (2x - 1)f') g dx \\
+  &=& \int_0^1 (((x^2 - x)f')' g dx \\
+  &=& \int_0^1 g d(((x^2 - x)f') \\
+  &=& g(x^2 - x)f'|_0^1 - \int_0^1 (x^2 - x)f' dg \\
+  &=& - \int_0^1 ((x^2 - x)f'g' dx \\
+  &=& - \int_0^1 ((x^2 - x)g' df \\
+  &=& - \left((x^2 - x)g'f|_0^1 - \int_0^1 f d((x^2 - x)g')\right) \\
+  &=& \int_0^1 f ((x^2 - x)g')'dx \\
+  &=& \int_0^1 f ((x^2 - x)g'' + (2x - 1)g') dx \\
+  &=& <f, Dg>
+\end{eqnarray*}
+
+With these result, the final way to present the proof is as follow:
+
+\begin{itemize}
+    \item First show that $ <Df, g> = <f, Dg> $.
+    \item Then, we show by induction that the eigenvector are the Gram Schmidt vectors.
+    \item The first vector is obvious, it is just 1, so we have a trivial base case.
+    \item Suppose the first $ k $ vector matches, consider the $ k+1 $ vector.
+    \item Compute the inner product in both ways, and we realize both values are differs by a distinct multipler, which means it has to be 0.
+    \item Since the new eigenvector is orthogonal to all existing eigenvectors, it must agree with the Gram Schmidt direction.
+\end{itemize}
