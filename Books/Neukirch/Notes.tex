@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Neukirch Reading Notes}
+\author{Cecilia}
+\date{June 2021}
+\DeclareMathOperator{\fractionfield}{frac}
+\DeclareMathOperator{\closure}{closure}
+\begin{document}
+\maketitle
+
+\section*{Page 7}
+After we obtained the relation $ \det(bE - (a_{ij}))\omega_i = 0 $, we knew $ \omega_i \ne 0 $ because it is in the generating set, but we cannot conclude $ \det(bE - (a_{ij}))\omega_i = 0 $ because of the possibility of zero divisor. (Recall $ A[b_1 \cdots b_n] $ is just a ring, no requirement for it to be an integral domain).
+
+Since $ \omega_i $ is a generating set, we can use it to generate 1. $ 1 = \sum c_i \omega_i $. We are sure $ 1 \ne 0 $ because $ A[b_1 \cdots b_n ] $ cannot be the zero ring. Now multiply both sides by $ \det(bE - (a_{ij})) $. Now either $ \det(bE - (a_{ij})) = 0 $ so that both side is 0, or it isn't so that the left hand side is not zero but the right hand side is zero. That concludes $ \det(bE - (a_{ij})) = 0 $
+
+In the last paragraph, it was written it is immediate ..., that is not obvious at all, especially to someone who is not familiar with the terminologies just introduced.
+
+The goal is to prove that the "integral closure" of $ A $ over $ B $ is "integrally closed" in $ B $. Proposition 2.4 involves the use of "integral over". So the whole proof is really a soup of all these terms.
+
+To make it easier to understand, instead of using just an overbar, I write out the closure explicitly. $ \closure(P|Q) $ means the integral closure of $ P $ over $ Q $.
+
+There is a very easy lemma that we can start with:
+
+$ \closure(A | B) $ is integral over $ A $.
+
+This is really just reading the definitions. The closure of $ A $ over $ B $ is all the elements of $ b $ that is integral over $ A $, which is required for the definition of integral over.
+
+$ \closure(A | B) \subseteq B $.
+
+This is just as easy - the definition of closure requires the elements comes from $ B $.
+
+Now, let's examine the statement we wanted to prove. $ \closure(A | B) $ is integrally closed in $ B $, that means:
+
+$ \closure(\closure(A | B) | B) = \closure(A | B) $.
+
+To prevent a notation soup, let $ C = \closure(A | B) $ and $ D = \closure(C | B) $, now our goal becomes proving $ C = D $.
+
+Using our lemmas, we see $ C $ is integral over $ A $, $ C \subseteq B $, $ D $ is integral over $ C $, $ D \subseteq B $. Invoking proposition 2.4, we see $ D $ is integral over $ A $.
+
+Now we want to argue set equality, to do that, we see 
+$ C \subseteq D $ because elements in $ C $ must be integral in $ C $ so they are contained in $ D $ as the integral closure of $ C $ over $ B $.
+
+$ D \subseteq C $ because elements in $ D $ must be integral over $ A $, but $ C $ contains all such elements.
+
+That concludes the proof of $ C = D $ and therefore the statement that the integral closure of $ A $ over $ B $ is integrally closed in $ B $.
+
+Not intermediate at all!
+
+\section*{Page 8}
+To prove $ B $ is integrally closed, we need to prove
+
+$ \closure(B|\fractionfield(B)) = B $
+
+Let $ C = \closure(B|\fractionfield(B)) $, now $ C $ is integral over $ B $, $ B $ is integral over $ A $ because $ B = \closure(A|L) $. Proposition 2.4 gives $ C $ is integral over $ A $. As above, we claim $ B \subseteq C $ and then $ C \subseteq B $ because elements in $ C$ must be integral over $ A $ but $ B $ contains all such elements.
+
+As $ L | K $ is a finite extension, the set of vectors $ 1, \beta, \beta^2, \cdots, \beta^n $ must be linearly dependent, and that why we can claim the polynomial is 0.
+
+The "hence the same holds for all coefficients" is tricky. The coefficients are sum and products of the roots, so if the roots are integral, so are the coefficients.
+
+\end{document}

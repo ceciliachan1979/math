@@ -11,6 +11,7 @@ jobs:
         with:
           root_file: |
             Books/Neukirch/Neukirch.tex
+            Books/Neukirch/Notes.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
@@ -20,6 +21,7 @@ jobs:
           name: PDF
           path: |
             Neukirch.pdf
+            Notes.pdf
             NumberTheory.pdf
             Integral.pdf
             Recurrence.pdf
