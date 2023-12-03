@@ -1,0 +1,26 @@
+\section*{Question 2}
+Consider a general self-adjoint square root of $ I \in \mathbf{R}^2 $ as follow:
+\begin{eqnarray*}
+  \left(\begin{array}{cc}
+    a & b \\ 
+    b & d 
+  \end{array}\right)\left(\begin{array}{cc}
+    a & b \\ 
+    b & d 
+  \end{array}\right) &=& \left(\begin{array}{cc}
+    1 & 0 \\ 
+    0 & 1 
+  \end{array}\right)
+\end{eqnarray*}
+This boils down to the equations
+\begin{eqnarray*}
+  a^2 + b^2 = b^2 + d^2 = 1 \\
+  b(a + d) = 0 
+\end{eqnarray*}
+The latter equation is easier to solve, it is either $ b = 0 $ or $ a = -d $ (or both).
+
+In case $ b = 0 $, we have $ a^2 = d^2 = 1 $, so $ a = \pm 1 $ and $ d = \pm 1 $, signs can be chosen arbitrarily.
+
+In case $ a = -d $, $ b = \pm\sqrt{1 - a^2} $ will also satisfy the first equation, this equation only make sense if $ -1 \le a \le 1 $. Notice that when $ a = \pm 1 $, this cover some cases when $ b = 0 $, and that's okay.
+
+This included all self-adjoint square root of $ I $.

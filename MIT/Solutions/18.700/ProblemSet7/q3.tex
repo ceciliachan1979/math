@@ -1,0 +1,60 @@
+\section*{Question 3}
+Consider a general square root of $ I \in \mathbf{F_q}^2 $ as follow:
+\begin{eqnarray*}
+  \left(\begin{array}{cc}
+    a & b \\ 
+    c & d 
+  \end{array}\right)\left(\begin{array}{cc}
+    a & b \\ 
+    c & d 
+  \end{array}\right) &=& \left(\begin{array}{cc}
+    1 & 0 \\ 
+    0 & 1 
+  \end{array}\right)
+\end{eqnarray*}
+This boils down to the equations
+\begin{eqnarray*}
+  a^2 + bc = bc + d^2 = 1 \\
+  b(a + d) = c(a + d) = 0 
+\end{eqnarray*}
+The latter equation is easier to solve, it is either $ b = c = 0 $ or $ a = -d $ (or both).
+
+In case $ b = c = 0 $, we have $ a^2 = d^2 = 1 $, so $ a = \pm 1 $ and $ d = \pm 1 $, signs can be chosen arbitrarily.
+
+In case $ a = -d $, $ bc = 1- a^2 $. So it depends on the value of $ 1 - a^2 $. Suppose $ 1 - a^2 = 0 $, either $ b $ or $ c $ must be 0, and the other is arbitrary. Otherwise, $ 1 - a^2 \ne 0 $, we can have an arbitrary non-zero $ b $, and $ c $ has no choice but to be $ b^{-1} (1 - a^2)$
+
+\subsection*{Case 1}
+In the case the field $ F $ has characteristic 2. $ a = -a $ for all field elements. So we have exactly 1 solution $ a = d = 1 = -1 $ when $ b = c = 0 $.
+
+The only case for $ 1 - a^2 = 0 $ is when $ a = 1 $. Let's say $ b = 0 $, $ c $ have $ q $ choices, but we must avoid $ c = 0 $ to avoid double counting, that is $ q - 1 $ solutions. Symmetrically, we have $ q - 1 $ solution for $ c = 0 $ case. Together we have $ 2(q - 1) $ solutions.
+
+Last but not least, there are $ q - 1 $ possibility of $ a $ such that $ 1 - a^2 \ne 0 $. For each of these case, $ b $ can be an arbitrary non-zero which has $ q - 1 $ cases, and $ c $ has no choice, so the number of solution of this type is $ (q - 1)^2 $.
+
+Therefore the total number of solutions should be $ 1 + 2(q - 1) + (q - 1)^2 = q^2 $
+
+\subsection*{Case 2}
+Otherwise, the field $ F $ does not have characteristic 2, $ a \ne -a $, and therefore we have exactly 4 solution $ a = d = \pm 1 $ when $ b = c = 0 $.
+
+There are two cases $ 1 - a^2 = 0 $ when $ a = \pm 1 $. Let's say $ b = 0 $, $ c $ have $ q $ choices, but we must avoid $ c = 0 $ to avoid double counting, that is $ 2(q - 1) $ solutions. Symmetrically, we have $ 2(q - 1) $ solution for $ c = 0 $ case. Together we have $ 4(q - 1) $ solutions.
+
+Last but not least, there are $ q - 2 $ possibility of $ a $ such that $ 1 - a^2 \ne 0 $. For each of these case, $ b $ can be an arbitrary non-zero which has $ q - 1 $ cases, and $ c $ has no choice, so the number of solution of this type is $ (q - 2)(q - 1) $.
+
+Therefore the total number of solutions should be $ 4 + 4(q - 1) + (q - 2)(q - 1) = q^2 + q + 2 $
+
+The solution is validated using this simple Sage script:
+\begin{verbatim}
+Field = GF(3)
+MatrixOnField = MatrixSpace(Field,2,2)
+elements = []
+for _,element in enumerate(Field):
+  elements.append(element)
+count = 0
+for a in elements:
+  for b in elements:
+    for c in elements:
+      for d in elements:
+        A = MatrixOnField([[a,b],[c,d]])
+        if (A * A == MatrixOnField([[1,0],[0,1]])):
+          count = count + 1
+print(count)
+\end{verbatim}
