@@ -1,0 +1,71 @@
+% arara: xelatex: { shell: yes, interaction: nonstopmode }
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+
+\title{嘗試理解 differential forms}
+\author{Cecilia}
+\date{October 2022}
+
+\begin{document}
+\maketitle
+在這篇文章裹，我想分享一下我對 differential form 的理解，大家有空可以看一下，有寫的不對的地方，歡迎指正。
+
+\section{定義}
+假設 f 是一個 $ \mathbf{R}^n \to \mathbf{R} $ 的函數，那假設我們有 $ p, v \in \mathbf{R}^n $， $ p $ 是一個點， $ v $ 是一個向量，我們就可以有這個數值
+
+\begin{eqnarray*}
+  \left. \frac{d}{dt} f(p + tv)\right|_{t = 0}
+\end{eqnarray*}
+
+明顯這個值和 $ p $ 和 $ v $ 相關，我們把它寫成 $ df_p(v) $，而且作這樣的理解。
+
+在 $ p $ 這一點上，我們一個函數名字叫做 $ df_p $，它的輸入是一個向量 $ v $，它的輸出是一個實數。
+
+一個輸入向量，輸出實數的函數有一個特殊的名字叫做 form，又可以叫做 linear functional 或者是 covector，這些都是同一東西的不同名字而已。
+
+上面的定義和微分有關，出來的又是一個 form，就叫它 differential form。
+
+在整個 $ \mathbf{R}^n $ 裹有無數個不同的點，在不同的點，有不同的 $ df_p $。正如我們可以有向量場 (vector field) 代表在不同地方有不同的向量，我們也可以用 form field 來代表在不同的地方有不同的 form。 $ df $ 就是一個 form field。
+
+\section{一維例子}
+最簡單的例子，假設 $ f: \mathbf{R} \to \mathbf{R} = \sin(x) $. 在這個一維的空間空間裏面，我們可以有一個向量 $ i $ 往右面走 1 步。這樣的話
+
+\begin{eqnarray*}
+  df_p &=& \left. \frac{d}{dt} f(p + tv)\right|_{t = 0} \\
+       &=& \left. \frac{d}{dt} \sin(p + tki)\right|_{t = 0} \\
+       &=& \left. k\cos(p + tki)\right|_{t = 0} \\
+       &=& k \cos(p)
+\end{eqnarray*}
+
+所以在不同的點 $ p $ 上，$ df_p $ 是一個 form，它把 $ ki $ 帶到 $ k \cos(p) $。
+
+\section{證明原題}
+已知 $ \frac{dy}{dt} = \frac{f(t)}{h(y)} $，我們想象 $ y $ 和 $ t $ 都是 $ s $ 的函數，在任意點 $ p $
+
+\begin{eqnarray*}
+  dy_p(v) &=& \left. \frac{dy(p + tv)}{dt}\right|_{t = 0} \\
+          &=& \left. \frac{dy(p + tki)}{dt}\right|_{t = 0} \\
+          &=& k \left. \frac{dy}{ds}\right|_{s = p}
+\end{eqnarray*}
+
+同樣道理 $ dt_p(v) = k \left. \frac{dt}{ds}\right|_{s = p} $
+
+所以
+\begin{eqnarray*}
+  \frac{dy}{dt} &=& \frac{f(t)}{h(y)} \\
+  \frac{\frac{dy}{ds}}{\frac{dt}{ds}} &=& \frac{f(t)}{h(y)} \\
+\end{eqnarray*}
+
+(如果擔心 $ s $ 不存在，不妨想 $ s = t $，這樣就可以了)
+
+相對於所有點 $ p $ 和所有 $ k \in R $，這樣都對，所以我們可以這樣寫
+
+\begin{eqnarray*}
+  h(y) k \left. \frac{dy}{ds}\right|_{s = p} &=& f(t) k \left. \frac{dt}{ds}\right|_{s = p} \\
+  h(y) dy_p &=& f(t) dt_p \\
+  h(y) dy &=& f(t) dt \\
+\end{eqnarray*}
+
+其中第一行到第二行是由兩個數值的相等，變成兩個 form 的相等，然後第二行到第三行是從兩個 form 的相等變成兩個 form field 的相等。
+
+\end{document}

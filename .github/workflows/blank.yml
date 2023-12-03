@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
-      - name: Compile LaTeX document
+      - name: Compile English LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
@@ -16,28 +16,35 @@ jobs:
             Exams/HKALE/1998/HKALE-1998.tex
             Exams/HKALE/1999/HKALE-1999.tex
             Exams/HKDSE/2020/HKDSE-2020.tex
+            MIT/Solutions/MIT.tex
             Misc/Bernoulli/Bernoulli.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
             Misc/pde/pde.tex
             Misc/Ufd/Ufd.tex
             Papers/GK/GK.tex
-            MIT/Solutions/MIT.tex
+      - name: Compile Chinese LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          latexmk_use_xelatex: true
+          root_file: |
+            Misc/Forms/DifferentialForm.tex
       - name: Upload LaTeX document
         uses: actions/upload-artifact@v2
         with:
           name: PDF
           path: |
-            Bernoulli.pdf
             Neukirch.pdf
             Notes.pdf
             NumberTheory.pdf
             HKALE-1998.pdf
             HKALE-1999.pdf
             HKDSE-2020.pdf
+            MIT.pdf
+            Bernoulli.pdf
+            DifferentialForm.pdf
             Integral.pdf
             Recurrence.pdf
             pde.pdf
-            GK.pdf
             Ufd.pdf
-            MIT.pdf
+            GK.pdf
