@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Cosine Identities}
+\author{Cecilia}
+\date{January 2023}
+
+\begin{document}
+\maketitle
+The goal of this document is to prove a few product identities for the cosine function. The key tools we will use are the Chebyshev polynomials.
+
+\section{Know our tools}
+The Chebyshev polynomials are a sequence of polynomials, it has two kinds. The first kind is denoted as $ T_n(x) $ and the second kind is denoted as $ U_n(x) $.
+
+\begin{enumerate}
+    \item The roots of $ T_n(x) $ are $ \cos\left(\frac{2k + 1}{2n}\pi \right) $ for $ k \in 0 \cdots n - 1 $
+    \item The roots of $ U_n(x) $ are $ \cos\left(\frac{k}{n + 1}\pi \right) $ for $ k \in 1 \cdots n $
+    \item The constant term of a $ T_{2n} $ is $ -1 $.
+    \item The linear term of a $ T_{2n-1} $ is $ (-1)^{n+1} (2n-1)x $.
+    \item The constant term of a $ U_{2n} $ is $ (-1)^n $.
+    \item The linear term of a $ U_{2n-1} $ is $ (-1)^{n+1} 2nx $.
+    
+    \item The leading coefficient of $ T_{n} $ is $ 2^{n-1} $
+    \item The leading coefficient of $ U_{n} $ is $ 2^n $
+\end{enumerate}
+
+All these properties and their proofs are available publicly.
+
+\section{Problem 1}
+Our goal is to solve this:
+\begin{eqnarray*}
+  \prod_{i=1}^{m}{\cos\left(\frac{2k-1}{4m}\pi\right)} \\
+\end{eqnarray*}
+Note that these numbers are exactly the first half of the roots of $ T_{2m}(x) $. Naturally, we would like to explore if it is possible to get some symmetry between the roots. And there is an easy one.
+
+\begin{eqnarray*}
+  \cos(\pi - x) &=& -\cos(x) \\
+\end{eqnarray*}
+
+Geometrically, the roots of the Chebyshev polynomial is simply dividing $ \pi $ by $ 2n $ pieces (so you have $ 2n + 1 $ angle, including 0 and $ \pi $, and then pick the one with odd index. So it is easy to see for even $ n $, there will be exactly of them that are negative, and the symmetry above tell us the magnitude is the same. 
+
+Therefore the answer of the product can be found using the product of roots.
+
+The product of roots of $ T_{2m} $ is $ \frac{-1}{2^{2m-1}} $. Therefore the answer is $ \frac{\sqrt{2}}{2^m} $
+
+\section{Problem 2}
+Our goal is to solve this:
+\begin{eqnarray*}
+  \prod_{i=1}^{m-1}{\cos\left(\frac{k}{2m}\pi\right)} \\
+\end{eqnarray*}
+Note that these numbers are exactly the first half of the roots of $ U_{2m-1}(x) $. Obviously we cannot include $ k = m $ because then that would be a $ \cos\left(\frac{\pi}{2}\right) = 0 $ and the product is 0, and for $ m + 1 \le k \le 2m - 1$, we have the same symmetry as above.
+
+Therefore the answer of the product can be found using the product of roots, with the caveat that we need to divide $ x $ to get rid of the 0 root.
+
+The product of roots of $ \frac{U_{2m-1}}{x} $ is $ \frac{(-1)^{m+1} 2m}{2^{2m-1}} $. Therefore the answer is $ \frac{\sqrt{m}}{2^{m-1}} $.
+
+\section{Problem 3}
+Our goal is to solve this:
+\begin{eqnarray*}
+  \prod_{i=1}^{m}{\cos\left(\frac{k}{2m + 1}\pi\right)} \\
+\end{eqnarray*}
+Note that these numbers are exactly the first half of the roots of $ U_{2m}(x) $. For $ m + 1 \le k \le 2m - 1$, we have the same symmetry as above.
+
+Therefore the answer of the product can be found using the product of roots.
+
+The product of roots of $ U_{2m} $ is $ \frac{(-1)^m}{2^{2m}} $. Therefore the answer is $ \frac{1}{2^m} $.
+
+\section{Problem 4}
+Our goal is to solve this:
+\begin{eqnarray*}
+  \prod_{i=1}^{m}{\cos\left(\frac{2k - 1}{4m + 2}\pi\right)} \\
+\end{eqnarray*}
+Note that these numbers are exactly the first half of the roots of $ T_{2m+1}(x) $. Obviously we cannot include $ k = m + 1 $ because then that would be a $ \cos\left(\frac{\pi}{2}\right) = 0 $ and the product is 0. For $ m + 2 \le k \le 2m + 1 $, we have the same symmetry as above.
+
+Therefore the answer of the product can be found using the product of roots, with the caveat that we need to divide $ x $ to get rid of the 0 root.
+
+The product of roots of $ \frac{T_{2m+1}}{x} $ is $ \frac{(-1)^{2m+1} (2m+1)}{2^{2m}} $. Therefore the answer is $ \frac{\sqrt{2m+1}}{2^m} $
+\end{document}

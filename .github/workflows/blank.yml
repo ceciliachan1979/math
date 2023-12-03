@@ -18,6 +18,7 @@ jobs:
             Exams/HKDSE/2020/HKDSE-2020.tex
             MIT/Solutions/MIT.tex
             Misc/Bernoulli/Bernoulli.tex
+            Misc/Cosine/Cosine.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
             Misc/pde/pde.tex
@@ -42,6 +43,7 @@ jobs:
             HKDSE-2020.pdf
             MIT.pdf
             Bernoulli.pdf
+            Cosine.pdf
             DifferentialForm.pdf
             Integral.pdf
             Recurrence.pdf
