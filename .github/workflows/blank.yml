@@ -15,6 +15,7 @@ jobs:
             Exams/NumberTheory/Solutions/NumberTheory.tex
             Exams/HKALE/1998/HKALE-1998.tex
             Exams/HKALE/1999/HKALE-1999.tex
+            Exams/HKCEE/2001/HKCEE-2001.tex
             Exams/HKDSE/2020/HKDSE-2020.tex
             MIT/Solutions/MIT.tex
             Misc/Bernoulli/Bernoulli.tex
@@ -42,6 +43,7 @@ jobs:
             NumberTheory.pdf
             HKALE-1998.pdf
             HKALE-1999.pdf
+            HKCEE-2001.pdf
             HKDSE-2020.pdf
             MIT.pdf
             Bernoulli.pdf

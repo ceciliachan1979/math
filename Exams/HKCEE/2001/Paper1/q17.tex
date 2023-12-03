@@ -1,0 +1,28 @@
+\section*{Problem 17}
+\subsection*{Part a}
+\subsubsection*{Part i}
+Let $ q = \frac{p}{2} $, then the center of the circle is $ (q,0) $ and the radius is $ q $. Therefore the equation is:
+\begin{eqnarray*}
+    (x-q)^2 + (y - 0)^2 &=& q^2 \\
+  x^2 - 2qx + q^2 + y^2 &=& q^2 \\
+   x^2 - px + q^2 + y^2 &=& q^2 \\
+              x^2 + y^2 &=& px
+\end{eqnarray*}
+
+\subsubsection*{Part ii}
+Let $ Q $ has coordinate $ (a,c) $, now $ \vec{OQ} = a\vec{i} + c\vec{j} $ and $ \vec{OP} = p\vec{i} $, so the dot product $ \vec{OP} \cdot \vec{OQ} $ is $ ap $
+
+Let $ S $ has coordinate $ (a,b) $, using (i), we know that $ OS^2 = a^2 + b^2 = ap $.
+
+Last but not least $ \vec{OP} \cdot \vec{OQ} = |OP| |OQ| \cos(\angle POQ) $, therefore $ OS^2 = ap = \vec{OP} \cdot \vec{OQ} = |OP| |OQ| \cos(\angle POQ) $.
+
+\subsection*{Part b}
+\subsubsection*{Part i}
+Note that $ \angle CEB $ is the angle subtended by the diameter $ BC $ on the circle $ BCEF $, therefore $ \angle CEB = 90^\circ $ and so $ BE $ is an altitude of $ \triangle ABC $.
+
+\subsubsection*{Part ii}
+Observe that point $ G $ can serve the role of point $ S $ as in part (a) [Note the correspondence $ O \to C $, $ P \to A $, $ Q \to B $, $ S \to G $], so $ |CG|^2 = |CA| |CB| \cos(\angle ACB) $.
+
+Similarly, $ AD $ is an altitude of $ \triangle BAC $, observe again that point $ F $ can also serve the role of point $ S $ as in part (a) as a mirror image [Note the correspondence $ O \to C $, $ P \to B $, $ Q \to A $, $ S \to F $], so $ |CF|^2 = |CB| |CA| \cos(\angle BCA) $.
+
+But $ \angle ACB = \angle BCA $, therefore $ |CG|^2 = |CF|^2 $, so $ CG = CF $ as length cannot be negative.

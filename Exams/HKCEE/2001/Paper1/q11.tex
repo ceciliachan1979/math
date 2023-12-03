@@ -1,0 +1,46 @@
+\section*{Problem 11}
+\subsection*{Part a}
+\begin{enumerate}
+    \item{The length A'P is the same as AP, which is $ x $. }
+    \item{The length PB is $ 12 - x $. }
+    \item{The length BA' is $ \frac{12}{2} = 6 $ because A' is the midpoint of BC. }
+    \item{By the Pythagoras theorem, $ x^2 + 6^2 = (12 - x)^2 $. }
+\end{enumerate}
+
+\begin{eqnarray*}
+      (12 - x)^2 + 6^2 &=& x^2 \\
+  144 - 24x + x^2 + 36 &=& x^2 \\
+        24x &=& 180            \\
+          x &=& 7.5
+\end{eqnarray*}
+
+\subsection*{Part b}
+Let $ \angle A'PB $ be $ y $, we have these angles:
+\begin{enumerate}
+    \item{ $ \angle PBA' = 90^\circ $ }
+    \item{ $ \angle BA'P = 180^\circ - \angle PBA' - \angle A'PB = 180^\circ - 90^\circ - y = 90^\circ - y $ }
+    \item{ $ \angle PA'R = 90^\circ $ }
+    \item{ $ \angle RA'C = 180^\circ - \angle BA'P - \angle PA'R = 180^\circ - (90^\circ - y) - 90 = y $ }
+    \item{ $ \angle A'CR = 90^\circ $ }
+    \item{ $ \angle CRA' = 180^\circ - \angle RA'C - \angle A'CR = 180^\circ - x - 90 = 90^\circ - y $ }
+\end{enumerate}
+
+With these angles, we can conclude $ \triangle PBA' \sim \triangle A'CR $ as all the corresponding angles are equal.
+\subsection*{Part c}
+We wanted to compute the length of $ A'R $ using length ratios, here are the lengths that we know
+
+\begin{enumerate}
+    \item{ $ PA' = x = 7.5 $ }
+    \item{ $ PB = 12 - x = 12 - 7.5 = 4.5 $ }
+    \item{ $ A'C = 6 $ }
+\end{enumerate}
+
+By $ \triangle PBA' \sim \triangle A'CR $, we have:
+\begin{eqnarray*}
+   \frac{PB}{PA'} &=& \frac{A'C}{A'R}          \\
+  \frac{4.5}{7.5} &=& \frac{6}{A'R}            \\
+              A'R &=& \frac{6 \times 7.5}{4.5} \\
+                  &=& 10
+\end{eqnarray*}
+
+So the length of $ A'R $ is 10 cm.

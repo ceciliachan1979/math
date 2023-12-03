@@ -1,0 +1,62 @@
+\section*{Problem 13}
+\subsection*{Part a}
+From the problem, we know this relation with unknown coefficients $ c_1 $ and $ c_2 $.
+\begin{eqnarray*}
+  S = c_1 t + c_2 t^2 \\
+\end{eqnarray*}
+
+When $ t = 1 $, we have:
+\begin{eqnarray*}
+  33 = c_1 + c_2 \\
+\end{eqnarray*}
+
+
+When $ t = 2 $, we have:
+\begin{eqnarray*}
+  56 = 2 c_1 + 4 c_2 \\
+\end{eqnarray*}
+
+Consider the second equation subtracted by twice the first equation, we have:
+\begin{eqnarray*}
+  (2 c_1 + 4 c_2) - 2(c_1 + c_2) &=& 56 - 2 \times 33 \\
+   2 c_1 + 4 c_2 - 2 c_1 - 2 c_2 &=& 56 - 66          \\
+                           2 c_2 &=& -10              \\
+                              c_2 &=& -5
+\end{eqnarray*}
+
+Substitute $ c_2 $ back into the first equation, we have:
+\begin{eqnarray*}
+  33 = c_1 - 5 \\
+  c_1 = 38
+\end{eqnarray*}
+
+We can quickly check that these values works for all entries in the table.
+\begin{center}
+  \begin{tabular}{ |c|c|c|c|c|c|c|c|c| }
+    \hline
+    $ t          $ & 0 & 1  & 2  & 3  & 4  & 5  & 6  & 7 \\
+    \hline
+    $ 38t - 5t^2 $ & 0 & 33 & 56 & 69 & 72 & 65 & 48 & 21 \\
+    \hline
+    $ S          $ & 0 & 33 & 56 & 69 & 72 & 65 & 48 & 21 \\
+    \hline
+  \end{tabular}
+\end{center}
+So the coefficient found works for all entries.
+\subsection*{Part b}
+\begin{eqnarray*}
+    S &=& 38t - 5t^2 \\
+    40 &=& 38t - 5t^2 \\
+    5t^2 - 38t + 40 &=& 0 \\
+    t &=& \frac{38 \pm \sqrt{(-38)^2 - 4(5)(40)}}{2(5)} \\
+        &=& \frac{38 \pm \sqrt{1444 - 800}}{10} \\
+        &=& \frac{38 \pm \sqrt{644}}{10} \\
+        &=& \frac{38 \pm 2\sqrt{161}}{10} \\
+        &=& \frac{19 \pm \sqrt{161}}{5} \\
+        &\approx& 1.26 \text{ or } 6.34
+\end{eqnarray*}
+\subsection*{Part c}
+TODO: Plot the graph, it should be a parabola opening downwards
+
+The optimal can be found as the midpoint of two roots, which is $ \frac{19}{5} = 3.8 $.
+

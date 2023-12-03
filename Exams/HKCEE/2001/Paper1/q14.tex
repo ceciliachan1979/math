@@ -1,0 +1,67 @@
+\section*{Problem 14}
+\subsection*{Part a}
+\subsubsection*{Part i}
+There is no magic in this part, just calculate, all numbers in the table in round to 3 significant digits.
+\begin{center}
+\begin{tabular}{ |c|c| }
+    \hline
+    x    & f(x)    \\
+    \hline
+    1    & 0       \\
+    1.05 & -0.0237 \\
+    1.1  & 0.0105  \\
+    1.15 & 0.111   \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{Part ii}
+Here is the bisection process, to avoid losing precision, all immediate numbers are round to 6 decimal places:
+
+\begin{eqnarray*}
+    f(1.05)   &=& -0.0237  \\
+     f(1.1)   &=&  0.0105  \\
+     f(1.075) &=& -0.01437 \\
+    f(1.0875) &=& -0.00394 \\
+   f(1.09375) &=&  0.00277 \\
+   f(1.09063) &=& -0.00071 \\
+   f(1.09219) &=&  0.00100 \\
+   f(1.09141) &=&  0.00014 \\
+   f(1.09102) &=& -0.00029
+\end{eqnarray*}
+
+Therefore the answer is $ 1.091 \cdots $,
+
+\subsection*{Part b}
+\begin{enumerate}
+  \item{The money deposited on 1997 is compounded 4 times, so we have got $ 1000 * (1+r)^4 $}
+  \item{The money deposited on 1998 is compounded 3 times, so we have got $ 1000 * (1+r)^3 $}
+  \item{The money deposited on 1999 is compounded 2 times, so we have got $ 1000 * (1+r)^2 $}
+  \item{The money deposited on 2000 is compounded 1 times, so we have got $ 1000 * (1+r)^1 $}
+\end{enumerate}
+The total money is therefore $ 1000 ((1 + r) + (1 + r)^2 + (1 + r)^3 + (1 + r)^4) $, but it is also 5000, so we can solve for $ r $. To start with, we simplify the geometric progression as follows. Let $ g = (1+r) $ and $ S = (1 + r) + (1 + r)^2 + (1 + r)^3 + (1 + r)^4 $, we have:
+
+\begin{eqnarray*}
+         S &=& g + g^2 + g^3 + g^4   \\
+        gS &=& g^2 + g^3 + g^4 + g^5 \\
+    S - gS &=& g - g^5               \\
+  S(1 - g) &=& g - g^5               \\
+         S &=& \frac{g - g^5}{1 - g}
+\end{eqnarray*}
+
+Now we can solve:
+\begin{eqnarray*}
+  1000S = 5000 \\
+  S = 5
+\end{eqnarray*}
+
+and also
+\begin{eqnarray*}
+            S &=& \frac{g - g^5}{1 - g} \\
+            5 &=& \frac{g - g^5}{1 - g} \\
+       5 - 5g &=& g - g^5 \\
+  g^5 -6g + 5 &=& 0
+\end{eqnarray*}
+
+That is just part a, which we already solved $ g \approx 1.091 $, therefore $ r = g - 1 \approx 0.091 $, or 9.1\%.
+
