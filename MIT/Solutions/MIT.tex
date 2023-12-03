@@ -6,6 +6,9 @@
 \usepackage{hyperref}
 \usepackage{mathrsfs}
 
+\newcommand{\emptymacro}{}    % Used to test against an empty macro
+\newcommand{\linearalgebra}{} 
+
 \title{MIT Math Problems}
 \author{Cecilia}
 \date{August 2022}
@@ -16,7 +19,8 @@
 \section*{Links}
     \begin{enumerate}
         \item \href{https://math.mit.edu/academics/undergrad/roadmaps.php}{Roadmap}
-        \item \href{https://ocw.mit.edu/courses/18-700-linear-algebra-fall-2013/}{Linear Algebra}
+        \ifx\linearalgebra\emptymacro
+        \item \href{https://ocw.mit.edu/courses/18-700-linearalgebra-fall-2013/}{Linear Algebra}
         \begin{enumerate}
             \item \hyperlink{LinearAlgebra-ProblemSet1.1}{ProblemSet1}
             \item \hyperlink{LinearAlgebra-ProblemSet2.1}{ProblemSet2}
@@ -28,12 +32,14 @@
             \item \hyperlink{LinearAlgebra-ProblemSet8.1}{ProblemSet8}
             \item \hyperlink{LinearAlgebra-ProblemSet9.1}{ProblemSet9}
         \end{enumerate}
+        \fi
         \item \href{https://math.mit.edu/classes/18.703/index.html}{Modern Algebra}
         \begin{enumerate}
             \item \hyperlink{ModernAlgebra-Assignment01}{Assignment1}
         \end{enumerate}
     \end{enumerate}
 
+\ifx\linearalgebra\emptymacro
 %
 % Linear Algebra
 %
@@ -102,26 +108,16 @@
 \input{MIT/Solutions/18.700/ProblemSet9/q2.tex}
 \input{MIT/Solutions/18.700/ProblemSet9/q3.tex}
 
+\fi
+
 %
 % Modern Algebra
 %
 \input{MIT/Problems/18.703/Assignment1.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/1.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/2.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/3.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/4.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/7.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/8.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/9.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex2/10.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/1.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/2.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/3.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/4.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/5.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/6.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/12.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/14.tex}
-\input{MIT/Solutions/18.703/Assignment1/Ex4/20.tex}
+\input{MIT/Solutions/18.703/Assignment1/Ex2.tex}
+\input{MIT/Solutions/18.703/Assignment1/Ex4.tex}
+\input{MIT/Solutions/18.703/Assignment1/Ex5.tex}
+\input{MIT/Solutions/18.703/Assignment1/Ex6.tex}
+\input{MIT/Solutions/18.703/Assignment1/Bonus.tex}
 
 \end{document}

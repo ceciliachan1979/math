@@ -1,0 +1,10 @@
+\section*{Bonus-1}
+In this problem, I will assume the reader is familiar with the concept of parse trees for expressions. The statement that an expression is independent of the way of placing parenthesis is the same as any expression evaluate the same as if the expression is evaluated left to right, in another words, the parse tree never expands on the right.
+
+The transformation $ p * (q * r) = (p * q) * r $ can be interpreted as reducing the size of the right subtree of the parse tree of the expression.
+
+Now we can proceed to prove by induction that every expression of length $ n $ can be transformed so that it only expand on the left. The case for $ n = 1 $ or $ n = 2 $ is obvious. The case for $ n = 3 $ is given by the associative rule. Assume it is true for $ n = k $, For any expression of length $ k + 1 $, we can use the associative rule to reduce the size of the right subtree, we can keep doing that until the size become 1, then we can use our induction hypothesis to show that the whole expression can be transformed such that it open expands on the left.
+
+This proves that all expression with any length can be evaluated left to right, of course that include the case for just 4 variables.
+
+
