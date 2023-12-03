@@ -1,0 +1,52 @@
+\section*{Question 3}
+\subsection*{Part a}
+In $ F^n $, there are $ q^n $ vectors. One of them is the zero vector that we must exclude. Otherwise, all $ q^n - 1 $ vector could be the first vector in the list. That's why we have the $ (q^n - 1) $ as the first factor.
+
+For each vector $ v $ as the first vector, $ \{ v, 2v, \cdots (q-1)v \} $ is a set of $ q - 1 $ vectors that should also be excluded as the second vector. That gives us the second factor of $ (q^n - 1) - (q - 1) = (q^n - q) $.
+
+For each pair of vector $ v $ and $ w $ as the first two vectors, $ \{ v, v + w, \cdots, v + (q-1)w, 2v, 2v + w, \cdots 2v + (q-1)w, \cdots (q-1)v + (q-1)w \} $ is a set of $ (q^2 - 1) $ vectors that should be excluded as the third vector. That gives us the third factor of $ (q^n - 1) - (q^2 - 1) = (q^n - q^2) $.
+
+The argument goes on and eventually lead to the expression we wanted.
+
+\subsection*{Part b}
+An $ n \times n $ invertible matrix is simply a list of $ n $ linearly independent (column) vectors. So the number of invertible matrices is $ (q^n - 1)(q^n - q)\cdots(q^n - q^{n-1})$
+
+\section*{Part c}
+Suppose we already know $ (2^k - 1)(2^k - 2)\cdots(2^k - 2^{k-1}) $, to compute $ (2^{k+1} - 1)(2^{k+1} - 2)\cdots(2^{k+1} - 2^k) $ can be done by multiplying all the terms by $ q $ and multiply an extra term as follow:
+
+\begin{eqnarray*}
+  & & N_{k+1} \\
+  &=& (2^{k+1} - 1)(2^{k+1} - 2) \cdots (2^{k+1} - 2^k) \\
+  &=& (2^{k+1} - 1)2(2^k - 1) \cdots 2 (2^k - 2^{k-1}) \\
+  &=& (2^{k+1} - 1)2^k N_k 
+\end{eqnarray*}
+
+$ N_k $ is the number of $ k \times k $ inverible matrices in $ F_2 $.
+
+$ D_k $, the number of $ k \times k $  matrices in $ F_2 $ is simply $ 2^{k^2} $. We can also express it in an recurrence relation as follow:
+
+\begin{eqnarray*}
+  & & D_{k+1} \\
+  &=& 2^{(k+1)^2} \\
+  &=& 2^{k^2 + 2k + 1} \\
+  &=& 2^{2k+1}D_k
+\end{eqnarray*}
+
+Now we can express $ P_k $, the probability that a $ k \times k $ random matrix in $ F_2 $ using the recurrence relation:
+
+\begin{eqnarray*}
+  & & P_{k+1} \\
+  &=& \frac{N_{k+1}}{D_{k+1}} \\
+  &=& \frac{(2^{k+1} - 1)2^k N_k }{2^{2k+1}D_k} \\
+  &=& \frac{(2^{k+1} - 1)}{2^{k+1}}P_k \\
+\end{eqnarray*}
+
+That means the probabilities have a particular simple pattern of
+
+\begin{eqnarray*}
+  \frac{1}{2}, \frac{1}{2} \times \frac{3}{4}, \frac{1}{2} \times \frac{3}{4} \times \frac{7}{8}, \cdots
+\end{eqnarray*}
+
+This is obviously a strictly decreasing sequence and lower bounded by 0, it must have a limit. Numerically, the limiting value is $ 0.2887880952... $. That is very close to the given 30\% chance.
+
+As an amusing fact, the number $ 0.2887880952 $ is found in the diehard random number testing suite. The test was trying to make sure if a random number generator is good, a random 32 x 32 matrix on $ F_2 $ should have this probability of being invertible. That means our calculations are good.
