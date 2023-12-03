@@ -1,0 +1,52 @@
+\section*{Question 5}
+\subsection*{Part a}
+Following the last question, we need to make sure $ \langle (1, 2, 3), (2, 5, a) \rangle = 0 $, that gives $ a = -4 $.
+
+\subsection*{Part b}
+Since $ \langle (1, 2, 3), (2, 5, a) \rangle = 0 $, there should be a third vector that is orthogonal to both of them. Once we find it, this can be used as a basis.
+
+We can find the third vector using the reduced echelon form:
+\begin{eqnarray*}
+  \left(\begin{array}{ccc}
+    1 & 2 & 3 \\
+    2 & 5 & -4
+  \end{array}\right) \to
+  \left(\begin{array}{ccc}
+    1 & 0 &  23 \\
+    0 & 1 & -10
+  \end{array}\right) 
+\end{eqnarray*}
+
+So we can easily pick $ (-23, 10, 1) $ as the last vector.
+
+We claim that this vector is actually an eigenvector. To show that, let's consider the matrix of the mapping in this basis
+
+\begin{eqnarray*}
+\left(\begin{array}{ccc}
+0 & 0 & ? \\
+0 & 1 & ? \\
+0 & 0 & ?
+\end{array}\right)
+\end{eqnarray*}
+
+By part 1, we know that the matrix of its adjoint should be.
+
+\begin{eqnarray*}
+\left(\begin{array}{ccc}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+? & ? & ?
+\end{array}\right)
+\end{eqnarray*}
+
+But the operator is self-adjoint, that means the matrix must be:
+
+\begin{eqnarray*}
+\left(\begin{array}{ccc}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & ?
+\end{array}\right)
+\end{eqnarray*}
+
+Whatever the last entry is, it must be the case that $ (-23, 10, 1) $ is an eigenvector.
