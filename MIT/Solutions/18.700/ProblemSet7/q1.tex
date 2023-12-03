@@ -1,0 +1,54 @@
+\section*{Question 1}
+\subsection*{Part a}
+Since $ \{ f_1, \cdots f_n \}$ is a basis, any vector $ v $ can be written as a linear combination of them. Taking the inner product and using the orthogonal property, we have:
+
+\begin{eqnarray*}
+  v &=& \sum\limits_{i=1}^n c_i f_i \\
+  \langle v, f_k \rangle &=& \sum\limits_{i=1}^n c_i \langle f_i f_k \rangle \\
+  \langle v, f_k \rangle &=& c_k \langle f_k f_k \rangle \\  
+  c_k &=& \frac{\langle v, f_k \rangle}{\langle f_k f_k \rangle } \\
+    v &=& \sum\limits_{i=1}^n \frac{\langle v, f_i \rangle}{\langle f_i f_i \rangle } f_i \\
+\end{eqnarray*}
+
+\subsection*{Part b}
+The basic idea is the the $ j $ column of $ A $ is what $ T(f_j) $ is, so $ A_{ij} $ is really just the coefficient of $ T(f_j) $ corresponding to the $ f_i $, which can be extracted using inner product.
+
+Consider the matrix form of $ T(\sum\limits_{i=1}^n c_i f_i) $. 
+\begin{eqnarray*}
+  & & T(\sum\limits_{i=1}^n c_i f_i) \\
+  &=& \sum\limits_i (\sum\limits_j A_{ij} c_j) f_i
+\end{eqnarray*}
+Suppose the vector under transformation is $ f_q $, then $ c_i = \delta_{iq} $, we have:
+
+\begin{eqnarray*}
+                       T(f_q) &=& \sum\limits_i A_{iq} f_i \\
+  \langle T(f_q), f_p \rangle &=& \langle \sum\limits_i A_{iq} f_i, f_p \rangle \\
+                              &=& A_{pq}\langle f_p, f_p \rangle \\
+                       A_{pq} &=& \frac{\langle T(f_q), f_p \rangle}{\langle f_p, f_p \rangle}
+\end{eqnarray*}
+
+\subsection*{Part c}
+Similarly, $ B_{ij} $ is the coefficient of $ T^*(f_j)$ corresponding to $ f_i $, so we have a similar calculation here:
+
+\begin{eqnarray*}
+                       T^*(f_q) &=& \sum\limits_i B_{iq} f_i \\
+  \langle T^*(f_q), f_p \rangle &=& \langle \sum\limits_i B_{iq} f_i, f_p \rangle \\
+                                &=& B_{pq}\langle f_p, f_p \rangle \\
+                         B_{pq} &=& \frac{\langle T^*(f_q), f_p \rangle}{\langle f_p, f_p \rangle}
+\end{eqnarray*}
+
+\subsection*{Part d}
+Let's do more simplification of $ B_{pq} $
+\begin{eqnarray*}
+   B_{pq} &=& \frac{\langle T^*(f_q), f_p \rangle}{\langle f_p, f_p \rangle} \\
+          &=& \frac{\langle f_q, T(f_p) \rangle}{\langle f_p, f_p \rangle} \\
+          &=& \frac{\overline{\langle T(f_p), f_q \rangle}}{\langle f_p, f_p \rangle}
+\end{eqnarray*}
+So 
+\begin{eqnarray*}
+   B_{pq}\langle f_p, f_p \rangle &=& \overline{\langle T(f_p), f_q \rangle} \\
+                                  &=& \overline {A_{qp}\langle f_q, f_q \rangle} \\
+                           B_{pq} &=& \overline {A_{qp}}\frac{\langle f_q, f_q \rangle}{\langle f_p, f_p \rangle}
+\end{eqnarray*}
+
+This would be a simple conjugate transpose if the basis is orthonormal instead of just orthogonal.
