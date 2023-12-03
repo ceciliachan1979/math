@@ -1,0 +1,19 @@
+\section*{Question 6}
+We already knew that the rotate by 90 degree transformation in 2D does not have a real eigenvalue, can we do that same in $ R_4 $?
+
+Why not? We can have this linear transformation $ T(a,b,c,d) = (-b,a,-d,c) $.
+
+Here are the eigenvalues and eigenvectors in $ C $:
+
+\begin{eqnarray*}
+  T(1,i,0,0) &=& (-i,1,0,0)  \\
+             &=& -i(1,i,0,0) \\
+  T(i,1,0,0) &=& (-1,i,0,0)  \\
+             &=& i(i,1,0,0)  \\
+  T(0,0,1,i) &=& (0,0,-i,1,) \\
+             &=& -i(0,0,1,i) \\
+  T(0,0,i,1) &=& (0,0,-1,i)  \\
+             &=& i(0,0,i,1)
+\end{eqnarray*}
+
+Note that these eigenvectors are linearly independent, therefore $ i $ and $ -i $ are the only eigenvalues in $ C $, that means it doesn't have an eigenvalue in $ R $.
