@@ -1,0 +1,4 @@
+\section*{Question 7}
+Since $ \{v_1 + w, v_2 + w, \cdots v_n + w \}$ is linearly dependent, there exists $ c_i $ not all zero such that $ \sum\limits_{i=1}^{n} c_i(v_i + w) = 0 $. A simple manipulation shows that $ \left(\sum\limits_{i=1}^{n} c_i \right) w = \sum\limits_{i=1}^{n} -c_i v_i $.
+
+Suppose (for the sake of contradiction) that $ D = \sum\limits_{i=1}^{n} c_i = 0 $, then the left hand side of the equation is 0 and we have found a non-trivial linear combination of $ v_i $ that sums to zero, contradicting the fact the $ \{v_1, v_2, \cdots, v_n \} $ is linearly independent. Therefore $ D \ne 0 $, and $ w = \sum\limits_{i=1}^{n} -\frac{c_i}{D} v_i $ so $ w \in span(\{v_1, v_2, \cdots, v_n \}) $.

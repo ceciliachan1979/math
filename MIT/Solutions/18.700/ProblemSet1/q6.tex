@@ -1,0 +1,29 @@
+\section*{Question 6}
+To prove that the new set of vectors spans all the vectors spanned by the old set. One must prove that for all vectors spanned in the old set, it can be spanned by the new set. Solving that problem directly is difficult, let's us consider in general what can the new set of vector span by considering the general linear combination of the new set as follows:
+
+\begin{eqnarray*}
+  & & d_1 (v_1 - v_2) + d_2 (v_2 - v_3) + \cdots + d_{n-1}(v_{n-1} - v_n) + d_n v_n \\
+  &=& d_1 v_1 - d_ 1 v_2 + d_2 v_2 - d_2 v_3 + \cdots + d_{n-1} v_{n-1} - d_{n-1} v_n + d_n v_n \\
+  &=& d_1 v_1 + (d_2 - d_1) v_2 + (d_3 - d_2) v_3 + \cdots + (d_n - d_{n-1}) v_n \\
+  &=& c_1 v_1 + c_2 v_2 + \cdots + c_n v_n
+\end{eqnarray*}
+
+If we read it backwards, the idea is that if we could find $ d_i $ in terms of $ c_i $, then we solved the problem. It is obvious that $ d_1 = c_1 $, and also, for all $i \ge 2 $, $ d_i - d_{i-1} = c_i $. A simple manipulation yield the recurrence relation $ d_i = d_{i-1} + c_i $, which gives $ d_i = \sum\limits_{k=1}^{i}{c_k} $. That solved our problem!
+
+To present this formally, we prove that 
+\begin{eqnarray*}
+  & & d_1 (v_1 - v_2) + d_2 (v_2 - v_3) + \cdots + d_{n-1}(v_{n-1} - v_n) + d_n v_n \\
+  &=& \sum\limits_{i=1}^{n-1} d_i (v_i - v_{i+1}) + d_n v_n \\
+  &=& \sum\limits_{i=1}^{n-1} d_i v_i - \sum\limits_{i=1}^{n-1} d_i v_{i+1} + d_n v_n \\
+  &=& \sum\limits_{i=1}^{n-1} \sum\limits_{k=1}^{i}{c_k} v_i - \sum\limits_{i=1}^{n-1} \sum\limits_{k=1}^{i}{c_k} v_{i+1} + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& \sum\limits_{i=1}^{n-1} \sum\limits_{k=1}^{i}{c_k} v_i - \sum\limits_{i=2}^{n} \sum\limits_{k=1}^{i-1}{c_k} v_{i} + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& c_1 v_1 + \sum\limits_{i=2}^{n-1} \sum\limits_{k=1}^{i}{c_k} v_i - \sum\limits_{i=2}^{n} \sum\limits_{k=1}^{i-1}{c_k} v_{i} + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& c_1 v_1 + \sum\limits_{i=2}^{n-1} \left(\sum\limits_{k=1}^{i-1}{c_k} v_i + c_iv_i\right) - \sum\limits_{i=2}^{n} \sum\limits_{k=1}^{i-1}{c_k} v_{i} + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& c_1 v_1 + \sum\limits_{i=2}^{n-1} \sum\limits_{k=1}^{i-1}{c_k} v_i + \sum\limits_{i=2}^{n-1} c_iv_i - \sum\limits_{i=2}^{n} \sum\limits_{k=1}^{i-1}{c_k} v_{i} + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& c_1 v_1 + \sum\limits_{i=2}^{n-1} \sum\limits_{k=1}^{i-1}{c_k} v_i + \sum\limits_{i=2}^{n-1} c_iv_i - \sum\limits_{i=2}^{n-1} \sum\limits_{k=1}^{i-1}{c_k} v_{i} - \sum\limits_{k=1}^{n-1}{c_k} v_n + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& c_1 v_1 + \sum\limits_{i=2}^{n-1} c_iv_i - \sum\limits_{k=1}^{n-1}{c_k} v_n + \sum\limits_{k=1}^{n}{c_k} v_n \\
+  &=& c_1 v_1 + \sum\limits_{i=2}^{n-1} c_iv_i + c_n v_n \\
+  &=& c_1 v_1 + c_2 v_2 + \cdots + c_n v_n
+\end{eqnarray*}
+
+The manipulation is tedious and obscure the original idea, that's why I wrote the above before the formal presentation. The key trick is to arrange the two big double summations introduced in line 4 to cancel each other. Most steps after line 4 is just to make sure all the indices matches up so that we can cancel. We knew that's the answer, so any terms that left will form exactly the linear combination we need.
