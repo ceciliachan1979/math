@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Neukirch}
+\author{Cecilia}
+\date{June 2021}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 1}
+If $ \alpha $ is a unit, then $ N(\alpha) N(\alpha^{-1}) = N(1) = 1 $, but $ N $ is positive integer, so $ N(\alpha) = 1 $.
+
+If $ N(\alpha) = 1 $, then $ N(\overline{\alpha}) = 1 $ and $ N(\alpha \overline{\alpha}) = 1 $. But $ \alpha \overline{\alpha}$ is real so $ \alpha \overline{\alpha} = 1 $ and $ \overline{\alpha} $ is a multiplicative inverse of $ \alpha $, $ \alpha $ is a unit.
+
+\section*{Exercise 2}
+$ Z[i] $ is UFD, so we can prime factorize both side.
+
+The right hand side consists of a unit times a pile of factors, each repeated n times.
+
+The left hand side consist of two groups, with some prime power factors comes from $ \alpha $ and some prime powers comes from $ \beta $.
+
+Now, we can do the matching, the key is that one factor belong to exactly one of $ \alpha $ or $ \beta $, and they always get repeated $ n $ times, that is why we can express the answer in the required form.
+
+\section*{Exercise 3}
+
+$ \gcd((x + yi), (x - yi)) = \gcd((x + yi), 2x) = 1 $ since $ \gcd(x, y) = 1 $.
+
+By Exercise 2, $ (x + yi)(x - yi) = z^2 => x + yi = e \alpha^2 $
+
+\begin{eqnarray*}
+  x + yi &=& e \alpha^2   \\
+         &=& e (u + vi)^2 \\
+         &=& e (u^2 + 2uvi -v^2)
+\end{eqnarray*}
+
+Units of Gaussian integers are $ 1, -1, i, -i, $ so changing $ e $ only permute the solution.
+
+\section*{Exercise 4}
+Recall the ordered field axioms:
+
+\begin{enumerate}
+    \item if $ a < b $ then $ a + c < b + c $, and 
+    \item if $ 0 < a $ and $ 0 < b $ then $ 0 < ab $.
+\end{enumerate}
+
+If $ 0 < i $, then $ 0 < -1 = i^2 $ (by axiom 2), then $ 0 < 1 = (-1)^2 $ (by axiom 2 again)
+but since $ 0 < -1 $, then $ 1 = 0 + 1 < -1 + 1 = 0 $ (by axiom 1) contradicts with above.
+
+If $ i < 0 $, then $ 0 = i - i < 0 - i = -i $ (by axiom 1), then $ 0 < -1 = (-i)^2 $ (by axiom 2), then $ 0 < 1 = (-1)^2 $ (by axiom 2 again)
+but since $ 0 < -1 $, then $ 1 = 0 + 1 < -1 + 1 = 0 $ (by axiom 1) contradicts with above.
+
+Therefore the field cannot be ordered.
+
+\section*{Exercise 5}
+
+Define $ N(\alpha) = |\alpha|^2 $, $ N $ is multiplicative, therefore $ N(\alpha) = 1 $ if $ \alpha $ is a unit. Now $ d > 1 $, so $ (a + b\sqrt(-d))(a - b\sqrt(-d)) = a^2 + b^2d $ , so $ b $ must be 0, $ a $ must be 1 or -1.
+
+\section*{Exercise 6}
+
+The theory of Pell's equation gives us infinite solutions for the Diophantine equation $ x^2 - dy^2 = 1 $.
+
+Now for every such solution $ (x + y \sqrt{d})(x - y \sqrt{d}) = x^2 - d^2y = 1 $, therefore $ (x \pm y \sqrt{d}) $ is a unit. In other words, we have infinitely many units.
+
+\section*{Exercise 7}
+Qwq
+
+\end{document}
