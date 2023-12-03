@@ -1,0 +1,26 @@
+\section*{Question 5}
+For every vector $ v $ in $ V $, we can decompose it as follow:
+
+\begin{eqnarray*}
+  v &=& Pv + (v - Pv)
+\end{eqnarray*}
+
+It is obvious that $ Pv \in range(P) $, now we show that $ v - Pv \in null(P) $ by checking:
+
+\begin{eqnarray*}
+  & & P(v - Pv) \\ 
+  &=& Pv - P^2v \\
+  &=& Pv - Pv \\
+  &=& 0 
+\end{eqnarray*}
+
+Suppose there exists a vector $ s $ such that $ s \in range(P) \cap null(P) $, we have $ Pt = s $ and so:
+
+\begin{eqnarray*}
+     Ps &=& 0 \\
+  P(Pt) &=& 0 \\
+     Pt &=& 0 \\
+      s &=& 0
+\end{eqnarray*}
+
+Therefore, $ range(P) \cap null(T) = \{0\} $ and so $ V = range(P) \bigoplus null(P) $.
