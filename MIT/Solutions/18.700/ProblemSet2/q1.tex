@@ -1,0 +1,22 @@
+\section*{Question 1}
+\subsection*{Part a}
+The null space $ ker(T) $ of the linear transformation $ T $ is precisely the set of polynomials $ f $ of degree at most 5, such that $ f(1) = f(2) = f(3) = 0 $. Obviously, all such polynomial must have a factor of $ (x - 1)(x - 2)(x - 3) $. 
+
+To simplify, let's consider the mapping $ M : ker(T) \mapsto U, M(p) = \frac{p}{(x - 1)(x - 2)(x - 3)} $
+
+Denote $ U' $ to be the set of all polynomials with real coefficients of degree at most 2.
+
+$ U \subset U' $ because any polynomial in $ ker(T) $ must have a factor of $ (x - 1)(x - 2)(x - 3) $ and of degree at most 5, so $ M(p) $ must be a polynomial with real coefficients with degree at most 2.
+
+$ U' \subset U $ because when $ q \in U' $, $ f = q(x - 1)(x - 2)(x - 3) $ is a polynomial with real coefficients with degree at most 5 and $ f(1) = f(2) = f(3) = 0 $, that implies $ f \in ker(T) $ and so $ q \in U $
+
+So $ U = U' $, but not only that, it is a vector space isomorphism because the mapping is bijective and it respects the add and scalar multiply operations.
+
+$ U' $ has a very simple basis of $ B' = \{1, x, x^2 \} $, therefore, a basis of $ ker(T) $ is $ B = M^{-1}(B') = \{(x - 1)(x - 2)(x - 3), x(x - 1)(x - 2)(x - 3), x^2(x - 1)(x - 2)(x - 3) \} $.
+
+\subsection*{Part b}
+Using Lagrange's interpolation, for any $ (a,b,c) \in R^3 $, we can create polynomials in real coefficients that satisfy $ p(1) = a, p(2) = b, p(3) = c $ as follows:
+
+$ \frac{(x-2)(x-3)}{(1-2)(1-3)}a + \frac{(x-1)(x-3)}{(2-2)(2-3)}b + \frac{(x-1)(x-2)}{(3-1)(3-2)}c $
+
+That means $ Im(T) = R^3 $, which means we have a very simple basis for $ Im(T) = \{(1,0,0), (0,1,0), (0,0,1) \} $.
