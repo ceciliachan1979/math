@@ -9,7 +9,7 @@
 \begin{document}
 \maketitle
 \section{Power sum}
-Trying to derive the coefficients of $ \sum\limits_{a=1}^{n-1} a^k $ as a polynomial of $ n $ as a recurrence relation.
+Trying to derive the coefficients of $ \sum\limits_{a=1}^{n-1} a^k $ as a polynomial of $ n $ as a recurrence relation. [We use $ n - 1 $ instead of $ n $ to make the telescoping easier]
 \begin{eqnarray*}
 & & n^{k+1} - 1 \\
   &=& \sum\limits_{a=1}^{n-1} \left((a + 1)^{k+1} - a^{k+1}\right) \\
@@ -18,6 +18,9 @@ Trying to derive the coefficients of $ \sum\limits_{a=1}^{n-1} a^k $ as a polyno
   &=& \sum\limits_{a=1}^{n-1} \left(\sum\limits_{j=0}^{k-1}C_j^{k+1}a^j + (k+1)a^k \right) \\
   &=& \sum\limits_{j=0}^{k-1}C_j^{k+1}\sum\limits_{a=1}^{n-1} a^j + (k+1)\sum\limits_{a=1}^{n-1} a^k \\  
   (k+1)\sum\limits_{a=1}^{n-1} a^k &=& n^{k+1} - 1 - \sum\limits_{j=0}^{k-1}C_j^{k+1}\sum\limits_{a=1}^{n-1} a^j \\
+\end{eqnarray*}
+At this point, we are already representing $ (k+1)\sum\limits_{a=1}^{n-1} a^k $ as a combination of $ \sum\limits_{a=1}^{n-1} a^j $, so we can start letting $ \sum\limits_{a=1}^{n-1} a^p = \sum\limits_{m=0}^{p+1}D_{p+1-m}^kn^m $
+\begin{eqnarray*}
   (k+1)\sum\limits_{m=0}^{k+1}D_{k+1-m}^kn^m &=& n^{k+1} - 1 - \sum\limits_{j=0}^{k-1}C_j^{k+1}\sum\limits_{m=0}^{j+1}D_{j+1-m}^jn^m \\
   &=& n^{k+1} - 1 - \sum\limits_{m=1}^{k}\sum\limits_{j=m-1}^{k-1}C_j^{k+1}D_{j+1-m}^jn^m - \sum\limits_{j=0}^{k-1}C_j^{k+1}D_{j+1}^jn^0 \\
   (k+1)D_0^k &=& 1 \\
@@ -25,83 +28,41 @@ Trying to derive the coefficients of $ \sum\limits_{a=1}^{n-1} a^k $ as a polyno
   (k+1)D_{k+1}^k &=& -1 -\sum\limits_{j=0}^{k-1}C_j^{k+1}D_{j+1}^j
 \end{eqnarray*}
 
-\section{Observations}
-The least significant coefficient seems to be always 0, and it is obvious why that is the case. The second most significant coefficient seems to be always $ -\frac{1}{2} $, it is unclear why.
+\section{To Bernoulli's number (2023)}
+We have a fixed 1 for the most significant term, The recurrence equation for the constant term can be easily argued that it is 0 for all but the first equation.
 
-\section{Next steps}
-The Bernoulli numbers should be $ \frac{D^k_j(k+1)}{C^{k+1}_m} $ and this value should be independent of $ k $. But I cannot find a proof for that yet.
+For the middle terms, I wanted to prove that $ \frac{D^k_m(k+1)}{C^{k+1}_m} $ are the Bernoulli numbers and are independent of $ k $. We start with the middle equation. Note that the sum limits depend on $ k $, so let's start with eliminating that dependency first by letting $ r = j - k $
 
-\section{Code}
-This is used to verify the recursion above is correct.
-\begin{verbatim}
-import math
+\begin{eqnarray*}
+  (k+1)D_m^k &=& -\sum\limits_{j=k-m}^{k-1}C_j^{k+1}D_{m+j-k}^j \\
+             &=& -\sum\limits_{r=-m}^{-1}C_{k+r}^{k+1}D_{m+(k+r)-k}^{k+r} \\
+             &=& -\sum\limits_{r=-m}^{-1}C_{k+r}^{k+1}D_{m+r}^{k+r} \\
+\end{eqnarray*}
 
-def main():
-    D = []
-    D.append([(1, 1) , (-1, 1)]) # initial condition, S(0) = n - 1
+Now we make Bernoulli's numbers on both sides
 
-    for k in range(1, 10):
-        coeff = []
-        coeff.append((1, k+1))
-        for m in range(1, k + 1):
-            c = (0, 1)
-            for j in range(k - m, k):
-                c = sub(c, mul(combin(k + 1, j), D[j][m + j - k]))
-            coeff.append(mul(c, (1, k+1)))
-        c = (-1, 1)
-        for j in range(0, k):
-            c = sub(c, mul(combin(k + 1, j), D[j][j + 1]))
-        coeff.append(mul(c, (1, k+1)))
-        D.append(coeff)
+\begin{eqnarray*}
+  \frac{D^k_m(k+1)}{C^{k+1}_m} &=& -\sum\limits_{r=-m}^{-1}\frac{C_{k+r}^{k+1}}{C^{k+1}_m}\frac{C^{k+r+1}_{m+r}}{(k+r+1)}\frac{D_{m+r}^{k+r}(k+r+1)}{C^{k+r+1}_{m+r}} \\
+\end{eqnarray*}
 
-    # Each row should be the coefficients of the polynomial
-    # With the most significant term goes first
-    for row in D:
-        print(row)
+Turn out the coefficient can be greatly simplified.
 
-    # Converting D into the Bernoulli numbers
-    for k in range(0, len(D)):
-        for j in range(0, len(D[k])):
-            D[k][j] = div(mul(D[k][j], (k + 1, 1)), combin(k + 1, j))
+\begin{eqnarray*}
+  & & \frac{C_{k+r}^{k+1}}{C^{k+1}_m}\frac{C^{k+r+1}_{m+r}}{(k+r+1)} \\
+  &=& \frac{(k+1)!}{(k+r)!(-r+1)!} \times \frac{(k+r+1)!}{(m+r)!(k-m+1)!} \times \frac{m! (k - m + 1)!}{(k+1)!} \times \frac{1}{(k+r+1)} \\
+  &=& \frac{m!}{(-r+1)!(m+r)!}
+\end{eqnarray*}
 
-    for row in D:
-        print(row)
+The most important piece is that the coefficient is independent of $ k $. That means for each $ k $, we are solving essentially the same recurrence, so we will get the same answer.
 
-def combin(n, k):
-    return (math.factorial(n)//math.factorial(k)//math.factorial(n-k), 1)
+With that, we can change our notation and denote $ B_m = \frac{D^k_m(k+1)}{C^{k+1}_m} $ and the equation works for all $ k $. The recurrence becomes:
 
-def sub(a, b):
-    (p, q) = a
-    (r, s) = b
-    n = p * s - q * r
-    d = q * s
-    common = math.gcd(n , d)
-    n = n // common
-    d = d // common
-    return (n, d)
-
-def mul(a, b):
-    (p, q) = a
-    (r, s) = b
-    n = p * r
-    d = q * s
-    common = math.gcd(n , d)
-    n = n // common
-    d = d // common
-    return (n, d)
-
-def div(a, b):
-    (p, q) = a
-    (r, s) = b
-    n = p * s
-    d = q * r
-    common = math.gcd(n , d)
-    n = n // common
-    d = d // common
-    return (n, d)
-
-if __name__ == "__main__":
-    main()
-\end{verbatim}
+\begin{eqnarray*}
+  B_m &=& -\sum\limits_{r=-m}^{-1} \frac{m!}{(-r+1)!(m+r)!} B_{m+r} \\
+    0 &=& -\sum\limits_{r=-m}^{0} \frac{m!}{(-r+1)!(m+r)!} B_{m+r} \\
+      &=& \sum\limits_{r=-m}^{0} \frac{m!}{(-r+1)!(m+r)!} B_{m+r} \\
+      &=& \sum\limits_{i=0}^{m} \frac{m!}{(i + 1)!(m-i)!} B_{m-i} \\
+      &=& \sum\limits_{i=0}^{m} \frac{C_i^m}{i+1} B_{m-i} \\
+\end{eqnarray*}
 
 \end{document}
