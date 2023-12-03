@@ -1,0 +1,11 @@
+\section*{Question 5}
+It is given that $ dim(null(S)) = dim(null(T)) = 1 $, so the only way for $ dim(null(ST)) < 2 $ is when $ dim(range(T) \cap null(S)) = 0 $. By rank nullity theorem, we know $ dim(range(T)) = 1 $. Therefore it makes sense to construct $ S $ and $ T $ such that $ range(T) $ and $ null(S) $ are both one dimensional subspace and yet only intersect at 0.
+
+The easiest one dimensional subspaces are the x and y axis. Let's decide that $ range(T) $ is the x-axis and $ null(S) $ is the y-axis. To satisfy these constraints, we can set
+
+\begin{eqnarray*}
+  S((x,y)) &=& (x,0) \\
+  T((x,y)) &=& (x,0)
+\end{eqnarray*}
+
+We can easy check that $ ST((x,y)) = (x,0) $ and therefore $ dim(null(ST)) = 1 $ as required.
