@@ -20,6 +20,7 @@ jobs:
             Misc/Bernoulli/Bernoulli.tex
             Misc/Cosine/Cosine.tex
             Misc/Integral/Integral.tex
+            Misc/Obfuscate/Obfuscate.tex
             Misc/Recurrence/Recurrence.tex
             Misc/pde/pde.tex
             Misc/Ufd/Ufd.tex
@@ -44,9 +45,10 @@ jobs:
             MIT.pdf
             Bernoulli.pdf
             Cosine.pdf
-            DifferentialForm.pdf
             Integral.pdf
+            Obfuscate.pdf
             Recurrence.pdf
             pde.pdf
             Ufd.pdf
             GK.pdf
+            DifferentialForm.pdf

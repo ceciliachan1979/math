@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Obfuscating with recurrence}
+\author{Cecilia}
+\date{February 2023}
+
+\begin{document}
+\maketitle
+This article is written to share some techniques for engineering some permutations that are both easy to program and hard to understand. This finds application in area such as obfuscation, where you want to write relatively short code that perform a task and also hard to understand.
+
+\subsection*{Recurrences}
+Sequences defined recursively are fairly easy to program and also difficult to understand. One must spend significantly effort to solve some equations.
+
+We are typically taught how to solve these recurrences, but can we solve the reverse question. If I had a sequence in mind, can I come up with an interesting recurrence relation that has my sequence in mind as its solution?
+
+Turn out we can, for many sequences, this is doable.
+
+\subsection*{Solving}
+Let's say we have a sequence defined like this:
+
+\begin{eqnarray*}
+  a_{n+2} - a_{n+1} + 2a_n &=& 0 \\
+  a_0 &=& p \\
+  a_1 &=& q
+\end{eqnarray*}
+
+Now let's us cheat and guess the answer is simply $ a_n = x^n $. Note that this guess may or may not be correct, but none the less we get:
+
+\begin{eqnarray*}
+  x^n(x^2 - x + 2) &=& 0 \\
+  x &=& -1 \text{ or } 2
+\end{eqnarray*}
+
+And now we can solve $ x $ using that equation. Depending on $ p $ and $ q $, we can now choose the answer we wanted.
+
+\subsection*{Engineering power sequences}
+Reverse engineering the solving process, it is not difficult to see how to engineer a sequence that has the form $ a_n = x^n $ for an arbitrary $ x $. All we needed is to find a quadratic equation that has $ x $ as its root, the other root can be arbitrary, and you pick the initial condition so that it hits.
+
+That's great, but power sequence isn't all that interesting. Most applications don't actually want a power sequence. Except for some special values that could be interesting.
+
+\subsection*{One}
+The power of 1 is always 1. If you just want to obscure the constant 1, we can always hide it behind a sequence.
+
+\subsection*{Minus 1}
+Sometimes, we need to flip a sign, and the power sequence of minus one is perfect.
+
+\subsection*{Primitive root}
+It is a well known fact that the powers of a primitive root of a prime $ p $ cycle through $ 1 $ to $ p - 1$. If we happen to have such a case, we can use the recurrence to generate the powers, and then that the residue as the sequence.
+
+This idea also open up the possibility of running these recurrences on a certain ring instead.
+
+\subsection{Double root}
+The problem with power sequence is that it has limited applicability. If we just keep being 1 or flipping sign, it is pretty easy to figure out what it is even without proving it. Here we can add some more twists.
+
+When the characteristic equation has a double root. It is possible to that the answer is $ na^n $. The idea is that if we put $ nx^n $ back to the recurrence relation, it satisfy as well. As a special case, let's consider this:
+
+\begin{eqnarray*}
+  a(n+2)x^{n+2} + b(n+1)x^{n+1} + cnx^n &=& 0 \\
+  x^n[a(n+2)x^2 + b(n+1)x + cn] &=& 0 \\
+  x^n[n(ax^2 + bx + c) + x(2ax + b)] &=& 0 \\
+\end{eqnarray*}
+
+Note that since $ x $ is a double root of $ ax^2 + bx + c $, so $ x $ must also be a root of its derivative $ 2ax + b $ and therefore the last line is 0, now we can read backward and claim $ nx^n $ is also a solution of the recurrence.
+
+\subsection*{Arithmetic sequence}
+Now we can engineer an arbitrary arithmetic sequence by picking the roots to be a double 1 and pick the initial condition to be the first two terms of the arithmetic sequence.
+
+\subsection*{Flipping arithmetic sequence}
+We can just as easily engineer a sequence that is an arithmetic sequence that also flip sign by picking -1 to be the double root.
+
+As a first glance, this sequence is not particularly easy to use. But considering this partial sum.
+
+\begin{eqnarray*}
+10,-9,8,-7,... \to 10,1,9,2
+\end{eqnarray*}
+
+Now it turns into a sequence to like a cat running back and forth in that range, an interesting permutation of the range 1 to 10. We can just as easily to it in a growing fashion.
+
+\begin{eqnarray*}
+0,-1,2,-3,4,... \to 0,-1,1,-2,2,...
+\end{eqnarray*}
+
+These just scratch the surface of the possibilities.
+
+\end{document}
