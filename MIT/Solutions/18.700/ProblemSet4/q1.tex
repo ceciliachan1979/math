@@ -1,0 +1,30 @@
+\section*{Question 1}
+Since the subspaces are one to one mapped with the matrices in the row reduced echelon form, it is much easier to count those matrices.
+
+The row reduced echelon form can be in one of the following 3 cases:
+
+\begin{eqnarray*}
+  \left(1, x, y\right)
+  \left(0, 1, x\right)
+  \left(0, 0, 1\right)
+\end{eqnarray*}
+
+There are $ 9 \times 9 = 81 $ different matrices of the first form. $ 9 $ matrices of the second form and 1 matrix of the last form. There are $ 81 + 9 + 1 = 91 $ different row educed echelon matrices, and therefore there are 91 different subspace of 1 dimension.
+
+To verify this is the right solution, I started learning \href{https://www.sagemath.org/}{Sage}. Here is some sage code that verify that there is indeed 91 subspaces. The code simply iterate through all possible vectors in $ F^3 $ and then canonicalize them using the echelon form and count how many distinct subspaces there are. Obviously, we must discount the $ \left(0, 0, 0\right) $ special case for safety sake.
+
+\begin{verbatim}
+Field = GF(9)
+MatrixOnField = MatrixSpace(Field,1,3)
+elements = []
+for _,element in enumerate(Field):
+  elements.append(element)
+Subspaces = {}
+for p in elements:
+  for q in elements:
+    for r in elements:
+      Reduced = MatrixOnField([p,q,r]).echelon_form()
+      if Reduced[0] != MatrixOnField([0,0,0])[0]:
+        Subspaces[Reduced] = True
+len(Subspaces)
+\end{verbatim}
