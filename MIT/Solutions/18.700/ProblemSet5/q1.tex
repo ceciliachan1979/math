@@ -1,0 +1,301 @@
+\section*{Question 1}
+\subsection*{Part a}
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+1 & x_{2} & x_{2}^{2} & x_{2}^{3} & b \\
+1 & x_{3} & x_{3}^{2} & x_{3}^{3} & c
+\end{array}\right)
+\end{eqnarray*}
+\subsection*{Part b}
+Here we start:
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+1 & x_{2} & x_{2}^{2} & x_{2}^{3} & b \\
+1 & x_{3} & x_{3}^{2} & x_{3}^{3} & c
+\end{array}\right)
+\end{eqnarray*}
+Subtract the second row by the first.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+0 & -x_{1} + x_{2} & -x_{1}^{2} + x_{2}^{2} & -x_{1}^{3} + x_{2}^{3} & -a + b \\
+1 & x_{3} & x_{3}^{2} & x_{3}^{3} & c
+\end{array}\right)
+\end{eqnarray*}
+We introduced some difference of powers, they can be factorized.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+0 & -x_{1} + x_{2} & -{\left(x_{1} + x_{2}\right)} {\left(x_{1} - x_{2}\right)} & -{\left(x_{1}^{2} + x_{1} x_{2} + x_{2}^{2}\right)} {\left(x_{1} - x_{2}\right)} & -a + b \\
+1 & x_{3} & x_{3}^{2} & x_{3}^{3} & c
+\end{array}\right)
+\end{eqnarray*}
+Subtract the third row by the first.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+0 & -x_{1} + x_{2} & -{\left(x_{1} + x_{2}\right)} {\left(x_{1} - x_{2}\right)} & -{\left(x_{1}^{2} + x_{1} x_{2} + x_{2}^{2}\right)} {\left(x_{1} - x_{2}\right)} & -a + b \\
+0 & -x_{1} + x_{3} & -x_{1}^{2} + x_{3}^{2} & -x_{1}^{3} + x_{3}^{3} & -a + c
+\end{array}\right)
+\end{eqnarray*}
+Again, we have some difference of powers, they can be factorized as well.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+0 & -x_{1} + x_{2} & -{\left(x_{1} + x_{2}\right)} {\left(x_{1} - x_{2}\right)} & -{\left(x_{1}^{2} + x_{1} x_{2} + x_{2}^{2}\right)} {\left(x_{1} - x_{2}\right)} & -a + b \\
+0 & -x_{1} + x_{3} & -{\left(x_{1} + x_{3}\right)} {\left(x_{1} - x_{3}\right)} & -{\left(x_{1}^{2} + x_{1} x_{3} + x_{3}^{2}\right)} {\left(x_{1} - x_{3}\right)} & -a + c
+\end{array}\right)
+\end{eqnarray*}
+With the factorization, we can easily scale down the second row.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & -x_{1} + x_{3} & -{\left(x_{1} + x_{3}\right)} {\left(x_{1} - x_{3}\right)} & -{\left(x_{1}^{2} + x_{1} x_{3} + x_{3}^{2}\right)} {\left(x_{1} - x_{3}\right)} & -a + c
+\end{array}\right)
+\end{eqnarray*}
+And scale down the third row as well
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & x_{1} & x_{1}^{2} & x_{1}^{3} & a \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{3} & x_{1}^{2} + x_{1} x_{3} + x_{3}^{2} & \frac{a - c}{x_{1} - x_{3}}
+\end{array}\right)
+\end{eqnarray*}
+Subtract the first row by the second row multiplied by $ x_1 $ times.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -{\left(x_{1} + x_{2}\right)} x_{1} + x_{1}^{2} & x_{1}^{3} - {\left(x_{1}^{2} + x_{1} x_{2} + x_{2}^{2}\right)} x_{1} & a - \frac{{\left(a - b\right)} x_{1}}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{3} & x_{1}^{2} + x_{1} x_{3} + x_{3}^{2} & \frac{a - c}{x_{1} - x_{3}}
+\end{array}\right)
+\end{eqnarray*}
+Note that we could cancel some terms if we expand it.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -x_{1} x_{2} & -x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & a - \frac{{\left(a - b\right)} x_{1}}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{3} & x_{1}^{2} + x_{1} x_{3} + x_{3}^{2} & \frac{a - c}{x_{1} - x_{3}}
+\end{array}\right)
+\end{eqnarray*}
+Subtract the third row by the second row.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -x_{1} x_{2} & -x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & \frac{b x_{1} - a x_{2}}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & 0 & -x_{2} + x_{3} & -x_{1} x_{2} - x_{2}^{2} + x_{1} x_{3} + x_{3}^{2} & \frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+While it is not very clear, we can actually factorize the row 3 
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -x_{1} x_{2} & -x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & \frac{b x_{1} - a x_{2}}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & 0 & -x_{2} + x_{3} & -{\left(x_{1} + x_{2} + x_{3}\right)} {\left(x_{2} - x_{3}\right)} & \frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+Now we can easily scale down row 3 after the factorization
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -x_{1} x_{2} & -x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & \frac{b x_{1} - a x_{2}}{x_{1} - x_{2}} \\
+0 & 1 & x_{1} + x_{2} & x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{a - b}{x_{1} - x_{2}} \\
+0 & 0 & 1 & x_{1} + x_{2} + x_{3} & -\frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+Subtract the second row by the third row multiplied by $ x_1 + x_2 $ times.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -x_{1} x_{2} & -x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & \frac{b x_{1} - a x_{2}}{x_{1} - x_{2}} \\
+0 & 1 & 0 & -{\left(x_{1} + x_{2} + x_{3}\right)} {\left(x_{1} + x_{2}\right)} + x_{1}^{2} + x_{1} x_{2} + x_{2}^{2} & \frac{b x_{1}^{2} - c x_{1}^{2} - a x_{2}^{2} + c x_{2}^{2} + a x_{3}^{2} - b x_{3}^{2}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}} \\
+0 & 0 & 1 & x_{1} + x_{2} + x_{3} & -\frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+Observe that some terms cancel if we expand the product
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & -x_{1} x_{2} & -x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & \frac{b x_{1} - a x_{2}}{x_{1} - x_{2}} \\
+0 & 1 & 0 & -x_{1} x_{2} - x_{1} x_{3} - x_{2} x_{3} & \frac{b x_{1}^{2} - c x_{1}^{2} - a x_{2}^{2} + c x_{2}^{2} + a x_{3}^{2} - b x_{3}^{2}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}} \\
+0 & 0 & 1 & x_{1} + x_{2} + x_{3} & -\frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+Add the first row by the third row multiplied by $ x_1 x_2 $ times.
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & 0 & {\left(x_{1} + x_{2} + x_{3}\right)} x_{1} x_{2} - x_{1}^{2} x_{2} - x_{1} x_{2}^{2} & \frac{c x_{1}^{2} x_{2} - c x_{1} x_{2}^{2} - b x_{1}^{2} x_{3} + a x_{2}^{2} x_{3} + b x_{1} x_{3}^{2} - a x_{2} x_{3}^{2}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}} \\
+0 & 1 & 0 & -x_{1} x_{2} - x_{1} x_{3} - x_{2} x_{3} & \frac{b x_{1}^{2} - c x_{1}^{2} - a x_{2}^{2} + c x_{2}^{2} + a x_{3}^{2} - b x_{3}^{2}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}} \\
+0 & 0 & 1 & x_{1} + x_{2} + x_{3} & -\frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+Again, observe that some terms cancel if we expand the product
+\begin{eqnarray*}
+\left(\begin{array}{rrrr|r}
+1 & 0 & 0 & x_{1} x_{2} x_{3} & \frac{c x_{1}^{2} x_{2} - c x_{1} x_{2}^{2} - b x_{1}^{2} x_{3} + a x_{2}^{2} x_{3} + b x_{1} x_{3}^{2} - a x_{2} x_{3}^{2}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}} \\
+0 & 1 & 0 & -x_{1} x_{2} - x_{1} x_{3} - x_{2} x_{3} & \frac{b x_{1}^{2} - c x_{1}^{2} - a x_{2}^{2} + c x_{2}^{2} + a x_{3}^{2} - b x_{3}^{2}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}} \\
+0 & 0 & 1 & x_{1} + x_{2} + x_{3} & -\frac{b x_{1} - c x_{1} - a x_{2} + c x_{2} + a x_{3} - b x_{3}}{{\left(x_{1} - x_{2}\right)} {\left(x_{1} - x_{3}\right)} {\left(x_{2} - x_{3}\right)}}
+\end{array}\right)
+\end{eqnarray*}
+Observe that we have a very nice symmetric left hand side while the right hand side is a mess. The issue is that $ a, b, c $ make the problem asymmetric, and they are all concentrated at the last column, that is why that column looks particular complicated.
+
+Doing these tedious manipulation is very error prone, and therefore it is best left for the computer. Sage is capable to produce a reduced echelon form directly, but it make questionable division and produced a matrix that is very complicated. In order to reach this relatively simple form, I need to guide it to do the right simplification at the right time. For the record, here is the code used to produce the \LaTeX above. 
+\begin{verbatim}
+%typeset_mode True
+
+p = var("x_1")
+q = var("x_2")
+r = var("x_3")
+a = var("a")
+b = var("b")
+c = var("c")
+l1 = Matrix([[1,p,p^2,p^3],[1,q,q^2,q^3],[1,r,r^2,r^3]])
+r1 = Matrix([[a],[b],[c]])
+
+print("Here we start:")
+print("\\begin{eqnarray*}")
+latex(l1.augment(r1))
+print("\\end{eqnarray*}")
+
+l2 = l1.with_added_multiple_of_row(1,0,-1)
+r2 = r1.with_added_multiple_of_row(1,0,-1).factor().simplify()
+
+print("Subtract the second row by the first.")
+print("\\begin{eqnarray*}")
+latex(l2.augment(r2))
+print("\\end{eqnarray*}")
+
+l3 = l2
+r3 = r2
+l3[1,2] = l3[1,2].factor()
+l3[1,3] = l3[1,3].factor()
+
+print("We introduced some difference of powers, they can be factorized.")
+print("\\begin{eqnarray*}")
+latex(l3.augment(r3))
+print("\\end{eqnarray*}")
+
+l4 = l3.with_added_multiple_of_row(2,0,-1)
+r4 = r3.with_added_multiple_of_row(2,0,-1).factor().simplify()
+
+print("Subtract the third row by the first.")
+print("\\begin{eqnarray*}")
+latex(l4.augment(r4))
+print("\\end{eqnarray*}")
+
+l5 = l4
+r5 = r4
+l5[2,2] = l5[2,2].factor()
+l5[2,3] = l5[2,3].factor()
+
+print("Again, we have some difference of powers, they can be factorized as well.")
+print("\\begin{eqnarray*}")
+latex(l5.augment(r5))
+print("\\end{eqnarray*}")
+
+l6 = l5.with_rescaled_row(1,1/(q-p))
+r6 = r5.with_rescaled_row(1,1/(q-p)).factor().simplify()
+
+print("With the factorization, we can easily scale down the second row.")
+print("\\begin{eqnarray*}")
+latex(l6.augment(r6))
+print("\\end{eqnarray*}")
+
+l7 = l6.with_rescaled_row(2,1/(r-p))
+r7 = r6.with_rescaled_row(2,1/(r-p)).factor().simplify()
+
+print("And scale down the third row as well")
+print("\\begin{eqnarray*}")
+latex(l7.augment(r7))
+print("\\end{eqnarray*}")
+
+l8 = l7.with_added_multiple_of_row(0,1,-p)
+r8 = r7.with_added_multiple_of_row(0,1,-p)
+
+print("Subtract the first row by the second row multiplied by $ x_1 $ times.")
+print("\\begin{eqnarray*}")
+latex(l8.augment(r8))
+print("\\end{eqnarray*}")
+
+l9 = l8
+r9 = r8
+l9[0,2] = l9[0,2].expand().simplify()
+l9[0,3] = l9[0,3].expand().simplify()
+
+print("Note that we could cancel some terms if we expand it.")
+print("\\begin{eqnarray*}")
+latex(l9.augment(r9))
+print("\\end{eqnarray*}")
+
+l10 = l9.with_added_multiple_of_row(2,1,-1)
+r10 = r9.with_added_multiple_of_row(2,1,-1).factor().simplify()
+
+print("Subtract the third row by the second row.")
+print("\\begin{eqnarray*}")
+latex(l10.augment(r10))
+print("\\end{eqnarray*}")
+
+l11 = l10
+r11 = r10
+l11[2,3] = l11[2,3].factor()
+
+print("While it is not very clear, we can actually factorize the row 3 ")
+print("\\begin{eqnarray*}")
+latex(l11.augment(r11))
+print("\\end{eqnarray*}")
+
+l12 = l11.with_rescaled_row(2,1/(r-q))
+r12 = r11.with_rescaled_row(2,1/(r-q)).factor().simplify()
+
+print("Now we can easily scale down row 3 after the factorization")
+print("\\begin{eqnarray*}")
+latex(l12.augment(r12))
+print("\\end{eqnarray*}")
+
+l13 = l12.with_added_multiple_of_row(1,2,-p-q)
+r13 = r12.with_added_multiple_of_row(1,2,-p-q).factor().simplify()
+
+print("Subtract the second row by the third row multiplied by $ x_1 + x_2 $ times.")
+print("\\begin{eqnarray*}")
+latex(l13.augment(r13))
+print("\\end{eqnarray*}")
+
+l14 = l13
+r14 = r13
+l14[1,3] = l14[1,3].expand().simplify()
+
+print("Observe that some terms cancel if we expand the product")
+print("\\begin{eqnarray*}")
+latex(l14.augment(r14))
+print("\\end{eqnarray*}")
+
+l15 = l14.with_added_multiple_of_row(0,2,p*q)
+r15 = r14.with_added_multiple_of_row(0,2,p*q).factor().simplify()
+
+print("Add the first row by the third row multiplied by $ x_1 x_2 $ times.")
+print("\\begin{eqnarray*}")
+latex(l15.augment(r15))
+print("\\end{eqnarray*}")
+
+l16 = l15
+r16 = r15
+l16[0,3] = l16[0,3].expand().simplify()
+
+print("Again, observe that some terms cancel if we expand the product")
+print("\\begin{eqnarray*}")
+latex(l16.augment(r16))
+print("\\end{eqnarray*}")
+\end{verbatim}
+Even with computer, this is taking me a lot of hours, and this is a bad approach to solve this problem, as we will see in the next part.
+\subsection*{Part c}
+We can easily find a polynomial satisfying the constraint using Lagrange's interpolation as follow:
+\begin{eqnarray*}
+    \frac{(x - x_2)(x - x_3)}{(x_1 - x_2)(x_1 - x_3)} a + \frac{(x - x_1)(x - x_3)}{(x_2 - x_1)(x_2 - x_3)} b + \frac{(x - x_1)(x - x_2)}{(x_3 - x_1)(x_3 - x_2)} c
+\end{eqnarray*}
+Now suppose we have two such polynomials $ f $ and $ g $. we notice that $ f - g $ must have three roots at $ \{ x_1, x_2, x_3\} $, that means $ f - g = n(x - x_1)(x-x_2)(x - x_3) $ for an arbitrary $ n \in F $.
+
+So the solution is simply 
+\begin{eqnarray*}
+    \frac{(x - x_2)(x - x_3)}{(x_1 - x_2)(x_1 - x_3)} a + \frac{(x - x_1)(x - x_3)}{(x_2 - x_1)(x_2 - x_3)} b + \frac{(x - x_1)(x - x_2)}{(x_3 - x_1)(x_3 - x_2)} c + n(x - x_1)(x-x_2)(x - x_3)
+\end{eqnarray*}
+
+Note how this solution ressemble the reduced echelon form we found in part b. The denominator on the right hand side comes from the Lagrange interpolation, and the symmetric polynomials on the left hand side comes from the expansion of  $ (x - x_1)(x-x_2)(x - x_3) $. This also shows the solution lies in a one dimensional subspace of $ F_4 $, which also agree with the reduced echelon form.
