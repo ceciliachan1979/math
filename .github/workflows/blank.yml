@@ -24,6 +24,7 @@ jobs:
             Misc/Recurrence/Recurrence.tex
             Misc/pde/pde.tex
             Misc/Ufd/Ufd.tex
+            Misc/Elliptic/Elliptic.tex
             Papers/GK/GK.tex
       - name: Compile Chinese LaTeX documents
         uses: xu-cheng/latex-action@v2
@@ -52,3 +53,4 @@ jobs:
             Ufd.pdf
             GK.pdf
             DifferentialForm.pdf
+            Elliptic.pdf
