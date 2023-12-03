@@ -1,0 +1,67 @@
+\section*{Question 1}
+\subsection*{Part a}
+It is unclear what "preserve" means in this context, but I can prove that the range is a subset of $ P_m(R) $. 
+
+\begin{eqnarray*}
+  & & deg(D p) \\
+  &=& deg(p_2 \frac{d}{dx^2}p + p_1 \frac{d}{dx}p + p_0 p ) \\
+  &\le& max(deg(p_2 \frac{d^2p}{dx^2}, deg(p_1 \frac{dp}{dx}), deg(p_0 p )) \\
+  &\le& max(deg(p_2)+deg(\frac{d^2p}{dx^2}), deg(p_1)+deg(\frac{dp}{dx}), deg(p_0)deg(p)) \\
+  &\le& max(2+(m-2), 1+(m-1), 0 + m) \\
+  &=& m  
+\end{eqnarray*}
+
+Therefore the range of $ D $ is a subset of $ P_m(R) $.
+
+\subsection*{Part b}
+Consider $ D(x^k) $, we have these special cases:
+
+\begin{eqnarray*}
+  D x^0 &=& f \\
+  D x^1 &=& dx + (e + f) \\
+\end{eqnarray*}
+
+For $ k \ge 2 $, we have
+
+\begin{eqnarray*}
+  & & D(x^k) \\
+  &=& (ax^2 + bx + c)\frac{d^2}{dx}x^k + (dx + e)\frac{d}{dx}x^k + fx^k \\
+  &=& (ax^2 + bx + c)k(k-1)x^{k-2} + (dx + e)kx^{k-1} + fx^k \\
+  &=& k(k-1)(ax^k + bx^{k-1} + cx^{k-2}) + k(dx^k + ex^{k-1}) + fx^k \\
+\end{eqnarray*}
+
+The diagonal entries of the matrix correspond to the coefficient of $ x_k $. The first two are $ f $ and $ d $, the remaining ones are $ k(k-1)a + kd +f $ for $ k \ge 2 $.
+\subsection*{Part c}
+Suppose $ 0 < a < d $, 
+
+\subsection*{Part d}
+In case $ a = 1. b = -1, c = 0, d = 2, e = -1, f = 0 $, we have the polynomials:
+
+\begin{eqnarray*}
+  D(x^0) &=& 0 \\
+  D(x^1) &=& 2x - 1 \\
+  D(x^2) &=& 2(2-1)(x^2 - x^1) + 2(2x^2 - x^1) \\
+         &=& 6x^2 - 4x \\
+  D(x^3) &=& 3(3-1)(x^3 - x^2) + 3(2x^3 - x^2) \\
+        &=& 12x^3 - 9x^2 \\
+\end{eqnarray*}
+
+The correspond to the matrix:
+\begin{eqnarray*}
+  & & M(D) \\
+  &=& \left(\begin{array}{cccc}
+    0 & -1 &  0 & 0  \\
+    0 & 2  & -4 & 0  \\
+    0 & 0  &  6 & -9 \\
+    0 & 0  &  0 & 12
+      \end{array}\right)
+\end{eqnarray*}
+
+The eigenvalues are obviously the ones on the diagonal, finding the eigenvectors is just a tedious exercise that is best done by the computer, here are the eigenvectors:
+
+\begin{eqnarray*}
+  D(1) &=& 0 \times 1 \\
+  D(2x - 1) &=& 2 \times (2x - 1) \\
+  D(6x^2 - 6x + 1) &=& 6 \times (6x^2 - 6x + 1) \\
+  D(20x^3 - 30x^2 + 12x - 1) &=& 12 \times (20x^3 - 30x^2 + 12x - 1)
+\end{eqnarray*}
