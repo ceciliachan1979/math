@@ -1,0 +1,9 @@
+\section*{Question 5}
+Since $ U_1, U_2 \cdots U_m $ are vector spaces, there exists $ B_1, B_2 \cdots B_n $ bases for them. Any vectors in $ U_1 + U_2 + \cdots + U_n $ can be written a a sum of vectors $ u_1 + u_2 + \cdots + u_n $, which can in turn written into the sum of linear combination of these basis vectors. That means $ B_1 \cup B_2 \cup \cdots \cup B_n $ spans $ U_1 + U_2 + \cdots + U_n $. The dimension is always at most the size of a spanning set, so:
+
+\begin{eqnarray*}
+    &   & dim(U_1 + U_2 + \cdots + U_n) \\
+    &\le& | B_1 \cup B_2 \cup \cdots \cup B_n | \\
+    &\le& | B_1 | + | B_2 | + \cdots + | B_n | \\
+    &=  & dim(U_1) + dim(U_2) + \cdots + dim(U_n)
+  \end{eqnarray*}
