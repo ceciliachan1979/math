@@ -1,0 +1,54 @@
+\section*{Question 2}
+The key idea is that the $ F_9 $ elements are $ 0, 1, 2, x, x + 1, x + 2, 2x, 2x + 1 $ and $ 2x + 2$. Once we have that, the rest is simply doing all the 9 x 9 multiplication. Here are the results:
+\begin{eqnarray*}
+  & & \left(
+        \begin{array}{ccccccccc}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 2 & x & x + 1 & x + 2 & 2x & 2x + 1 & 2x + 2 \\
+0 & 2 & 1 & 2x & 2x + 2 & 2x + 1 & x & x + 2 & x + 1 \\
+0 & x & 2x & 2 & x + 2 & 2x + 2 & 1 & x + 1 & 2x + 1 \\
+0 & x + 1 & 2x + 2 & x + 2 & 2x & 1 & 2x + 1 & 2 & x \\
+0 & x + 2 & 2x + 1 & 2x + 2 & 1 & x & x + 1 & 2x & 2 \\
+0 & 2x & x & 1 & 2x + 1 & x + 1 & 2 & 2x + 2 & x + 2 \\
+0 & 2x + 1 & x + 2 & x + 1 & 2 & 2x & 2x + 2 & x & 1 \\
+0 & 2x + 2 & x + 1 & 2x + 1 & x & 2 & x + 2 & 1 & 2x \\
+        \end{array}
+      \right) \\
+\end{eqnarray*}
+
+Of course, I am not going to do that 81 multiplications myself, the work is done by these simple python code:
+
+\begin{verbatim}
+e = []
+
+def mul(x,y):
+    (a,b) = x
+    (c,d) = y
+    # (ax + b)(cx + d)
+    # = acx^2 + (ad + bc)x + bd
+    # = (ad + bc)x + (bd - ac)
+    p = (a * d + b * c) % 3
+    q = (b * d - a * c + 3) % 3
+    if (p == 0):
+        return q
+    elif p == 1:
+        if q == 0:
+            return "x"
+        else:
+            return "x + %s" % q
+    else:
+        if q == 0:
+            return "2x"
+        else:
+            return "2x + %s" % q
+
+for c in range(0, 3):
+    for d in range(0, 3):
+        e.append((c,d))
+
+for p in e:
+    for q in e:
+        print(mul(p,q),end=" ")
+    print()
+
+\end{verbatim}
