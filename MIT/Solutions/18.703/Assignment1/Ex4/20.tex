@@ -1,0 +1,83 @@
+\section*{Ex4 - 20}
+To begin with, here is table 4.22 with empty cells annotated with capital letters so that I can refer to them later.
+
+\begin{tabular}{ c|c|c|c|c }
+      & e & a & b & c \\
+    \hline
+    e & e & a & b & c \\
+    a & a & P & Q & R \\
+    b & b & S & T & U \\
+    c & c & V & W & X 
+\end{tabular}
+
+Note that in order to have multiplicative inverse, each row and each column must not have duplicated elements, we will use this rule repeatedly.
+
+Following the problem statement, we will first try set $ P = e $. That leave us with $ \{Q, R\} = \{b, c\} $, but then $ Q \ne b $ because that would create a duplicate in the $ b $ column. So $ Q = c $, $ R = b $. Similar reasoning leads to $ S = c $, $ V = b $. Now the table becomes this.
+
+\begin{tabular}{ c|c|c|c|c }
+    & e & a & b & c \\
+  \hline
+  e & e & a & b & c \\
+  a & a & e & c & b \\
+  b & b & c & T & U \\
+  c & c & b & W & X 
+\end{tabular}
+
+Now we could have either $ T = a $ or $ T = e $, this leads to these complete tables $ G1 $ and $ G2 $.
+
+G1
+
+\begin{tabular}{ c|c|c|c|c }
+    & e & a & b & c \\
+  \hline
+  e & e & a & b & c \\
+  a & a & e & c & b \\
+  b & b & c & a & e \\
+  c & c & b & e & a 
+\end{tabular}
+
+G2
+
+\begin{tabular}{ c|c|c|c|c }
+    & e & a & b & c \\
+  \hline
+  e & e & a & b & c \\
+  a & a & e & c & b \\
+  b & b & c & e & a \\
+  c & c & b & a & e 
+\end{tabular}
+
+Alternatively, we could have set $ P = b $ instead, following the same logic, we will reach this table $ G3 $.
+
+G3
+
+\begin{tabular}{ c|c|c|c|c }
+    & e & a & b & c \\
+  \hline
+  e & e & a & b & c \\
+  a & a & b & c & e \\
+  b & b & c & e & a \\
+  c & c & e & a & b 
+\end{tabular}
+
+Note that $ G2 $ has a unique property that every element is an inverse of itself, so it cannot be isomorphic with $ G1 $ or $ G3 $. On the other hand, if we swap $ a $ and $ b $ in $ G1 $, then it becomes $ G3 $, so $ G1 $ and $ G3 $ are isomorphic.
+
+Note that at this point we only listed these are the only possible groups, we haven't verified for associativity yet.
+
+\subsection*{Part a}
+Yes, all groups of order 4 are commutative.
+
+\subsection*{Part b}
+$ G3 $ is isomorphic to $ U4 $ by mapping $ e, a, b, c $ to $ 1, i, -1, -i $ respectively. We also know $ G1 $ is isomorphic to $ G3 $, so $ G1 $ is also isomorphic to $ U4 $.
+
+\subsection*{Part c}
+$ G2 $ is isomorphic to the group of diagonal matrix of size $ 2 \times 2 $ with $ 1 $ and $ -1 $ only on the diagonal as follows:
+
+\begin{eqnarray*}
+    e = \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) \\
+    a = \left(\begin{array}{cc} -1 & 0 \\ 0 & 1 \end{array}\right) \\
+    b = \left(\begin{array}{cc} 1 & 0 \\ 0 & -1 \end{array}\right) \\
+    c = \left(\begin{array}{cc} -1 & 0 \\ 0 & -1 \end{array}\right)
+\end{eqnarray*}
+
+Now we have proved that there are two non-isomorphic groups of order 4. Both of them are Abelian.
