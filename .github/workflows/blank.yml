@@ -13,6 +13,7 @@ jobs:
             Books/Neukirch/Neukirch.tex
             Books/Neukirch/Notes.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
+            Misc/Bernoulli/Bernoulli.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
       - name: Upload LaTeX document
@@ -20,6 +21,7 @@ jobs:
         with:
           name: PDF
           path: |
+            Bernoulli.pdf
             Neukirch.pdf
             Notes.pdf
             NumberTheory.pdf
