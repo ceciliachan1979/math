@@ -268,7 +268,18 @@ Now we evaluate the values:
 \end{eqnarray*}
 So now we verify $ \left(\frac{-6}{p}\right) = 1 \iff p \pmod{12} \in \{1, 5, 7, 11\}$.
 \subsection*{(2)}
-Qwq
+Suppose there are only finitely many primes of form $ 24k + 5 $ or $ 24k + 11 $. Let $ \{p_1, p_2, \cdots p_n \} $ be all of them and consider $ q $ to be a prime factor of $ N = 9(p_1 p_2 \cdots p_n)^2 + 6 $. 
+
+\begin{eqnarray*}
+  (3(p_1 p_2 \cdots p_n))^2 + 6 &=& N \\
+  (3(p_1 p_2 \cdots p_n))^2 &=& N - 6 \\
+  (3(p_1 p_2 \cdots p_n))^2 &=& - 6 \pmod{N} \\
+  (3(p_1 p_2 \cdots p_n))^2 &=& - 6 \pmod{q} \\
+  \left(\frac{-6}{q}\right) &=& 1 \\
+  q &=& \{1, 5, 7, 11\} \pmod{24}
+\end{eqnarray*}
+
+Note that the product of any set of numbers that is either $ 1 \pmod{24} $ or $ 7 \pmod{24} $ is either $ 1 \pmod{24} $ or $ 7 \pmod{24} $, but $ N = 15 \pmod{24} $. Therefore, there must be a prime factor $ r $ of $ N $ which is either $ 5 \pmod{24} $ or $ 11 \pmod{24} $. Note that $ r $ is a factor of $ N $ and therefore cannot be one of $ \{ p_1, p_2, \cdots p_n \} $. This contradicts the fact that $ \{p_1, p_2, \cdots p_n \} $ are all the primes of form $ 24k + 5 $ or $ 24k + 11 $. Therefore, there must be infinitely many primes of form $ 24k + 5 $ or $ 24k + 11 $.
 
 \section*{Question 5}
 Since $ x^2 + y^2 = (z^2)^2 $ is a primitive pythagorean triple, we can let $ m > n, (m, n) = 1 $ such that $ x = m^2 - n^2, y = 2mn, z^2 = m^2 + n^2 $. Now we can use the same trick again and let $ s > t, (s, t) = 1 $ such that $ m = s^2 - t^2, n = 2st, z = s^2 + t^2 $. Now we get $ x = m^2 - n^2 = (s^2 - t^2)^2 - (2st)^2 = s^4 - 6s^2t^2 + t^4 $ and $ y = 2mn = 2(s^2 - t^2)2st = 4s^3t - 4st^3 $.
