@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\DeclareMathOperator{\arccosh}{arccosh}
+
+\title{Integral}
+\author{Cecilia}
+\date{June 2020}
+
+\begin{document}
+\maketitle
+\section{Just do it}
+Let $ x - 1.5 = 0.5 \cosh t $, $ \frac{dx}{dt} = 0.5 \sinh t $
+\begin{eqnarray*}
+  & & \int{\frac{3x^3 - x^2 + 2x - 4}{\sqrt{x^2 - 3x + 2}}dx} \\
+  &=& \int{\frac{3x^3 - x^2 + 2x - 4}{\sqrt{x^2 - 3x + 2.25 - 0.25}}dx} \\
+  &=& \int{\frac{3x^3 - x^2 + 2x - 4}{\sqrt{(x - 1.5)^2 - 0.5^2}}dx} \\
+  &=& \int{\frac{6.875 + 19.25 (x - 1.5) + 12.5 (x - 1.5)^2 + 3 (x - 1.5)^3}{\sqrt{(x - 1.5)^2 - 0.5^2}}dx} \\
+  & & \int{\frac{6.875 + 19.25 (x - 1.5) + 12.5 (x - 1.5)^2 + 3 (x - 1.5)^3}{\sqrt{(x - 1.5)^2 - 0.5^2}}dx} \\
+  &=& \int{\frac{6.875 + 19.25 (0.5 \cosh t) + 12.5 (0.5 \cosh t)^2 + 3 (0.5 \cosh t)^3}{\sqrt{(0.5 \cosh t)^2 - 0.5^2}}0.5 \sinh t dt } \\
+  &=& \int{6.875 + 19.25 (0.5 \cosh t) + 12.5 (0.5 \cosh t)^2 + 3 (0.5 \cosh t)^3 dt } \\
+  &=& \frac{1}{32}\int{220 + 308 \cosh t + 100 \cosh^2 t + 12 \cosh^3 t dt } \\
+  &=& \frac{1}{32}\int{270 + 317 \cosh(t) + 50 \cosh(2 t) + 3\cosh(3t) dt} \\
+  &=& \frac{1}{32}(270t + 317 \sinh(t) + 25 \sinh(2t) + \sinh(3t)) \\
+  &=& \frac{1}{32}(270t + 317 \sinh t + 50 \sinh t\cosh t + 4\sinh^3 t + 3\sinh t) \\
+  &=& \frac{1}{32}(270t + \sinh t(320 + 50 \cosh t + 4\sinh^2 t)) \\
+  &=& \frac{1}{32}(270t + \sinh t(320 + 50 \cosh t + 4(\cosh^2 t - 1))) \\
+  &=& \frac{1}{32}(270t + \sinh t(316 + 50 \cosh t + 4\cosh^2 t)) \\
+  &=& \frac{1}{32}(270\arccosh(\cosh t) + \sqrt{\cosh^2 t - 1}(316 + 50 \cosh t + 4\cosh^2 t))) \\
+  &=& \frac{1}{32}(270\arccosh(2x - 3) + \sqrt{(2x - 3)^2 - 1}(316 + 50 (2x - 3) + 4(2x - 3)^2)) \\
+  &=& \frac{1}{32}(270\arccosh(2x - 3) + 4\sqrt{x^2 - 3x + 2}(8x^2 + 26x + 101)) \\
+\end{eqnarray*}
+Many operations are questionable, $ \cosh $ has range $ [1, \infty) $, making this applicable only for $ x - 1.5 \geq 0.5 $, also we are picking sign arbitrarily when we do $ \arccos $ and square root. But nonetheless it is correct under proper ranges.
+\end{document}
