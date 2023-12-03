@@ -15,6 +15,7 @@ jobs:
             Exams/NumberTheory/Solutions/NumberTheory.tex
             Exams/HKALE/1998/HKALE-1998.tex
             Exams/HKALE/1999/HKALE-1999.tex
+            Exams/HKDSE/2020/HKDSE-2020.tex
             Misc/Bernoulli/Bernoulli.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
@@ -33,6 +34,7 @@ jobs:
             NumberTheory.pdf
             HKALE-1998.pdf
             HKALE-1999.pdf
+            HKDSE-2020.pdf
             Integral.pdf
             Recurrence.pdf
             pde.pdf
