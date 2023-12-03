@@ -1,0 +1,20 @@
+\section*{Question 3}
+The idea is to construct a matrix that has determinant 0. For convenience, let's try to construct a 2 x 2 example. The simplest non-zero diagonal is simply this:
+
+\begin{eqnarray*}
+\left(\begin{array}{cc}
+1 & * \\
+* & 1
+\end{array}\right)
+\end{eqnarray*}
+
+Now it is easy to see that we want the two unknown to have product 1, and that can be easily achieved with 
+
+\begin{eqnarray*}
+\left(\begin{array}{cc}
+1 & 1 \\
+1 & 1
+\end{array}\right)
+\end{eqnarray*}
+
+This can be interpreted as a linear transformation that takes $ av_1 + bv_2 $ to $ (a+b)v_1 + (a+b)v_2 $, and it is obviously non-invertible because it is not injective that both $ v_1 $ and $ v_2 $ maps to $ v_1 + v_2 $.

@@ -1,0 +1,28 @@
+\section*{Question 4}
+Since we have $ dim(V) $ distinct eigenvalues, the eigenvectors $ v_1, v_2 \cdots v_n $ form a basis, any vectors and be written as a linear combination of them. Denote the eigenvalues of $ v_i $ corresponding to $ S $ to be $ \lambda_{si} $ and corresponding to $ T $ to be $ \lambda_{ti} $.
+
+Consider both $ ST $ applied to an arbitrary vector $ v $ as follow:
+
+\begin{eqnarray*}
+  & & ST v \\
+  &=& ST (\sum c_i v_i) \\
+  &=& \sum c_i ST v_i \\
+  &=& \sum c_i S \lambda_{ti}v_i \\
+  &=& \sum c_i \lambda_{ti} S v_i \\
+  &=& \sum c_i \lambda_{ti} \lambda_{si} v_i \\
+\end{eqnarray*}
+
+Similarly, when applied to $ TS $, we have:
+
+\begin{eqnarray*}
+  & & TS v \\
+  &=& TS (\sum c_i v_i) \\
+  &=& \sum c_i TS v_i \\
+  &=& \sum c_i T \lambda_{si}v_i \\
+  &=& \sum c_i \lambda_{si} T v_i \\
+  &=& \sum c_i \lambda_{si} \lambda_{ti} v_i \\
+  &=& \sum c_i \lambda_{ti} \lambda_{si} v_i \\
+  & & ST v \\
+\end{eqnarray*}
+
+Since the two linear transformation behave exactly the same to all vectors in $ V $, these two linear transformation are identical.
