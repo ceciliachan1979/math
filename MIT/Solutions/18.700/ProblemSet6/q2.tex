@@ -1,0 +1,30 @@
+\section*{Question 2}
+\subsection*{Part a}
+\begin{itemize}
+    \item The first basis direction is $ d_1 = 1 $.
+    \item The first basis vector is $ v_1 = \frac{d_1}{\sqrt{<d_1, d_1>}} = 1 $
+    \item The second basis direction is $ d_2 = x - <x, v_1> v_1 = x - \frac{1}{2} $
+    \item The second basis vector is $ \frac{d_2}{\sqrt{<d_2, d_2>}} = \sqrt{3}(2x - 1) $
+    \item The third basis direction is $ d_3 = x^2 - <x^2, v_2> v_2 - <x^2, v_1> v_1 = x - \frac{1}{2} = x^2 - x + \frac{1}{6} $
+    \item The third basis vector is $ v_3 = \frac{d_3}{\sqrt{<d_3, d_3>}} = \sqrt{5}(6x^2 - 6x + 1) $
+    \item The fourth basis direction is $ d_4 = x^3 - <x^3, v_3> v_3 - <x^3, v_2> v_2  - <x^3, v_1> v_1 = \frac{1}{20}(20x^3 - 30x^2 + 12x - 1) $
+    \item The fourth basis vector is $ v_4 = \frac{d_4}{\sqrt{<d_4, d_4>}} = \sqrt{7}(20x^3 - 30x^2 + 12x - 1) $
+\end{itemize}
+\subsection*{Part b}
+\begin{eqnarray*}
+  & & <\sqrt{x}, v_1> v_1 + <\sqrt{x}, v_2> v_2 + <\sqrt{x}, v_3> v_3 + <\sqrt{x}, v_4> v_4 \\
+  &=& \frac{2}{3} + \frac{2}{5}(2x - 1) - \frac{2}{21}(6x^2 - 6x + 1) + \frac{2}{45}(20x^3 - 30x^2 + 12x - 1) \\
+  &=& \frac{8}{63} (7 x^3 - 15 x^2 + 15 x + 1) \\
+\end{eqnarray*}
+\subsection*{Part c}
+\begin{tabular}{ccc}
+x & $ \sqrt{x} $ & $ \frac{8}{63} (7 x^3 - 15 x^2 + 15 x + 1) $ \\
+\hline
+0.000 & 0.000 & 0.127 \\
+0.250 & 0.500 & 0.498 \\
+0.500 & 0.707 & 0.714 \\
+0.750 & 0.866 & 0.859 \\
+1.000 & 1.000 & 1.016 
+\end{tabular}
+\subsection*{Part d}
+By inspection, the basis obtained from the Gram Schmidt orthogonalization procedure happens to be the eigenvectors for the $ D $ operator defined in problem 1 d.
