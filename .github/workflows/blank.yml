@@ -19,6 +19,7 @@ jobs:
             Misc/pde/pde.tex
             Misc/Ufd/Ufd.tex
             Papers/GK/GK.tex
+            MIT/Solutions/MIT.tex
       - name: Upload LaTeX document
         uses: actions/upload-artifact@v2
         with:
@@ -33,3 +34,4 @@ jobs:
             pde.pdf
             GK.pdf
             Ufd.pdf
+            MIT.pdf

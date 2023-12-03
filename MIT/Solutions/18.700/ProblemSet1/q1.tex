@@ -1,0 +1,21 @@
+\section*{Question 1}
+Instead of proving $ G $ is a field directly, it is easier to observe that $ G $ is a subset of $ C $, and so we can prove that $ G $ is a field by proving this lemma first:
+
+If $ H $ is a subset of a field $ F $, then $ H $ is a field (inheriting the operations from $ F $) if 
+\begin{enumerate}
+    \item There exists an element $ h \ne 0 \in H $, 
+    \item for all $ p, q \in H $, $ p - q \in H $, and
+    \item for all $ p, q \ne 0 \in H $, $ \frac{p}{q} \in H $.
+\end{enumerate}
+
+By setting $ p = q = h $, using the rule 2 and 3, we get that $ 0 \in H $ and $ 1 \in H $. By setting $ p = 0 $, using rule 2, we get that additive inverse exists in $ H $. By setting $ p = 1 $, using rule 3, we get that multiplicative inverse exists in $ H $. Using inverses, we know sum and product exists in $ H $. All other field axioms simply inherits from $ F $, therefore $ H $ is a field.
+
+With the lemma, in order to prove that $ G $ is a field. It suffice to show the three conditions. 
+
+\begin{enumerate}
+    \item we have  $ 1 + 0i \in H $, 
+    \item for any $ (a + bi), (c + di) \in G $, we have $ (a + bi) - (c + di) = (a-c) + (b-d)i \in G $. 
+    \item for any $ (a + bi), (c + di) \in G $, we have $ \frac{a + bi}{c + di} = \frac{(a+bi)(c-di)}{c^2 + d^2} = \frac{ac+bd}{c^2+d^2} + \frac{bc-ad}{c^2+d^2}i \in G $.
+\end{enumerate}
+
+Therefore we conclude $ G $ is a field.
