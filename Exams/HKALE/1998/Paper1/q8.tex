@@ -1,0 +1,104 @@
+\section*{Question 8}
+\subsection*{Part a}
+\begin{eqnarray*}
+  & & \left|\begin{array}{ccc}
+    a & 1 & b \\
+    1 & a & b \\
+    1 & 1 & ab
+  \end{array}\right| \\
+  &=& a^3 b + b + b - ab - ab - ab \\
+  &=& b(a^3 -3a + 2) \\
+  &=& b(a - 1)^2(a + 2)
+\end{eqnarray*}
+
+Therefore (*) has a unique solution if and only if $ a \ne 1 $, $ a \ne -2 $ and $ b \ne 0 $.
+
+Using the first two equations, we have:
+\begin{eqnarray*}
+  (ax + y + bz) - (x + ay + bz) &=& 0 \\
+  (a-1)x - (a - 1)y &=& 0 \\
+  x &=& y
+\end{eqnarray*}
+
+With that, the last two equations simplifies to
+\begin{eqnarray*}
+  (a + 1)x + bz &=& 1 \\
+  2x + abz &=& b \\
+\end{eqnarray*}
+So we can scale and solve as follow:
+\begin{eqnarray*}
+  2(a+1)x + 2bz &=& 2 \\
+  2(a+1)x + a(a+1)bz &=& (a+1)b \\
+  (2b - a(a+1)b)z &=& 2 - (a+1)b \\
+  z &=& \frac{2 - (a+1)b}{2b - a(a+1)b} \\
+  &=& \frac{2 - (a+1)b}{b(a + 2)(1 - a)} \\
+\end{eqnarray*}
+
+Or, to solve for $ x $ (and therefore $ y $), we have:
+\begin{eqnarray*}
+  a(a + 1)x + abz &=& a \\
+  2x + abz &=& b \\
+  (a(a+1) - 2)x &=& a - b \\
+  x &=& \frac{a - b}{a(a+1) - 2} \\
+  x &=& \frac{a - b}{(a-1)(a+2)}
+\end{eqnarray*}
+
+So the answer is $ \left(\frac{a - b}{(a-1)(a+2)}, \frac{a - b}{(a-1)(a+2)}, \frac{2 - (a+1)b}{b(a + 2)(1 - a)} \right)$
+
+\subsection*{Part b}
+\subsubsection*{Part i}
+When $ a = -2 $, the equations simplifies to
+\begin{eqnarray*}
+  -2x + y + bz &=& 1 \\
+   x - 2y + bz &=& 1 \\
+   x + y  -2bz &=& b \\
+\end{eqnarray*}
+
+Using the first two equations, we can solve 
+\begin{eqnarray*}
+  -2x + y + bz &=& 1 \\
+   x - 2y + bz &=& 1 \\
+  (-2x + y) - (x - 2y) &=& 0 \\
+  -3x + 3y &=& 0 \\
+  x &=& y
+\end{eqnarray*}
+Putting it back to equation 1, we have 
+\begin{eqnarray*}
+  -2x + x + bz &=& 1 \\
+            bz &=& 1 + x
+\end{eqnarray*}
+Putting it in equation 3, we have
+\begin{eqnarray*}
+  x + x -2 (1 + x) &=& b \\
+  b &=& -2
+\end{eqnarray*}
+So if $ a = -2 $, $ b $ must be $ -2 $. 
+
+Since $ bz = 1 + x $, therefore the solutions are $ (x, x, \frac{1+x}{-2}) $
+\subsubsection*{Part ii}
+When $ a = 1 $, the equations simplifies to
+\begin{eqnarray*}
+  x + y + bz &=& 1 \\
+  x + y + bz &=& 1 \\
+  x + y + bz &=& b \\
+\end{eqnarray*}
+It is obviously that it is required for $ b = 1 $ in order to be consistent. It is also obvious that the solution is  $ (x, y, (1- x - y)) $
+
+\subsection*{Part c}
+When $ b = 0 $, the equations simplifies to
+\begin{eqnarray*}
+  ax + y &=& 1 \\
+   x + ay &=& 1 \\
+   x + y &=& 0
+\end{eqnarray*}
+Using the first two equations, we can solve 
+\begin{eqnarray*}
+  ax + y &=& 1 \\
+  x + ay &=& 1 \\
+  (a - 1)x &=& (a - 1)y \\
+\end{eqnarray*}
+Suppose the equations are consistent so that a solution exists. We consider the two cases $ a \ne 1 $ or $ a = 1 $.
+Suppose $ a \ne 1 $, $ x = y $, the last equation implies $ x = y = 0 $, that contradicts the $ ax + y = 1 $
+Suppose $ a = 1 $, the first equation reads $ x + y = 1 $ and the last equation reads $ x + y = 0 $, that is also a contradiction. 
+
+In both case, we reach a contradiction, therefore the equations are inconsistent if $ b = 0 $.

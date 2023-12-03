@@ -1,0 +1,20 @@
+\section*{Question 2}
+\subsection*{Part a}
+Consider $ (1 + x)^{n+1} = (1 + x)(1 + x)^n $ 
+\begin{eqnarray*}
+  \sum\limits_{i=1}^{n+1}(C^{n+1}_i)x^i &=& (1 + x)(\sum\limits_{i=1}^{n+1}(C^{n}_i)x^i)
+\end{eqnarray*}
+And compare the coefficient of $ x^{k+1} $
+\begin{eqnarray*}
+  C^{n+1}_{k+1} &=& C^n_{k+1} + C^n_k
+\end{eqnarray*}
+\subsection*{Part b}
+When $ m = 0 $, $ C^n_n = C^{n+1}_{n+1} = 1 $
+Suppose it is true for $ m = k $, consider $ m = k + 1 $
+\begin{eqnarray*}
+  & & \sum\limits_{i = 0}^{k+1}C^{n+i}_n \\
+  &=& \sum\limits_{i = 0}^k C^{n+i}_n + C^{n+k+1}_n \\
+  &=& C^{n+k+1}_{n+1} + C^{n+k+1}_n \\
+  &=& C^{n+k+2}_{n+1}
+\end{eqnarray*}
+So the proposition is proved by the principle of mathematical induction.

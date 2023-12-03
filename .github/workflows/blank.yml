@@ -13,6 +13,8 @@ jobs:
             Books/Neukirch/Neukirch.tex
             Books/Neukirch/Notes.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
+            Exams/HKALE/1998/HKALE-1998.tex
+            Exams/HKALE/1999/HKALE-1999.tex
             Misc/Bernoulli/Bernoulli.tex
             Misc/Integral/Integral.tex
             Misc/Recurrence/Recurrence.tex
@@ -29,6 +31,8 @@ jobs:
             Neukirch.pdf
             Notes.pdf
             NumberTheory.pdf
+            HKALE-1998.pdf
+            HKALE-1999.pdf
             Integral.pdf
             Recurrence.pdf
             pde.pdf

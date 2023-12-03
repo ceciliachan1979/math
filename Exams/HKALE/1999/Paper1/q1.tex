@@ -1,0 +1,25 @@
+\section*{Question 1}
+\subsection*{Part a}
+\begin{eqnarray*}
+  \left|\begin{array}{ccc}
+  1 & 1 & -\lambda \\
+  1 & \lambda & -1 \\
+  \lambda & 1 & -1
+  \end{array}\right| &=& 0 \\
+  (1)(\lambda)(-1) + (1)(-1)(\lambda) + (-\lambda)(1)(1) - (-\lambda)(\lambda)(\lambda) - (1)(1)(-1) - (1)(-1)(1) &=& 0 \\
+  \lambda^3 -3\lambda + 2 &=& 0 \\
+  (\lambda - 1)^2(\lambda + 2) &=& 0 
+\end{eqnarray*}
+Therefore $ \lambda = 1 $ or $ \lambda = -2 $
+\subsection*{Part b}
+When $ \lambda = 1 $, the only equation we have is $ x + y - z = 0 $, so the answer is $ (x, y, (-x-y)) $.
+
+When $ \lambda = -2 $, the equations become
+
+\begin{eqnarray*}
+   x + y + 2z &=& 0 \\
+   x - 2y - z &=& 0 \\
+  -2x + y - z &=& 0
+\end{eqnarray*}
+
+Subtract the first equation by the second equation gives $ 3y + 3z = 0 $, so we have $ y = -z $. Then the first equation implies $ x - z + 2z = 0 $, so $ x = -z $ as well. Therefore the solution is $ (-z, -z, z) $

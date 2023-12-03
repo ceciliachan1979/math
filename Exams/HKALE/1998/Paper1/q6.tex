@@ -1,0 +1,17 @@
+\section*{Question 6}
+\subsection*{Part a}
+\begin{eqnarray*}
+  f(x) &=& x^p - px + p - 1 \\
+  f'(x) &=& px^{p-1} - p \\
+  f''(x) &=& p(p-1)x^{p-2} \\
+\end{eqnarray*}
+If $ f'(x) = 0 $, then $ x^{p-1} = 1 $, so $ x = 1 $. At that point, $ f(1) = 0 $. Since $ 0 < p < 1 $, when $ x > 0 $, $ f''(1) = p(p-1)x < 0 $. Therefore the point $ (1, 0) $ is a global maximum for $ x > 0 $.
+\subsection*{Part b}
+Substitute $ x = \frac{a}{b} $, we have
+\begin{eqnarray*}
+  x^p - px + p - 1 &\le& 0 \\
+  x^p - px &\le& 1 - p \\
+  \left(\frac{a}{b}\right)^p - p\left(\frac{a}{b}\right) &\le& 1 - p \\
+  a^pb^{1-p} - pa &\le& (1 - p)b \\
+  a^pb^{1-p} &\le& pa + (1 - p)b 
+\end{eqnarray*}

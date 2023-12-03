@@ -1,0 +1,190 @@
+\section*{Question 9}
+\subsection*{Part a}
+We have $ \det(A) = 0 $, so $ ad - bc = 0 $. We also have $ a \ne 0 $, so we have $ d - b\frac{c}{a} = 0 $.
+Let $ k = \frac{c}{a} $, now $ d - bk = 0 $ implies $ d = bk $, and also $ c = ak $ by definition. Therefore the matrix must be of the specified form.
+
+\subsection*{Part b}
+\begin{eqnarray*}
+  \left(\begin{array}{cc}
+    1 & 0 \\
+    r & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    a & b \\
+    ka & kb
+  \end{array}\right) &=& 
+  \left(\begin{array}{cc}
+    a & b \\
+    (r+k)a & (r+k)b 
+  \end{array}\right)
+\end{eqnarray*}
+Therefore $ r = -k $ and the matrix P = $ \left(\begin{array}{cc}
+    1 & 0 \\
+    -k & 1
+  \end{array}\right) $ satisfy $ PA = \left(\begin{array}{cc}
+    \alpha & \beta \\
+    0 & 0
+  \end{array}\right) $, in fact $ \alpha = a $ and $ \beta = b $.
+
+Next, consider:
+
+\begin{eqnarray*}
+  \left(\begin{array}{cc}
+    1 & 0 \\
+    -k & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & 0 \\
+    k & 1
+  \end{array}\right) &=& 
+  \left(\begin{array}{cc}
+    1 & 0 \\
+    0 & 1
+  \end{array}\right)
+\end{eqnarray*}
+So $ P^{-1} = \left(\begin{array}{cc}
+    1 & 0 \\
+    k & 1
+  \end{array}\right) $
+
+\begin{eqnarray*}
+  & & PAP^{-1}Q \\
+  &=& \left(\begin{array}{cc}
+    1 & 0 \\
+    -k & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    a & b \\
+    ka & kb
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & 0 \\
+    k & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & s \\
+    0 & 1
+  \end{array}\right) \\
+  &=& \left(\begin{array}{cc}
+    a & b \\
+    0 & 0
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & 0 \\
+    k & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & s \\
+    0 & 1
+  \end{array}\right) \\
+  &=& \left(\begin{array}{cc}
+    a + bk & b \\
+    0 & 0
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & s \\
+    0 & 1
+  \end{array}\right) \\
+  &=& \left(\begin{array}{cc}
+    a + bk & (a+bk)s + b \\
+    0 & 0
+  \end{array}\right)
+\end{eqnarray*}
+Remember $ d = bk $, so $ s = -\frac{b}{a + d} $, and the matrix $ Q = \left(\begin{array}{cc}
+    1 & -\frac{b}{a+d} \\
+    0 & 1
+  \end{array}\right) $with satisfy $ PAP^{-1}Q = \left(\begin{array}{cc}
+    \gamma & 0 \\
+    0 & 0
+  \end{array}\right) $, in fact, $ \gamma = a + d $
+\subsection*{Part c}
+consider:
+
+\begin{eqnarray*}
+  \left(\begin{array}{cc}
+    1 & s \\
+    0 & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & -s \\
+    0 & 1
+  \end{array}\right) &=& 
+  \left(\begin{array}{cc}
+    1 & 0 \\
+    0 & 1
+  \end{array}\right)
+\end{eqnarray*}
+
+Therefore $ Q^{-1} = \left(\begin{array}{cc}
+    1 & -s \\
+    0 & 1
+  \end{array}\right) $. 
+
+Consider:
+
+\begin{eqnarray*}
+  & & Q^{-1}PAP^{-1}Q \\
+  &=& \left(\begin{array}{cc}
+    1 & -s \\
+    0 & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    a+d & 0 \\
+    0 & 0
+  \end{array}\right) \\
+  &=& \left(\begin{array}{cc}
+    a+d & 0 \\
+    0 & 0
+  \end{array}\right)
+\end{eqnarray*}
+
+Now we know $ S = Q^{-1}P = \left(\begin{array}{cc}
+    1 & \frac{b}{a+d} \\
+    0 & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & 0 \\
+    -k & 1
+  \end{array}\right) = \left(\begin{array}{cc}
+    1-\frac{bk}{a+d} & \frac{b}{a+d} \\
+    -k & 1
+  \end{array}\right) = \left(\begin{array}{cc}
+    \frac{a}{a+d} & \frac{b}{a+d} \\
+    -k & 1
+  \end{array}\right)$. \\
+
+We also have $ S^{-1} = P^{-1}Q \left(\begin{array}{cc}
+    1 & 0 \\
+    k & 1
+  \end{array}\right)\left(\begin{array}{cc}
+    1 & -\frac{b}{a+d} \\
+    0 & 1
+  \end{array}\right) = \left(\begin{array}{cc}
+    1 & -\frac{b}{a+d} \\
+    k & 1-\frac{kb}{a+d} 
+  \end{array}\right) = \left(\begin{array}{cc}
+    1 & -\frac{b}{a+d} \\
+    k & \frac{a}{a+d} 
+  \end{array}\right)$ \\
+
+Substitute in the numbers, it will be $ S = \left(\begin{array}{cc}
+    \frac{3}{17} & \frac{7}{17} \\
+    -2 & 1
+  \end{array}\right)$, $ S^{-1} = \left(\begin{array}{cc}
+    1 & -\frac{7}{17} \\
+    2 & \frac{3}{17}
+  \end{array}\right) $ \\
+
+Since $ (SAS^{-1})^n = SA^nS^{-1} $, so $ A^n = S^{-1}(SAS^{-1})^nS = S^{-1}\left(\begin{array}{cc}
+    \gamma^n & 0 \\
+    0 & 0
+  \end{array}\right)S $.
+
+In numbers, that would be $ \left(\begin{array}{cc}
+    1 & -\frac{7}{17} \\
+    2 & \frac{3}{17}
+  \end{array}\right)\left(\begin{array}{cc}
+    17^n & 0 \\
+    0 & 0
+  \end{array}\right)\left(\begin{array}{cc}
+    \frac{3}{17} & \frac{7}{17} \\
+    -2 & 1
+  \end{array}\right) = \left(\begin{array}{cc}
+    17^n & 0 \\
+    2(17)^n & 0
+  \end{array}\right)\left(\begin{array}{cc}
+    \frac{3}{17} & \frac{7}{17} \\
+    -2 & 1
+  \end{array}\right) = \left(\begin{array}{cc}
+    3(17)^{n-1} & 7(17)^{n-1} \\
+    6(17)^{n-1} & 14(17)^{n-1}
+  \end{array}\right)$

@@ -1,0 +1,62 @@
+\section*{Question 11}
+\subsection*{Part a}
+\subsection*{Part i}
+For convenience, let $ \sqrt{p} = r $. Let $ f(x) = x^3 - 3px + 2q $. If (*) has a repeated root, that it will be the root of the HCF of $ f(x) $ and $ f'(x) = 3x^2 - 3p = 3(x + r)(x - r) $. So the HCF can only be $ x \pm r $.
+
+Using long division, we have found these two useful identities 
+
+\begin{eqnarray*}
+ & & (x+r)(x^2 - rx - 2r^2) \\
+ &=& x^3 + 3r^2x - 2r^3 \\
+ &=& x^3 - 3px - 2r^3
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  & & (x-r)(x^2 + rx + 2r^2) \\
+  &=& x^3 - 3r^2x + 2r^3 \\
+  &=& x^3 - 3px + 2r^3
+\end{eqnarray*}
+
+Therefore, $ 2r^3 = \pm 2q $ if and only if (*) has a repeated root.
+
+\begin{eqnarray*}
+  &      & 2r^3 = \pm 2q \\
+  & \iff & r^3 = \pm q \\
+  & \iff & r^6 = q^2 \\
+  & \iff & p^3 = q^2
+\end{eqnarray*}
+
+So $ p^3 = q^2 $ if and only if (*) has a repeated root.
+\subsection*{Part ii}
+If $ q = \sqrt{p^3} $, then $ q = r^3 $, therefore $ r = \sqrt{p} $ is a root of (*) by the second identity above, and we know it is a repeated root because it is shared with $ f'(x) $ 
+
+\subsection*{Part iii}
+If $ q = -\sqrt{p^3} $, then $ q = -r^3 $, therefore $ -r = -\sqrt{p} $ is a root of (*) by the first identity above, and we know it is a repeated root because it is shared with $ f'(x) $ 
+\subsection*{Part b}
+\subsection*{Part i}
+\begin{eqnarray*}
+  2x^3 + 3x^2 + x + c &=& 0 \\
+  2(y-h)^3 + 3(y-h)^2 + (y - h) + c &=& 0 \\
+  2(y^3 - 3hy^2 + 3h^2y - h^3) + 3(y^2 - 2hy + h^2) + (y - h) + c &=& 0 \\
+  2y^3 - 6hy^2 + 6h^2y - 2h^3 + 3y^2 - 6hy + 3h^2 + y - h + c &=& 0 \\
+  2y^3 + (3 - 6h)y^2 + (6h^2 - 6h + 1)y + (3h^2 - 2h^3 - h + c) &=& 0 \\
+\end{eqnarray*}
+
+To zero the $ y^2 $ term, we choose $ h = \frac{1}{2} $.
+
+\begin{eqnarray*}
+  2y^3 + (3 - 6h)y^2 + (6h^2 - 6h + 1)y + (3h^2 - 2h^3 - h + c) &=& 0 \\
+  2y^3 + (3 - \frac{6}{2})y^2 + (\frac{6}{4} - \frac{6}{2} + 1)y + (\frac{3}{4} - \frac{2}{8} - \frac{1}{2} + c) &=& 0 \\
+  2y^3 - \frac{1}{2}y + c &=& 0 \\
+  y^3 - \frac{1}{4}y + \frac{c}{2} &=& 0 \\
+  y^3 - 3\left(\frac{1}{12}\right)y + 2\left(\frac{c}{4}\right) &=& 0 \\
+\end{eqnarray*}
+\subsection*{Part ii}
+\begin{eqnarray*}
+  p^3 &=& q^2 \\
+  \left(\frac{1}{12}\right)^3 &=& \left(\frac{c}{4}\right)^2 \\
+  c &=& \sqrt{\frac{1}{108}}
+\end{eqnarray*}
+In this case, we know $ \sqrt{p} = \sqrt{\frac{1}{12}} = \frac{1}{2\sqrt{3}} $ is a repeated root of the transformed equation. We also know that the sum of root is $ 0 $, therefore the remaining root is $ 0 - \frac{2}{2\sqrt{3}} = - \frac{1}{\sqrt{3}} $
+
+Therefore, the roots to (**) are $ \frac{1}{2\sqrt{3}} - \frac{1}{2} $ or $ -\frac{1}{\sqrt{3}} - \frac{1}{2} $

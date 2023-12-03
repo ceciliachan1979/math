@@ -1,0 +1,124 @@
+\section*{Question 12}
+\subsection*{Part a}
+\subsubsection*{Part i}
+\begin{eqnarray*}
+  \Delta \ge 0 \\
+  b^2 - 4ac \ge 0 \\
+  (-2p)^2 - 4(1)(q) \ge 0 \\
+  4p^2 - 4q \ge 0 \\
+  p^2 \ge q
+\end{eqnarray*}
+\subsubsection*{Part ii}
+\begin{eqnarray*}
+    -3b &=& -(\alpha + \beta + \gamma) \\
+        &=& -((2p) + \gamma) \\
+      b &=& \frac{2p + \gamma}{3}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+    3c &=& \alpha\beta + \alpha\gamma + \beta\gamma \\
+       &=& q + (\alpha + \beta)\gamma \\
+       &=& q + 2p\gamma \\
+     c &=& \frac{q + 2p\gamma}{3}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+    -d &=& -\alpha\beta\gamma \\
+     d &=& q\gamma
+\end{eqnarray*}
+
+To prove the inequalities, we start with these few simple results:
+
+\begin{eqnarray*}
+  (p - \gamma)^2 &\ge& 0 \\
+  p^2 - 2p\gamma + \gamma^2 &\ge& 0 \\
+  p^2 + 4p\gamma + \gamma^2 &\ge& 6p\gamma \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  p^2 &\ge& q \\
+  3p^2 &\ge& 3q
+\end{eqnarray*}
+
+Combining them, we can get:
+
+\begin{eqnarray*}
+  3p^2 + p^2 + 4p\gamma + \gamma^2 &\ge& 3q + 6p\gamma \\
+  4p^2 + 4p\gamma + \gamma^2 &\ge& 3q + 6p\gamma \\
+  \frac{4p^2 + 4p\gamma + \gamma^2}{9} &\ge& \frac{3q + 6p\gamma}{9} \\
+  \frac{4p^2 + 4p\gamma + \gamma^2}{9} &\ge& \frac{q + 2p\gamma}{3} \\
+  \left(\frac{2p + \gamma}{3}\right)^2 &\ge& \frac{q + 2p\gamma}{3} \\
+  b^2 \ge c
+\end{eqnarray*}
+
+$ 2p = \alpha + \beta > 0 $, $ q = \alpha \beta > 0 $, $ \gamma > 0 $, so $ c > 0 $. \\
+
+For the other inequality, we can use a similar trick:
+
+\begin{eqnarray*}
+  (q - p\gamma)^2 &\ge& 0 \\
+  q^2 - 2pq\gamma + p^2\gamma^2 &\ge& 0 \\
+  q^2 + 4pq\gamma + p^2\gamma^2 &\ge& 6pq\gamma 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  p^2 &\ge& q \\
+  3p^2\gamma^2 &\ge& 3q\gamma^2
+\end{eqnarray*}
+
+Combining:
+
+\begin{eqnarray*}
+  q^2 + 4pq\gamma + p^2\gamma^2 + 3p^2\gamma^2 &\ge& 6pq\gamma + 3q\gamma^2 \\
+  q^2 + 4pq\gamma + 4p^2\gamma^2 &\ge& 6pq\gamma + 3q\gamma^2 \\
+  q^2 + 4pq\gamma + 4p^2\gamma^2 &\ge& (6p + 3\gamma)q\gamma \\
+  \frac{q^2 + 4pq\gamma + 4p^2\gamma^2}{9} &\ge& \left(\frac{6p + 3\gamma}{9}\right)q\gamma \\
+  \frac{q^2 + 4pq\gamma + 4p^2\gamma^2}{9} &\ge& \left(\frac{2p + \gamma}{3}\right) q\gamma \\
+  c^2 & \ge & bd 
+\end{eqnarray*}
+
+Last, but not least, 
+
+\begin{eqnarray*}
+  b^2 &\ge& c \\
+  b &\ge& \sqrt{c} \\
+  bdc &\ge& c\sqrt{c}d \\
+  (c^2)c &\ge& c\sqrt{c}d \\
+  (\sqrt{c})^3 &\ge& d \\
+  \sqrt{c} &\ge& \sqrt[3]{d}
+\end{eqnarray*}
+
+\subsection*{Part 2}
+Note that $ B = \frac{\pi - A - C}{2} = \frac{\pi}{2} - \frac{(A+C)}{2} $, so $ \tan\left(\frac{B}{2}\right) = \frac{1}{\tan(\frac{A}{2}+\frac{C}{2})} $
+
+Now we consider the latter:
+\begin{eqnarray*}
+  \tan\left(\frac{A}{2}+\frac{C}{2}\right) &=& \frac{\tan\left(\frac{A}{2}\right) + \tan\left(\frac{C}{2}\right)}{1 - \tan\left(\frac{A}{2}\right)\tan\left(\frac{C}{2}\right)} \\
+  \tan\left(\frac{B}{2}\right) &=& \frac{1 - \tan\left(\frac{A}{2}\right)\tan\left(\frac{C}{2}\right)}{\tan\left(\frac{A}{2}\right) + \tan\left(\frac{C}{2}\right)} \\
+  \tan\left(\frac{B}{2}\right)\left(\tan\left(\frac{A}{2}\right) + \tan\left(\frac{C}{2}\right)\right) &=& 1 - \tan\left(\frac{A}{2}\right)\tan\left(\frac{C}{2}\right) \\
+  \tan\left(\frac{A}{2}\right)\tan\left(\frac{B}{2}\right) + \tan\left(\frac{B}{2}\right)\tan\left(\frac{C}{2}\right) + \tan\left(\frac{C}{2}\right)\tan\left(\frac{A}{2}\right) &=& 1
+\end{eqnarray*}
+
+Using part (a) and consider $ (\alpha, \beta, \gamma) = (\tan\left(\frac{A}{2}\right), \tan\left(\frac{B}{2}\right), \tan\left(\frac{C}{2}\right)) $, these are obviously positive numbers.
+
+First, let's figure out the values for $ b $, $ c $ and $ d $.
+\begin{eqnarray*}
+  b &=& \frac{\alpha + \beta + \gamma}{3} \\
+  c &=& \frac{1}{3}(\alpha\beta + \beta\gamma + \gamma\alpha) \\
+    &=& \frac{1}{3} \\
+  d &=& \alpha \beta \gamma
+\end{eqnarray*}
+
+Then we can use the results:
+\begin{eqnarray*}
+  b &\ge& \sqrt{c} \\
+  \frac{\alpha + \beta + \gamma}{3} &\ge& \sqrt{\frac{1}{3}} \\
+  \alpha + \beta + \gamma &\ge& \sqrt{3}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  \sqrt[3]{d} &\;e& \sqrt{c} \\
+  d &\le& c^{3}{2} \\
+  \alpha \beta \gamma &\le& \left(\frac{1}{3}\right)^{\frac{3}{2}} \\
+                      &=& \frac{\sqrt{3}}{9}
+\end{eqnarray*}

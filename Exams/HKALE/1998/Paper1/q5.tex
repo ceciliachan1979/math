@@ -1,0 +1,30 @@
+\section*{Question 5}
+Since $ \alpha $ is a root of $ x^2 - 14 x + 36 = 0 $, for $ k \ge 2 $, we have
+\begin{eqnarray*}
+  \alpha^2 - 14\alpha + 36 &=& 0 \\
+  \alpha^k - 14\alpha^{k-1} + 36\alpha^{k-2} &=& 0 \\
+\end{eqnarray*}
+Similarly, we have
+\begin{eqnarray*}
+  \beta^2 - 14\beta + 36 &=& 0 \\
+  \beta^k - 14\beta^{k-1} + 36\beta^{k-2} &=& 0 \\
+\end{eqnarray*}
+Combining, we have
+\begin{eqnarray*}
+  \alpha^k + \beta^k - 14(\alpha^{k-1} + \beta^{k-1}) + 36(\alpha^{k-2} + \beta^{k-2}) &=& 0 \\
+  \alpha^k + \beta^k &=& 14(\alpha^{k-1} + \beta^{k-1}) - 36(\alpha^{k-2} + \beta^{k-2}) 
+\end{eqnarray*}
+With this, we can prove the proposition using mathematical induction. To start with
+$ \alpha + \beta = 14 $ is divisible by 2. $ \alpha^2 + \beta^2 = (\alpha + \beta)^2 - 2\alpha\beta = 14^2 - 2(36) = 124 $ is divisible by 4.
+
+Suppose $ \alpha^{k-2} + \beta^{k-2} $ is divisible by $ 2^{k-2} $ and $ \alpha^{k-1} + \beta^{k-1} $ is divisible by $ 2^{k-1} $, then there exists integer constants $ C $ and $ D $ such that $  \alpha^{k-2} + \beta^{k-2} = 2^{k-2} C $ and $  \alpha^{k-1} + \beta^{k-1} = 2^{k-1} D $. Using the relation, we have:
+
+\begin{eqnarray*}
+  \alpha^k + \beta^k &=& 14(\alpha^{k-1} + \beta^{k-1}) - 36(\alpha^{k-2} + \beta^{k-2}) \\
+                     &=& 14(2^{k-1} D) - 36(2^{k-2} C) \\
+                     &=& 2^k(7D - 9C) 
+\end{eqnarray*}
+
+So $ \alpha^k + \beta^k $ is an integer and is divisible by $ 2^k $.
+
+By the principle of mathematical induction, $ \alpha^n + \beta^n $ is divisible by $ 2^n $ for all integer $ n \ge 0 $.
