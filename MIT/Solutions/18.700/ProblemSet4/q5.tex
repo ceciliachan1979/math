@@ -1,0 +1,24 @@
+\section*{Question 5}
+Consider the vector of all 1.
+
+\begin{eqnarray*}
+T(1,1,\cdots,1) = (1+1+\cdots+1,1+1+\cdots+1,\cdots,1+1+\cdots+1) = (1+1+\cdots+1)(1,1,\cdots,1)
+\end{eqnarray*}
+
+It is cumbersome to write $ 1+1+\cdots+1 $ all the time, let's denote that as $ N $. In finite fields, that could be any element in the field, including $ 0 $. The above equation shows that $ N $ is an eigenvalue of $ T $.
+
+Here is another way to construct and eigenvector:
+
+\begin{eqnarray*}
+T(1,0,0,\cdots,-1) = (0,0,\cdots,0) = 0(1,0,0,\cdots,-1)
+\end{eqnarray*}
+
+Again, -1 denotes the additive inverse of 1. The above equation shows that $ 0 $ is an eigenvalue of $ T $
+
+The initial $ 1 $ can be placed anywhere in the first $ (n-1) $ dimensions as long as the last dimension is $ -1 $, this created $ (n-1) $ linearly independent vectors that spans the null space of $ T $.
+
+Suppose $ N \ne 0 $, now we have two distinct eigenvalues, $ \{ N, 0 \} $, the eigenspace corresponding to $ N $ has dimension 1. The eigenspace corresponding to $ 0 $ has dimension $ n - 1 $. Therefore we have found all the eigenvalues.
+
+On the other hand, if $ N = 0 $, we wanted to show that 0 is the only eigenvalue of $ T $. Consider a general case where we have $ T(x) = \lambda x $. In order for this to work, $ x $ must be a non-zero uniform vector, but then $ T(x) = 0 $, so $ \lambda $ must be 0.
+
+As a side note, since $ dim(range(T)) = 1 $, $ dim(null(T)) = (n-1) $. When $ N = 0$, we know that $ \{0\} $ is the only eigenvalue, therefore the eigenspace corresponding to $ 0 $ is exactly the null space and has dimension $ (n - 1) $, that means the matrix is defective.
