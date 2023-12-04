@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts} 
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[legalpaper, margin=0.5in]{geometry}
+\usepackage[final]{pdfpages}
+
+\title{Gaussian Integers}
+\author{Cecilia Chan}
+
+\begin{document}
+\maketitle
+
+The goal of the document is to show the Gaussian Integers is a UFD, this is meant to supplement the Neukirch exercise so that I am not using an unproved fact.
+
+\section*{Defining the Gaussian Integers}
+The Gaussian integers are defined as the set of complex number $ G = \{a + bi\} $ such that $ a \in \mathbb{Z} $ and $ b \in \mathbb{Z} $.
+
+\section*{Gaussian Integers is a commutative ring}
+These are just some boring proof that the Gaussian Integers form a integral domain, feel free to skip if this looks obvious, much of these follows from the properties of the integers.
+
+\subsection*{Addition closure}
+For all $ a + bi \in G $ and $ c + di \in G $, $ (a + bi) + (c + di) = a + c + (b + d) \in G $ because $ a + c \in \mathbb{Z} $ and $ b + d \in \mathbb{Z} $.
+
+\subsection*{Addition associativity}
+
+Follows from the complex numbers.
+
+\subsection*{Addition identity}
+
+Follows from the complex numbers.
+
+\subsection*{Additive inverse}
+
+Follows from the complex numbers.
+
+\subsection*{Addition commutativity}
+
+Follows from the complex numbers.
+
+\subsection*{Multiplicative closure}
+
+For all $ a + bi \in G $ and $ c + di \in G $, $ (a + bi)(c + di) = (ac-bd) + (ad + bc)i \in G $ because $ ac - bd \in \mathbb{Z} $ and $ ad + bc \in \mathbb{Z} $.
+
+\subsection*{Multiplicative identity}
+
+Follows from the complex numbers.
+
+\subsection*{Multiplicative associativity}
+
+Follows from the complex numbers.
+
+\subsection*{Distributivity}
+
+Follows from the complex numbers.
+
+\subsection*{Nonexistence of zero divisor}
+
+Follows from the complex numbers.
+
+\section*{Gaussian Integers is an Euclidean domain}
+
+The definition of Euclidean domain from Wikipedia is the following:
+
+A integral domain $ R $ is an Euclidean domain if there exist a function $ f: R/\{0\} \to \mathbb{Z} $, named the Euclidean function, such that for all $ x \in R/\{0\} $, $ f(x) \ge 0 $ and for all $ a \in R $, $ b \in R/{0} $, there exists $ q \in R $ such that $ a = bq + r $, and either $ r = 0 $ or $ f(r) < f(b) $.
+
+We claim that $ f(a + bi) = |a+bi|^2 = a^2 + b^2 $ satisfy the requirement.
+
+To prove that claim, we have to show the existence of $ q $, and to do that, we note that the real quotient $ \frac{a}{b} = q' $, we can pick the lattice point $ q $ closest to $ q' $ and write $ \frac{a}{b} = q' = q + r' $. Note that since $ q $ is the closest lattice point, it is at most $ \frac{\sqrt{2}}{2} $ from $ q' $, therefore $ |r| \le \frac{\sqrt{2}}{2} $. Multiply $ b $ on the both side we get $ a = bq + br' = bq + r $, so $ f(r) = |r|^2 = (|b||r|)^2 = f(b)|r|^2 \le \frac{f(b)}{2} $. 
+
+\section*{Euclidean domain is a Principal Ideal Domain}
+TODO: Definition of Ideal
+TODO: Definition of Principal Ideal Domain
+
+An Euclidean domain is always an principal ideal domain because for any ideal $ I $, we claim that $ I = (a) $ for $ a $ an element with least Euclidean function value. The existence of such an element is an application of the well ordering principle. Apparently $ I $ contains all multiples of $ a $, and if there exist an element $ b $ such that $ b \in I $ but $ b \notin (a) $, then Euclidean division give us $ b = aq + r $ and $ f(r) $ is less than $ f(a) $, a contradiction. 
+
+\section*{Principal Ideal Domain is a Noetherian ring}
+TODO: Definition of Noetherian Ring
+
+Assume (for contradiction) that the principal ideal domain $ R $ had an infinite tower of ideals $ I_1 \subseteq I_2 \subseteq \cdots $.
+
+The union of these ideals $ \cup_{i=1}^{\infty} I_i $ is an ideal because :
+
+\begin{enumerate}
+    \item{If $ a \in \cup_{i=1}^{\infty} I_i $, then $ a \in I_n $ for some $ n \in \mathbb{N} $, now $ ra $ for any $ r \in R $, $ ra \in I_n \in \cup_{i=1}^{\infty} I_i $.}
+    \item{If $ a,b \in \cup_{i=1}^{\infty} I_i $, then $ a,b \in I_n $ for some $ n \in \mathbb{N} $, now $ a + b \in I_n \in \cup_{i=1}^{\infty} I_i $.}
+\end{enumerate}
+
+The union must also be a principal ideal, so $ \cup_{i=1}^{\infty} I_i = (q) $, now $ q \in \cup_{i=1}^{\infty} I_i \in I_m $ for some $ m \in \mathbb{N} $, this shows the $ I_{m} = I_{m+1} = \cdots = (q) $ and therefore $ R $ is Noetherian.
+
+\section*{Principal Ideal Domain is a Unique Factorization Domain}
+\subsection*{One can create a irreducible factorization}
+TODO: Definition of irreducible (make sure we include that an irreducible is not a unit)
+An element $ x $ is either reducible or irreducible, if it is irreducible, we are done. If it is reducible, then it can be written as $ x = pq $ such that both $ p $ and $ q $ are not units. We can repeat this procedure to factor until we reach an irreducible factorization. The only concern is whether or not this process terminates. In this section, we will prove that it does if we are working with a principal ideal domain.
+
+If the process never completes, we have $ x = f_1 f_2 \cdots $ and none of them is a unit. Consider the ideal sequences $ \left(\frac{x}{f_1}\right) \subseteq \left(\frac{x}{(f_1)(f_2)}\right) \cdots $. This is an infinite tower, so by being a Noetherian ring, it terminates at a certain element, let's say $ \left(\frac{x}{(f_1)(f_2)\cdots(f_n)}\right) $. 
+
+Since $ \frac{x}{(f_1)(f_2)\cdots(f_{n+k})} \in \left(\frac{x}{(f_1)(f_2)\cdots(f_{n+k-1})}\right) $ for all $ k \in \mathbb{N}$, that means $ \frac{x}{(f_1)(f_2)\cdots(f_{n+k})} = r \frac{x}{(f_1)(f_2)\cdots(f_{n+k-1})} $. By canceling, we see that $ r f_{n+k} = 1 $ and so all $ f_{n+k} $ are units, this contradiction shows that the factorization process will eventually ends.
+
+\subsection*{Irreducibles are prime}
+TODO: Definition of prime.
+
+To show that an irreducible element $ x $ in a principal ideal domain $ R $ is prime, we need to prove if $ x | pq $, then either $ x | p $ or $ x | q $.
+
+Assume (for contradiction) $ x | pq $ so that we can write $ rx = pq $, $ x \nmid p $ and $ x \nmid q $. Now consider the set $ I_1 = \{ax + bp\} $ for all $ a, b \in R $, we show that this set is an ideal.
+
+\begin{enumerate}
+    \item{Suppose $ m \in I_1 $, now $ m = ax + bp $, $ rm = rax + rbp $, so $ rm \in I_1 $.}
+    \item{Suppose $ m, n \in I_1 $, now $ m = ax + bp $, $ n = cx + dp $, so $ m + n = (a+c)x + (b+d)p \in I_1 $.}
+\end{enumerate}
+
+Now $ I_1 $ is an ideal, by being a principal ideal domain, $ I_1 = (g) $ for some generator $ g $. but then $ gu = x $ for some $ g $, so $ g $ must either be a unit or an associate of $ x $. But if $ g $ is an associate of $ x $, then $ x | p $, so $ g $ must be a unit and so $ 1 \in I_1 $, so we can write $ 1 = ax + bp $ for some specific $ a $ and $ b $.
+
+Similarly, we can define $ I_2 = {ax + bq} $ and therefore obtain the expression $ 1 = cx + dq $.
+
+Putting these together we get:
+
+\begin{eqnarray*}
+  bdrx &=& bdpq                  \\
+       &=& bpdq                  \\
+       &=& (1-ax)(1-cx)          \\
+       &=& 1 - ax - cx + axcx    \\
+     1 &=& bdrx + ax + cx - axcx \\
+       &=& (bdr + a + c - axc)x
+\end{eqnarray*}
+
+This shows that $ x $ is a unit, but we said $ x $ is irreducible, so it is a contradiction, that shows that $ x $ is prime.
+
+\subsection*{Finally}
+Suppose $ x = p_1 p_2 \cdots p_m = q_1 q_2 \cdots q_n $ such that $ p_i $ and $ q_i $ are all irreducible. Because $ p_1 $ is irreducible, so $ p_1 | q_i $ for some $ i $, but $ q_i $ is also irreducible, therefore $ q_i $ is an associate of $ p_1 $. Inductively, we can show that the factorization is unique up to ordering and associates.
+
+This conclude Gaussian Integers is an Euclidean domain is a Principal Ideal Domain is a Unique Factorization Domain.
+
+\section*{References}
+\begin{enumerate}
+    \item{\href{https://crypto.stanford.edu/pbc/notes/numberfield/edpidufd.html}{ED implies PID implies UFD}}
+    \item{\href{https://planetmath.org/everypidisaufd}{Every PID is a UFD}}
+\end{enumerate}
+
+\end{document}

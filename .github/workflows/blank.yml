@@ -27,6 +27,7 @@ jobs:
             Misc/Ufd/Ufd.tex
             Misc/Elliptic/Elliptic.tex
             Misc/Automata/Automata.tex
+            Misc/Gaussian/Gaussian.tex
             Papers/GK/GK.tex
       - name: Compile Chinese LaTeX documents
         uses: xu-cheng/latex-action@v2
@@ -58,3 +59,4 @@ jobs:
             DifferentialForm.pdf
             Elliptic.pdf
             Automata.pdf
+            Gaussian.pdf
