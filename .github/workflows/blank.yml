@@ -12,6 +12,7 @@ jobs:
           root_file: |
             Books/Neukirch/Neukirch.tex
             Books/Neukirch/Notes.tex
+            Books/BabyRudin/BabyRudin.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
             Exams/HKALE/1998/HKALE-1998.tex
             Exams/HKALE/1999/HKALE-1999.tex
@@ -41,6 +42,7 @@ jobs:
           name: PDF
           path: |
             Neukirch.pdf
+            BabyRudin.pdf
             Notes.pdf
             NumberTheory.pdf
             HKALE-1998.pdf
