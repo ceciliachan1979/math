@@ -6,13 +6,17 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
+      - name: Compile BabyRudin LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: Books/BabyRudin
+          root_file: BabyRudin.tex
       - name: Compile English LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
             Books/Neukirch/Neukirch.tex
             Books/Neukirch/Notes.tex
-            Books/BabyRudin/BabyRudin.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
             Exams/HKALE/1998/HKALE-1998.tex
             Exams/HKALE/1999/HKALE-1999.tex
@@ -41,8 +45,8 @@ jobs:
         with:
           name: PDF
           path: |
+            Books/BabyRudin/BabyRudin.pdf
             Neukirch.pdf
-            BabyRudin.pdf
             Notes.pdf
             NumberTheory.pdf
             HKALE-1998.pdf
