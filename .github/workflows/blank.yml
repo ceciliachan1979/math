@@ -6,6 +6,11 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
+      - name: Compile DoneRight LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: Books/DoneRight
+          root_file: DoneRight.tex
       - name: Compile BabyRudin LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -45,6 +50,7 @@ jobs:
         with:
           name: PDF
           path: |
+            Books/DoneRight/DoneRight.pdf
             Books/BabyRudin/BabyRudin.pdf
             Neukirch.pdf
             Notes.pdf
