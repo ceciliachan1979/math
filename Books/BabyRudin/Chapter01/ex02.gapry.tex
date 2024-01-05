@@ -1,0 +1,29 @@
+\subsection*{Exercise 02 (Gapry)}
+
+Proof by Contradiction \\
+
+Assume that $\left(\frac{p}{q}\right)^2 = 12$, where $gcd(p,\ q) = 1$ and $p,\ q \in \mathbb{Z}$.\\
+
+Then, we have $p^2 = 12q^2 = 2 \cdot 6 \cdot q^2$. This implies that $p^2$ is even, and hence $p$ is even. \\
+
+Since $gcd(p,\ q) = 1$ and $p$ is even, it follows that $q$ is odd. \\
+
+We have proved that $p$ is even, let's express $p$ as $2k$, where $k \in \mathbb{Z}$. Then, $p^2 = 12q^2$ becomes $(2k)^2 = 12q^2$, which simplifies to $k^2 = 3q^2$. \\
+
+Since $3$ is odd and $q$ is odd, it follows that $k$ is also odd. \\
+
+We have proved that both $q$ and $k$ are odd, let's express $k$ as $2x - 1$ and $q$ as $2y - 1$, where $x,\ y \in \mathbb{Z}$. Then, $k^2 = 3q^2$ becomes $(2x - 1)^2 = 3(2y - 1)^2$. \\
+
+Expanding and simplifying, we get:
+\begin{flalign*}
+               (2x - 1)^2 &= 3(2y - 1)^2      &\\
+            4x^2 - 4x + 1 &= 3(4y^2 - 4y + 1) &\\
+                          &= 12y^2 - 12y + 3  &\\
+4x^2 - 4x - (12y^2 - 12y) &= 3 - 1            &\\
+   4x(x - 1) - 12y(y - 1) &= 2                &\\
+  4(x(x - 1) - 3y(y - 1)) &= 2                &
+\end{flalign*}
+
+Since $x,\ y \in \mathbb{Z}$, by the closure property of integers, we know that $z = x(x - 1) - 3y(y - 1) \in \mathbb{Z}$. However, $4z = 2$ is impossible in $\mathbb{Z}$. Therefore, we have established that there is no rational number whose square is $12$. 
+
+\pagebreak
