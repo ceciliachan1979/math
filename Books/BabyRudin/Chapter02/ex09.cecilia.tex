@@ -1,0 +1,31 @@
+\subsection*{Exercise 09 (Cecilia)}
+\subsubsection*{Part a}
+Every point $ p $ of $ E^o $ is an interior point of $ E $.
+$ p $ is inside a neighborhood $ N $ of $ p $ such that $ N \subset E $.
+If $ N $ is not a subset of $ E^o $, then $ N $ contains a point $ q $ such that $ q \notin E^o $.
+But $ q \in N \subset E $, q is an interior point of $ E $, which is a contradiction.
+Therefore $ N \subset E^o $, $ p $ is an interior point of $ E^o $, and so $ E^o $ is open.
+
+\subsubsection*{Part b}
+If $ E $ is open, every point of $ E $ is an interior point of $ E $, therefore $ E \subset E^o $.
+Every interior point of $ E $ is a point of $ E $, therefore $ E^o \subset E $.
+Therefore $ E = E^o $.
+
+If $ E = E^o $, then $ E = E^o $ is open by part a.
+
+\subsubsection*{Part c}
+If $ G $ is open, every point of $ G $ is an interior point of $ G $, every point of $ G $ is contained in a neighborhood $ N $ of $ G $ such that $ N \subset G $.
+But $ G \subset E $, therefore $ N \subset E $, every point of $ G $ is an interior point of $ E $, therefore $ G \subset E^o $.
+
+\subsubsection*{Part d}
+Consider a point $ p \in (E^o)^c $, $ p $ is not an interior point of $ E $, therefore every neighborhood $ N $ of $ p $ contains a point $ q $ such that $ q \notin E \implies q \in E^c $, therefore $ q $ is a limit point of $ E^c $, therefore $ p $ is a limit point of $ E^c $, therefore $ p \in \overline{E^c} $ and $ (E^o)^c \subset \overline{E^c} $.
+
+On the other hand, consider a point $ r \in \overline{E^c} $, $ r $ is a limit point of $ E^c $, every neighborhood $ N $ of $ r $ contains a point $ s $ such that $ s \in E^c $, so there does not exists a neighborhood of $ r $ that does not contain any point not in $ E $, in other words, every neighborhood of $ r $ contains a point is not a subset of $ E $, so $ r $ is not an interior point of $ E $, $ r \in (E^o)^c $, therefore $ \overline{E^c} \subset (E^o)^c $.
+
+Together, we have $ \overline{E^c} = (E^o)^c $.
+
+\subsubsection*{Part e}
+No, consider the set $ E = (1, 2) \cup (1, 3) $. $ E $ is open, so the interior of $ E $ is $ E $ itself. However, the closure of $ E $ is $ [1, 3] $, its interior is $ (1, 3) $, which is not the same as the interior of $ E $.
+
+\subsubsection*{Part f}
+No, consider the set $ E = \{1\} $, the interior is $ \emptyset $, the closure of the interior is $ \emptyset $. However, the closure of $ E $ is $ \{1\} $, which is not the same as the closure of the interior of $ E $.
