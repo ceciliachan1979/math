@@ -1,5 +1,5 @@
 name: Build LaTeX document
-on: [push, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
