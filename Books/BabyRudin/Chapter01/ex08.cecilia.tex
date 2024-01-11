@@ -1,0 +1,29 @@
+\subsection*{Exercise 08 (Cecilia)}
+After definition 1.26, Rudin identifies the complex number $ (a, 0) $ as the real number $ a $ on the basis that arithmetic of $ (a, 0) $ and $ a $ are compatible. However, that does not say anything about the ordering of the complex numbers. 
+In fact, suppose an ordering exist, it might be the case that the ordering of $ (a, 0) $ is not compatible with the ordering of $ a $, so identification could be confusing. In the sequel, we will not use the identification, and use the ordered pair representation instead.
+
+Suppose (for contradiction) that an ordering of complex number can be defined.
+
+First, we show that $ (-1, 0) > (0, 0) $ is false. Suppose $ (-1, 0) > (0, 0) $, we have:
+
+\begin{eqnarray*}
+             (-1, 0) &>& (0, 0)          \\
+    (-1, 0) + (1, 0) &>& (0, 0) + (1, 0) \\
+              (0, 0) &>& (1, 0)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+           (-1, 0) &>& (0, 0)        \\
+    (-1, 0)(-1, 0) &>& (0, 0)(-1, 0) \\
+            (1, 0) &>& (0, 0)
+\end{eqnarray*}
+
+Apparently these two facts contradict each other. Therefore, $ (-1, 0) > (0, 0) $ is false.
+
+With that result, suppose the complex number can be assigned an order so that it becomes an ordered field. Then we know that either $ i > (0, 0) $ or $ i < (0, 0) $.
+
+Suppose $ i > (0, 0) $, then $ i^2 > (0, 0) $, which means $ (-1, 0) > (0, 0) $, which is false.
+
+Otherwise suppose $ i < (0, 0) $, then $ (0, 0) = i - i < -i $, which means $ (0, 0) < (-i)^2 $, which means $ (0, 0) < (-1, 0) $, which is false.
+
+Therefore we have a contradiction and it is impossible to impose an order on the complex numbers so that it becomes an ordered field.
