@@ -2,16 +2,36 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{pgffor}   % sudo apt install texlive-latex-extra
 \usepackage{hyperref}
 
-\title{Solution to Exercises on the \\Principles of Mathematical Analysis}
+\newcommand{\inputfiles}[2]{
+    \def\filename{#1}
+    \def\totalexercises{1,...,#2}
+    \def\authorname{cecilia,gapry}
+    \foreach \i in \totalexercises {
+        \IfFileExists{\filename\i.tex} {
+            \input{\filename\i.tex}
+        }{
+            \foreach \j in \authorname{
+                \IfFileExists{\filename\i.\j.tex}{
+                    \input{\filename\i.\j.tex}
+                }
+            }
+        }
+    }
+}
+
+\title{Solution to Exercises on the \\Principles of Mathematical Analysis (3rd)}
+\author{Cecilia, Gapry}
 
 \begin{document}
 \maketitle
 
 \section*{Ch01 - The Real and Complex Number Systems}
-\input{Chapter01/ex01.tex}
-\input{Chapter01/ex08.cecilia.tex}
-\input{Chapter01/ex08.gapry.tex}
+\inputfiles{Chapter01/ex0}{20}
+
+\section*{Ch02 - Basic Topology}
+\inputfiles{Chapter02/ex0}{30}
 
 \end{document}
