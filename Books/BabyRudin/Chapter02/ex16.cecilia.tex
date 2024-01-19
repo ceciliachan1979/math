@@ -1,0 +1,24 @@
+\subsection*{Exercise 16 (Cecilia)}
+For all point $ p $ in $ E $
+\begin{eqnarray*}
+  p^2 < 3 \\
+  \implies p^2 < 4 \\
+  \implies p < 2 \\
+  \implies |0 - p| < 2 \\
+  \implies d(0, p) < 2
+\end{eqnarray*}
+Therefore $ E $ is bounded.
+
+if $ a \in \mathbb{Q} $ and $ a^2 < 2 $, let $ d = \sqrt{2} - a $, then the neighborhood $ N_d(a) $ does not intersect $ E $, therefore $ a $ is not a limit point of $ E $.
+
+Similarly, if $ b \in \mathbb{Q} $ and $ b^2 > 2 $, let $ d = b - \sqrt{3} $, then the neighborhood $ N_d(a) $ does not intersect $ E $, therefore $ b $ is not a limit point of $ E $.
+
+Therefore $ E^c $ does not contain any limit point of $ E $, and so $ E $ contains all its limit points and is closed.
+
+Consider the open cover $ (0, p) $ for all rational $ p $ such that $ 0 < p^2 < 3 $. 
+
+The open cover does cover $ E $ because for all $ x \in E $, there exists a rational number $ p $ such that $ x < p < \sqrt{3} $ by theorem 1.20b, and so $ x \in (0, p) $.
+
+Any finite subcover of the open cover will have a maximum rational number $ p $ such that $ p^2 < 3 $, and by theorem 1.20b again, there exists a rational number $ q $ such that $ p < q < \sqrt{3} $, and so $ q \notin (0, p) $, and so the finite subcover does not cover $ E $.
+
+Therefore $ E $ is not compact.
