@@ -1,0 +1,10 @@
+\subsection*{Exercise 02 (Cecilia)}
+
+Consider positive integer $x$ such that it is not a perfect square, let the prime factorization of $x = p_1^{a_1}p_2^{a_2} \cdots p_n^{a_n}$. Without loss of generality, let $a_1$ be odd, so we can write $x = p q$ where $p = p_1^{a_1}$ and $q = p_2^{a_2} \cdots p_n^{a_n}$ and so $\gcd(p, q) = 1$. For the sake of contradiction, we also let $\sqrt{x}$ to be rational. So $\sqrt{x} = \frac{r}{s}$, where $r$ and $s$ are coprime integers.
+
+First, we have $pq = x = (\sqrt{x})^2 = \left(\frac{r}{s}\right)^2 = \frac{r^2}{s^2}$, which implies $pqs^2 = r^2$. Now it is clear that $r$ must have $m = p_1^{(a_1 + 1)/2}$ as a factor since $p$ is a factor of $r^2$, write $r = m t$.
+
+Using $r = mt$, we have $ pq = \left(\frac{mt}{s}\right)^2$, which implies $pqs^2 = m^2 t^2 = p_1^{a_1 + 1}t^2 = p p_1 t^2$. Cancelling the $p$, we have $qs^2 = p_1 t^2$. Since $p_1$ is a factor of $qs^2$, it must be a factor of $q$ or $s^2$. However, $\gcd(p, q) = 1$, so $p_1$ is not a factor of $q$, so $p_1$ is a factor of $s^2$ and so $p_1$ is a factor of $s$.
+
+Now we have our contradiction, since $\gcd(r, s) = 1$, but $p_1$ is a factor of both $r$ and $s$.
+
