@@ -6,33 +6,40 @@
 \usepackage{pgffor}   % sudo apt install texlive-latex-extra
 \usepackage{hyperref}
 
-\newcommand{\inputfiles}[2]{
+\newcommand{\importfile}[2]{
     \def\filename{#1}
-    \def\totalexercises{1,...,#2}
+    \def\q{#2}
     \def\authorname{cecilia,gapry,kelvin}
-    \foreach \i in \totalexercises {
-        \IfFileExists{\filename\i.tex} {
-            \input{\filename\i.tex}
-        }{
-            \foreach \j in \authorname{
-                \IfFileExists{\filename\i.\j.tex}{
-                    \input{\filename\i.\j.tex}
-                }
+    \IfFileExists{\filename\q.tex} {
+        \input{\filename\q.tex}
+    }{
+        \foreach \j in \authorname{
+            \IfFileExists{\filename\q.\j.tex}{
+                \input{\filename\q.\j.tex}
             }
         }
     }
 }
+\newcommand{\inputfiles}[1]{
+    \def\zero{0}
+    \foreach \i in {1,...,10} {
+        \importfile{#1\zero}{\i}
+    }
+    \foreach \i in {11,...,99} {
+        \importfile{#1}{\i}
+    }
+}
 
 \title{Solution to Exercises on the \\Principles of Mathematical Analysis (3rd)}
-\author{Cecilia, Gapry}
+\author{Cecilia, Gapry, Kelvin}
 
 \begin{document}
 \maketitle
 
 \section*{Ch01 - The Real and Complex Number Systems}
-\inputfiles{Chapter01/ex0}{20}
+\inputfiles{Chapter01/ex}
 
 \section*{Ch02 - Basic Topology}
-\inputfiles{Chapter02/ex0}{30}
+\inputfiles{Chapter02/ex}
 
 \end{document}
