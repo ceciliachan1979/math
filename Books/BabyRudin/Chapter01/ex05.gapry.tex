@@ -1,14 +1,11 @@
 \subsection*{Exercise 05 (Gapry)}
-\begin{flushleft}
-$\text{(1) } \exists\ \alpha \in R \ni  x \geq  \alpha \ \forall  x \in  A$ \\
-$\text{(2) } \exists\ \alpha \in R \ni -x \leq -\alpha \ \forall -x \in -A$ \\
-\end{flushleft}
 
 \begin{flushleft}
-(1) $\implies  \alpha = \inf( A)$ \\
-(2) $\implies -\alpha = \sup(-A)$
-\end{flushleft}
+Since $A \subset R$, and $A$ is bounded below, we know that $\inf A$ exists.
+Let's claim $\alpha = \inf A$, so that $A = \{x \in R\ |\ x \ge \alpha \}$. 
+It follows that $-A = \{-x \in R\ | -x \le -\alpha,\ x \in A\}$. 
+Since we know that $\alpha$ is the greatest lower bound, 
+the negation of inequality $x \ge \alpha$, which is $-x \le -\alpha$, shows $-\alpha$ the least upper bound, that is , $-\alpha = \sup(-A)$. \\
 
-\begin{flushleft}
-Obviously, $a = -(-a) \implies \inf(A) = -\sup(-A)$
+According to 1.14 Proposition (d), $\alpha = -(-\alpha)$, we can conclude that $\inf A = -\sup(-A)$.
 \end{flushleft}
