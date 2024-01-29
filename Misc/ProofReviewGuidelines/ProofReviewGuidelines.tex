@@ -12,21 +12,35 @@
 \section*{Motivation}
 The goal of this document is accumulate knowledge obtained from proof reviews. As we get more feedback, we should generalize the knowledge, make it into the check list below, so that we can check our own proofs. 
 
-\section*{Are all the symbols defined? What are their qualifications?}
-For each symbol used in the proof, we should ask ourselves:
+\section*{About symbols}
+For each used in the proof, we should ask ourselves:
 \begin{itemize}
     \item Is it defined?
     \item What are its qualifications?
 \end{itemize}
-Whenever we say for all, what is the domain?
+
+\section*{About definitions}
+\begin{itemize}
+    \item Is it guaranteed to exist?
+    \item Is it already defined? Avoid redefinition.
+    \item Is the definition used? Is it used much?
+    \item Whenever we say for all, what is the domain?
+\end{itemize}
 
 \section*{Are the operations used allowed?}
-For example, we cannot use "greatest" common divisor in an arbitrary Principal Ideal Domain. There isn't a ordering defined there.
+\begin{itemize}
+    \item What domain am I working on, real numbers, or just a general field?
+    \item Can the denominator be 0?
+    \item Avoid using greatest in set where an ordering is not defined.
+    \item Be careful of the order of operands, especially so in non-commutative algebra.
+\end{itemize}
 
-\section*{Is it possible to misinterpret?}
-Some common symbols can mean different things in different contexts. For example, 0 can be the additive identity or the zero vector, is it clear from the context?
-
-\section*{Is it hard to read?}
-Sometimes, we say "it is clear" or "it is obvious", it is really clear and obvious? 
+\section*{Miscellaneous}
+\begin{itemize}
+    \item Be careful with typos, do we miss a minus sign somewhere?
+    \item In a correct proof, every line is a fact, can I find a counter example to any of the lines?
+    \item Is it possible to misinterpret?
+    \item Sometimes, we say "it is clear" or "it is obvious", it is really clear and obvious?
+\end{itemize}
 
 \end{document}
