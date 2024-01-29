@@ -1,14 +1,14 @@
 \subsection*{Exercise 05 (Kelvin)}
-Due to the fact that the $\mathbb{R}$ has the greatest lower bound property, the Infimum of $A$ exists: $ \alpha = \inf A $.\\
-This implies:
+Due to the fact that the $\mathbb{R}$ has the greatest lower bound property, $ \inf(A) $ exists.\\
 
-$\forall x \in A, x \ge \alpha \implies -x<-\alpha \implies -\inf A$ is the upper bound of $-A$.\\
-To verify whether $-\inf A$ is an least upper bound of $-A$ ($-\inf A = \sup -A$),
+$\forall x \in A, x \ge \inf(A) \implies -x<-\inf(A) \implies -\inf(A)$ is an upper bound of $-A$.\\
 
-$\forall \gamma \in \mathbb{R}, \gamma < -\inf A \implies -\gamma > \inf A$ \\
-Given that $\inf A$ is the greatest lower bound, from $-\gamma > \inf A$, we have
+To verify whether $-\inf(A)$ is the least upper bound of $-A$ ($-\inf(A) = \sup(-A)$), we check that any real number less than it is not an upper bound.
 
-$\exists x \in A, \forall \gamma \in \mathbb{R}, -\gamma > x \implies \gamma < -x $
+$\forall \gamma \in \mathbb{R} $ such that $ \gamma < -\inf(A) $, we know $ -\gamma > \inf(A)$ \\
 
-$\implies \exists x \in -A, \forall \gamma \in \mathbb{R}$, $\gamma$ is not an upper bound of $-A$. \\
-Therefore, $-\inf A = \sup -A \implies \inf A = -\sup A$.
+Given that $\inf(A)$ is the greatest lower bound, therefore, $ \exists x \in A$ such that $ -\gamma > x $.
+
+With that, we have $ \gamma < -x $. so indeed $\gamma$ is not an upper bound of $-A$. \\
+
+Therefore, $-\inf(A) = \sup(-A) \implies \inf(A) = -\sup(-A)$.
