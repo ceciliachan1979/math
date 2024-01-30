@@ -1,0 +1,51 @@
+\subsection*{Exercise 06 (Gapry)}
+
+\subsubsection*{6.(a)}
+
+We know the equation $r = \frac{m}{n} = \frac{p}{q}$ by assumption, 
+it follows $nqr = mq = pn$ (Closure Axiom, Existence Multiplication Inverse Element). According to Theorem 1.21, there is one and only one positive real $y$ such that
+$y^{nqr} = y^{mq} = y^{pn} = x$ if $nqr = mq = pn$. In the case, $y$ equals $b$ so the equation turns to $b^{nqr} = b^{mq} = b^{pn}$, $b > 1$. Let's analyze $((b^m)^\frac{1}{n})^{nq}$ and $((b^p)^\frac{1}{q})^{nq}$
+
+\begin{flalign*}
+((b^m)^\frac{1}{n})^{nq} &= (b^m)^{\frac{1}{n} \cdot n \cdot q} \text{ (Exponent rules, $(b^i)^j = b^{ij}$, i, j are integers)} &\\ 
+                         &= (b^m)^{n \cdot \frac{1}{n} \cdot q} \text{ (by 1.12 (M2))} &\\
+                         &= (b^m)^{1 \cdot q}                   \text{ (by 1.12 (M5))} &\\
+                         &= (b^m)^{q \cdot 1}                   \text{ (by 1.12 (M2))} &\\
+                         &= (b^m)^{q}                           \text{ (by 1.12 (M4))} &\\
+                         &= b^{mq}                              \text{ (Exponent rules, 
+                                                                        $(b^i)^j = b^{ij}$, 
+                                                                        i, j are integers)} &\\
+((b^p)^\frac{1}{q})^{nq} &= (b^p)^{\frac{1}{q} \cdot n \cdot q} \text{ (Exponent rules, 
+                                                                        $(b^i)^j = b^{ij}$, 
+                                                                        i, j are integers)} &\\ 
+                         &= (b^p)^{q \cdot \frac{1}{q} \cdot n} \text{ (by 1.12 (M2))} &\\
+                         &= (b^p)^{1 \cdot n}                   \text{ (by 1.12 (M5))} &\\
+                         &= (b^p)^{n \cdot 1}                   \text{ (by 1.12 (M2))} &\\
+                         &= (b^p)^{n}                           \text{ (by 1.12 (M4))} &\\
+                         &= b^{pn}                              \text{ (Exponent rules, 
+                                                                        $(b^i)^j = b^{ij}$,
+                                                                        i, j are integers)}
+\end{flalign*}
+
+According to Theorem 1.21, there is one and only one positive real $y$ such that $y^{nq} = b^{mq} = b^{pn} = x$, hence 
+$y = (b^m)^\frac{1}{n} = (b^p)^\frac{1}{q}$.
+
+\subsubsection*{6.(b)}
+Let's claim $r = \frac{p_1}{q_1}$, $s = \frac{p_2}{q_2}$, $p_1$, $q_1$, $p_2$, $q_2$ are integers.
+\begin{flalign*}
+    r + s &= \frac{p_1}{q_1} + \frac{p_2}{q_2} 
+           = \frac{p_1q_2 + p_2q_1}{q_1q_2} 
+           = (p_1q_2 + p_2q_1) \cdot \frac{1}{q_1q_2}       \text{} &\\
+b^{r + s} &= b^{(p_1q_2 + p_2q_1) \cdot \frac{1}{q_1q_2}}   \text{} &\\
+          &= (b^{p_1q_2} \cdot b^{p_2q_1})^\frac{1}{q_1q_2} \text{ (Exponent rules, 
+                                                                    $b^{i + j} = b^i \cdot b^j$, 
+                                                                    i, j are integers)} &\\
+          &= b^{p_1q_2 \cdot \frac{1}{q_1q_2}} \cdot 
+             b^{p_2q_1 \cdot \frac{1}{q_1q_2}}              \text{ (1.21 Corollary)} &\\
+          &= b^{\frac{p_1}{q_1}} \cdot b^{\frac{p_2}{q_2}}  \text{} &\\
+          &= b^{r} \cdot b^{s} 
+\end{flalign*}
+
+\subsubsection*{6.(c)}
+
+\subsubsection*{6.(d)}
