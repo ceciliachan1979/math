@@ -1,0 +1,86 @@
+\subsection*{Exercise 06 (Cecilia)}
+
+\subsubsection*{Lemma 0}
+If $ p \in \mathbb{Z} $, then $ b^p > 0 $.
+
+Since $ b > 1 $, there exists $ x > 0 \in \mathbb{R} $ such that $ b = 1 + x $, so $ b^p = (1+x)^p > 0 $.
+
+\subsubsection*{Lemma 1}
+If $ q \in \mathbb{Z}, q > 0 $, then $ b^\frac{1}{q} > 0 $.
+
+This is because the $ q $th root of a positive real number is defined to be the supremum of $ E $ in theorem 1.21, and $ E $ is a subset of positive real numbers.
+
+\subsubsection*{Lemma 2}
+If $ r \in \mathbb{Q} $, then $ b^r > 0 $.
+
+This is simply because $ b^r = (b^p)^{\frac{1}{q}} $ so lemma 0 and 1 imply that $ b^r > 0 $.
+
+\subsubsection*{Lemma 3}
+If $ p \in \mathbb{Z}, p < 0 $, then $ 0 < b^p < 1 $.
+
+Since $ b > 1 $, there exists $ x > 0 \in \mathbb{R} $ such that $ b = 1 + x $, so we have:
+
+\begin{flalign*}
+        b^{-p} &=  (1+x)^{-p} &\\
+               &> 1           &\\
+    b^p b^{-p} &> b^p         &\\
+           b^0 &> b^p         &\\
+             1 &> b^p
+\end{flalign*}
+
+Together with lemma 2, we can conclude that $ 0 < b^p < 1 $.
+
+\subsubsection*{Lemma 4}
+If $ q \in \mathbb{Z}, q > 0 $, $ x \in \mathbb{R}, 0 < x < 1 $, then $ 0 < x^{\frac{1}{q}} < 1 $.
+
+Let $ y = x^{\frac{1}{q}} $. Then, $ y^q = x $, but if $ y \ge 1 $, then $ y^q \ge 1 \implies x \ge 1 $, which is a contradiction.
+
+Together with lemma 2, we can conclude that $ 0 < x^{\frac{1}{q}} < 1 $.
+
+\subsubsection*{Lemma 5}
+If $ r \in \mathbb{Q}, r < 0 $, then $ 0 < b^r < 1 $.
+
+This is simply using lemma 3 and 4 and note that $ b^r = (b^p)^{\frac{1}{q}} $ such that $ p < 0, q > 0, p, q \in \mathbb{Z} $.
+
+\subsubsection*{Lemma 6}
+For any $ x,y \in \mathbb{R} $, $ q \in \mathbb{Q} $, $ q < x + y $, then there exists $ p, r\in \mathbb{Q} $ such that $ p < x, r < y, q = p + r $.
+
+Because $ q < x + y \implies q - y < x $, by the Archimedean property, there exists $ p \in \mathbb{Q} $ such that $ q - y < p < x $. Let $ r = q - p $.
+
+So we have the required conditions:
+
+$ p < x $ is by construction.
+$ q = p + r $ is also by construction.
+$ r < y $ because $ q - y < p \implies q - p < y \implies r < y $.
+
+\subsubsection*{(c)}
+For any $ s \in \mathbb{Q} $ such that $ s < r $,
+
+By part (b), we have $ b^s = b^{r + (s - r)} = b^{r} b^{s - r} $.
+
+We note that $ b^r > 0 $ by lemma 2, $ b^{s - r} > 0 $ by lemma 2, and $ b^{s-r} < 1 $ by lemma 5. Thus, $ b^s < b^r $.
+
+In other words, $ b^r $ is an upper bound of $ B(r)/\{b^r\} $ and so $ b^r $ is an upper bound of $ B(r) $.
+
+But $ b^r \in B(r) $, so any number less than $ b^r $ is not an upper bound of $ B(r) $, in other words, $ b^r $ is the least upper bound of $ B(r) $.
+
+So $ b^r = \sup B(r) $.
+
+\subsubsection*{(d)}
+By lemma 6, we have $ p, r\in \mathbb{Q} $ such that $ p < x, r < y, q = p + r $ for all element $ b^q \in B(x+y) $.  Of course $ q \in \mathbb{Q} $ because $ b^q \in B(x+y) $.
+
+So any element in $ B(x+y) $ can be written as $ b^q = b^{p + r} = b^p b^r $ by part (b).
+
+We note that $ b^p \in B(x) $ and $ b^r \in B(y) $, so $ b^p < b^x $ and $ b^r < b^y $ as $ b^x $ is defined to be the supremum of $ B(x) $ and $ b^y $ is defined to be the supremum of $ B(y) $ as a result of part (c).
+
+Thus, $ b^q = b^p b^r < b^x b^r < b^x b^y $, in other words, $ b^x b^y $ is an upper bound of $ B(x+y) $.
+
+Between $ x + y $ and $ x + y - 1 $, there exists a rational number $ t $ such that $ x + y - 1 < t < x + y $, $ b^t > 0 $ by lemma 2, and $ b^t \in B(x+y) $, so $ b^{x+y} = \sup(B(x+y)) \ge b^t > 0 $
+
+For any number less than $ b^xb^y $, we can write it as $ b^xb^y s^2 $ for some $ s \in R, 0 < s^2 < 1 $.
+
+Now $ 0 < s < 1 $ by lemma 2 and 4, so $ b^x s < b^x $ and $ b^y s < b^y $, but $ b^x $ and $ b^y $ are supremums of $ B(x) $ and $ B(y) $ respectively, so there exists $ m, n \in \mathbb{Q} $ such that $ b^x s < b^m $ and $ b^y s < b^n $, now there exists $ b^{m+n} = b^m b^n > b^x b^y s^2 $, so $ b^x b^y s^2 $ is not an upper bound of $ B(x+y) $.
+
+So any number less than $ b^x b^y $ is not an upper bound of $ B(x+y) $, in other words, $ b^x b^y = \sup(B(x+y)) = b^{x+y}$.
+
+
