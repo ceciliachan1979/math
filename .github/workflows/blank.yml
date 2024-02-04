@@ -16,6 +16,11 @@ jobs:
         with:
           working_directory: Books/BabyRudin
           root_file: BabyRudin.tex
+      - name: Compile NTU Calculus 1 LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: NTU/Calculus1
+          root_file: Calculus1.tex
       - name: Compile English LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
@@ -53,6 +58,7 @@ jobs:
           path: |
             Books/DoneRight/DoneRight.pdf
             Books/BabyRudin/BabyRudin.pdf
+            NTU/Calculus1/Calculus1.pdf
             Neukirch.pdf
             Notes.pdf
             NumberTheory.pdf
