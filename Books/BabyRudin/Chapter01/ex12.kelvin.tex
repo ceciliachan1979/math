@@ -1,0 +1,17 @@
+\subsection*{Exercise 12 (Kelvin)}
+We can prove it by induction. \\
+Proposition:
+\[P(n) = |\sum_{k = 1}^{n} z_{k}| \le \sum_{k=1}^{n}|z_{k}| \text{, where $z_{k}$ is a complex number}\]
+Base case: Show that the proposition holds for n = 1 and n = 2. \\
+
+Obviously, $P(1)$ is true, since $P(1) = |z_{1}| \le |z_{1}|$. \\ 
+
+By theorem 1.33 (e), $P(2)$ is also true, since $P(2) = |z_{1} + z_{2}| \le |z_{1}| + |z_{2}|$. \\ \\
+Induction step: Show that $\forall i \in \mathbb{N}, i > 2$, if $P(i)$ holds, $P(i + 1)$ also holds. \\
+
+Assume $P(i)$ is true, \[P(i) = |\sum_{k = 1}^{i} z_{k}| \le \sum_{k=1}^{i}|z_{k}|\] \\
+
+It follows that: \[P(i + 1) = |\sum_{k = 1}^{i + 1} z_{k}| = |\sum_{k = 1}^{i} z_{k} + z_{i+1}| \le \sum_{k=1}^{i}|z_{k}| + |z_{i + 1}| = \sum_{k=1}^{i + 1}|z_{k}|\]
+That shows $P(i + 1)$ is also true, by establishing the induction step.
+Therefore, the proposition holds for every $n \in \mathbb{N}$.
+
