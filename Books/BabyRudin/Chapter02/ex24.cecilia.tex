@@ -1,0 +1,10 @@
+\subsection*{Exercise 24 (Cecilia)}
+Suppose the process described in the hint doesn't stop, there exists an infinite sequence $ S_{\delta} $ of points $ x_1, x_2, \cdots $ such that there pairwise distances are at least $ \delta $. Let's say that (for the sake of contradiction) this subset has a limit point $ p $. Consider a neighborhood $ N_{\frac{\delta}{3}}(p) $, the neighhood cannot contain more than one point of $ S_{\delta} $, but then that contradicts theorem 2.20.
+
+Therefore the process must stop, and so the set $ S_{\delta} $ is finite for any $ \delta > 0 $.
+
+Because the process stopped, the neighborhoods $ N_{\delta}(s) $ for all $ s \in S_{\delta} $ covers $ X $. Therefore for every point $ x \in X $, there exists a point $ s \in S_{\delta} $ such that $ x \in N_{\delta}(s) $.
+
+Consider the set $ S = S_1 \cup S_{\frac{1}{2}} \cup S_{\frac{1}{3}} \cup \cdots $, the set is countable because it is a countable union of finite sets. For any point $ x \in X $, and for any neighborhood $ N_r(x) $ where $ r > 0 $, there exists a rational number $ 0 < \frac{p}{q} < r $ by the Archimedean property, and so $ 0 < \frac{1}{q} < r $. Therefore there exists a point $ s \in S_{\frac{1}{q}} $ such that $ x \in N_{\frac{1}{q}}(s) \subset N_r(x) $, so every neighborhood of $ x $ contains a point $ s \in S $, in other words, it is a limit point of $ S $, and so $ S $ is dense in $ X $.
+
+Therefore $ X $ is separable.
