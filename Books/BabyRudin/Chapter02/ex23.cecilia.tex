@@ -1,0 +1,10 @@
+\subsection*{Exercise 23 (Cecilia)}
+For a separable metric space $ X $, let $ E $ be a countable dense subset of $ X $. We claim that the set of all neighborhood $ B $ with centers in $ E $ having rational coordinates is a base.
+
+The set $ B $ is countable is obvious, we can map 1:1 from $ \mathbb{Q} \times E $ to $ B $ in the obvious way, and the former is the Cartesian product of two countable sets.
+
+For any point $ x \in G \subset X $ where $ G $ is open, $ x $ must be an interior point, so there exists $ N_r(x) $ such that $ N_r(x) \subset G $. Since $ E $ is dense, $ x $ is either a point of $ E $ or is a limit point of $ E $, in the former case, $ N_r(x) $ is a neighborhood of $ x $ with rational coordinates and with a center in $ E $, therefore $ N_r(x) $ is the $ V_{\alpha} $ we needed.
+
+Otherwise $ x $ is a limit point of $ E $. By the Archimedean property, there exists a rational number $ q $ such that $ 0 < q < \frac{r}{3} $. Since $ x $ is a limit point of $ E $, there exist a point in $ E $ such that $ e \in N_q(x) $, consider the neighborhood $ N_q(e) $. First of all $ x \in N_q(e) $, and for each point $ f \in N_q(e) $, $ d(x, f) < d(x, e) + d(e, f) < q + q < \frac{2r}{3} < r $, therefore $ N_q(e) \subset N_r(x) \subset G $, and so $ N_q(e) $ is the $ V_{\alpha} $ we needed.
+
+In either case, we have shown that for any point $ x \in G $, there exists a neighborhood $ V_{\alpha} $ such that $ x \in V_{\alpha} \subset G $, so $ B $ is a base, and it is a countable base.
