@@ -6,3 +6,5 @@
 *.out
 *.pdf
 *.synctex.gz
+!Exams/Rutgers-Analysis/midterm.pdf
+!Exams/Rutgers-Analysis/final.pdf
