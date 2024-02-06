@@ -4,13 +4,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[final]{pdfpages}
+\usepackage{hyperref}
 
-
-\title{Number Theory}
+\title{Midterm Exam, Introduction to Real Analysis I}
 \author{Cecilia Chan}
 \date{February 2024}
 
 \begin{document}
+\section*{Course Information}
+The course homepage is \href{https://math.rutgers.edu/academics/undergraduate/courses/955-01-640-311-introduction-to-real-analysis-i}{Introduction to Real Analysis I}.
+
+The midterm pdf link is \href{https://math.rutgers.edu/images/test-311-10-2016.pdf}{here}.
 \section*{Problem 1}
 \subsection*{Part 1}
 True, because otherwise the real number would be the disjoint union of two countable sets.
@@ -38,7 +42,7 @@ Let $ N = \lceil \frac{2}{\epsilon} \rceil $, then for $ n > N $, we have
 \begin{eqnarray*}
               n & > & N \\
               n & > & \frac{2}{\epsilon} \\
-       \epsilon & > & \frac{2}{N} \\
+       \epsilon & > & \frac{2}{n} \\
     \frac{2}{n} & < & \epsilon \\
     \frac{2}{n} - 3 + 3 & < & \epsilon \\
     \frac{2}{n} - \frac{3n}{n} + 3 & < & \epsilon \\
@@ -84,9 +88,9 @@ We claim that the limit is $ L = \frac{1 + \sqrt{17}}{2} $
 Note that when $ L $ is designed to be the larger root of $ x^2 - x - 4 $, so when $ x > L $, $ x^2 - x - 4 > 0 $, and so we have:
 
 \begin{eqnarray*}
-x^2 - x - 4 > 0
-x^2 > x + 4
-x > \sqrt{4 + x}
+  x^2 - x - 4 &> 0 \\
+  x^2 &> x + 4 \\
+  x &> \sqrt{4 + x}
 \end{eqnarray*}
 
 Since $ a_1 = 4 > L $, the iteration will be decreasing. It is obviously bounded below by 0, so a limit exists.
@@ -94,12 +98,12 @@ Since $ a_1 = 4 > L $, the iteration will be decreasing. It is obviously bounded
 Suppose the limit exists, then 
 
 \begin{eqnarray*}
-      lim_{n \to \infty} a_n \\
-  &=& lim_{n \to \infty} \sqrt{4 + a_{n-1}} \\
-  &=& \sqrt{4 + lim_{n \to \infty} a_{n-1}} \\
+  & & \lim_{n \to \infty} a_n \\
+  &=& \lim_{n \to \infty} \sqrt{4 + a_{n-1}} \\
+  &=& \sqrt{4 + \lim_{n \to \infty} a_{n-1}} \\
 \end{eqnarray*}
 
-So it must be a root of $ x = \sqrt{4 + x} $, and apparently it must be > 0, so it must be $ L $.
+So it must be a root of $ x = \sqrt{4 + x} $, and apparently it must be greater than 0, so it must be $ L $.
 
 \section*{Problem 5}
 \subsection*{Part a}
