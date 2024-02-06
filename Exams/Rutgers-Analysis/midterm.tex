@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{nth}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[final]{pdfpages}
+
+
+\title{Number Theory}
+\author{Cecilia Chan}
+\date{February 2024}
+
+\begin{document}
+\section*{Problem 1}
+\subsection*{Part 1}
+True, because otherwise the real number would be the disjoint union of two countable sets.
+\subsection*{Part 2}
+Yes, because it is the union of countably many countable sets.
+\subsection*{Part 3}
+It depends on the space. If the space is complete (e.g. $ \mathbb{R}^N $), then the sequence is convergent (that's the definition of a space being complete).
+\subsection*{Part 4}
+False, consider the sequence $ \{1, -1, 1, \ldots \} $, it is bounded but not convergent.
+\subsection*{Part 5}
+True, to satisfy the epsilon challenge, just pick the maximum $ N $ for both subsequences.
+\subsection*{Part 6}
+True, because if that's not true, $ t - \epsilon $ is a smaller upper bound.
+\subsection*{Part 7}
+True, to satisfy the epsilon challenge, just pick the $ N $ corresponding to $ \frac{1}{L} \epsilon $ for $ f(x) $ where $ -L < g(x) < L$.
+\subsection*{Part 8}
+True, because otherwise at least one of the greatest lower bounds is actually not greatest.
+\subsection*{Part 9}
+True, the least upper bound exists and it is the limit.
+\subsection*{Part 10}
+False, 0 is also an accumulation point.
+
+\section*{Problem 2}
+Let $ N = \lceil \frac{2}{\epsilon} \rceil $, then for $ n > N $, we have
+\begin{eqnarray*}
+              n & > & N \\
+              n & > & \frac{2}{\epsilon} \\
+       \epsilon & > & \frac{2}{N} \\
+    \frac{2}{n} & < & \epsilon \\
+    \frac{2}{n} - 3 + 3 & < & \epsilon \\
+    \frac{2}{n} - \frac{3n}{n} + 3 & < & \epsilon \\
+    -(\frac{3n - 2}{n} - 3) & < & \epsilon
+\end{eqnarray*}
+
+We also have $ \frac{3n - 2}{n} = 3 - \frac{2}{n} < 3 $, section
+
+\begin{eqnarray*}
+      \frac{3n - 2}{n} &=& 3 - \frac{2}{n} < 3 \\
+  \frac{3n - 2}{3} - 3 &<& 0 \\
+                       &<& \epsilon
+\end{eqnarray*}
+
+Together with have $ |\frac{3n - 2}{3} - 3| < \epsilon $ when $ n > \lceil \frac{2}{\epsilon} \rceil $, so we conclude
+
+\begin{eqnarray}
+    \lim_{n \to \infty} \frac{3n - 2}{n} = 3
+\end{eqnarray}
+
+\section*{Problem 3}
+Let $ \delta = \min (1, \frac{\epsilon}{8}) $, note that $ 0 < \delta < 1 $, so $ 0 < \delta^2 < \delta $.
+
+Whenever $ | x - 1 | < \delta $, we have
+
+\begin{eqnarray*}
+    -\delta &< x - 1 &< \delta \\
+    2 -\delta &< x + 1 &< 2 + \delta \\
+    (2 -\delta)^2 &< (x + 1)^2 &< (2 + \delta)^2 \\
+    4 - 4\delta + \delta^2 &< x^2 + 2x + 1 &< 4 + 4\delta + \delta^2 \\
+    -4\delta + \delta^2 &< (x^2 + 2x + 1) - 4 &< 4\delta + \delta^2 \\
+    -4\delta &< (x^2 + 2x + 1) - 4 &< 5\delta \\
+    -\frac{\epsilon}{2} &< (x^2 + 2x + 1) - 4 &< \frac{5\epsilon}{8} \\
+    -\epsilon &< (x^2 + 2x + 1) - 4 &< \epsilon
+\end{eqnarray*}
+
+So we conclude that $ \lim_{x \to 1} x^2 + 2x + 1 = 4 $.
+
+\section*{Problem 4}
+
+We claim that the limit is $ L = \frac{1 + \sqrt{17}}{2} $
+
+Note that when $ L $ is designed to be the larger root of $ x^2 - x - 4 $, so when $ x > L $, $ x^2 - x - 4 > 0 $, and so we have:
+
+\begin{eqnarray*}
+x^2 - x - 4 > 0
+x^2 > x + 4
+x > \sqrt{4 + x}
+\end{eqnarray*}
+
+Since $ a_1 = 4 > L $, the iteration will be decreasing. It is obviously bounded below by 0, so a limit exists.
+
+Suppose the limit exists, then 
+
+\begin{eqnarray*}
+      lim_{n \to \infty} a_n \\
+  &=& lim_{n \to \infty} \sqrt{4 + a_{n-1}} \\
+  &=& \sqrt{4 + lim_{n \to \infty} a_{n-1}} \\
+\end{eqnarray*}
+
+So it must be a root of $ x = \sqrt{4 + x} $, and apparently it must be > 0, so it must be $ L $.
+
+\section*{Problem 5}
+\subsection*{Part a}
+The use of L'Hopital's rule is justified by the $ \frac{\infty}{\infty} $ form of the limit. We have:
+\begin{eqnarray*}
+  & & \lim_{n \to \infty}\frac{3n^3 - n + 100}{n^3 - n + 2} \\
+  &=& \lim_{n \to \infty}\frac{9n^2 - 1}{3n^2 - 1} \\
+  &=& \lim_{n \to \infty}\frac{18n}{6n} \\
+  &=& 3 
+\end{eqnarray*}
+
+\subsection*{Part b}
+The use of L'Hopital's rule is justified by the $ \frac{0}{0} $ form of the limit. We have:
+\begin{eqnarray*}
+  & & \lim_{x \to 0}\frac{\sqrt{x + 4} - 2}{x} \\
+  &=& \lim_{x \to 0}\frac{\frac{1}{2}(x + 4)^{-\frac{1}{2}}}{1} \\
+  &=& \frac{1}{4} 
+\end{eqnarray*}
+
+\section*{Problem 6}
+$ \lim_{x_0 \to 0} f(x) = 2 $ implies for any $ \epsilon > 0 $, there exists $ \delta > 0 $ such that $ 0 < |x - x_0| < \delta $ implies $ |f(x) - 2| < \epsilon $. In particular, for $ \epsilon = 1 $, there exists $ \delta > 0 $ such that $ 0 < |x - x_0| < \delta $ implies $ |f(x) - 2| < 1 $.
+
+Note that $ 0 < | x - x_0| < \delta $ is the same as $ x \in (x_0 - \delta, x_0 + \delta) $, and $ |f(x) - 2| < 1 $ is the same as $ f(x) \in (1, 3) $, in particular, $ f(x) > 1 $.
+
+The fact that $ x_0 $ is an accumulation point implies some $ x $ will exist in the given set. It is not strictly necessary because otherwise the statement would simply be vacuously true.
+
+\section*{Problem 7}
+The Bolzano-Weierstrass theorem states that every bounded sequence has a convergent subsequence. The sequence $ \{a_n\} $ is bounded, so it has a convergent subsequence $ \{a_{n_k}\} $.
+
+We can prove that by showing a monotone subsequence exists, because then the sequence of monotone and bounded, so it must converge.
+
+Assuming the sequence has a monotonic increasing suffix, then we can take that suffix.
+
+Otherwise it must have a maximum, so we can take that point. The rest of the sequence is not monotonically increasing either, so we can build the sequence inductively.
+
+By definition, this sequence is monotonically decreasing. 
+
+So we know there exists a monotonic subsequence, and it is also bounded, so it must converge.
+
+\end{document}
