@@ -1,0 +1,16 @@
+\subsection*{Exercise 17 (Cecilia)}
+
+We will prove the identity by expanding and then simplifying.
+
+\begin{align*}
+     & |x + y|^2 + |x - y|^2\\
+    =& \sum\limits_{i=1}^{k} (x_i + y_i)^2 + \sum\limits_{i=1}^{k} (x_i - y_i)^2& \text{(by definition)} \\
+    =& \sum\limits_{i=1}^{k} (x_i^2 + 2x_iy_i + y_i^2) + \sum\limits_{i=1}^{k} (x_i^2 - 2x_iy_i + y_i^2)& \text{Expand within sum} \\
+    =& \sum\limits_{i=1}^{k} x_i^2 + \sum\limits_{i=1}^{k}2x_iy_i + \sum\limits_{i=1}^{k} y_i^2 + \sum\limits_{i=1}^{k} x_i^2 - \sum\limits_{i=1}^{k} 2x_iy_i + \sum\limits_{i=1}^{k}y_i^2& \text{Splitting the sums} \\
+    =& \sum\limits_{i=1}^{k} x_i^2 + \sum\limits_{i=1}^{k} y_i^2 + \sum\limits_{i=1}^{k} x_i^2 + \sum\limits_{i=1}^{k}y_i^2& \text{Cancelling terms} \\
+    =& \sum\limits_{i=1}^{k} x_i^2 + \sum\limits_{i=1}^{k} x_i^2 +\sum\limits_{i=1}^{k} y_i^2 + \sum\limits_{i=1}^{k}y_i^2& \text{Rearranging terms} \\
+    =& 2\sum\limits_{i=1}^{k} x_i^2 + 2\sum\limits_{i=1}^{k}y_i^2& \text{Grouping terms} \\
+    =& 2|x|^2 + 2|y|^2 & \text{(by definition)} \\
+\end{align*}
+
+Geometrically, $ x + y $ and $ x - y $ are the diagonals of a parallelogram with sides $ x $ and $ y $. This exercise shows that the sum of the squares of the diagonals is equal to the sum of the squares of the sides. 
