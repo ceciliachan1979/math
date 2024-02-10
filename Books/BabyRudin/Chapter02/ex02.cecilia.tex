@@ -1,22 +1,26 @@
 \subsection*{Exercise 02 (Cecilia)}
 Define the set $ TP_{ink} $ for integer $ i, n, k $ such that $ 1 \leq i \leq n $ and $ k \ge 1 $ as the set of $ n + 2 $ tuples $ (a_0, a_1, a_2, \dots, a_n, i) $ such that $ |a_0| + |a_1| + \cdots + |a_n| = k $ and $ a_0, a_1, a_2, \dots, a_n \in \mathbb{Z} $. By the hint, these sets are finite.
 
-Define $ TP_{nk} $ to be $ \bigcup_{i=1}^n TP_{ink} $. Since $ TP_{ink} $ is finite, $ TP_{nk} $ is also finite because it is a finite union of finite sets.
+Define $ TP_{nk} $ to be $ \bigcup\limits_{i=1}^n TP_{ink} $. Since $ TP_{ink} $ is finite, $ TP_{nk} $ is also finite because it is a finite union of finite sets.
 
-Define $ TP_k $ to be $ \bigcup_{n=1}^\infty TP_{nk} $. Since $ TP_{nk} $ is finite, $ TP_k $ is countable because it is the disjoint union a sequence of finite sets. (by corollary 2.12)
+Define $ TP_k $ to be $ \bigcup\limits_{n=1}^\infty TP_{nk} $. Since $ TP_{nk} $ is finite, $ TP_k $ is countable because it is the a sequence of disjoint finite sets. (by corollary 2.12)
 
-Define $ TP $ to be $ \bigcup_{k=1}^\infty TP_k $. Since $ TP_k $ is countable, $ TP $ is countable because it is a sequence of disjoint countable sets (by theorem 2.12)
+Define $ TP $ to be $ \bigcup\limits_{k=1}^\infty TP_k $. Since $ TP_k $ is countable, $ TP $ is countable because it is a sequence of disjoint countable sets (by theorem 2.12)
 
 So there exists a mapping $ m $ from $ TP $ to $ \mathbb{N} $, which is a bijection.
 
-We can define a surjective mapping $ f $ (for forward) from $ TP $ to the set of algebraic numbers $ \mathbb{A} $ by mapping each tuple $ (a_0, a_1, a_2, \dots, a_n, i) $ to the ith root of the polynomial $ a_nx^n + \cdots + a_0 $. To define the ith root, we can use the lexicographic ordering for the complex numbers, it doesn't matter that this order is incompatible with the field operations, all we needed is a definition to avoid ambiguity. 
+We can define a surjective mapping $ f $ (for forward) from $ TP $ to the set of algebraic numbers $ \mathbb{A} $ by mapping each tuple $ (a_0, a_1, a_2, \dots, a_n, i) $ to the ith root of the polynomial $ a_nx^n + \cdots + a_0 $. To define the ith root, we can use the lexicographic ordering for the complex numbers, it doesn't matter that this order is incompatible with the field operations, all we needed is a definition to avoid ambiguity.
 
-Now we can define a mapping $ b $ (for backward) from $ A $ to $ N $ as follow:
+Now we can define a mapping $ b $ (for backward) from $ \mathbb{A} $ to $ N $ as follow:
 
-$ b(a) = min(n) $  such that $ f(n) = a $.
+$ b(a) = \min(n) $  such that $ f(n) = a $.
 
 This definition is well defined because $ f $ is surjective.
 
-Let $ B $ be the range of $ b $, $ B $ is a subset of $ N $, therefore $ B $ is countable (by theorem 2.8). Consider the restricted mapping $ b' $ from $ A $ to $ B $. $ b' $ is surjective by definition, $ b' $ is injective because $ f(b(a)) = a $ by definition of $ b $, therefore $ b' $ is bijective. 
+Note that $ f(b(a)) = a $, if $ b(x) = b(y) $, then $ f(b(x)) = f(b(y)) $, which means $ x = y $, so $ b $ is injective.
 
-Since there exists a bijection from $ A $ to $ B $, a countable set, therefore $ A $ is also countable.
+Let $ B $ be the range of $ b $. Suppose $ B $ is finite for the sake of contradiction, as $ b $ is injective, that would mean $ \mathbb{A} $ is finite. But we know for sure that $ \mathbb{A} $ is not finite because it at least contains all the integers. Therefore $ B $ is not finite.
+
+$ B $, as an infinite subset of a countable set $ \mathbb{N} $, is countable (by theorem 2.8). Consider the restricted mapping $ b' $ from $ \mathbb{A} $ to $ B $. $ b' $ is surjective by definition, $ b' $ is also injective as a restriction of an injective function $ b' $, therefore $ b' $ is bijective.
+
+Since there exists a bijection from $ \mathbb{A} $ to $ B $, a countable set, therefore $ \mathbb{A} $ is also countable.
