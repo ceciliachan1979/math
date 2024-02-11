@@ -12,11 +12,12 @@
 \date{February 2024}
 
 \begin{document}
+\maketitle
 \section*{Course Information}
 The course homepage is \href{https://math.rutgers.edu/academics/undergraduate/courses/955-01-640-311-introduction-to-real-analysis-i}{Introduction to Real Analysis I}.
 
 The midterm pdf link is \href{https://math.rutgers.edu/images/test-311-10-2016.pdf}{here}.
-\section*{Problem 1}
+\section*{Problem 1 (ok)}
 \subsection*{Part 1}
 True, because otherwise the real number would be the disjoint union of two countable sets.
 \subsection*{Part 2}
@@ -102,25 +103,27 @@ We claim that the limit is $ L = \frac{1 + \sqrt{17}}{2} $
 
 Note that when $ L $ is designed to be the larger root of $ x^2 - x - 4 $, so when $ x > L $, $ x^2 - x - 4 > 0 $, and so we have:
 
-\begin{eqnarray*}
-  x^2 - x - 4 &> 0 \\
+\begin{align*}
+  x^2 - x - 4 &> 0 & \text{ By the geometry of the graph} \\
   x^2 &> x + 4 \\
-  x &> \sqrt{4 + x}
-\end{eqnarray*}
+  x &> \sqrt{4 + x} & \text{ Because $ x > 0 $ and square root is increasing } \\
+\end{align*}
 
 Since $ a_1 = 4 > L $, the iteration will be decreasing. It is obviously bounded below by 0, so a limit exists.
 
-Suppose the limit exists, then 
+Next, we have:
 
-\begin{eqnarray*}
-  & & \lim_{n \to \infty} a_n \\
-  &=& \lim_{n \to \infty} \sqrt{4 + a_{n-1}} \\
-  &=& \sqrt{4 + \lim_{n \to \infty} a_{n-1}} \\
-\end{eqnarray*}
+\begin{align*}
+   & \lim_{n \to \infty} a_n \\
+  =& \lim_{n \to \infty} \sqrt{4 + a_{n-1}} \\
+  =& \sqrt{\lim_{n \to \infty} 4 + a_{n-1}} & \text{ by the continuity of the square root function} \\
+  =& \sqrt{4 + \lim_{n \to \infty} a_{n-1}} \\
+  =& \sqrt{4 + \lim_{n \to \infty} a_{n}} \\
+\end{align*}
 
 So it must be a root of $ x = \sqrt{4 + x} $, and apparently it must be greater than 0, so it must be $ L $.
 
-\section*{Problem 5}
+\section*{Problem 5 (ok)}
 \subsection*{Part a}
 The use of L'Hopital's rule is justified by the $ \frac{\infty}{\infty} $ form of the limit. We have:
 \begin{eqnarray*}
@@ -138,7 +141,7 @@ The use of L'Hopital's rule is justified by the $ \frac{0}{0} $ form of the limi
   &=& \frac{1}{4} 
 \end{eqnarray*}
 
-\section*{Problem 6}
+\section*{Problem 6 (ok)}
 $ \lim_{x_0 \to 0} f(x) = 2 $ implies for any $ \epsilon > 0 $, there exists $ \delta > 0 $ such that $ 0 < |x - x_0| < \delta $ implies $ |f(x) - 2| < \epsilon $. In particular, for $ \epsilon = 1 $, there exists $ \delta > 0 $ such that $ 0 < |x - x_0| < \delta $ implies $ |f(x) - 2| < 1 $.
 
 Note that $ 0 < | x - x_0| < \delta $ is the same as $ x \in (x_0 - \delta, x_0 + \delta) $, and $ |f(x) - 2| < 1 $ is the same as $ f(x) \in (1, 3) $, in particular, $ f(x) > 1 $.
@@ -146,16 +149,16 @@ Note that $ 0 < | x - x_0| < \delta $ is the same as $ x \in (x_0 - \delta, x_0 
 The fact that $ x_0 $ is an accumulation point implies some $ x $ will exist in the given set. It is not strictly necessary because otherwise the statement would simply be vacuously true.
 
 \section*{Problem 7}
-The Bolzano-Weierstrass theorem states that every bounded sequence has a convergent subsequence. The sequence $ \{a_n\} $ is bounded, so it has a convergent subsequence $ \{a_{n_k}\} $.
+The Bolzano-Weierstrass theorem states that every bounded sequence has a convergent subsequence; in other words, if a sequence $ \{ a_n \} $ is bounded, then it has a convergent subsequence $ \{ a_{n_k} \} $.
 
 We can prove that by showing a monotone subsequence exists, because then the sequence of monotone and bounded, so it must converge.
 
-Assuming the sequence has a monotonic increasing suffix, then we can take that suffix.
+Assuming the sequence has a monotonic increasing subsequence, then we can take that subsequence.
 
-Otherwise it must have a maximum, so we can take that point. The rest of the sequence is not monotonically increasing either, so we can build the sequence inductively.
+Otherwise it must have a maximum, so we can take that point. The rest of the sequence is not does not have a monotonic increasing subsequence either, so we can define the subsequence inductively by keep taking the maximum of the rest.
 
-By definition, this sequence is monotonically decreasing. 
+By definition, this subsequence is monotonically decreasing. 
 
-So we know there exists a monotonic subsequence, and it is also bounded, so it must converge.
+So we know there exists a monotonic subsequence, and it is also bounded, so it must converges.
 
 \end{document}
