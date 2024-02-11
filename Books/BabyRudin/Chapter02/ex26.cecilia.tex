@@ -3,4 +3,4 @@ Just to clarify the hints:
 $ F_n $ is non empty because the finite collection does not cover $ X $.
 $ \cap F_n $ is empty because $ \cap F_n $ exclude every $ G $ but $ G $ covers $ X $.
 
-Consider a limit point $ l $, $ l \in X $, so $ l $ is covered by $ G_i $ for some $ i $. Consider a neighborhood $ N_r(l) \subset G_i $, this neighborhood cannot contain any point $ e_j $ where $ j > i $, so such a neighborhood can contain at most a finite number of points, and that contradicts theorem 2.20.
+Consider a limit point $ l $, $ l \in X $, so $ l $ is covered by $ G_i $ for some $ i $. For any $ j > i $, $ e_j \in F_j = (G_1 \cup G_2 \cdots G_j)^c $. Now consider a neighborhood $ N_r(l) \subset G_i $ , any point in $ N_r(l) \subset G_i $ cannot be any of the $ e_j $ because $ F_j $ excluded $ G_i $. It follows that $ N_r(l) $ is a neighborhood that contain at most a finite number of points in $ E $, and that contradicts theorem 2.20.

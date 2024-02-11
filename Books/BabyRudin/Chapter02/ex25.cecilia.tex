@@ -1,18 +1,26 @@
 \subsection*{Exercise 25 (Cecilia)}
 Since $ K $ is compact, consider these open covers of the space as follows:
 
-For each $ n \in \mathbb{N} $, define the open cover of the space as $ \{ N_{\frac{1}{n}}(k) \mid k \in K \} $.
+For each $ n \in \mathbb{N} $, define an open cover of the space as $ \{ N_{\frac{1}{n}}(k) \mid k \in K \} $.
 
-Each of these open cover has a finite subcover by compactness of $ K $, so the union of these finite subcovers is a countable set.
+Each of these open cover has a finite subcover by compactness of $ K $, so the union of all the sets in these finite subcovers is a countable set.
 
-We claim that the centers of these finite subcovers $ C $ form a countable dense subset of $ K $.
+We claim that the centers of the sets in these finite subcovers $ C $ form a countable dense subset of $ K $.
 
 To see this, consider any point $ k \in K $ and any neighborhood $ N_r(k) $ where $ r > 0 $, there exists a rational number $ 0 < \frac{p}{q} < r $ by the Archimedean property, and so $ 0 < \frac{1}{q} < r $. The point $ k $ must be covered by an open set in the finite subcover of radius $ \frac{1}{3q} $, and that must be a subset of $ N_r(k) $. In other words, there exists a point $ c \in C $ such that $ c \in N_r(k) $, meaning $ k $ is a limit point of $ C $, and so $ C $ is dense in $ K $.
 
 Therefore $ K $ is separable.
 
-We claim that these finite subcovers forms a base of $ K $.
+We claim that the collection of the sets in these finite subcovers forms a base of $ K $.
 
 To see this, consider any point $ k \in K $ and any neighborhood $ N_r(k) $ where $ r > 0 $, there exists a rational number $ 0 < \frac{p}{q} < r $ by the Archimedean property, and so $ 0 < \frac{1}{q} < r $. The point $ k $ must be covered by an open set in the finite subcover of radius $ \frac{1}{3q} $, and that must be a subset of $ N_r(k)$. Therefore the finite subcovers forms a base of $ K $.
 
 Therefore $ K $ has a countable base.
+
+As an aside, we can prove the converse of exercise 23. If $ K $ has a countable base, then $ K $ is separable.
+
+For each set $ S $ in the countable base, we can choose a point $ s $ in $ S $, together these points form a countable dense subset of $ D $ of $ K $.
+
+To see why it is dense, consider a point $ k $ in $ K $. If $ k \notin D $, then every neighborhood of $ k $ must contain a set $ S $ in the countable base and therefore it must contain the associated point $ s \in D $, so $ k $ is a limit point of $ D $, and so $ D $ is dense in $ K $.
+
+We can also use this, together with the fact that $ K $ has a countable base, to prove that $ K $ is separable, this provide an alternative avenue to prove the that $ K $ is separable without resorting to the centers of the sets.
