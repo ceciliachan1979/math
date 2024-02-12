@@ -1,0 +1,27 @@
+\subsection*{Exercise 02 (Cecilia)}
+Consider the sequence defined by $ a_n = \sqrt{1 + \frac{1}{n}} $.
+
+For any $ \epsilon > 0 $, we can have $ N = \left\lceil \frac{1}{\epsilon^2 + 2\epsilon} \right\rceil $ 
+
+\begin{align*}
+                                         n &> N                                 \\
+                                           &> \frac{1}{\epsilon^2 + 2\epsilon}  \\
+                               \frac{1}{n} &< \epsilon^2 + 2\epsilon            \\
+                           1 + \frac{1}{n} &< \epsilon^2 + 2\epsilon + 1        \\
+                    \sqrt{1 + \frac{1}{n}} &< \sqrt{\epsilon^2 + 2\epsilon + 1} \\
+                                           &< \epsilon + 1                      \\
+                \sqrt{1 + \frac{1}{n}} - 1 &< \epsilon                          \\
+  \left|\sqrt{1 + \frac{1}{n}} - 1 \right| &< \epsilon
+\end{align*}
+
+So we have $ \lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1 $. We could have easily argue this fact from the continuity of the square root function, but I chose not to just to not get ahead of myself.
+
+With this result, we can compute the required limit as follows:
+
+\begin{align*}
+    & \lim_{n \to \infty} \sqrt{n^2 + n} - n \\
+   =& \lim_{n \to \infty} \frac{(\sqrt{n^2 + n} - n)(\sqrt{n^2 + n} + n)}{\sqrt{n^2 + n} + n} \\
+   =& \lim_{n \to \infty} \frac{n}{\sqrt{n^2 + n} + n} \\
+   =& \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}} + 1} \\
+   =& \frac{1}{2}
+\end{align*}
