@@ -1,0 +1,55 @@
+\subsection*{Exercise 03 (Cecilia)}
+We will start with a simple lemma.
+\subsubsection*{Lemma 1}
+For any $ s \in \mathbb{R} $, $ s \ge \sqrt{2} $, $ s^4 - 4s^2 - s + 4 < 0 \iff s < \sqrt{2 + \sqrt{s}} $.
+\subsubsection*{Proof}
+\begin{align*}
+      & s^4 - 4s^2 - s + 4 < 0 \\
+  \iff& s^4 - 4s^2 + 4     < s \\
+  \iff& (s^2-2)^2          < s \\
+  \iff& (s^2-2)            < \sqrt{s} \\
+  \iff& s^2                < \sqrt{s} + 2 \\
+  \iff& s                  < \sqrt{\sqrt{s} + 2}
+\end{align*}
+
+Note, beware of line 4 implying line 3, you can take square of both sides only if both sides are non-negative, which is the case here since $ s \ge \sqrt{2} $.
+
+Now we can prove that the sequence is increasing
+
+\subsubsection*{Lemma 2}
+For all $ n \in \mathbb{N} $, $ s_{n+1} > s_n $.
+
+\subsubsection*{Proof}
+We will use induction. For $ k = 1 $, we have $ s_2 = \sqrt{2 + \sqrt{2}} > \sqrt{2} = s_1 $.
+
+Now, suppose $ s_{k+1} > s_k $, then we have:
+
+\begin{align*}
+  &= s_{k+1}^4 - 4s_{k+1}^2 - s_{k+1} + 4 \\
+  &= \left(\sqrt{2 + \sqrt{s_k}}\right)^4 - 4\left(\sqrt{2 + \sqrt{s_k}}\right)^2 - \sqrt{2 + \sqrt{s_k}} + 4 \\
+  &= \left(2 + \sqrt{s_k}\right)^2 - 4\left(2 + \sqrt{s_k}\right) - \sqrt{2 + \sqrt{s_k}} + 4 \\
+  &= 4 + 4\sqrt{s_k} + s_k - 8 - 4\sqrt{s_k} - \sqrt{2 + \sqrt{s_k}} + 4 \\
+  &= s_k - \sqrt{2 + \sqrt{s_k}} \\
+  &< 0
+\end{align*}
+
+Now the lemma 1 implies that $ s_{k+2} > s_{k+1} $, and we have proved that the sequence is increasing.
+
+\subsubsection*{Lemma 3}
+With lemma 2, we know the sequence is strictly increasing, together with lemma 1, we know that every element in the sequence satisfy $ s^4 - 4s^2 - s + 4 < 0 $, now we will proceed to show that $ 2 $ is an upper bound of the sequence.
+
+\subsubsection*{Proof}
+
+For $ t \ge 0 $, we have:
+\begin{align*}
+   & (t + 2)^4 - 4(t + 2) - t - 4 \\
+  =& t^4 + 8t^3 + 24t^2 + 32t + 16 - 4t - 8 - t - 4 \\
+  =& t^4 + 8t^3 + 24t^2 + 27t + 4 \\
+  >& 0
+\end{align*}
+
+Therefore, it is impossible for any sequence element $ s_n \ge 2 $, in other words, $ 2 $ is an upper bound of the sequence.
+
+\subsubsection*{Conclusion}
+With lemma 3, we know that the sequence is bounded and increasing, therefore it converges, and it is also upper bounded by $ 2 $, as required.
+
