@@ -1,0 +1,16 @@
+\subsection*{Exercise 05 (Cecilia)}
+We will start with a simple lemma.
+\subsubsection*{Lemma 1}
+If $ \limsup a_n = A $, then there is only finitely many points in the sequence $ a_n $ that are greater than $ A + \epsilon $ for any $ \epsilon > 0 $.
+\subsubsection*{Proof}
+Suppose that there are infinitely many points in the sequence $ a_n $ that are greater than $ A + \epsilon $ for some $ \epsilon > 0 $. Then, there is a subsequence $ a_{n_k} $ such that $ a_{n_k} > A $ for all $ k $. This implies that $ \limsup a_{n_k} \geq A + \epsilon $, which contradicts the fact that $ \limsup a_n = A $.
+\subsubsection*{Infinite Cases}
+Now, we will prove the main result. Suppose that $ \limsup a_n = A $ and $ \limsup b_n = B $. We will show that $ \limsup (a_n + b_n) \leq A + B $.
+
+If $ \limsup a_n = +\infty $ and $ \limsup b_n \ne -\infty $, then there exists a subsequence in $ a_n $ such that it diverges to $ +\infty $, the associated subsequence (i.e. using the same indices) in $ a_n + b_n $ must also diverge to $ +\infty $ because the associated $ b_n $ cannot cancel the growth in $ a_n $.
+
+Similar arguments handles all the cases where one of the limits is $ \pm\infty $ and the other is not the opposite.
+\subsubsection*{Finite Case}
+Now suppose neither $ \limsup a_n $ nor $ \limsup b_n $ is $ +\infty $, we wanted to show that $ \limsup (a_n + b_n) \leq \limsup a_n + \limsup b_n $.
+
+By the lemma, for any $ \epsilon > 0 $, there are only finitely many points in the sequence $ a_n $ that are greater than $ \limsup a_n + \frac{\epsilon}{2} $ , and there are only finitely many points in the sequence $ b_n $ that are greater than $ \limsup b_n + \frac{\epsilon}{2} $. This implies that there are only finitely many points in the sequence $ a_n + b_n $ that are greater than $ \limsup a_n + \limsup b_n + \epsilon $. There cannot be a subsequence in $ a_n + b_n $ that converges to $ \limsup a_n + \limsup b_n + \epsilon $, therefore, $ \limsup (a_n + b_n) \leq \limsup a_n + \limsup b_n $.
