@@ -1,0 +1,18 @@
+\subsection*{Exercise 2 (Kelvin)}
+Consider the following set:
+
+$\forall{N} \in \mathbb{Z^+}, A_N = \{a_0z^n + a_1z^{n-1} + ... + a_n, z \in \mathbb{C}\mid n + |a_0| + |a_1| + ... + |a_n| = N\}$.
+
+Given that $n + |a_0| + |a_1| + ... + |a_n| = N$ is finite, which means we can only have finite number of $a_i$, for each $\text{$i$ from 0 to $n$} $, 
+therefore $A_N$ is also finite, 
+and $\bigcup_{N \in \mathbb{Z+}}^{\infty} A_N$ is at most countable as countable union of finite set is at most countable, which means the set of all complex polynomials with integer coefficient is at most countable.
+
+Let consider the roots of a particular polynomial in $A_N$, denoted as $B_N$:
+
+$\forall{N} \in \mathbb{Z^+}, B_N = \{z \in \mathbb{C}\mid f(z) = 0, \exists{f} \in A_N \}$
+
+Since the number of roots of a polynomial is finite, therefore $B_N$ is finite, and $\bigcup_{N \in \mathbb{N+}}^{\infty} B_N$ is at most countable.
+
+To show a set C = $\bigcup_{N \in \mathbb{N+}}^{\infty} B_N$ is countable, we need to show set C is infinite. Consider for every integer a $\in \mathbb{Z}$,
+we can construct a polynomial $z - a = 0 \implies z = a$, which means the $\mathbb{Z}$ is a subset of C. Since $\mathbb{Z}$ is infinite, C is at most countable and
+have a infinite subset, C is countably infinite.
