@@ -1,0 +1,24 @@
+\newcommand{\importfile}[2]{
+    \def\filename{#1}
+    \def\q{#2}
+    \def\authorname{cecilia,gapry,kelvin}
+    \IfFileExists{\filename\q.tex} {
+        \input{\filename\q.tex}
+    }{
+        \foreach \j in \authorname{
+            \IfFileExists{\filename\q.\j.tex}{
+                \input{\filename\q.\j.tex}
+            }
+        }
+    }
+}
+
+\newcommand{\inputfiles}[1]{
+    \def\zero{0}
+    \foreach \i in {1,...,9} {
+        \importfile{#1\zero}{\i}
+    }
+    \foreach \i in {10,...,99} {
+        \importfile{#1}{\i}
+    }
+}
