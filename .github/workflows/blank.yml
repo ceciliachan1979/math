@@ -16,6 +16,11 @@ jobs:
         with:
           working_directory: Books/BabyRudin
           root_file: BabyRudin.tex
+      - name: Compile Jirka Real Analysis LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: Books/Jirka_RA
+          root_file: jirka_ra.tex
       - name: Compile NTU Calculus 1 LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -58,6 +63,7 @@ jobs:
           path: |
             Books/DoneRight/DoneRight.pdf
             Books/BabyRudin/BabyRudin.pdf
+            Books/Jirka_RA/jirka_ra.pdf
             NTU/Calculus1/Calculus1.pdf
             Neukirch.pdf
             Notes.pdf
