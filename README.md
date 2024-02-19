@@ -7,6 +7,7 @@ Posting some math related latex documents
 - [Algorithm Design](https://www.amazon.com/gp/product/0321295358/), Jon Kleinberg, Eva Tardos
 - [Combinatorial Optimization: Algorithms and Complexity](https://www.amazon.com/Combinatorial-Optimization-Algorithms-Complexity-Computer/dp/0486402584), Christos H. Papadimitriou, Kenneth Steiglitz
 - [Principles of Mathematical Analysis](https://maa.org/press/maa-reviews/principles-of-mathematical-analysis), Walter Rudin
+  - [Errata](https://math.berkeley.edu/~gbergman/ug.hndts/m104_Rudin_notes.pdf)
 - [Basic Analysis: Introduction to Real Analysis](https://www.jirka.org/ra/), Jiří Lebl
 - [Analysis I](https://link.springer.com/book/10.1007/978-981-19-7261-4), Terence Tao
 - [Understanding Analysis](https://link.springer.com/book/10.1007/978-1-4939-2712-8), Stephen Abbott
