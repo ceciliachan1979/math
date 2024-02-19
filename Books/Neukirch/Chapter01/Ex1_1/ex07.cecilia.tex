@@ -1,0 +1,44 @@
+\subsection*{Exercise 7 (Cecilia)}
+To prove that $ \mathbb{Z}[\sqrt{2}] $ is Euclidean, we will divide two arbitrary values in $ \mathbb{Z}[\sqrt{2}] $ and show that the remainder have a smaller norm given by our chosen norm function. 
+
+The division algorithm is simple, the quoient is chosen to be the rounded result of the usual division is $ \mathbb{Q}[\sqrt{2}] $, the norm function is chosen to be $ n(a + b\sqrt{2}) = |a^2 - 2b^2| $.
+
+First, we show that we can basically interpret $ a + b\sqrt{2} $ as the following matrix $\left(\begin{array}{cc}a & b\sqrt{2} \\ b\sqrt{2} & a \end{array}\right) $, Indeed, addition of values correspond to addition of matrix, and multiplication of values correspond to multiplication of matrix.
+
+Now since $ a^2 - 2b^2 $ is simply the determinant of the matrix, therefore we know the norm $ |a^2 - 2b^2| $ is multiplicative. We applied the absolute value just to make sure it is non-negative as required by the Euclidean function.
+
+To perform the division, we allow $ e, f \in \mathbf{Q} $ and then we perform some rounding:
+
+\begin{eqnarray*}
+  \frac{a+b\sqrt{2}}{c + d\sqrt{2}} &=& e + f\sqrt{2} \\
+                                    &=& [e] + [f]\sqrt{2} + (e - [e]) + (f - [f])\sqrt{2} \\
+  a+b\sqrt{2} &=& (c + d\sqrt{2})([e] + [f]\sqrt{2}) + (c + d\sqrt{2})((e - [e]) + (f - [f])\sqrt{2}) \\
+\end{eqnarray*}
+
+Therefore, we would like to bound the norm of the remainder $ (c + d\sqrt{2})((e - [e]) + (f - [f])\sqrt{2}) $. But since the norm is multiplicative, it suffice to show the norm of $ ((e - [e]) + (f - [f])\sqrt{2}) $ is less than 1. Indeed, the norm is
+
+\begin{eqnarray*}
+  & & ((e - [e]) + (f - [f])\sqrt{2}) \\
+  &=& |(e - [e])^2 - 2(f - [f])^2| \\
+  &\le& \frac{1}{2}
+\end{eqnarray*}
+
+The last inequality comes from the fact that $ |x - [x]| \le \frac{1}{2} $ and therefore the maximum is attained when $ e = [e] $ and $ |f - [f]| = \frac{1}{2} $.
+
+Therefore $ \mathbf{Z}[\sqrt{2}] $ is Euclidean.
+
+The units of $ \mathbf{Z}[\sqrt{2}] $ is simply the values with $ n(u) = 1 $. This is because any unit must have $ n(u) = 1 $ because the norm is multiplicative. $ n(u) > 1 $ and $ n(u)n(u^{-1}) = 1 $ would then dictate $ n(u^{-1}) $ to be a fraction, which is impossible. On the other hand, if $ n(u) = 1 $, then $ (a + b\sqrt{2})(a - b\sqrt{2}) = a^2 - 2b = \pm 1 $, and therefore we can easily find the inverse of $ u $. 
+
+With that, the units are given by the Pell's equation, which is $ \pm(1+\sqrt{2})^n $.
+
+Since $ \mathbb{Z}[\sqrt{2}] $ is Euclidean, it is also a unique factorization domain. To find the primes in , we consider the prime factorization of the norm. Here we can use the theory of generalized Pell's equation. In particular, this lemma is useful.
+
+For prime $ p $, $ x^2 - 2y^2 = p $ has solutions if and only if $ 2 $ is a quadratic residue mod $ p $.
+
+Now suppose the norm of $ v $ is a prime $ p $, in this case, $ v $ cannot be a product of more than one non unit element. So $ n(v) = n(a + b\sqrt{2}) = a^2 - 2b^2 = p $, and therefore $ 2 $ must be a quadratic residue mod $ p $.
+
+Now suppose the norm of $ v $ is $ p^2 $ where $ p $ is a prime and 2 is not a quadratic residue mod $ p $. Now if $ v = mn $ can be factorized into non units, then $ m\overline{m}n\overline{n} = p^2 $ has 4 non unit factors on the left hand side but only two prime factors on the right hand side, that contradicts unique factorization. Therefore $ v $ is a prime and cannot be factorized. In that case, $ v $ has to be the integer $ p $.
+
+Otherwise, the value cannot be prime. If we consider the prime factorization on both sides, the left hand side of $ v\overline{v} $ has only two factors with identical norm but the left hand side will have at least two factors with distinct norms, which again contradicts unique factorization.
+
+That shows the primes in $ \mathbf{Z}[\sqrt{2}] $ are either integer primes with 2 not a quadratic residue mod $ p $ or solutions to the generalized Pell's equation $ x^2 - 2y^2 = p $ with $ p $ a quadratic mod $ p $.

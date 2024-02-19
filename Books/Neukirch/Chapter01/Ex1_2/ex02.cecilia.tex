@@ -1,0 +1,6 @@
+\subsection*{Exercise 2 (Cecilia)}
+If $ A $ is finite, then $ A $ is a finite integral domain, which is also a finite field. $ A[t] $ is known to be an Euclidean ring, and is therefore factorial and integrally closed. Therefore we assume $ A $ is infinite.
+
+Suppose $ A[t] $ is not integrally closed, then there exists $ p, q \in A[t] $ such that $ \frac{p}{q} $ is integral over $ A[t] $. The polynomial $ q(x) $ and $ q(x) - 1 $ has only finitely many roots, and $ A $ is infinite, therefore there exists $ u \in A $ such that $ q(u) \ne 0 $ and $ q(u) \ne 1 $. 
+
+Consider $ A\left(\frac{p(u)}{q(u)}\right) $, any element in this ring can be written as $ f\left(\frac{p(u)}{q(u)}\right) $ where $ f \in A[t] $. Since we assumed $ \frac{p(t)}{q(t)} $ is integral over $ A[t] $, so $ A[t]\left(\frac{p}{q}\right) $ is a finitely generated module, meaning the element $ f\left(\frac{p}{q}\right) $ can be written as a finite basis expansion $ f\left(\frac{p}{q}\right) = \sum \omega_i \alpha_i $ where $ \omega_i \in A[t] $ and $ \alpha_i \in A[t]\left(\frac{p}{q}\right) $. But then we can substitute $ t = u $ to get a finite basis expansion for any element in $ A\left(\frac{p(u)}{q(u)}\right) $, meaning $ \frac{p(u)}{q(u)} $ is also an integral over $ A $, contradicting the fact that $ A $ is integrally closed. Therefore $ A[t] $ is integrally closed.
