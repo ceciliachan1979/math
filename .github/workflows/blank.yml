@@ -21,6 +21,11 @@ jobs:
         with:
           working_directory: Books/Jirka_RA
           root_file: jirka_ra.tex
+      - name: Compile Neukirch LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: Books/Neukirch
+          root_file: Neukirch.tex
       - name: Compile NTU Calculus 1 LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -30,7 +35,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            Books/Neukirch/Neukirch.tex
             Books/Neukirch/Notes.tex
             Exams/NumberTheory/Solutions/NumberTheory.tex
             Exams/HKALE/1998/HKALE-1998.tex
@@ -64,8 +68,8 @@ jobs:
             Books/DoneRight/DoneRight.pdf
             Books/BabyRudin/BabyRudin.pdf
             Books/Jirka_RA/jirka_ra.pdf
+            Books/Neukirch/Neukirch.pdf
             NTU/Calculus1/Calculus1.pdf
-            Neukirch.pdf
             Notes.pdf
             NumberTheory.pdf
             HKALE-1998.pdf
