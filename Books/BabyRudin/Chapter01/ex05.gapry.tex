@@ -1,10 +1,22 @@
 \subsection*{Exercise 05 (Gapry)}
 \begin{flushleft}
-Since $A \subset R$, and $A$ is bounded below, we know that $\inf A$ exists.\\
+For all $x$ in the set $A$, $-x$ is in the set $-A$.
+Let's claim $y = -x$, we know that for all $y \in -A$, $y \le sup(-A)$ is true. 
+We have the following inferences:
+\begin{flalign*}
+          y &\le  sup(-A) &\\
+    \iff -x &\le  sup(-A) &\\
+\implies  x &\ge -sup(-A)
+\end{flalign*}
+It means $-sup(-A)$ is one of the lower bound of the set $A$. \\
 \vspace{10px}
-Let's claim $\alpha = \inf A$, so for all $x \in A$, we have $x \ge \alpha$. It follows that for all $-x \in -A$, we have $-x \le -\alpha$.\\
+Let's claim $B$ is a set of all lower bound of the set $A$. \\
+Obviously, for all $b$ in the set $B$, $b \le x$ is true for all $x \in A$. \\
 \vspace{10px}
-Since we know that $\alpha$ is the greatest lower bound of $A$, the negation of inequality $x \ge \alpha$, which is $-x \le -\alpha$, it shows $-\alpha$ is the least upper bound of $-A$, that is, $-\alpha = \sup(-A)$. \\
+Since $b \le x \implies -b \ge -x$ is true, it follows $-b$ will greater than or equal to all element in the set $-A$. It proves $-b \ge sup(-A)$ is true. \\
 \vspace{10px}
-According to 1.14 Proposition (d), $\alpha = -(-\alpha)$, we can conclude that $\inf A = -\sup(-A)$.
+Since $-b \ge sup(-A) \implies b \le -sup(-A)$ is true, it follows $-sup(-A)$ is the upper bound of $b$. \\
+\vspace{10px}
+We prove the $x \ge -sup(-A)$ and $b \le -sup(-A)$ are both true, hence $-sup(-A)$ is the greatest lower bound of the set $A$, that is $-sup(-A) = inf(A)$.
 \end{flushleft}
+
