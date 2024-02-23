@@ -1,0 +1,82 @@
+\subsection*{Exercise 11 (Gapry)}
+If the distance function can construct a metric space, it will satisfy the following condition: For any \(x,\ y,\ z\) in set \(X\):
+\begin{enumerate}
+\item \(d(x,\ x) = 0\)
+\item \(d(x,\ y) > 0\) if \(x \neq y\)
+\item \(d(x,\ y) = d(y,\ x)\)
+\item \(d(x,\ y) \leq d(x,\ z) + d(z,\ y)\)
+\end{enumerate}
+
+\subsubsection*{Part 01: Analyze $d_1(x,\ y) = (x - y)^2$}
+\begin{flalign*}
+d_1(x,\ y) &= (x - y)^2                               &\\
+           &= (x - z + z - y)^2                       &\\
+           &= ((x - z) + (z - y))^2                   &\\
+           &= (x - z)^2 + 2(x - z)(z - y) + (z - y)^2 &\\ 
+           &= (x - z)^2 + (z - y)^2 + 2(x - z)(z - y) &\\ 
+           &= d_1(x,\ z) + d_1(z,\ y) + 2(x - z)(z - y)
+\end{flalign*}
+
+\begin{flushleft}
+If $x > z$ and $z > y$, $d_1(x,\ y)$ can't satisfy the 4th condition.
+\end{flushleft}
+
+\subsubsection*{Part 02: Analyze $d_2(x,\ y) = \sqrt{|x - y|}$}
+
+\begin{enumerate}
+\item \(d_2(x,\ x) = \sqrt{|x - x|} = 0\)
+\item \(d_2(x,\ y) = \sqrt{|x - y|} > 0\) if \(x \neq y\)
+\item \(d_2(x,\ y) = \sqrt{|x - y|} = \sqrt{|y - x|} = d_2(y,\ x)\)
+\end{enumerate}
+
+\begin{flushleft}
+According Theorem 1.37(f), we know $|x - y| \le |x - z| + |z - y|$ is true. Hence, we have the following inference:
+\begin{flalign*}
+                |x - y| &\le |x - z| + |z - y|               &\\
+\implies \sqrt{|x - y|} &\le \sqrt{|x - z|} + \sqrt{|z - y|} &\\
+\implies     d_2(x,\ y) &\le d_2(x,\ z) + d_2(z,\ y)
+\end{flalign*}
+
+Since $d_2(x,\ y)$ can satisfy the all conditions, it is a metric space.
+\end{flushleft}
+
+\subsubsection*{Part 03: Analyze $d_3(x,\ y) = |x^2 - y^2|$}
+\begin{flushleft}
+Let's claim $y = -x$, $|x^2 - y^2| = |x^2 - (-x)^2| = 0$ \\
+$d_3(x,\ y)$ can't satisfy the 2nd condition.
+\end{flushleft}
+
+\subsubsection*{Part 04: Analyze $d_4(x,\ y) = |x - 2y|$}
+\begin{flushleft}
+$d_4(x,\ y) = |x - 2y|$, $d_4(y,\ x) = |y - 2x|$
+Since $d_4(x,\ y) \neq d_4(y,\ x)$, $d_4(x,\ y)$ can't satisfy the 3rd condition.
+\end{flushleft}
+
+\subsubsection*{Part 05: Analyze $d_5(x,\ y) = \frac{|x - y|}{1 + |x - y|}$}
+
+\begin{enumerate}
+\item \(d_5(x,\ x) = \frac{|x - x|}{1 + |x - x|} = 0\)
+\item \(d_5(x,\ y) = \frac{|x - y|}{1 + |x - y|} > 0\) if \(x \neq y\)
+\item \(d_5(x,\ y) = \frac{|x - y|}{1 + |x - y|} = \frac{|y - x|}{1 + |y - x|} = d_5(y,\ x)\)
+\end{enumerate}
+
+We do the following inference:
+\begin{flalign*}
+                                       d_5(x,\ y) &= \frac{|x - y|}{1 + |x - y|}         &\\
+d_5(x,\ y)(1 + |x - y|)(1 + |x - z|)(1 + |z - y|) &= |x - y|(1 + |x - z|)(1 + |z - y|)   &\\
+                                       d_5(x,\ z) &= \frac{|x - z|}{1 + |x - z|}         &\\
+d_5(x,\ z)(1 + |x - y|)(1 + |x - z|)(1 + |z - y|) &= |x - z|(1 + |x - y|)(1 + |z - y|)   &\\
+                                       d_5(z,\ y) &= \frac{|z - y|}{1 + |z - y|}         &\\
+d_5(z,\ y)(1 + |x - y|)(1 + |x - z|)(1 + |z - y|) &= |z - y|(1 + |x - y|)(1 + |x - z|)   &\\
+                          d_5(x,\ z) + d_5(z,\ y) &= (1 + |x - y|)(|x - z|(1 + |z - y|) 
+                                                                 + |z - y|(1 + |x - z|)) &\\
+                                                  &= (1 + |x - y|)(|z - y|(1 + |x - z|) 
+                                                                 + |x - z|(1 + |z - y|)) &\\
+                                          |x - y| &\le 1 + |x - y|                       &\\
+                                      1 + |x - z| &\le |z - y|(1 + |x - z|)              &\\
+                                      1 + |z - y| &\le |x - z|(1 + |z - y|)              &\\
+                                       d_5(x,\ y) &\le d_5(x,\ z) + d_5(z,\ y)
+\end{flalign*}
+\begin{flushleft}
+Since $d_5(x,\ y)$ can satisfy the all conditions, it is a metric space.
+\end{flushleft}
