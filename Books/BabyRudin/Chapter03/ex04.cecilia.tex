@@ -26,16 +26,26 @@ Therefore the odd and even subsequences are increasing and converges to 1 and $\
 
 Observe that since both subsequences are increasing and the larger one converge to 1. There is no terms in the sequence that is larger than 1, therefore there cannot be any subsequence converging to a value larger than 1, and there exists a subsequence that converges to 1. Therefore 1 is the upper limit.
 
-Next, suppose (for the sake of contrary) that there exists a subsequence that converges to a value less than $\frac{1}{2}$, say, $ \frac{1}{2} - d $. 
+Next, suppose (for the sake of contrary) that there exists a subsequence that converges to a value less than $\frac{1}{2}$, say, $ \left(\frac{1}{2} - d\right) $.
+
+Let's start with some simple calculation:
+\begin{eqnarray*}
+                      -\frac{2d}{3} &<& -\frac{d}{3} \\
+                   -d + \frac{d}{3} &<& -\frac{d}{3} \\
+      \left(\frac{1}{2} - d\right) + \frac{d}{3} &<& \frac{1}{2} - \frac{d}{3} \\
+                                    &<& 1 - \frac{d}{3} \\
+\end{eqnarray*}
+
+So the open intervals $ \left(\left(\frac{1}{2} - d\right) \pm \frac{d}{3}\right) $ and $ \left(1 \pm \frac{d}{3}\right) $ are disjoint. Same holds for $ \left(\left(\frac{1}{2} - d\right) \pm \frac{d}{3}\right) $ and $ \left(\frac{1}{2} \pm \frac{d}{3}\right) $
 
 In the odd subsequence, all but finitely many points satisfy $ | s - 1 | < \frac{d}{3} $. So there are only finitely many points in the odd subsequence
-such that $ | s - (\frac{1}{2} - d) | < \frac{d}{3} $.
+such that $ | s - \left(\frac{1}{2} - d\right) | < \frac{d}{3} $ as $ \left(\left(\frac{1}{2} - d\right) \pm \frac{d}{3}\right) $ and $ \left(1 \pm \frac{d}{3}\right) $ are disjoint.
 
 In the even subsequence, all but finitely many points satisfy $ | s - \frac{1}{2} | < \frac{d}{3} $. So there are only finitely many points in the even subsequence
-such that $ | s - (\frac{1}{2} - d) | < \frac{d}{3} $.
+such that $ | s - \left(\frac{1}{2} - d\right) | < \frac{d}{3} $ as $ \left(\left(\frac{1}{2} - d\right) \pm \frac{d}{3}\right) $ and $ \left(\frac{1}{2} \pm \frac{d}{3}\right) $ are disjoint
 
-A point can only be in one of the subsequences, so there are only finitely many points satisfying $ | s - (\frac{1}{2} - d) | < \frac{d}{3} $ in the entire sequence.
+A point can only be in one of the subsequences, so there are only finitely many points satisfying $ | s - \left(\frac{1}{2} - d\right) | < \frac{d}{3} $ in the entire sequence.
 
-In order for a subsequence to converge to $ \frac{1}{2} - d $, there must be infinitely many points that satisfy $ | s - (\frac{1}{2} - d) | < \frac{d}{3} $, but there only finitely many of them, so this is a contradiction. 
+In order for a subsequence to converge to $ \left(\frac{1}{2} - d\right) $, there must be infinitely many points that satisfy $ | s - \left(\frac{1}{2} - d\right) | < \frac{d}{3} $, but there only finitely many of them, so this is a contradiction.
 
 Therefore $\frac{1}{2}$ is the lower limit because there is no subsequence that converges to a value less than $\frac{1}{2}$. and the even subsequence converges to $\frac{1}{2}$.
