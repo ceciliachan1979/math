@@ -2,6 +2,34 @@
 
 Posting some math related latex documents
 
+# Development Environment
+- 安裝LaTeX：
+  - 一般Linux有 pdflatex command 可使用。
+  - Windows: https://miktex.org/ , https://www.texniccenter.org/
+- Web
+  - [mathURL](http://mathurl.com/)
+  - [Overleaf](https://www.overleaf.com/)
+- IDE
+  - [GNU TeXmacs](https://www.texmacs.org)
+  - [Visual Studio Code](https://code.visualstudio.com/)
+    - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+    - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+  - [TeXstudio](https://www.texstudio.org/)
+- Docker:
+  - 如果你不想安裝LaTeX，可以使用Docker。以下是一個例子：
+    - 下載：
+      ```
+      docker pull ghcr.io/xu-cheng/texlive-full:latest
+      ```
+    - 編譯：
+      ```
+      docker run --rm -it -v $(pwd):/src -w /src/Books/BabyRudin ghcr.io/xu-cheng/texlive-full:latest latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode ./BabyRudin.tex
+      ```
+    - 開啟：
+      ```
+      open ./Books/BabyRudin/BabyRudin.pdf
+      ```
+
 # Books
 - [Mathematics for Computer Science](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf), Eric Lehman, F Thomson Leighton, Albert R Meyer
 - [Algorithm Design](https://www.amazon.com/gp/product/0321295358/), Jon Kleinberg, Eva Tardos
@@ -31,43 +59,28 @@ Posting some math related latex documents
 - [Advanced Calculus 1](https://ocw.nycu.edu.tw/?course_page=all-course%2Fcollege-of-science%2Fam%2Fadvanced-calculus-i-97), Chi-Kaung Pai, NYCU OCW
 - [Advanced Calculus 2](https://ocw.nycu.edu.tw/?course_page=all-course%2Fcollege-of-science%2Fam%2Fadvanced-calculus-ii-97), Chi-Kaung Pai, NYCU OCW
 - [Real Analysis](https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/), Casey Rodriguez, MIT OCW
-- [Probability Theory and Stochastic Processes](https://mathweb.ucsd.edu/~tkemp/ProbabilityTube/), Todd Kemp
+- [Probability Theory and Stochastic Processes](https://mathweb.ucsd.edu/~tkemp/ProbabilityTube/), Todd Kemp, UCSD
 
 # YouTube Channel
 - [The Bright Side of Mathematics](https://www.youtube.com/@brightsideofmaths)
 - [James Cook](https://www.youtube.com/@jamescook5617)
 
-# FAQ on LaTeX
+# FAQ on LaTeX and PGF/TikZ 
 
-## 如果我不懂LaTeX怎麼辦？
+## 如果我不懂 LaTeX 怎麼辦？
+- Quick Start: https://latex-tutorial.com/tutorials/amsmath/
+- Quick Reference: https://en.wikipedia.org/wiki/Help:Displaying_a_formula
+- [LaTeX Tutorials (featuring Texmaker)](https://www.youtube.com/playlist?list=PL1D4EAB31D3EBC449), Michelle Krummel
 
-* 安裝LaTeX：
-
-    * 一般Linux有 pdflatex command 可使用。
-
-    * Windows: https://miktex.org/ , https://www.texniccenter.org/
-
-* Quick Start: https://latex-tutorial.com/tutorials/amsmath/
-
-* Quick Reference: https://en.wikipedia.org/wiki/Help:Displaying_a_formula
-
-* Docker:
-
-    如果你不想安裝LaTeX，可以使用Docker。以下是一個例子：
-
-    * 下載：`docker pull ghcr.io/xu-cheng/texlive-full:latest`
-
-    * 編譯：`docker run --rm -it -v $(pwd):/src -w /src/Books/BabyRudin ghcr.io/xu-cheng/texlive-full:latest latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode ./BabyRudin.tex`
-
-    * 開啟：`open ./Books/BabyRudin/BabyRudin.pdf`
+## 如果我不懂 PGF/TikZ 怎麼辦？
+- [PGF/TikZ Manual - Complete Online Documentation](https://tikz.dev/)
+- [LaTeX/PGF/TikZ - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ)
+- [TikZ.net – Graphics with TikZ in LaTeX](https://tikz.net/)
+- [LaTeX Graphics with TikZ](https://tikz.org/)
+- [TikZ and PGF | TeXample.net](https://texample.net/tikz/)
 
 ## 用電腦typeset數學證明是學習數學證明的最佳方法嗎？
-
 不，根據研究（ref: https://www.youtube.com/watch?v=7PQbidoBPBc ），手寫對長遠記憶的效果更好。可是，如果你想別人看到你的練習／作品，或者方便保存日後參考／分享，使用 LaTeX 吧！
-
-## 其他資源：
-
-https://www.texmacs.org
 
 # References
 - [Graphic notes on Gilbert Strang's "Linear Algebra for Everyone"](https://github.com/kenjihiranabe/The-Art-of-Linear-Algebra/)
