@@ -1,0 +1,33 @@
+\subsection*{Exercise 06 (Cecilia)}
+\subsubsection*{Part a}
+The series $ a_n = \sqrt{n + 1} - \sqrt{n} $ diverges because $ \sum\limits_{k=1}^{n} a_k = \sqrt{k + 1} - 1 \to \infty $ as $ k \to \infty $.
+
+\subsubsection*{Part b}
+For $ n > 1 $, $ n + 1 < 4n \implies \sqrt{n + 1} < 2\sqrt{n} $, with that we can apply the comparison test.
+
+\begin{eqnarray*}
+  & & \left|\frac{\sqrt{n+1} - \sqrt{n}}{n} \right| \\
+  &=& \frac{\sqrt{n+1} - \sqrt{n}}{n} \\
+  &<& \frac{2\sqrt{n} - \sqrt{n}}{n} \\
+  &=& \frac{\sqrt{n}}{n} \\
+  &=& \frac{1}{\sqrt{n}}
+\end{eqnarray*}
+
+Therefore the series $ a_n = \frac{\sqrt{n + 1} - \sqrt{n}}{n} $ converges because $ \frac{1}{\sqrt{n}} $ does.
+
+\subsubsection*{Part c}
+
+Using the root test, we conclude the series $ a_n = (\sqrt[n]{n}-1)^n $ converges.
+\begin{eqnarray*}
+    & & \limsup \sqrt[n]{|a_n|} \\
+    &=& \limsup \sqrt[n]{|(\sqrt[n]{n}-1)^n|} \\
+    &=& \limsup \sqrt[n]{(\sqrt[n]{n}-1)^n} \\
+    &=& \limsup (\sqrt[n]{n}-1) \\
+    &=& 0
+\end{eqnarray*}
+
+\subsubsection*{Part d}
+If $ z = 1 $, in that case the series is a just the sum of infinitely many $ \frac{1}{2} $, and so it diverges to $ + \infty $.
+If $ z \in R $, $ z > 1 $, in that case the series is a just the sum of infinitely many $ \frac{1}{1 + z^n} < \frac{1}{(z+1)^n} $, so it converges by the comparison test.
+
+The convergency depends on $ z $ and there is not a single answer.
