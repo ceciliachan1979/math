@@ -1,0 +1,35 @@
+\subsubsection*{Exercise 1.1.2. (Gapry)}
+
+\begin{flushleft}
+Since $\mathbb{A}$ is a subset of $\mathbb{S}$, $\mathbb{A}$ is ordered set. Arrange the elements x of A such that $\{ x_i \ | \ x_n \le x_{n + 1}, n \ge 1, n \in \mathbb{N} \}$
+\end{flushleft}
+
+\begin{flushleft}
+Basis Case: 
+
+If n = 1, then $A = \{x_1\}$, $\inf A = x_1$, $\sup A = x_1$
+
+If n = 2, then $A = \{x_1, x_2\}$, $x_1 \le x_2$, $\inf A = x_1$, $\sup A = x_2$
+
+If n = 3, then $A = \{x_1, x_2, x_3\}$, $x_1 \le x_2 \le x_3$, $\inf A = x_1$, $\sup A = x_3$
+\end{flushleft}
+
+\begin{flushleft}
+Induction Hypothesis:
+
+If $A = \{x_1, \cdots, x_n\}$, $x_1 \le \cdots \le x_n$, $\inf A = x_1$, $\sup A = x_n$ is true, then
+$A = \{x_1, \cdots, x_n\} \cup \{ y \},\ y \in \mathbb{S} \setminus \{x_1, \cdots, x_n\}$ 
+
+\textbf{Case 1:}
+if $y \ge x_n$, then $\inf A = x_1$, $\sup A = y$
+
+\textbf{Case 2:}
+if $y \le x_1$, then $\inf A = y$, $\sup A = x_n$
+
+\textbf{Case 3:}
+if $x_1 < y < x_n$, then $\inf A = x_1$, $\sup A = x_n$
+\end{flushleft}
+
+\begin{flushleft}
+By the principle of induction, we know that $\inf A$ and $\sup A$ exist and are in $\mathbb{A}$, hence it's bounded.
+\end{flushleft}
