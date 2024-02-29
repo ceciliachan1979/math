@@ -1,5 +1,6 @@
 \subsubsection*{Exercise 0.3.1. (Gapry)}
-A is the universe set, B and C are subsets of A, and x $\in$ A.
+\begin{flushleft}
+By \textbf{Axiom of Extensionality}, we know $\forall P \forall Q (\forall x(x \in P \iff x \in B) \implies P = Q)$. Let's define $P = A \setminus (B \cap C)$, $Q = (A \setminus B) \cup (A \setminus C)$, we do the inference:
 \begin{flalign*}
 x \in (A \setminus (B \cap C)) &\implies (x \in A) \text{ and } (x \notin (B \cap C))                      &\\
                                &\implies (x \in A) \text{ and } (x \notin B \text{ or } x \notin C))       &\\
@@ -15,3 +16,4 @@ x \in ((A \setminus B) \cup (A \setminus C)) &\implies ((x \in A) \text{ and } (
                                              &\implies (x \in A) \text{ and } (x \notin (B \cap C))        &\\
                                              &\implies x \in (A \setminus (B \cap C))
 \end{flalign*}
+\end{flushleft}
