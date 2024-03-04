@@ -1,23 +1,25 @@
 \subsubsection*{Exercise 1.1.2. (Gapry)}
 
 \begin{flushleft}
-Since $\mathbb{A}$ is a subset of $\mathbb{S}$, $\mathbb{A}$ is ordered set. Arrange the elements x of A such that $\{ x_i \ | \ x_n \le x_{n + 1}, n \ge 1, n \in \mathbb{N} \}$
+Since $\mathbb{A}$ is a subset of $\mathbb{S}$, $\mathbb{A}$ is ordered set. Arrange the elements x of A such that $\{ x_n \ | \ x_n \le x_{n + 1}, n \ge 1, n \in \mathbb{N} \}$
 \end{flushleft}
 
 \begin{flushleft}
-Basis Case: 
+Base Case: 
 
-If n = 1, then $A = \{x_1\}$, $\inf A = x_1$, $\sup A = x_1$
+If n = 1, then $A = \{x_1\}$. $x_1$ is the minimum and maximum in the set $A$ since $x_1$ is the unique value in the set $A$. It follows $\inf A = x_1$, $\sup A = x_1$.
 
-If n = 2, then $A = \{x_1, x_2\}$, $x_1 \le x_2$, $\inf A = x_1$, $\sup A = x_2$
+If n = 2, then $A = \{x_1, x_2\}$, $x_1 \le x_2$. $x_1$ is the minimum and $x_2$ is the maximum in the set $A$. It follows $\inf A = x_1$, $\sup A = x_2$.
 
-If n = 3, then $A = \{x_1, x_2, x_3\}$, $x_1 \le x_2 \le x_3$, $\inf A = x_1$, $\sup A = x_3$
+If n = 3, then $A = \{x_1, x_2, x_3\}$, $x_1 \le x_2 \le x_3$. $x_1$ is the minimum and $x_3$ is the maximum in the set $A$. It follows $\inf A = x_1$, $\sup A = x_3$.
+
 \end{flushleft}
 
 \begin{flushleft}
 Induction Hypothesis:
 
-If $A = \{x_1, \cdots, x_n\}$, $x_1 \le \cdots \le x_n$, $\inf A = x_1$, $\sup A = x_n$ is true, then
+If $A = \{x_1, \cdots, x_n\}$, $x_1 \le \cdots \le x_n$. $x_1$ is the minimum and $x_n$ is the maximum in the set $A$. It follows $\inf A = x_1$, $\sup A = x_n$ is true, then
+
 $A = \{x_1, \cdots, x_n\} \cup \{ y \},\ y \in \mathbb{S} \setminus \{x_1, \cdots, x_n\}$ 
 
 \textbf{Case 1:}
@@ -31,5 +33,5 @@ if $x_1 < y < x_n$, then $\inf A = x_1$, $\sup A = x_n$
 \end{flushleft}
 
 \begin{flushleft}
-By the principle of induction, we know that $\inf A$ and $\sup A$ exist and are in $\mathbb{A}$, hence it's bounded.
+By the principle of induction, we know that $\inf A$ and $\sup A$ exist and are in $\mathbb{A}$, hence it's bounded. Q.E.D.
 \end{flushleft}
