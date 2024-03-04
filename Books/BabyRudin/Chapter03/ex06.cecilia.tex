@@ -3,17 +3,23 @@
 The series $ a_n = \sqrt{n + 1} - \sqrt{n} $ diverges because $ \sum\limits_{k=1}^{n} a_k = \sqrt{k + 1} - 1 \to \infty $ as $ k \to \infty $.
 
 \subsubsection*{Part b}
-For $ n > 1 $, $ n + 1 < 4n \implies \sqrt{n + 1} < 2\sqrt{n} $, with that we can apply the comparison test.
+Consider (Kudos @cy)
+
+\begin{eqnarray*}
+  & & \left(\sqrt{n} + \frac{1}{2\sqrt{n}}\right)^2 \\
+  &=& n + 1 + \frac{1}{4n} \\
+  &>& n + 1
+\end{eqnarray*}
+
+Therefore $ \sqrt{n + 1} < \sqrt{n} + \frac{1}{2\sqrt{n}} \implies \sqrt{n + 1} - \sqrt{n} < \frac{1}{2\sqrt{n}} $.
 
 \begin{eqnarray*}
   & & \left|\frac{\sqrt{n+1} - \sqrt{n}}{n} \right| \\
   &=& \frac{\sqrt{n+1} - \sqrt{n}}{n} \\
-  &<& \frac{2\sqrt{n} - \sqrt{n}}{n} \\
-  &=& \frac{\sqrt{n}}{n} \\
-  &=& \frac{1}{\sqrt{n}}
+  &<& \frac{1}{2n\sqrt{n}} \\
 \end{eqnarray*}
 
-Therefore the series $ a_n = \frac{\sqrt{n + 1} - \sqrt{n}}{n} $ converges because $ \frac{1}{\sqrt{n}} $ does.
+Therefore the series $ a_n = \frac{\sqrt{n + 1} - \sqrt{n}}{n} $ converges because $ \frac{1}{2n\sqrt{n}} $ does by theorem 3.28.
 
 \subsubsection*{Part c}
 
@@ -27,7 +33,35 @@ Using the root test, we conclude the series $ a_n = (\sqrt[n]{n}-1)^n $ converge
 \end{eqnarray*}
 
 \subsubsection*{Part d}
-If $ z = 1 $, in that case the series is a just the sum of infinitely many $ \frac{1}{2} $, and so it diverges to $ + \infty $.
-If $ z \in R $, $ z > 1 $, in that case the series is a just the sum of infinitely many $ \frac{1}{1 + z^n} < \frac{1}{(z+1)^n} $, so it converges by the comparison test.
+If $ |z| > 1 $, we can show that the series $ a_n = \frac{1}{1 + z^n} $ converges by the comparison test as follows:
 
-The convergency depends on $ z $ and there is not a single answer.
+\begin{eqnarray*}
+                |z^n| &=   &  \\
+                      &=   & |1 + z^n + (-1)| \\
+                      &\le & |1 + z^n| + |(-1)| \\
+                      &=   & |1 + z^n| + 1  \\
+            |z^n| - 1 &\le & |1 + z^n| \\
+  \frac{1}{|z^n| - 1} &\ge & \frac{1}{|1 + z^n|}
+\end{eqnarray*}
+
+Now we show that the left hand side converges by the ratio test.
+
+\begin{eqnarray*}
+  & & \frac{\frac{1}{|z^{n+1}| - 1}}{\frac{1}{|z^n| - 1}} \\
+  &=& \frac{|z^n| - 1}{|z^{n+1}| - 1} \\
+  &<& \frac{|z^n| - 1}{|z^{n+1}|} \\
+  &=& \frac{|z^n|}{|z^{n+1}|} - \frac{1}{|z^{n+1}|} \\
+  &=& \frac{1}{|z|} - \frac{1}{|z^{n+1}|}
+\end{eqnarray*}
+
+So, as $ n $ tends to $ \infty $, the sequence $ \frac{a_{n+1}}{a_n} $ is upper bounded by a sequence that tends to $ \frac{1}{|z|} < 1 $, so the sequence converges by the ratio test.
+
+On the other hand, if $ |z| \ge 1 $.
+
+\begin{eqnarray*}
+  &   & \frac{1}{1 + |z|^n} \\
+  &\ge& \frac{1}{1 + 1} \\
+  &=  & \frac{1}{2}
+\end{eqnarray*}
+
+Obviously, the series $ a_n = \frac{1}{2} $ diverges, so does $ \frac{1}{1 + z^n} $ by the comparison test.
