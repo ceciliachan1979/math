@@ -49,12 +49,12 @@ Now we show that the left hand side converges by the ratio test.
 \begin{eqnarray*}
   & & \frac{\frac{1}{|z^{n+1}| - 1}}{\frac{1}{|z^n| - 1}} \\
   &=& \frac{|z^n| - 1}{|z^{n+1}| - 1} \\
-  &<& \frac{|z^n| - 1}{|z^{n+1}|} \\
-  &=& \frac{|z^n|}{|z^{n+1}|} - \frac{1}{|z^{n+1}|} \\
-  &=& \frac{1}{|z|} - \frac{1}{|z^{n+1}|}
+  &<& \frac{|z^n| - 1}{|z^{n+1}| - |z|} \\
+  &=& \frac{1}{|z|} \\
+  &<& 1
 \end{eqnarray*}
 
-So, as $ n $ tends to $ \infty $, the sequence $ \frac{a_{n+1}}{a_n} $ is upper bounded by a sequence that tends to $ \frac{1}{|z|} < 1 $, so the sequence converges by the ratio test.
+Therefore the $ \limsup \left| \frac{\frac{1}{|z^{n+1}| - 1}}{\frac{1}{|z^n| - 1}} \right| < 1$.
 
 On the other hand, if $ |z| \ge 1 $.
 
