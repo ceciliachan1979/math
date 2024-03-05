@@ -7,17 +7,17 @@ Define $ TP_k $ to be $ \bigcup\limits_{n=1}^\infty TP_{nk} $. Since $ TP_{nk} $
 
 Define $ TP $ to be $ \bigcup\limits_{k=1}^\infty TP_k $. Since $ TP_k $ is countable, $ TP $ is countable because it is a sequence of disjoint countable sets (by theorem 2.12)
 
-So there exists a mapping $ m $ from $ TP $ to $ \mathbb{N} $, which is a bijection.
+So there exists a mapping $ m $ from $ \mathbb{N} $ to $ TP $, which is a bijection.
 
 We can define a surjective mapping $ f $ (for forward) from $ TP $ to the set of algebraic numbers $ \mathbb{A} $ by mapping each tuple $ (a_0, a_1, a_2, \dots, a_n, i) $ to the ith root of the polynomial $ a_nx^n + \cdots + a_0 $. To define the ith root, we can use the lexicographic ordering for the complex numbers, it doesn't matter that this order is incompatible with the field operations, all we needed is a definition to avoid ambiguity.
 
 Now we can define a mapping $ b $ (for backward) from $ \mathbb{A} $ to $ N $ as follow:
 
-$ b(a) = \min(n) $  such that $ f(n) = a $.
+$ b(a) = \min(n) $  such that $ f(m(n)) = a $.
 
-This definition is well defined because $ f $ is surjective.
+This definition is well defined because $ f $ is surjective and $ m $ is bijective.
 
-Note that $ f(b(a)) = a $, if $ b(x) = b(y) $, then $ f(b(x)) = f(b(y)) $, which means $ x = y $, so $ b $ is injective.
+Note that $ f(m(b(a))) = a $, if $ b(x) = b(y) $, then $ f(m(b(x))) = f(m(b(y))) $, which means $ x = y $, so $ b $ is injective.
 
 Let $ B $ be the range of $ b $. Suppose $ B $ is finite for the sake of contradiction, as $ b $ is injective, that would mean $ \mathbb{A} $ is finite. But we know for sure that $ \mathbb{A} $ is not finite because it at least contains all the integers. Therefore $ B $ is not finite.
 
