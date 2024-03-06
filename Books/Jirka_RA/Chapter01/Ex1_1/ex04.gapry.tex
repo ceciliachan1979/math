@@ -5,17 +5,17 @@ Since we know $\inf A \le \sup A$ is true, let's analyze $\inf B \le \inf A$ and
 
 \textbf{Part A: $\inf B \le \inf A$} \\
 Proof by contradiction: 
-Let's analyze the set $A$, $A \subset B \subset S$. If $\inf B > \inf A$, 
-then there exists a value $x$ such that $\inf B > x > \inf A$. 
-It follows the greatest lower bound of $A$ is $\inf B$.
-It contradicts.
+Given that $A \subset B$, it follows that the lower bounds of $B$ are also the lower bounds of $A$. 
+Therefore, $\inf B$ is a lower bound of $A$. If $\inf B > \inf A$, 
+this implies that there exists a lower bound of $A$ greater than the greatest lower bound of $A$, 
+it contradicts.
 
 \textbf{Part B: $\sup A \le \sup B$} \\
 Proof by contradiction: 
-Let's analyze the set $A$, $A \subset B \subset S$. If $\sup A > \sup B$, 
-then there exists a value $y$ such that $\sup A > y > \sup B$. 
-It follows the least upper bound of $A$ is $\sup B$.
-It contradicts.
+Given that $A \subset B$, it follows that the upper bounds of $B$ are also the upper bounds of $A$. 
+Therefore, $\sup B$ is an upper bound of $A$. If $\sup A > \sup B$, 
+this implies that there exists a upper bound of $A$ less than the least upper bound of $A$, 
+it contradicts.
 
 \textbf{Conclusion:} \\
 Since $\inf A \le \sup A$ and $\inf B \le \inf A$ and $\sup A \le \sup B$ are true, 
