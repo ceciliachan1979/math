@@ -3,17 +3,21 @@
 \begin{flushleft}
 Since we know $\inf A \le \sup A$ is true, let's analyze $\inf B \le \inf A$ and $\sup A \le \sup B$.
 
-\textbf{Part A: $\inf B \le \inf A$}
+\textbf{Part A: $\inf B \le \inf A$} \\
+Proof by contradiction: 
+Let's analyze the set $A$, $A \subset B \subset S$. If $\inf B > \inf A$, 
+then there exists a value $x$ such that $\inf B > x > \inf A$. 
+It follows the greatest lower bound of $A$ is $\inf B$.
+It contradicts.
 
-Since all the infs exist and $A \subset B \subset S$, $\inf A \in S$ and $\inf B \in S$. It follows $\inf B \le \inf A$ is true.
+\textbf{Part B: $\sup A \le \sup B$} \\
+Proof by contradiction: 
+Let's analyze the set $A$, $A \subset B \subset S$. If $\sup A > \sup B$, 
+then there exists a value $y$ such that $\sup A > y > \sup B$. 
+It follows the least upper bound of $A$ is $\sup B$.
+It contradicts.
 
-\textbf{Part B: $\sup A \le \sup B$}
-
-Since all the sups exist and $A \subset B \subset S$, $\sup A \in S$ and $\sup B \in S$. It follows $\sup A \le \sup B$ is true.
-
-\textbf{Conclusion:}
-
+\textbf{Conclusion:} \\
 Since $\inf A \le \sup A$ and $\inf B \le \inf A$ and $\sup A \le \sup B$ are true, 
 $\inf B \le \inf A \le \sup A \le \sup B$ is true. Q.E.D.
-
 \end{flushleft}
