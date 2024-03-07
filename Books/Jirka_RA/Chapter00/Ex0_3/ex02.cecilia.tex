@@ -1,0 +1,52 @@
+\subsubsection*{Exercise 0.3.2. (Cecilia)}
+
+\begin{flushleft}
+To show that the principle of standard induction and the principle of strong induction is equivalent, we show that a proof written in one form can be transformed into another. 
+\vspace{10px}
+
+If we had a proof written in standard induction. The proof will look like this.
+\vspace{10px}
+
+A proof of $S(1)$,
+A proof of $S(k) \implies S(k + 1)$ for all positive integers $k$.
+And then we claim $S(k)$ is true for all positive integers $k$ by standard induction.
+\vspace{10px}
+
+Such a proof can be trivially transformed into a proof using strong induction as follows, 
+the second line only assumes more.
+\vspace{10px}
+
+A proof of $S(1)$,
+A proof of $S(1), \cdots, S(k) \implies S(k + 1)$ for all positive integers $k$.
+And then we claim $S(k)$ is true for all positive integers k by strong induction.
+\vspace{10px}
+
+On the other hand, if we had a proof written in strong induction. 
+The proof will look like this.
+\vspace{10px}
+
+A proof of $S(1)$
+A proof of $S(1), \cdots, S(k) \implies S(k + 1)$ for all positive integers $k$.
+And then we claim S(k) is true for all positive integers k by strong induction.
+\vspace{10px}
+
+Such a proof can be transformed into a proof using standard induction as follow. 
+\vspace{10px}
+
+Let $T(k)$ to be the statement $S(n)$ is true for all $n$ in $[1, k]$
+\vspace{10px}
+
+A proof of $T(1)$ is simply a proof of $S(1)$
+A proof of $T(k) \implies T(k + 1)$ is simply a proof 
+$S(1), \cdots, S(k) \implies S(1), \cdots, S(k), S(k + 1)$, 
+we can proof trivially that $S(1), \cdots, S(k) \implies S(1), \cdots, S(k)$, 
+and we already had a proof that $S(1), \cdots, S(k) \implies S(k + 1)$
+And then we claim $T(k)$ is true for all positive integers $k$ by standard induction, 
+such a claim obviously also imply $S(k)$ is true for all positive integer $k$.
+\vspace{10px}
+
+Since a proof written in either form can be transformed into each other, 
+the two methods are equivalent.
+\vspace{10px}
+
+\end{flushleft}
