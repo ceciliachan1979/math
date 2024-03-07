@@ -46,7 +46,46 @@ such a claim obviously also imply $S(k)$ is true for all positive integer $k$.
 \vspace{10px}
 
 Since a proof written in either form can be transformed into each other, 
-the two methods are equivalent.
+the two methods are equivalent. Q.E.D.
 \vspace{10px}
 
+Here is the \textbf{counterexample}:
+\vspace{10px}
+
+\textbf{Standard Induction} \\
+Proof: $1 + 2 + \cdots + n = \frac{n(n + 1)}{2}$ for all positive integer $n$
+\vspace{10px}
+
+Let $S(k)$ be the statement $1 + \cdots + k = \frac{k(k + 1)}{2}$
+\vspace{10px}
+
+Base case: 
+$S(1)$ is true because $1 + \cdots + 1 = 1 = \frac{1(1 + 1)}{2}$
+\vspace{10px}
+
+Assume $S(k)$ is true
+$S(k + 1)$ is true because $1 + \cdots + k + k + 1 
+                         = \frac{k(k + 1)}{2} + (k + 1) 
+                         = \frac{(k+1)(k + 2)}{2}$ \\
+Therefore by the principle of standard mathematical induction, 
+the statement $S(n)$ is true for all positive integers $n$.
+\vspace{10px}
+
+\textbf{Transformed Strong Induction} \\
+Proof: $1 + 2 + \cdots + n = \frac{n(n + 1)}{2}$ for all positive integer $n$
+\vspace{10px}
+
+Let $S(k)$ be the statement $1 + \cdots + k = \frac{k(k + 1)}{2}$
+\vspace{10px}
+
+Base case: 
+$S(1)$ is true because $1 + \cdots + 1 = 1 = \frac{1(1 + 1)}{2}$
+\vspace{10px}
+
+Assume $S(1), \cdots, S(k)$ is true
+$S(k + 1)$ is true because $1 + \cdots + k + k + 1 
+                         = \frac{k(k + 1)}{2} + (k + 1) 
+                         = \frac{(k + 1)(k + 2)}{2}$ \\
+Therefore by the principle of strong mathematical induction, 
+the statement $S(n)$ is true for all positive integers $n$.
 \end{flushleft}
