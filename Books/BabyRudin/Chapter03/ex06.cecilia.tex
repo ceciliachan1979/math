@@ -51,17 +51,20 @@ Now we show that the left hand side converges by the ratio test.
   &=& \frac{|z^n| - 1}{|z^{n+1}| - 1} \\
   &<& \frac{|z^n| - 1}{|z^{n+1}| - |z|} \\
   &=& \frac{1}{|z|} \\
-  &<& 1
 \end{eqnarray*}
 
-Therefore the $ \limsup \left| \frac{\frac{1}{|z^{n+1}| - 1}}{\frac{1}{|z^n| - 1}} \right| < 1$.
+Therefore the $ \limsup \left| \frac{\frac{1}{|z^{n+1}| - 1}}{\frac{1}{|z^n| - 1}} \right| \le \frac{1}{|z|} < 1$.
 
-On the other hand, if $ |z| \ge 1 $.
+On the other hand, if $ |z| \le 1 $.
 
 \begin{eqnarray*}
-  &   & \frac{1}{1 + |z|^n} \\
-  &\ge& \frac{1}{1 + 1} \\
-  &=  & \frac{1}{2}
+                  |z| &\le& 1 \\
+                |z|^n &\le& 1 \\
+                |z^n| &\le& 1 \\
+            1 + |z^n| &\le& 2 \\
+          |1| + |z^n| &\le& 2 \\
+            |1 + z^n| &\le& 2 \\
+  \frac{1}{|1 + z^n|} &\ge& \frac{1}{2}
 \end{eqnarray*}
 
-Obviously, the series $ a_n = \frac{1}{2} $ diverges, so does $ \frac{1}{1 + z^n} $ by the comparison test.
+Therefore there is no point in $ \{ \frac{1}{|1 + z^n|} \} $ such that $ |\frac{1}{|1 + z^n|} - 0| < \frac{1}{2} $, so the limit of the sequence terms cannot be 0, and so the series diverges.
