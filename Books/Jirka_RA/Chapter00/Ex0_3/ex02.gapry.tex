@@ -24,18 +24,18 @@ Prove: \textbf{Well Ordering Property of} $\mathbb{N}$ $\implies$
 \vspace{10px}
 
 Proof by Contradiction: If the \textbf{Well Ordering Property of} $\mathbb{N}$ 
-is true, then the \textbf{Standard Induction} is false. It follows that there 
-exists a statement $P(n)$ which is false if $P(1)$ is true and $P(k) \implies 
-P(k + 1)$ is also true, where $n \in \mathbb{N}$, $k \in \mathbb{N}$. Let's 
-define two sets, one is $S_F = \{ P(n) \text{ is false } |\ n \in \mathbb{N} 
-\}$, the other is $S_T = \{ P(m) \text{ is true } |\ m \in \mathbb{N} \}$, 
+is true, and the \textbf{Standard Induction} is false. Then it follows that there 
+exists a statement $P(n)$ which is false for some $n \in \mathbb{N}$, and if $P(1)$ 
+is true and $P(k) \implies P(k + 1)$ is also true for all $k \in \mathbb{N}$. Let's 
+define two sets, one is $S_F = \{ n \in \mathbb{N} |\ P(n) \text{ is false } 
+\}$, the other is $S_T = \{ m \in \mathbb{N} |\ P(m) \text{ is true } \}$, 
 $n \ne m$. According to \textbf{Well Ordering Property of} $\mathbb{N}$, we
-know that $S_F$ exists a least index $k$ such that $P(k)$ is false, it follows 
-$P(k - 1) \in S_T$ which $P(k - 1)$ is true since $k - 1$ is not the least 
-index of $S_F$. For now, we know $P(k - 1) \implies P(k)$ is false which  
-contradicts with our assumption $P(k) \implies P(k + 1)$ is true. Hence, we 
-know that \textbf{Well Ordering Property of} $\mathbb{N}$ $\implies$ 
-\textbf{Standard Induction} is true.
+know that $S_F$ has a least element $l$ such that $P(l)$ is false, it follows 
+$ l - 1 \in S_T$ since $l - 1$ is less than the least index of $S_F$. $P(l - 1)$ 
+is true. For now, we know $P(l - 1) \implies P(l)$ is false which  
+contradicts with our assumption $P(k) \implies P(k + 1)$ is true for all $k \in 
+\mathbb{N}$. Hence, we  know that \textbf{Well Ordering Property of} $\mathbb{N}$ 
+$\implies$ \textbf{Standard Induction} is true.
 \end{flushleft}
 
 \begin{flushleft}
@@ -45,21 +45,26 @@ of} $\mathbb{N}$ is true. \\
 
 The contraposition of \textbf{Well Ordering Property of} $\mathbb{N}$ is
 that if the least element doesn't exist, then $S$ is the empty set. 
-Let's use standard induction to prove the contraposition is true. \\
+Let's use standard induction to prove the following statement is true. \\
 \vspace{10px}
 
-(i) Basis Statement: If $P(1)$ is true, 1 $\in$ S, then 1 is the least element 
-of S. It follows that if 1 $\notin$ S, then $S$ is the empty set. It proves 
-that P(1) is true if $S$ doesn't not have a least element, then $\{1\} \cap S$ 
-is the empty set.\\
+$ P(k) $: If $ S $ does not have a least element, then $\{1, \cdots, k\} \cap S$ 
+is the empty set.
+\vspace{10px}
+
+(i) Basis Step: If $ 1 \in S $, then $ 1 $ is the least element. But $ S $ does not 
+have a least element. Therefore $ 1 \notin S $ and so $\{1, \cdots, 1\} \cap S$ is 
+the empty set.
 \vspace{10px}
 
 (ii) Induction Step: 
-Assume P(k) is true if $S$ doesn't not have a least element, then $\{1, \cdots, 
-k\} \cap S$ is the empty set. For now, If $k + 1 \in S$, then it is the least 
-element of $S$. It follows that if $k + 1 \notin S$, then $S$ is the empty set. 
-It proves that P(k + 1) is true if $S$ doesn't not have a least element, then 
-$\{1, \cdots, k, k + 1\} \cap S$ is the empty set.\\
+Assume P(k) is true, then $\{1, \cdots, k\} \cap S$ is the empty set. For now, 
+If $k + 1 \in S$, then it is the least element of $S$. But $ S $ does not 
+have a least element. Therefore $ k + 1 \notin S $ and $\{1, \cdots, k, k + 1\}
+ \cap S$ is the empty set.\\
+\vspace{10px}
+
+Since none of the natural number can be in $ S $, it follows that $ S $ is the empty set.
 \vspace{10px}
  
 Since the contraposition of \textbf{Well Ordering Property of} $\mathbb{N}$ is 
@@ -83,20 +88,20 @@ Prove: \textbf{Well Ordering Property of} $\mathbb{N}$ $\implies$
 \vspace{10px}
 
 Proof by Contradiction: If the \textbf{Well Ordering Property of} $\mathbb{N}$ 
-is true, then the \textbf{Strong Induction} is false. It follows that there 
-exists a statement $P(n)$ is false if $P(1)$ is true and $P(1) \land \cdots 
-\land P(k) \implies P(k + 1)$ is also true, $n \in \mathbb{N}$, $k \in 
-\mathbb{N}$. Let's define two sets, one is $S_F = \{P(n) \text{ is false } |\ 
-n \in \mathbb{N} \}$, the other is $S_T = \{ P(m) \text{ is true } |\ m \in 
-\mathbb{N} \}$, $n \ne m$. According to \textbf{Well Ordering Property of} 
-$\mathbb{N}$, we know $S_F$ exists a least index $k$ such that $P(k)$ is false, 
-it follows that $P(1), \cdots, P(k - 1)$ are all in $S_T$ since $1, \cdots, 
-k - 1$ are all less than $k$. For now, we know that $P(1) \land \cdots \land 
-P(k - 1)$ is true,  $P(k)$ is false. It follows that $P(1) \land \cdots \land 
-P(k - 1) \implies P(k)$ is false which contradicts with our assumption $P(1) 
-\land \cdots \land P(k) \implies P(k + 1)$ is true. Hence, we know \textbf{Well 
-Ordering Property of} $\mathbb{N}$ $\implies$ \textbf{Principle of Strong 
-Induction} is true.
+is true, and the \textbf{Strong Induction} is false. Then it follows that there 
+exists a statement $P(n)$ is false for some $n \in \mathbb{N}$, $P(1)$ is true 
+and $P(1) \land \cdots \land P(k) \implies P(k + 1)$ is also true for all $k \in 
+\mathbb{N}$. Let's define two sets, one is $S_F = \{n \in \mathbb{N} |\ 
+P(n) \text{ is false } \}$, the other is $S_T = \{m \in \mathbb{N}  |\ P(m)
+ \text{ is true } \}$, $n \ne m$. According to \textbf{Well Ordering Property of} 
+$\mathbb{N}$, we know $S_F$ has a least element $l$ such that $P(l)$ is false, 
+it follows that $ 1, \cdots, l - 1$ are all in $S_T$ since $1, \cdots, 
+l - 1$ are all less than $l$. For now, we know that $P(1) \land \cdots \land 
+P(l - 1)$ is true,  $P(l)$ is false. It follows that $P(1) \land \cdots \land 
+P(l - 1) \implies P(l)$ is false which contradicts with our assumption $P(1) 
+\land \cdots \land P(k) \implies P(k + 1)$ is true for all $k \in 
+\mathbb{N}$. Hence, we know \textbf{Well Ordering Property of} $\mathbb{N}$ 
+$\implies$ \textbf{Principle of Strong Induction} is true.
 \end{flushleft}
 
 \begin{flushleft}
@@ -106,20 +111,23 @@ Property of} $\mathbb{N}$ is true. \\
 
 The contraposition of \textbf{Well Ordering Property of} $\mathbb{N}$ is that 
 if the least element doesn't exist, then $S$ is the empty set. Let's use strong 
-induction to prove the contraposition is true. \\
+induction to prove the following statement is true. \\
 \vspace{10px}
 
-(i) Basis Statement: 
-If $P(1)$ is true, 1 $\in$ S, then 1 is the least element of S. It follows that 
-if 1 $\notin$ S, then $S$ is the empty set. \\
+$ P(k) $: If $ S $ does not have a least element, then $ k \notin S$ 
+\vspace{10px}
+
+(i) Basis Step: If $ 1 \in S $, then $ 1 $ is the least element. But $ S $ does not 
+have a least element. Therefore $ 1 \notin S $.
 \vspace{10px}
 
 (ii) Induction Step: 
-If $P(1), \cdots, P(k)$ are all true and $1, \cdots, k \in S$, then 1 is the 
-least element of S. It follows that if $1, \cdots, k$ are both not in $S$, 
-then $S$ is the empty set. For now, If $k + 1 \in S$, then it is the least 
-element of $S$. It follows that if $k + 1 \notin S$, then $S$ is the 
-empty set. \\
+If $P(1), \cdots, P(k)$ are all true, then $1, \cdots, k$ are all not in $S$, 
+For now, If $k + 1 \in S$, then it is the least element of $S$. It follows that 
+$k + 1 \notin S$ \\
+\vspace{10px}
+
+Since none of the natural number can be in $ S $, it follows that $ S $ is the empty set.
 \vspace{10px}
 
 Since the contraposition of \textbf{Well Ordering Property of} $\mathbb{N}$ is 
