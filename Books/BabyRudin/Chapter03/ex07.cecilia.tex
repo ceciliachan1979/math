@@ -1,0 +1,14 @@
+\subsection*{Exercise 07 (Cecilia)}
+
+If $ \sqrt{a_n} > \frac{1}{n} $, then $ a_n > \frac{\sqrt{a_n}}{n} $, otherwise $ \frac{1}{n} \ge \sqrt{a_n} $, so $ \frac{1}{n^2} \ge \frac{\sqrt{a_n}}{n} $.
+
+As a result $ \max\left(a_n, \frac{1}{n^2}\right) \ge \frac{\sqrt{a_n}}{n} $, and so we can use the comparison test as follow:
+
+\begin{eqnarray*}
+  &   & a_n + \frac{1}{n^2} \\
+  &\ge& \max\left(a_n, \frac{1}{n^2}\right) \\
+  &\ge& \frac{\sqrt{a_n}}{n} \\
+  & = & \left|\frac{\sqrt{a_n}}{n}\right|
+\end{eqnarray*}
+
+As the series $ \sum (a_n + \frac{1}{n^2}) $ converges, the series $ \sum \frac{\sqrt{a_n}}{n} $ also converges by the comparison test.
