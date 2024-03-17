@@ -1,0 +1,19 @@
+\subsection*{Exercise 08 (Cecilia)}
+\begin{flushleft}
+Suppose the theorem is true with $ b_n $ monotonic increasing, but $ b_n $ is decreasing. In that case we can claim $ \sum a_n (-b_n) $ converges and therefore $ \sum a_n b_n $ also converges. Therefore, without loss of generality, we can assume $ b_n $ is monotonic increasing.
+\vspace{10px}
+
+Since $ \sum a_n $ converges, the partial sum $ A_n $ of $ a_n $ is a convergent sequence and is therefore bounded.
+\vspace{10px}
+
+Since $ b_n $ is monotonic and bounded. $ b_n $ converges. Let the limit be $ L $. Consider the sequence $ c_n = b_n - L $.
+\vspace{10px}
+
+$ c_n $ is monotonic, and $ \lim\limits_{n \to \infty} c_n = 0 $
+\vspace{10px}
+
+By theorem 3.42, $ \sum a_n c_n $ converges.
+\vspace{10px}
+
+Therefore $ \sum a_n b_n = \sum a_n (c_n + L) = \sum a_n c_n + L \sum a_n $ also converges.
+\end{flushleft}
