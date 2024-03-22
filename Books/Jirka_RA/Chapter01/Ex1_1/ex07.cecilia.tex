@@ -1,0 +1,60 @@
+\subsubsection*{Exercise 1.1.7. (Cecilia)}
+
+\begin{flushleft}
+
+Let's define the nonstandard ordering of the set of natural numbers $\mathbb{N}$.
+\begin{equation*}
+  n \prec m =
+    \begin{cases}
+      n < m        & \text{if $ n \ne 1 $ and $ m \ne 1 $} \\
+      \text{true}  & \text{if $ n \ne 1 $ and $ m = 1 $} \\
+      \text{false} & \text{if $ n = 1 $ }
+    \end{cases}
+\end{equation*}
+
+As usual, $ n \succ m $ if $ n \ne m $ and not $ n \prec m $.
+
+\textbf{Trichotomy} Claim: For any $ a, b \in \mathbb{N} $, exactly one of the following holds:
+\begin{enumerate}
+  \item{$ a \prec b $}
+  \item{$ a = b $}
+  \item{$ a \succ b $}
+\end{enumerate}
+
+Proof: In the case $ a \ne 1 $ and $ b \ne 1 $, trichotomy follows from the trichotomy of standard comparsion
+
+Suppose $ a = 1 $, $ b \ne 1 $, then 
+\begin{enumerate}
+  \item{$ a \prec b $ is false, by definition}
+  \item{$ a = b $ is false.}
+  \item{$ a \succ b $ is true, by definition}
+\end{enumerate}
+
+Suppose $ a \ne 1 $, $ b = 1 $, then 
+\begin{enumerate}
+  \item{$ a \prec b $ is true, by definition}
+  \item{$ a = b $ is false.}
+  \item{$ a \succ b $ is false, by definition}
+\end{enumerate}
+
+Suppose $ a = 1 $, $ b = 1 $, then 
+\begin{enumerate}
+  \item{$ a \prec b $ is false, by definition}
+  \item{$ a = b $ is true.}
+  \item{$ a \succ b $ is false, by definition}
+\end{enumerate}
+
+So trichotomy holds for all cases.
+
+\textbf{Transitivity} Claim: For any $ a, b, c \in \mathbb{N} $, if $ x \prec y $ and $ y \prec z $, then $ x \prec z $.
+
+It is impossible for $ x = 1 $ or $ y = 1 $, suppose $ x \ne 1 $ and $ z = 1 $, we have $ x \prec z $ unconditionally.
+
+Otherwise transitivity follows from the transitivity of standard comparison.
+
+\textbf{Least upper bound example}
+Consider the subset $ A = \{x \in \mathbb{N} | x > 1\} $, the subset is bounded above (under $ \prec $) by $ 1 $. We claim that the least upper bound is $ 1 $ and is therefore not belongs to the set $ A $.
+
+Obviously $ 1 $ is an upper bound. For any number $ n \in \mathbb{N} $ such that $ n \prec 1 $. The number $ n + 1 \in A $, so it is not an upper bound. Therefore $ 1 $ is the least upper bound.
+
+\end{flushleft}
