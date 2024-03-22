@@ -1,0 +1,33 @@
+\subsection*{Exercise 02 (Gapry)}
+
+\begin{flushleft}
+Define a function $f(n) = \sqrt{n^2 + n} - n$, 
+$\lim\limits_{n \to \infty}\sqrt{n^2 + n} - n = \lim\limits_{n \to \infty}f(n)$
+
+Let's rationalize the function $f(n)$
+\begin{flalign*}
+f(n) &= \sqrt{n^2 + n} - n                                                  &\\
+     &= \frac{(\sqrt{n^2 + n} - n)(\sqrt{n^2 + n} + n)}{\sqrt{n^2 + n} + n} &\\
+     &= \frac{(\sqrt{n^2 + n})^2 - n^2}{\sqrt{n^2 + n} + n}                 &\\
+     &= \frac{n^2 + n - n^2}{\sqrt{n^2 + n} + n}                            &\\
+     &= \frac{n}{\sqrt{n^2 + n} + n}                                        &\\
+     &= \frac{\frac{n}{n}}{\frac{\sqrt{n^2 + n} + n}{n}}                    &\\
+     &= \frac{1}{\frac{\sqrt{n^2 + n}}{n} + \frac{n}{n}}                    &\\
+     &= \frac{1}{\sqrt{\frac{n^2 + n}{n^2}} + 1}                            &\\
+     &= \frac{1}{\sqrt{\frac{n^2}{n^2} + \frac{n}{n^2}} + 1}                &\\
+     &= \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}                                &\\
+\end{flalign*}
+
+We find that $\sqrt{n^2 + n} - n = f(n) = \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}$.
+
+Therefore, we can conclude that
+$\lim\limits_{n \to \infty} \sqrt{n^2 + n} - n = 
+ \lim\limits_{n \to \infty} f(n)               =
+ \lim\limits_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}
+$. 
+
+According to the definition 3.1 (a), 
+we know that $\lim\limits_{n \to \infty} \frac{1}{n} = 0$, 
+hence $\lim\limits_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}} + 1} = 
+\frac{1}{\sqrt{1 + 0} + 1} = \frac{1}{2}$
+\end{flushleft}
