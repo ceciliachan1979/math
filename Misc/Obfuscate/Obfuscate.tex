@@ -2,13 +2,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 
-\title{Obfuscating with recurrence}
+\title{Obfuscating with numbers}
 \author{Cecilia Chan}
 \date{February 2023}
 
 \begin{document}
 \maketitle
-This article is written to share some techniques for engineering some permutations that are both easy to program and hard to understand. This finds application in area such as obfuscation, where you want to write relatively short code that perform a task and also hard to understand.
+This article is written to share some techniques using math that are both easy to program and hard to understand. This finds application in area such as obfuscation, where you want to write relatively short code that perform a task and also hard to understand.
 
 \subsection*{Recurrences}
 Sequences defined recursively are fairly easy to program and also difficult to understand. One must spend significantly effort to solve some equations.
@@ -51,7 +51,7 @@ It is a well known fact that the powers of a primitive root of a prime $ p $ cyc
 
 This idea also open up the possibility of running these recurrences on a certain ring instead.
 
-\subsection{Double root}
+\subsection*{Double root}
 The problem with power sequence is that it has limited applicability. If we just keep being 1 or flipping sign, it is pretty easy to figure out what it is even without proving it. Here we can add some more twists.
 
 When the characteristic equation has a double root. It is possible to that the answer is $ na^n $. The idea is that if we put $ nx^n $ back to the recurrence relation, it satisfy as well. As a special case, let's consider this:
@@ -82,6 +82,149 @@ Now it turns into a sequence to like a cat running back and forth in that range,
 0,-1,2,-3,4,... \to 0,-1,1,-2,2,...
 \end{eqnarray*}
 
-These just scratch the surface of the possibilities.
+These just scratch the surface of the possibilities on using recurrence.
+
+\subsection*{Continued fraction}
+
+The recurrence for computing continued fraction is also pretty easy to program but hard to understand. Suppose we wanted to find the continued fraction representation of $ x $, we can use the following recurrence:
+
+\begin{eqnarray*}
+    x &=& a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + ...}}} \\
+  a_0 &=& \lfloor x \rfloor \\
+  a_1 + \frac{1}{a_2 + \frac{1}{a_3 + ...}} &=& \frac{1}{x - a_0} \\
+  a_1 &=& \lfloor \frac{1}{x - a_0} \rfloor \\
+  \cdots
+\end{eqnarray*}
+
+The repeated flooring can look pretty intimidating to understand, but it is actually pretty easy to program.
+
+To engineer a number such that its continued fraction representation is a sequence, we can simply compute the value. To make sure the computation is correct, we need to make sure the number does not lose precision, and that will require us working in the rationals. For example, with $ x = \frac{p}{q} $, we can compute $ a_1 $ as $ \lfloor \frac{q}{p - a_0q} \rfloor $ so that it stays as a fraction of integers.
+
+For finite strings, we can simply have the recurrence to stop itself at 0, so we don't even need to encode the length of the string.
+
+\subsection*{Periodic continued fraction}
+
+For repeating strings, we can encode it using periodic continued fraction, quadratic irrational numbers are particularly useful for this purpose. Here is the code for doing some interesting encoding/decoding.
+
+\begin{verbatim}
+import math
+
+#
+# Denest a continued fraction of this form
+# 1/(a + (bx + c)/(dx + e))
+#
+# to
+#
+# (dx + e)/((ad + b)x + (ae + c))
+#
+def denest(a, n, d):
+    (b, c) = n
+    (d, e) = d
+    return ((d, e), (a * d + b, a * e + c))
+
+#
+# Solve the equation x = (bx + c)/(dx + c)
+#
+# to the surd form (-B + sqrt(delta))/ 2A
+#
+def solve(n, d):
+    (b, c) = n
+    (d, e) = d
+    A = d
+    B = e - b
+    C = -c
+    delta = (B ** 2 - 4 * A * C)
+    return (-B, delta, 2 * A)
+
+def construct(goal):
+    g = [ord(x) for x in goal]
+    first = g[0]
+
+    s = list(g[1:])
+    s.append(first)
+
+    start = s.pop()
+    n = (0, 1)
+    d = (1, start)
+
+    while len(s) > 0:
+        (n, d) = denest(s.pop(), n, d)
+
+    (p, d, q) = solve(n, d)
+    p += (first * q)
+
+    return (p, q, d)
+
+goal = "Cecilia\n"
+
+(v1, v2, v3) = construct(goal)
+length = len(goal)
+print("v1 = %s" % v1)
+print("v2 = %s" % v2)
+print("v3 = %s" % v3)
+print("length = %s" % length)
+
+for i in range(length * 10):
+  v4 = int((v1 + math.sqrt(v3))/v2)
+  v1 = v4 * v2 - v1
+  v2 = (v3 - v1 * v1)//v2
+  print(chr(v4), end="")
+
+for i in range(length * 10):
+  v4 = int((v1 + math.sqrt(v3))//v2)
+  v1 = v4 * v2 - v1
+  v2 = (v3 - v1 * v1)//v2
+  print(chr(v4))
+\end{verbatim}
+
+The code deserves some explanations. The first part of the code is intended to construct $ v_1, v_2, v_3 $ from the string so that $ \frac{v_1 + \sqrt{v_3}}{v_2} $ is $ [new-line;\overline{C,e,c,i,l,i,a,new-line}] $. The way it is done is by solving this equation.
+
+\begin{eqnarray*}
+  x &=& [0;C,e,c,i,l,i,a,new-line+x] \\
+\end{eqnarray*}
+
+This equation look daunting, but in fact we can simplify it step-wise from the innermost part. Note that
+
+\begin{eqnarray*}
+  & & [0;C,e,c,i,l,i,a,new-line+x]                           \\
+  &=& [0;C,e,c,i,l,i,a + \frac{1}{new-line+x}]               \\
+  &=& [0;C,e,c,i,l,i,\frac{a(new-line + x) + 1}{new-line+x}]
+\end{eqnarray*}
+
+Proceeding this way, we can maintain the last term inside the continued fraction to be a quotient of linear equations in $ x $. The function denest will do that. The construct function will use that to consume all the continued fraction terms so it finally become a quotient of linear equations, finally we use the solve function to solve the quadratic equation into a surd form.
+
+Next, we program the recurrence to compute the continued fraction. The goal of the loop body is to compute $ v_1' $ and $ v_2' $ so that $ \frac{v_1 + \sqrt{v_3}}{v_2} = v_4 + \frac{1}{\frac{v_1' + \sqrt{v_3}}{v_2'}} $. That way we can compute the continued fraction. Now the computation of $ v_4 $ is obvious, we see the rest below:
+
+\begin{eqnarray*}
+  v_4 + \frac{1}{x} &=& \frac{v_1 + \sqrt{v_3}}{v_2}           \\
+        \frac{1}{x} &=& \frac{v_1 + \sqrt{v_3}}{v_2} - v_4     \\
+                    &=& \frac{v_1 - v_4 v_2 + \sqrt{v_3}}{v_2} \\
+                  x &=& \frac{v_2}{v_1 - v_4 v_2 + \sqrt{v_3}} \\
+\end{eqnarray*}
+
+Now let $ v_1' = - (v_1 - v_4 v_2) = v_4 v_2 - v_1 $ as in the code. We can simplify further:
+
+\begin{eqnarray*}
+  x &=& \frac{v_2}{v_1 - v_4 v_2 + \sqrt{v_3}} \\
+    &=& \frac{v_2}{\sqrt{v_3} - v_1'} \\
+    &=& \frac{v_2(\sqrt{v_3} + v_1')}{(\sqrt{v_3} - v_1')(\sqrt{v_3} + v_1')} \\
+    &=& \frac{v_2(\sqrt{v_3} + v_1')}{v_3 - v_1'^2} \\
+    &=& \frac{v_1' + \sqrt{v_3}}{\frac{v_3 - v_1'^2}{v_2}} \\
+\end{eqnarray*}
+
+At this point, we are almost identical with the code. The last question to ponder is why $ \frac{v_3 - v_1'^2}{v_2} $ is an integer, which would explain the code.
+
+Note that, by defintion, $ v_1 = -B $, $ v_2 = 2A $, $ v_3 = B^2 - 4AC $, so $ \frac{v_3 - v_1^2}{v_2} = \frac{B^2 - 4AC - (-B)^2}{2A} = -2C = 0 $, which is an integer.
+
+Moving forward, we have:
+
+\begin{eqnarray*}
+  & & \frac{v_3 - v_1'^2}{v_2} \\
+  &=& \frac{v_3 - (v_4 v_2 - v_1)^2}{v_2} \\
+  &=& \frac{v_3 - v_4^2 v_2^2 + 2v_1 v_4 v_2 - v_1^2}{v_2} \\
+  &=& \frac{v_3 - v_1^2}{v_2}  - v_4^2 v_2 + 2v_1 v_4 \\
+\end{eqnarray*}
+
+But we already knew $ \frac{v_3 - v_1^2}{v_2} $ is an integer, so $ \frac{v_3 - v_1'^2}{v_2} $ is also an integer, also, $ \frac{v_3 - v_1'^2}{v_2'} = v_2 $ is an integer as well, so the divisibility will be preserved across all iterations. That allows us to keep the number as an integer as well as making sure the numbers don't grow too fast.
 
 \end{document}
