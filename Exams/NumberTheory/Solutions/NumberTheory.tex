@@ -340,6 +340,9 @@ Again, we will leave the repetitive work to the computer, here is the source cod
 import math
 
 def quadratic_continued_fraction(p, d, q):
+    p *= q
+    q *= q
+    d *= q
     solution = []
     memo = {}
     start = -1
