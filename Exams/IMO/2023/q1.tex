@@ -1,0 +1,30 @@
+\section*{Problem 1}
+Consider $ N = p_1^{e_1} p_2^{e_2} \cdots p_n^{e_n} $ ($ p_1 < p_2 \cdots < p_n $ are prime), we claim that only when $ n = 1 $ (i.e. $ N $ is a prime power) satisfy the given conditions.
+
+It is obvious that when $ n = 1 $, $ k = n + 1 $ and $ d_k = p_1^{k - 1} $, and therefore the divisibility constraint is trivially satisifed as follows:
+
+\begin{eqnarray*}
+    p_1^{i - 1} = d_i | d_{i + 1} + d_{i + 2} = p_1^i + p_1^{i + 1} = p_1^{i-1}(p + p^2)
+\end{eqnarray*}
+
+Suppose $ n \ge 2 $, consider $ s = \frac{N}{p_1^{e_1}} = p_2^{e_2} \cdots p_n^{e_n} $. Notice obviously that $ s \ne d_k = N $ and $ s \ne d_1 = 1 $, so let $ s = d_x $ for some $ 1 < x < k $.
+
+First, consider an arbitrary factor $ E $ of $ N $ that is a multiple of $ p_1 $, it must has the form $ E = p_1^{f_1} p_2^{f_2} \cdots p_n^{f_n} $ where $ 0 < f_1 < e_1 $ and $ 0 \le f_i \le e_i $ for all $ 1 < i \le n $.
+
+Suppose $ d_{x+1} $ is not divisible by $ p_1 $, then $ d_{x+1} = p_2^{f_2} \cdots p_n^{f_n} $, but $ s = p_2^{e_2} \cdots p_n^{e_n} $ already have all the largest exponents, so there is no way $ d_{x+1} > d_x $, that is a contradiction and so $ d_{x+1} $ is divisible by $ p_1 $.
+
+On the other hand, suppose $ d_{x-1} $ is not divisible by $ p_1 $, then $ d_{x-1} = p_2^{f_2} \cdots p_n^{f_n} $. Since $ d_{x-1} < d_x $, so $ f_i \le e_i $ with at least one $ j $ such that $ f_j < e_j $.
+
+Now we find 
+
+\begin{align*}
+      p_2^{f_2} \cdots p_n^{f_n} &<   p_1 p_2^{f_2} \cdots p_n^{f_n} \\
+                                 &<   \frac{p_j}{p_1} p_1 p_2^{f_2} \cdots p_n^{f_n} &\text{It is legal to multiply $ p_j $ because $ f_j < e_j $} \\
+                                 &=   p_j p_2^{f_2} \cdots p_n^{f_n} \\
+                                 &\le s &\text{Because $ s $ has the biggest exponents for all $ p_2 \cdots p_n $} \\
+                                 &=   d_x
+\end{align*}
+
+And that's a contradiction because there is a factor between $ d_{x-1} $ and $ d_x $
+
+Now we have shown that both $ d_{x - 1} $ and $ d_{x + 1} $ are divisible by $ p_1 $, but obviously $ d_x $ doesn't, so $ d_{x-1} | d_x + d_{x+1} $ is a contradiction, and we have proved $ n = 1 $.
