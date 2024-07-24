@@ -1,6 +1,11 @@
 \section*{Problem 1}
+
+\subsection*{Solution by Cecilia}
+
+
 Consider $ N = p_1^{e_1} p_2^{e_2} \cdots p_n^{e_n} $ ($ p_1 < p_2 \cdots < p_n $ are prime), we claim that only when $ n = 1 $ (i.e. $ N $ is a prime power) satisfy the given conditions.
 
+\begin{proof}
 It is obvious that when $ n = 1 $, $ k = n + 1 $ and $ d_k = p_1^{k - 1} $, and therefore the divisibility constraint is trivially satisifed as follows:
 
 \begin{eqnarray*}
@@ -28,3 +33,57 @@ Now we find
 And that's a contradiction because there is a factor between $ d_{x-1} $ and $ d_x $
 
 Now we have shown that both $ d_{x - 1} $ and $ d_{x + 1} $ are divisible by $ p_1 $, but obviously $ d_x $ doesn't, so $ d_{x-1} | d_x + d_{x+1} $ is a contradiction, and we have proved $ n = 1 $.
+
+\end{proof}
+
+\subsection*{Solution by aoiyamada211, written up by CY Fung}
+
+\begin{proof}
+
+Firstly, note that (1) $d_i d_{k+1-i} = N$; (2) $d_2$ must be the smallest prime factor of $N$. Let $p_a = d_2$.
+
+\hspace{3em}
+
+Consider the nature of $d_3$. An integer larger than 1 is either prime or composite.
+
+\hspace{3em}
+
+Case I: $d_3$ is prime.
+
+Let $d_3 = p_b$. By the condition $d_{i+1} > d_i$, we have $p_b > p_a$. Consider $d_k = N$, $d_{k-1} = \frac{N}{p_a}$ and $d_{k-2} = \frac{N}{p_b}$; by the condition $d_i | d_{i+1} + d_{i+2}$, we have $ m \frac{N}{p_b} = N(1+\frac{1}{p_a}) $, where $m$ is an integer. Then $ m p_a = p_b (1 + p_a)$, since $1+p_a$ and $p_a$ is coprime, $p_a | p_b$, but this contradicts $p_a$ and $p_b$ are distinct and prime. !!!
+
+\hspace{3em}
+
+Case II: $d_3$ is composite.
+
+A composite number must be the product of two or more primes (not necessarily distinct). Let $d_3 = m p_b p_c $, we have $d_3 > p_b > 1 = d_1 $, $d_3 > p_c > 1 = d_1$; but there are no factors of $N$ in between $d_2 = p_a$ and $d_3$, in addition, $p_b | N$, $p_c | N$, so $p_b = d_g$ for an integer $g$ satisfying $1 < g \le 3$ and $p_c = d_h$ for an integer $h$ satisfying $1 < h \le 3$. But $p_b \ne d_3$, $p_c \ne d_3$, leads to $g = h = 2$, so $p_a = p_b = p_c$ and $d_3 = p_a^2$.
+
+\hspace{3em}
+
+Since Case I cannot happen and Case II is valid, Case II is our only choice.
+
+\hspace{3em}
+
+By the condition of the question, $k > 2$. For case $k = 3$, we have $N$ is the square of a prime. Consider $k > 3$.
+
+\hspace{3em}
+
+Let $P(t)$ be the statement ``for an integer $N$ satisfying the required coniditions, $d_t = d_2^{t-1}$''. 
+
+\hspace{3em}
+
+Assume $P(r)$ is true for all positive integer $r \le i$. Let $p = d_2$. $d_{i-1} = p^{i-2}$ and $d_i = p^{i-1}$. $d_{i-1} | d_i + d_{i+1}$. Since $p^{i-2} | d_i$, $p^{i-2} | d_{i+1}$. Let the integer $m = \frac{d_{i+1}}{p^{i-2}}$. Since $m$ is a (proper) factor of $d_{i+1}$, it must also be a factor of $N$, therefore $m = d_h$ for some integer $1 \le h < i+1$. But we have assumed that $d_r = p^{r-1}$ for $1 \le r \le i$, so $d_{i+1} = p^{i-2+x}$ for some positive integer $x > 0$. If $x > 2$, there would be some factor(s) of $N$ between $d_i$ and $d_{i+1}$, contradicting the given condition. And again, $d_i$ and $d_{i+1}$ are distinct, so $x \ne 1$, then we got $x = 2$. Then we have $d_{i+1} = p^i$ and $P(r+1)$ is also true.
+
+\hspace{3em}
+
+From the previous arguments and the given condition $d_1 = 1 = p^0$, we know $P(1)$, $P(2)$ and $P(3)$ are true. 
+
+\hspace{3em}
+
+From the conclusion of the induction we have $ N = d_k = p^{k-1} $.
+
+\hspace{3em}
+
+Summing up, integers satisfying the given conditions are powers of primes.
+
+\end{proof}
