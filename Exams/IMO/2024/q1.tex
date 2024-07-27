@@ -1,0 +1,117 @@
+\section*{Problem 1}
+
+\subsection*{Solution by Cecilia}
+
+\begin{proof}
+
+First, note that the condition trivially hold for even integers.
+
+\begin{align*}
+   & \lfloor \alpha \rfloor + \lfloor 2 \alpha \rfloor + \cdots + \lfloor n \alpha \rfloor \\
+  =& \alpha + 2\alpha + \cdots + n\alpha                                                   \\
+  =& \frac{n(n+1)\alpha}{2}
+\end{align*}
+
+Obviously the sum is divisible by $ n $ as $ \alpha $ is even.
+
+We will show that anything else will not meet the condition, first note that every real number $ \alpha $ can be written as $ \alpha = 2x + e $ where $ x \in \mathbb{Z} $ and $ 0 \le e < 2 $. Suppose $ e $ doesn't satisfy the condition, neither will $ \alpha = 2x + e $, so it suffice to consider only $ 0 < e < 2 $.
+
+Case 1: $ 0 < e < 1 $
+
+First note that $ \lfloor e \rfloor = 0 $, so the first term of the sum is $ 0 $. At some point, the sequence becomes positive. Let the $ m $\textsuperscript{th} term is the first positive term so that $ me \ge 1 $ and $ (m-1)e < 1 $, so we have:
+
+\begin{align*}
+  (m-1)e &< 1     \\
+  me - e &< 1     \\
+      me &< 1 + e \\
+         &< 2
+\end{align*}
+
+So the first non-negative term in the sum is $ 1 $, but that has to be divisible by $ m > 1 $, so there is a contradiction for case 1.
+
+Case 2: $ 1 < e < 2 $
+
+Let's consider the sequence $ A_n = \frac{2n - 1}{n} = \{1, \frac{3}{2}, \frac{5}{3}, ...\} $. As we will see, this sequence is going to help us to reason about the floor operators.
+
+First, note that the sequence is strictly increasing.
+
+\begin{align*}
+          2n^2 + n &> 2n + n - 1       \\
+         (2n + 1)n &> (2n - 1)(n + 1)  \\
+  \frac{2n+1}{n+1} &> \frac{2n - 1}{n} \\
+           A_{n+1} &> A_n
+\end{align*}
+
+Then, we note that its least upper bound is 2. It is obvious that $ 2 > \frac{2n-1}{n} $ for any $ n $. For any $ y < 2 $, by Archimedean property, we know there exists an integer $ z $ such that $ (2 - y)z > 1 $. Obviously, $ z > 0 $.
+
+\begin{align*}
+    (2-y)z &> 1           \\
+    (2-y) &> \frac{1}{z}  \\
+    y &< 2 - \frac{1}{z}  \\
+      &= \frac{2z - 1}{z} \\
+      &= A_z
+\end{align*}
+
+Now we have shown that any $ y < 2 $ is not an upper bound of $ A_n $, so 2 is the least upper bound.
+
+With the properties above, we can claim that there exists an integer $ q \ge 1 $ such that:
+
+\begin{align*}
+    A_1 < A_2 < \cdots < A_q \le e < A_{q+1} < 2
+\end{align*}
+
+For each integer $ 1 \le p \le q $, we have:
+
+\begin{align*}
+               A_p &\le e  \\
+              pA_p &\le pe \\
+  p\frac{2p -1}{p} &\le pe \\
+            2p - 1 &\le pe
+\end{align*}
+
+That gives us a lower bound on how small $ pe $ could be, on the other hand, we simply have:
+
+\begin{align*}
+     e &< 2  \\
+    pe &< 2p
+\end{align*}
+
+That forces $ \lfloor pe \rfloor = 2p - 1 $, remember this applies for all integers $ 1 \le p \le q $.
+
+For $ q + 1 $, the upper bound can be made more tight:
+
+\begin{align*}
+       e &< A_{q+1}                     \\
+  (q+1)e &< (q+1)A_{q+1}                \\
+         &= (q+1)\frac{2(q+1) - 1}{q+1} \\
+         &= 2(q+1) - 1                  \\
+         &= 2q + 1
+\end{align*}
+
+And we can also establish a new lower bound as follows:
+
+\begin{align*}
+                      A_{q} &\le e        \\
+                 (q+1)A_{q} &\le (q+!)e   \\
+  \frac{(2q - 1)(q + 1)}{q} &\le (q + 1)e \\
+     \frac{2q^2 + q - 1}{q} &\le (q + 1)e \\
+       2q + 1 - \frac{1}{q} &\le (q + 1)e \\
+                         2q &<   (q + 1)e
+\end{align*}
+
+This forces $ \lfloor (q+1)e \rfloor = 2q $.
+
+Now, we can compute the sum:
+
+\begin{align*}
+    & \lfloor e \rfloor + \lfloor 2 e \rfloor + \cdots + \lfloor q e \rfloor + \lfloor (q+1) e \rfloor \\
+   =& 1 + 3 + \cdots + (2q - 1) + 2q                                                                   \\
+   =& q^2 + 2q                                                                                         \\
+   =& (q+1)^2 - 1
+ \end{align*}
+
+ Obviously, this does not divide $ q + 1 $, and therefore for every real number $ e $, the given condition does not hold.
+
+That concludes only the even integers satisfy the given condition.
+
+\end{proof}

@@ -43,6 +43,7 @@ jobs:
             Exams/HKDSE/2020/HKDSE-2020.tex
             Exams/Rutgers-Analysis/midterm.cecilia.tex
             Exams/IMO/IMO-2023.tex
+            Exams/IMO/IMO-2024.tex
             MIT/Solutions/MIT.tex
             Misc/Bernoulli/Bernoulli.tex
             Misc/Cosine/Cosine.tex
@@ -79,6 +80,7 @@ jobs:
             HKCEE-2001.pdf
             HKDSE-2020.pdf
             IMO-2023.pdf
+            IMO-2024.pdf
             midterm.cecilia.pdf
             MIT.pdf
             Bernoulli.pdf
