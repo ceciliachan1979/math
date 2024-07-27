@@ -29,7 +29,7 @@ First note that $ \lfloor e \rfloor = 0 $, so the first term of the sum is $ 0 $
 
 So the first non-negative term in the sum is $ 1 $, but that has to be divisible by $ m > 1 $, so there is a contradiction for case 1.
 
-Case 2: $ 1 < e < 2 $
+Case 2: $ 1 \le e < 2 $
 
 Let's consider the sequence $ A_n = \frac{2n - 1}{n} = \{1, \frac{3}{2}, \frac{5}{3}, ...\} $. As we will see, this sequence is going to help us to reason about the floor operators.
 
@@ -92,7 +92,7 @@ And we can also establish a new lower bound as follows:
 
 \begin{align*}
                       A_{q} &\le e        \\
-                 (q+1)A_{q} &\le (q+!)e   \\
+                 (q+1)A_{q} &\le (q + 1)e   \\
   \frac{(2q - 1)(q + 1)}{q} &\le (q + 1)e \\
      \frac{2q^2 + q - 1}{q} &\le (q + 1)e \\
        2q + 1 - \frac{1}{q} &\le (q + 1)e \\
