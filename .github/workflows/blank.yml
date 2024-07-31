@@ -54,6 +54,7 @@ jobs:
             Misc/Ufd/Ufd.tex
             Misc/Elliptic/Elliptic.tex
             Misc/Automata/Automata.tex
+            Misc/Practice/Practice.tex
             Misc/Gaussian/Gaussian.tex
             Misc/ProofReviewGuidelines/ProofReviewGuidelines.tex
             Papers/GK/GK.tex
@@ -94,5 +95,6 @@ jobs:
             DifferentialForm.pdf
             Elliptic.pdf
             Automata.pdf
+            Practice.pdf
             Gaussian.pdf
             ProofReviewGuidelines.pdf

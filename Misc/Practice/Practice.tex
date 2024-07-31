@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[legalpaper, margin=0.5in]{geometry}
+\usepackage{hyperref}
+
+\title{Exercises}
+\author{Cecilia Chan}
+
+\begin{document}
+\maketitle
+
+\section*{Algebra Problem 1}
+\subsubsection*{Problem}
+The problems can be found \href{https://www.math.hkust.edu.hk/~makyli/190_2010Sp/problemBk.pdf}{here} on page 7.
+
+\subsubsection*{Solution}
+This is a rather brute force solution, I guess better solution exists.
+
+\begin{align*}
+  p(x) + 1 &| (x - 1)^3                                                                           \\
+  p(x) + 1 &= (x - 1)^3(ax^2 + bx + c)                                                            \\
+           &= (x^3 - 3x^2 + 3x - 1)(ax^2 + bx + c)                                                \\
+           &= ax^5 + (-3a + b)x^4 + (3a - 3b + c)x^3 + (-a + 3b - 3c)x^2 + (-bx + 3c)x - c        \\
+      p(x) &= ax^5 + (-3a + b)x^4 + (3a - 3b + c)x^3 + (-a + 3b - 3c)x^2 + (-bx + 3c)x + (-c - 1)
+\end{align*}
+
+\begin{align*}
+  p(x) - 1 &| (x + 1)^3                                                                       \\
+  p(x) - 1 &= (x + 1)^3(dx^2 + ex + f)                                                        \\
+           &= (x^3 + 3x^2 + 3x + 1)(dx^2 + ex + f)                                            \\
+           &= dx^5 + (3d + e)x^4 + (3d + 3e + f)x^3 + (d + 3e + 3f)x^2 + (ex + 3f)x + f       \\
+      p(x) &= dx^5 + (3d + e)x^4 + (3d + 3e + f)x^3 + (d + 3e + 3f)x^2 + (ex + 3f)x + (f + 1) \\
+\end{align*}
+
+Match coefficients, we have:
+
+\begin{align*}
+               a &= d             \\
+       (-3a + b) &=  (3d + e)     \\
+   (3a - 3b + c) &= (3d + 3e + f) \\
+  (-a + 3b - 3c) &= (d + 3e + 3f) \\
+      (-bx + 3c) &= (ex + 3f)     \\
+        (-c - 1) &= (f + 1)
+\end{align*}
+
+Solving, get:
+
+\begin{align*}
+  a &= \frac{-3}{8} \\
+  b &= \frac{-9}{8} \\
+  c &= \frac{-8}{8} \\
+  d &= \frac{-3}{8} \\
+  e &= \frac{ 9}{8} \\
+  f &= \frac{-8}{8}
+\end{align*}
+
+Substitute and expand, and now we get
+
+\begin{align*}
+  p(x) &= -\frac{3x^5}{8} + \frac{5x^3}{8} - \frac{15x}{8}
+\end{align*}
+
+Footnote, the solution has many interesting property such as the symmetry in the $ a, b, c, d, e, f $ and the zeros in the even power terms. Something that suggest there might be some symmetry that I could have used.
+
+\section*{Algebra Problem 2}
+\subsubsection*{Problem}
+The problems can be found \href{https://www.math.hkust.edu.hk/~makyli/190_2010Sp/problemBk.pdf}{here} on page 7.
+
+\subsubsection*{Solution}
+The key idea is that we should use Newton's interpolation. Consider 
+
+\begin{align*}
+  p_0(x) &= 1 \\
+  p_1(x) &= 1 + 1x \\
+  p_2(x) &= 1 + 1x + \frac{1}{2}x(x-1) \\
+  p_3(x) &= 1 + 1x + \frac{1}{2}x(x-1) + \frac{1}{6}x(x-1)(x-2)\\
+  \cdots
+\end{align*}
+
+Obviously, these polynomials are designed to satisfy the constraints that $ P(k) = 2^k $ for increasingly many $ k $. The idea is that we create a term that vanish on all earlier values, and produce the value we wished.
+
+For example, we already knew $ p_3(x) $ is good for $ x = 0, 1, 2, 3 $, therefore we can build $ p_4(x) $ by adding a term 
+
+\begin{align*}
+  p_4(x) &= 1 + 1x + \frac{1}{2}x(x-1) + \frac{1}{6}x(x-1)(x-2) + Cx(x-1)(x-2)(x-3)
+\end{align*}
+
+And therefore we determine $ C = \frac{1}{24} $ by simply making sure when $ x = 4 $ the output is 16. 
+
+The observation is that the coefficients seems to be $ \frac{1}{k!} $, it would be great if that's true because then we know how to construct these polynomial for arbitrary $ k $.
+
+To show that, we will prove by induction that $ p_k(k+1) = 2^{k + 1} - 1 $, it is obviously true for $ k = 0 $ as $ p_0(1) = 1 = 2^{1} - 1 $.
+
+Suppose we know $ p_k(k+1) = 2^{k + 1} - 1 $, then
+
+\begin{align*}
+  p_{k+1}(k+1) &= p_k(x + 1) + Cx(x-1)\cdots(x - k) \\
+               &= 2^{k + 1} - 1 + C (k + 1)!        \\
+               &= 2^{k + 1} &\text{As required}
+\end{align*}
+
+So $ C = \frac{1}{(k + 1)!} $.
+
+Now we have all the coefficients of $ p_{k+1} $, we argue that if we substitute $ x = k + 2 $ into $ P_{k+1} $, these terms becomes the binomial coefficients. Indeed:
+
+The $ m $\textsuperscript{th} degree term of $ p_{k+1} $, substituted with $ k + 2 $, will be
+
+\begin{align*}
+   & \frac{1}{m!}x(x-1)\cdots(x-(m-1))         \\
+  =& \frac{1}{m!}(k+2)(k+1)\cdots((k+2)-(m-1)) \\
+  =& \frac{1}{m!}\frac{(k+2)!}{(k+2 - m)!}     \\
+  =& C(k+2, m)
+\end{align*}
+
+Therefore, $ p_{k+1}(k+2) = C(k+2, 0) + C(k+2, 1) + \cdots C(k+2, k+1) = 2^{k+2} - 1 $. That concludes our induction.
+
+Last but not least, $ P = P_n $, so $ P(n + 1) = p_n(n + 1) = 2^{n+1} - 1 $.
+
+\end{document}
