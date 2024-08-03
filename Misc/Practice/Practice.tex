@@ -58,7 +58,7 @@ Solving, get:
 Substitute and expand, and now we get
 
 \begin{align*}
-  p(x) &= -\frac{3x^5}{8} + \frac{5x^3}{8} - \frac{15x}{8}
+  p(x) &= -\frac{3x^5}{8} + \frac{10x^3}{8} - \frac{15x}{8}
 \end{align*}
 
 Footnote, the solution has many interesting property such as the symmetry in the $ a, b, c, d, e, f $ and the zeros in the even power terms. Something that suggest there might be some symmetry that I could have used.
@@ -95,9 +95,8 @@ To show that, we will prove by induction that $ p_k(k+1) = 2^{k + 1} - 1 $, it i
 Suppose we know $ p_k(k+1) = 2^{k + 1} - 1 $, then
 
 \begin{align*}
-  p_{k+1}(k+1) &= p_k(x + 1) + Cx(x-1)\cdots(x - k) \\
-               &= 2^{k + 1} - 1 + C (k + 1)!        \\
-               &= 2^{k + 1} &\text{As required}
+  2^{k+1} = p_{k+1}(k+1) &= \left. p_k(x) + Cx(x-1)\cdots(x - k) \right|_{x=k+1} \\
+                         &= 2^{k + 1} - 1 + C (k + 1)!
 \end{align*}
 
 So $ C = \frac{1}{(k + 1)!} $.
