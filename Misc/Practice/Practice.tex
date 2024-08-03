@@ -63,6 +63,38 @@ Substitute and expand, and now we get
 
 Footnote, the solution has many interesting property such as the symmetry in the $ a, b, c, d, e, f $ and the zeros in the even power terms. Something that suggest there might be some symmetry that I could have used.
 
+\subsection*{Algebra Problem 1, Solution by aoiyamada211, written up by Cecilia}
+This can be solved by applying the Chinese remainder theorem, in particular, we have:
+
+\begin{align*}
+  p(x) \equiv 1 \pmod{(x+1)^3} \\
+  p(x) \equiv -1 \pmod{(x-1)^3}
+\end{align*}
+
+Therefore we can find $ g(x) $ and $ h(x) $ such that $ g(x)(x+1)^3 + h(x)(x-1)^3 = \gcd((x+1)^3, (x-1)^3) = 1 $ using the extended Euclidean algorithm.
+
+To start with, we can run the Euclidean algorithm as follow:
+
+\begin{align*}
+x^3 + 3x^2 + 3x + 1 &= 1                                      (x^3 - 3x^2 + 3x - 1)      + (6x^2 + 2)                 \\
+x^3 - 3x^2 + 3x - 1 &= \left(\frac{x}{6} - \frac{1}{2}\right) (6x^2 + 2)                 + \left(\frac{8x}{3}\right)  \\
+6x^2 + 2            &= \left(\frac{9x}{4}\right)               \left(\frac{8x}{3}\right) + 2 
+\end{align*}
+
+Then we can reconstruct the coefficients as follows:
+
+\begin{align*}
+   2 =& (6x^2 + 2) - \left(\frac{9x}{4}\right)(8x/3) \\
+     =& (6x^2 + 2) - \left(\frac{9x}{4}\right)((x^3 - 3x^2 + 3x - 1) -  \left(\frac{x}{6} - \frac{1}{2}\right) (6x^2 + 2)) \\
+     =& (6x^2 + 2) - \left(\frac{9x}{4}\right)(x^3 - 3x^2 + 3x - 1) + \left(\frac{9x}{4}\right) \left(\frac{x}{6} - \frac{1}{2}\right) (6x^2 + 2) \\
+     =& \left(\frac{3x^2}{8} - \frac{9x}{8} + 1\right) (6x^2 + 2) - \left(\frac{9x}{4}\right)(x^3 - 3x^2 + 3x - 1)  \\
+     =& \left(\frac{3x^2}{8} - \frac{9x}{8} + 1\right) ((x^3 + 3x^2 + 3x + 1) - (x^3 - 3x^2 + 3x - 1)) - \left(\frac{9x}{4}\right)(x^3 - 3x^2 + 3x - 1)  \\
+     =& \left(\frac{3x^2}{8} - \frac{9x}{8} + 1\right) ((x^3 + 3x^2 + 3x + 1) - (x^3 - 3x^2 + 3x - 1)) - \left(\frac{9x}{4}\right)(x^3 - 3x^2 + 3x - 1)  \\
+     =& \left(\frac{3x^2}{8} - \frac{9x}{8} + 1\right) (x^3 + 3x^2 + 3x + 1) - \left(\frac{3x^2}{8} + \frac{9x}{8} + 1\right) (x^3 - 3x^2 + 3x - 1)
+\end{align*}
+
+Once we have got to the quadratic factors, the rest is the same as the above. This approach avoided having to solve the complicated $ 6 \times 6 $ system of linear equations.
+
 \section*{Algebra Problem 2}
 \subsubsection*{Problem}
 The problems can be found \href{https://www.math.hkust.edu.hk/~makyli/190_2010Sp/problemBk.pdf}{here} on page 7.
