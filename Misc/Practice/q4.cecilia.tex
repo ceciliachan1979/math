@@ -1,0 +1,25 @@
+\section*{Algebra Problem 4}
+\subsubsection*{Problem}
+The problems can be found \href{https://www.math.hkust.edu.hk/~makyli/190_2010Sp/problemBk.pdf}{here} on page 7.
+
+\subsubsection*{Solution}
+A quadratic can only map at most two points that are symmetric with respect to a center to a single point. Therefore if the composition exists, it must be the case that:
+
+\begin{enumerate}
+    \item{ $ h $ maps $ \{1, 2, 3, 4, 5, 6, 7, 8\}$ to four distinct points that is symmetric. }
+    \item{ $ g $ maps these four distinct points to two distinct points. }
+    \item{ $ f $ maps these four distinct points to zero. }
+\end{enumerate}
+
+It is not difficult to construct $ f $ and $ g $, but $ h $ is impossible, as we will show.
+
+In order to map 8 distinct points to 4 distinct points, we have no choice but to use 4.5 as the center, and therefore the quadratic has the form $ a(x - 4.5)^2 + b $.
+
+This will lead to the 4 distinct points to be $ 3.5^2 a + b, 2.5^2a + b, 1.5^2a, 0.5^2a $. We can see the differences are:
+
+\begin{eqnarray*}
+    (3.5^2 a + b) - (2.5^2a + b) =& 6a \\
+    (1.5^2 a + b) - (0.5^2a + b) =& 2a
+\end{eqnarray*}
+
+It is impossible to find a center for these four points so that they are symmetric, and therefore it is impossible to construct the composition as required.
