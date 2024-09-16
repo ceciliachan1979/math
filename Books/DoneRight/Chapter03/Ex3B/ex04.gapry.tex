@@ -1,0 +1,56 @@
+\subsubsection*{Exercise 04 (Gapry)}
+
+\begin{flushleft}
+
+Let \( V = \mathcal{L}(\mathbb{R}^5, \mathbb{R}^4) \) and
+\(
+U = \{ T \in \mathcal{L}(\mathbb{R}^5, \mathbb{R}^4) \mid \dim(\text{null } T) > 2 \}
+\) \newline
+
+Suppose \( W_1 \in V \) and \( W_1 \in U \), \( W_2 \in V \) and \( W_2 \in U \), then it follows 
+\[
+\dim(\text{null } W_1) > 2 \quad \text{and} \quad \dim(\text{null } W_2) > 2
+\]
+
+By $\text{Fundamental Theorem of Linear Maps}$, we know 
+\[
+\dim(\text{range } W_1) <= 2 \quad \text{and} \quad \dim(\text{range } W_2) <= 2
+\]
+
+Again, by $\text{Fundamental Theorem of Linear Maps}$, we know 
+\[
+\dim(W_1 + W_2) = \dim(\text{null } (W_1 + W_2)) + \dim(\text{range } (W_1 + W_2)) = 5 
+\]
+
+Also, we know the 
+\[
+\dim(W_1 + W_2) = \dim W_1 + \dim W_2 - \dim(W_1 \cap W_2)
+\]
+
+it follows 
+\[
+\dim(W_1 + W_2) <= \dim W_1 + \dim W_2
+\]
+
+Hence, we know 
+\[
+\dim(\text{range } (W_1 + W_2)) <= \dim(\text{range } (W_1)) + \dim(\text{range } (W_2)) <= 4
+\]
+
+That means 
+\[
+\dim(\text{null } (W_1 + W_2)) >= 1
+\]
+
+If $U$ is the subspace of $V$, 
+\[
+\dim(\text{null } (W_1 + W_2)) > 2
+\]
+
+But we prove 
+\[
+\dim(\text{null } (W_1 + W_2)) >= 1
+\]
+hence $U$ isn't the subspace of $V$.
+
+\end{flushleft}
