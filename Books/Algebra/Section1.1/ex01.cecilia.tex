@@ -1,0 +1,43 @@
+\subsection*{Exercise 1.1.1 (Cecilia)}
+
+Here is example of a monoid that is not a group:
+
+\begin{eqnarray*}
+    M = \left\{\left(\begin{array}{cc}
+    a & b \\
+    c & d
+  \end{array}\right)\right\}
+\end{eqnarray*}
+
+where $ a,b,c,d \in \mathbb{R} $ and the monoid operation is matrix multiplication.
+
+\begin{enumerate}
+    \item{Closure: The product of two $ 2 \times 2 $ real matrix is always a $ 2 \times 2 $ real matrix.}
+    \item{Identity: The identity matrix is included in $ M $}
+    \item{Associativity: Follows from matrix multiplication}
+    \item{Inverse: The matrix $ \left(\begin{array}{cc}
+        1 & 1 \\
+        1 & 1
+      \end{array}\right) $ is not invertible, so it is not a group}
+\end{enumerate}
+
+Here is an example of a semigroup that is not a monoid:
+
+\begin{eqnarray*}
+    M = \left\{\left(\begin{array}{cc}
+    a & b \\
+    c & d
+  \end{array}\right)\right\}
+\end{eqnarray*}
+
+where $ a,b,c,d \in 2\mathbb{Z} $ and the semigroup operation is matrix multiplication.
+
+\begin{enumerate}
+    \item{Closure: The product of two $ 2 \times 2 $ even integer matrix is always a $ 2 \times 2 $ even integer matrix.}
+    \item{Identity: The identity matrix is not included in $ M $, so it is not a monoid}
+    \item{Associativity: Follows from matrix multiplication}
+    \item{Inverse: The matrix $ \left(\begin{array}{cc}
+        2 & 2 \\
+        2 & 2
+      \end{array}\right) $ is not invertible, so it is not a group}
+\end{enumerate}
