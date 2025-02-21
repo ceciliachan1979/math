@@ -48,6 +48,7 @@ jobs:
             Misc/Bernoulli/Bernoulli.tex
             Misc/Cosine/Cosine.tex
             Misc/Integral/Integral.tex
+            Misc/HyperbolicProduct/HyperbolicProduct.tex
             Misc/Obfuscate/Obfuscate.tex
             Misc/Recurrence/Recurrence.tex
             Misc/pde/pde.tex
@@ -87,6 +88,7 @@ jobs:
             Bernoulli.pdf
             Cosine.pdf
             Integral.pdf
+            HyperbolicProduct.pdf
             Obfuscate.pdf
             Recurrence.pdf
             pde.pdf
