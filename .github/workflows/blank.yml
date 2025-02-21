@@ -66,7 +66,7 @@ jobs:
           root_file: |
             Misc/Forms/DifferentialForm.tex
       - name: Upload LaTeX document
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDF
           path: |

@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[legalpaper, margin=0.5in]{geometry}
+
+\title{Solution}
+\author{Cecilia Chan}
+\date{February 2025}
+
+
+\begin{document}
+\maketitle
+\section*{Part 1}
+\subsection*{Lemma}
+Lemma (Hyperbolic double angle formula): $ \sinh(2x) = 2\sinh(x)\cosh(x)$ \\
+
+Proof: $ \frac{e^{2x} - e^{-2x}}{2} = 2\frac{e^{x} - e^{-x}}{2}\frac{e^{x} + e^{-x}}{2}$ \\
+
+\subsection*{Induction}
+With that lemma, we can now proceed to prove the proposition.
+
+Let $ S(n) $ be the statement $ \sinh(x) = 2^n \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^n}) \sinh(\frac{x}{2^n}) $
+
+For the base case $ S(0) $, it is obvious that $ \sinh(x) = \sinh(x) $, the product of $ \cosh $ is empty when $ n = 0 $.
+
+Assume $S(k)$, now we can multiply $ 2 \cosh(x) $ on both sides to get:
+
+\begin{eqnarray*}
+               \sinh(x) &=& 2^k \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^k}) \sinh(\frac{x}{2^k}) \\
+    2 \sinh(x) \cosh(x) &=& (2 \cosh(x)) 2^k  \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^k}) \sinh(\frac{x}{2^k}) \\
+              \sinh(2x) &=& 2^{k+1} \cosh(x) \cosh(\frac{x}{2}) \cdots \cosh(\frac{x} {2^k})\sinh(\frac{x}{2^k})
+\end{eqnarray*}
+
+Now we can put $ y = 2x $ to conclude
+
+\begin{eqnarray*}
+   \sinh(2x) &=& 2^{k+1} \cosh(x) \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^k}) \sinh(\frac{x}{2^k}) \\
+    \sinh(y) &=& 2^{k+1} \cosh(\frac{y}{2}) \cosh(\frac{y}{2^2}) \cdots \cosh(\frac{y}{2^{k+1}}) \sinh(\frac{y}{2^{k+1}})
+\end{eqnarray*}
+
+Of course, we can let $x=y$ again and conclude $ S(k+1) $ is true if $S(k)$ is true. So by the principle of mathematical induction, we have proved $ S(n) $ is true for all $ n \ge 0 \in \mathbf{Z} $.
+
+\subsection*{Deduce}
+Now that we know that $\sinh(x) = 2^n \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^n}) \sinh(\frac{x}{2^n})$, we can simply deduce the required identity by constructing the left hand side as follows:
+
+\begin{eqnarray*}
+                                                                   \sinh(x) &=& 2^n \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^n}) \sinh(\frac{x}{2^n}) \\
+    \frac{\sinh{x}}{x}\frac{\frac{x}{2^n}}{\sinh\left(\frac{x}{2^n}\right)} &=& \frac{1}{x}\frac{\frac{x}{2^n}}{\sinh\left(\frac{x}{2^n}\right)} 2^n \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^n}) \sinh(\frac{x}{2^n}) \\
+                                                                            &=& \cosh(\frac{x}{2}) \cdots \cosh(\frac{x}{2^n})
+\end{eqnarray*}
+
+\section*{Part 2}
+We are given that $ \sinh{y} = \lim\limits_{n \to \infty} \sum\limits_{r = 0}^n \frac{y^{2r+1}}{(2r+1)!}$
+
+Let's construct $ \lim\limits_{y \to 0} \frac{y}{\sinh(y)} $ as follows:
+
+\begin{eqnarray*}
+                        \frac{y}{\sinh(y)} &=& \frac{y}{\lim\limits_{n \to \infty} \sum\limits_{r = 0}^n \frac{y^{2r+1}}{(2r+1)!}} \\
+                                           &=& \frac{\lim\limits_{n \to \infty} y}{\lim\limits_{n \to \infty} \sum\limits_{r = 0}^n \frac{y^{2r+1}}{(2r+1)!}} \\
+                                           &=& \lim\limits_{n \to \infty} \frac{y}{\sum\limits_{r = 0}^n \frac{y^{2r+1}}{(2r+1)!}} \\
+  \lim\limits_{y \to 0} \frac{y}{\sinh(y)} &=& \lim\limits_{y \to 0} \lim\limits_{n \to \infty} \frac{y}{\sum\limits_{r = 0}^n \frac{y^{2r+1}}{(2r+1)!}} \\
+                                           &=& \lim\limits_{n \to \infty} \lim\limits_{y \to 0} \frac{y}{\sum\limits_{r = 0}^n \frac{y^{2r+1}}{(2r+1)!}} \\
+                                           &=& \lim\limits_{n \to \infty} \lim\limits_{y \to 0} \frac{1}{\sum\limits_{r = 0}^n \frac{y^{2r}}{(2r+1)!}} \\
+                                           &=& \lim\limits_{n \to \infty} \frac{1}{\sum\limits_{r = 0}^n \lim\limits_{y \to 0} \frac{y^{2r}}{(2r+1)!}} \\
+                                           &=& \lim\limits_{n \to \infty} \frac{1}{\sum\limits_{r = 0}^n \frac{0^{2r}}{(2r+1)!}} \\
+                                           &=& \lim\limits_{n \to \infty} \frac{1}{1} \\
+                                           &=& 1
+\end{eqnarray*}
+
+The swapping of the order of the limit on the 7th step is allowed because it is a Taylor series.
+
+\subsection*{Deduce}
+We can deduce the required result by taking $ n \to \infty $ in part 1 and then use the result above as follows:
+
+\begin{eqnarray*}
+       \prod\limits_{i = 1}^{n} \cosh(\frac{x}{2^i}) &=& \frac{\sinh{x}}{x}\frac{\frac{x}{2^n}}{\sinh\left(\frac{x}{2^n}\right)} \\
+  \prod\limits_{i = 1}^{\infty} \cosh(\frac{x}{2^i}) &=& \lim\limits_{n \to \infty} \frac{\sinh{x}}{x}\frac{\frac{x}{2^n}}{\sinh\left(\frac{x}{2^n}\right)} \\
+                                                     &=& \frac{\sinh{x}}{x} \lim\limits_{n \to \infty} \frac{\frac{x}{2^n}}{\sinh\left(\frac{x}{2^n}\right)} \\
+                                                     &=& \frac{\sinh{x}}{x} \lim\limits_{y \to 0} \frac{y}{\sinh(y)} \\
+                                                     &=& \frac{\sinh{x}}{x} 
+\end{eqnarray*}
+
+The switching of limit variable on the 4th step is allowed because of the continuty of $ f(x) = \frac{x}{\sinh{x}} $ with $ f(0) $ defined to be 1.
+
+\section*{Part 3}
+The required evaluation is trivial
+
+\begin{eqnarray*}
+  \cosh\left(\frac{\ln(2)}{2^k}\right) &=& \frac{e^{\frac{\ln(2)}{2^k}} + e^{-\frac{\ln(2)}{2^k}}}{2} \\
+                                       &=& \frac{e^{\ln\left(2^{\frac{1}{2^k}}\right)} + e^{\ln\left(2^{-\frac{1}{2^k}}\right)}}{2} \\
+                                       &=& \frac{\left(2^{\frac{1}{2^k}}\right) + \left(2^{-\frac{1}{2^k}}\right)}{2} \\
+                                       &=& \frac{\left(2^{\frac{1}{2^{k-1}}}\right) + 1}{2 \times \left(2^{\frac{1}{2^k}}\right)} \\
+                                       &=& \frac{1 + \left(2^{\frac{1}{2^{k-1}}}\right)}{2 \times \left(2^{\frac{1}{2^k}}\right)} 
+\end{eqnarray*}
+
+So we can get 
+
+\begin{eqnarray*}
+  \cosh(\frac{\ln(2)}{2}) &=& \frac{1 + \left(2^{\frac{1}{2^{1-1}}}\right)}{2 \times \left(2^{\frac{1}{2^1}}\right)} \\
+                          &=& \frac{1 + 2^1}{2 \times 2^{\frac{1}{2}}} \\
+                          &=& \frac{3}{2 \times 2^{\frac{1}{2}}} \\
+  \cosh(\frac{\ln(2)}{4}) &=& \frac{1 + \left(2^{\frac{1}{2^{2-1}}}\right)}{2 \times \left(2^{\frac{1}{2^2}}\right)} \\
+                          &=& \frac{1 + 2^{\frac{1}{2}}}{2 \times 2^{\frac{1}{4}}} \\
+\end{eqnarray*}
+
+By substituting $ x = \ln 2 $ in the final result of part 2, we get:
+
+\begin{eqnarray*}
+  & & \sinh(\ln 2) \\
+  &=& \frac{e^{\ln 2} - e^{-\ln 2}}{2} \\
+  &=& \frac{2 - \frac{1}{2}}{2} \\
+  &=& \frac{3}{4}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  \frac{\sinh(\ln 2)}{\ln 2} &=& \prod\limits_{i = 1}^{\infty} \cosh\left(\frac{\ln 2}{2^i}\right) \\
+                             &=& \prod\limits_{i = 1}^{\infty} \frac{1 + \left(2^{\frac{1}{2^{i-1}}}\right)}{2 \times \left(2^{\frac{1}{2^i}}\right)} \\
+            \frac{3}{4\ln 2} &=& \frac{3}{2 \times 2^{\frac{1}{2}}} \prod\limits_{i = 2}^{\infty} \frac{1 + \left(2^{\frac{1}{2^{i-1}}}\right)}{2 \times \left(2^{\frac{1}{2^i}}\right)} \\
+             \frac{1}{\ln 2} &=& \frac{2}{2^{\frac{1}{2}}} \prod\limits_{i = 2}^{\infty} \frac{1 + \left(2^{\frac{1}{2^{i-1}}}\right)}{2 \times \left(2^{\frac{1}{2^i}}\right)} \\
+                             &=& \frac{2}{2^{\frac{1}{2}}} \prod\limits_{i = 2}^{\infty} \frac{1}{\left(2^{\frac{1}{2^i}}\right)} \prod\limits_{i = 2}^{\infty} \frac{1 + \left(2^{\frac{1}{2^{i-1}}}\right)}{2} \\
+                             &=& \prod\limits_{i = 2}^{\infty} \frac{1 + \left(2^{\frac{1}{2^{i-1}}}\right)}{2} 
+\end{eqnarray*}
+
+Note that the last equality is simply a sum of geometric series in the index, so all terms cancel out.
+
+\section*{Part 4}
+Denote $ f_i $ to be the factors in the given infinite product on the right hand side. We can start with a recursive definition for $ f_i $
+
+\begin{eqnarray*}
+  f_i &=& \frac{\sqrt{2 + \cdots}}{2} \\
+  f_i + 1 &=& \frac{2 + \sqrt{2 + \cdots}}{2} \\
+  \frac{f_i + 1}{2} &=& \frac{2 + \sqrt{2 + \cdots}}{4} \\
+  \sqrt{\frac{f_i + 1}{2}} &=& \sqrt{\frac{2 + \sqrt{2 + \cdots}}{4}} \\
+                           &=& \frac{\sqrt{2 + \sqrt{2 + \cdots}}}{2} \\
+                           &=& f_{i + 1}
+\end{eqnarray*}
+
+Now I wanted to prove $ f_i = \cos\left(\frac{\pi}{2^{i+1}}\right) $, checkout the end of the proof to see why we would like to do that.
+
+Let $ T(i) $ be the statement $ f_i = \cos\left(\frac{\pi}{2^{i+1}}\right) $.
+
+$ T(0) $ is true because $ \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} $
+
+Assume $ T(k) $ is true, we have
+
+\begin{eqnarray*}
+    f_{k+1} &=& \sqrt{\frac{f_k + 1}{2}} \\
+            &=& \sqrt{\frac{\cos\left(\frac{\pi}{2^{k+1}}\right) + 1}{2}} \\
+            &=& \cos\left(\frac{\pi}{2^{k+2}}\right)
+\end{eqnarray*}
+
+The last equality is the half angle formula, and now we can conclude by the principle of induction $ T(k) $ is true for all $ k \ge 1 \in \mathbf{Z} $.
+
+Now we assume $ \frac{\sin x}{x} = \prod\limits_{i = 1}^{\infty} \cos\left(\frac{x}{2^i}\right) $, this fact can be proved using all the same steps in part 1 to part 3, just note that all steps applies to normal trigonometric functions as well. Putting $ x = \frac{\pi}{2} $, we have:
+
+\begin{eqnarray*}
+    \frac{\sin\frac{\pi}{2}}{\frac{\pi}{2}} &=& \prod\limits_{i = 1}^{\infty} \cos\left(\frac{\frac{\pi}{2}}{2^i}\right) \\
+                              \frac{2}{\pi} &=& \prod\limits_{i = 1}^{\infty} \cos\left(\frac{\pi}{2^{i+1}}\right) \\
+                              &=& \prod\limits_{i = 1}^{\infty} f_i 
+\end{eqnarray*}
+
+And now we are done.
+
+\end{document}
