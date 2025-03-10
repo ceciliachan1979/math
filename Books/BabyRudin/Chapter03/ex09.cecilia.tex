@@ -1,0 +1,80 @@
+\subsection*{Exercise 09 (Cecilia)}
+
+According to theorem 3.39, the radius of convergency is $ \limsup\limits_{n \to \infty} \sqrt[n]{|c_n|} $.
+
+\subsection*{Part a}
+
+\begin{eqnarray*}
+  & & \limsup\limits_{n \to \infty} \sqrt[n]{n^3} \\
+  &=& \lim\limits_{n \to \infty} \sqrt[n]{n^3} \\
+  &=& \left(\lim\limits_{n \to \infty} \sqrt[n]{n}\right)^3 \\
+  &=& 1^3 \\
+  &=& 1
+\end{eqnarray*}
+
+Therefore the radius of convergency is $ \frac{1}{1} = 1 $.
+
+\subsection*{Part b}
+
+Note that $ \sum\limits_{n \to \infty} \frac{2^n}{n!} z^n = \sum\limits_{n \to \infty} \frac{1}{n!} (2z)^n = e^{2z} $, the series converge for all $ z $.
+
+Therefore the radius of convergency is $ \infty $.
+
+Here is an alternative proof by the $ \limsup $ formula above, to use that, we need a basic result that $ \sqrt[n]{n!} $ increase without bound. In particular, the sequence is lower bounded by $ \sqrt{n} $. We will prove the proposition using mathematical induction.
+
+Base case: $ \sqrt{2} = \sqrt[2]{2!} \ge \sqrt{2} = \sqrt{2} $.
+
+In the induction step, we can assume $ k \ge 3 $, so we have this basic result:
+
+\begin{eqnarray*}
+    k & > & e \\
+      & > & \left(1 + \frac{1}{k}\right)^k \\
+      & > & \left(1 + \frac{1}{k}\right)^{k-1} \\
+      & = & \left(\frac{k+1}{k}\right)^{k-1} \\
+  k^k & > & (k+1)^{k-1}
+\end{eqnarray*}
+
+Using that, we can proceed with the induction step:
+\begin{eqnarray*}
+        \sqrt[k]{k!} &\ge& \sqrt{k} \\
+                  k! &\ge& \sqrt{k^k} \\
+              (k+1)! &\ge& \sqrt{(k+1)^2 k^k} \\
+                     &\ge& \sqrt{(k+1)^2 (k+1)^{k-1}} \\
+                     &\ge& \sqrt{(k+1)^{k+1}} \\
+  \sqrt[k+1]{(k+1)!} &\ge& \sqrt{k+1}
+\end{eqnarray*}
+
+Now that we have established that $ \lim\limits_{n \to \infty} \sqrt[k]{k!} = \infty $. The rest will easily follows
+
+\begin{eqnarray*}
+  & & \limsup\limits_{n \to \infty} \sqrt[n]{\frac{2^n}{n!}} \\
+  &=& \lim\limits_{n \to \infty} \sqrt[n]{\frac{2^n}{n!}} \\
+  &=& \lim\limits_{n \to \infty} \frac{2}{\sqrt[n]{n!}} \\
+  &=& 0
+\end{eqnarray*}
+
+Therefore the radius of convergency is $ \infty $ as we hit the $ \alpha = 0 $ case.
+
+\subsection*{Part c}
+
+\begin{eqnarray*}
+  & & \limsup\limits_{n \to \infty} \sqrt[n]{\frac{2^n}{n^2}} \\
+  &=& \lim\limits_{n \to \infty} \sqrt[n]{\frac{2^n}{n^2}} \\
+  &=& \lim\limits_{n \to \infty} \frac{2}{\sqrt[n]{n^2}} \\
+  &=& \frac{2}{(\lim\limits_{n \to \infty} \sqrt[n]{n})^2} \\
+  &=& 2
+\end{eqnarray*}
+
+Therefore the radius of convergency is $ \frac{1}{2} $.
+
+\subsection*{Part d}
+
+\begin{eqnarray*}
+  & & \limsup\limits_{n \to \infty} \sqrt[n]{\frac{n^3}{3^n}} \\
+  &=& \lim\limits_{n \to \infty} \sqrt[n]{\frac{n^3}{3^n}} \\
+  &=& \lim\limits_{n \to \infty} \frac{\sqrt[n]{n^3}}{3} \\
+  &=& \frac{(\lim\limits_{n \to \infty} \sqrt[n]{n})^3}{3} \\
+  &=& \frac{1}{3}
+\end{eqnarray*}
+
+Therefore the radius of convergency is $ \frac{1}{\frac{1}{3}} = 3 $.
