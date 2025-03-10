@@ -1,0 +1,27 @@
+\subsubsection*{Exercise 1.1.7. (Gapry)}
+
+\begin{flushleft}
+
+Let's define the nonstandard ordering of the set of natural numbers $\mathbb{N}$.
+\begin{equation*}
+  n \prec m =
+    \begin{cases}
+      n < m & \text{if (n mod 3) $<$ (m mod 3)} \\
+      n = m & \text{if (n mod 3) $=$ (m mod 3)} \\
+      n > m & \text{if (n mod 3) $>$ (m mod 3)}
+    \end{cases}       
+\end{equation*}
+
+Let's define the subset $A$ of natural numbers $\mathbb{N}$ with the order $n \prec m$. \\
+$A = \{n \mod 7 == 0, n \in \mathbb{Z^+}\} \subset \mathbb{N}$.
+\vspace{10px}
+
+Let's define $b = 7n + 1, n \in \mathbb{Z^+}$
+\vspace{10px}
+
+Since $b \notin A$, $b \in \mathbb{Z^+}$ and $b$ is an upper bound of $A$ \\
+Let's analyze all upper bounds of $A$,
+$\{7n + 1, 7n + 2, 7n + 3, 7n + 4, 7n + 5, 7n + 6, n \in Z^{+} \}$,
+it's obvious $7n + 1$ is the minimum of them, hence $7n + 1$ is the $\sup A$. Q.E.D.
+
+\end{flushleft}
