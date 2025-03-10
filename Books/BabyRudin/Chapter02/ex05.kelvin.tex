@@ -1,0 +1,38 @@
+\subsection*{Exercise 5 (Kelvin)}
+\subsubsection*{Lemma 0.}
+$\text{For any } k \in \mathbb{R}, A(k) \subset \mathbb{R} = \{k + \frac{1}{n}, n \in \mathbb{N}\}, k \text{ is the only limit point.}$
+
+Firstly, if $k$ is a limit point of $A(k)$, then for every $r > 0$, there exists $y \in N_r(k) \cap A \text{ such that } y \neq k$.
+
+By Archimedean property (let $x = r, y = 1$), 
+\begin{eqnarray*}
+nr > 1 \implies \frac{1}{n} < r \\
+k + \frac{1}{n} < k + r \\
+\implies k - r < k + \frac{1}{n} < k + r
+\end{eqnarray*}
+Let $y = k + \frac{1}{n}, y \neq k \text{ and } y \in N_r(k) \cap A$. $k$ is a limit point of $A$.\\
+
+Secondly, to show $k$ is the only one limit point of A, consider an arbitrary number $\alpha \in \mathbb{R}, \alpha \neq k$:
+
+When $\alpha < k$, we can find a $r$ such that $(N_r(\alpha) \cap A) \setminus \{\alpha\} = \phi$.
+\begin{eqnarray*}
+    \alpha + r < k \implies r < k - \alpha
+\end{eqnarray*}
+
+In this case, $\forall r < k - \alpha, (N_r(\alpha) \cap A) \setminus \{\alpha\} = \phi, \alpha$ is not a limit point. \\
+
+When $\alpha > k + 1$, we can find a $r$ such that $(N_r(\alpha) \cap A) \setminus \{\alpha\} = \phi$.
+\begin{eqnarray*}
+    \alpha - r > k + 1 \implies r < \alpha - k - 1
+\end{eqnarray*}
+
+In this case, $\forall r < \alpha - k - 1, (N_r(\alpha) \cap A) \setminus \{\alpha\} = \phi, \alpha$ is not a limit point. \\
+
+When $k < \alpha \le k + 1$, consider $\exists n \in \mathbb{N}, \text{ such that } k + \frac{1}{n} \ge \alpha > k + \frac{1}{n + 1}$, we want to find $r$ such that $(N_r(\alpha) \cap A) \setminus \{\alpha\} = \phi$:
+
+\begin{eqnarray*}
+\alpha + r \le k + \frac{1}{n} &\text{ and }& \alpha - r > k + \frac{1}{n + 1} \\
+r \le k - \alpha + \frac{1}{n} &\text{ and }& r < \alpha - k - \frac{1}{n + 1} \\ 
+\end{eqnarray*}
+Hence, $\forall r < \min\{k - \alpha + \frac{1}{n}, \alpha - k - \frac{1}{n + 1}\}, (N_r(\alpha) \cap A) \setminus \{\alpha\} = \phi$, $k$ is the only limit point of $A$.\\
+According to Lemma 0, let $C$ be the bounded set in $\mathbb{R} = A(0) \cup A(1) \cup A(2)$ which contains the exactly three limit points = $\{0, 1, 2\}$.
