@@ -1,0 +1,46 @@
+\subsection*{Exercise 05 (Gapry)}
+
+\begin{flushleft}
+
+Define a set $E = \{\frac{1}{n} \ | \ n \in Z^{+}\}$, we need to find the
+limit points of it.
+\vspace{10px}
+
+\textbf{Case 1: n is a finite number} \\
+$\exists\ r > 0$, $(\frac{1}{n} - r, \frac{1}{n} + r) \cap \{\frac{1}{n}\}
+                                                         = \{\frac{1}{n}\}$,
+hence, $\frac{1}{n}$ is not the limit point of $E$ if $n$ is finite.
+\vspace{10px}
+
+\textbf{Case 2: n is infinite} \\
+If $n \to \infty$, $\frac{1}{n} = 0$, we need to show 
+$\forall\ r > 0$, $(\frac{1}{n} - r, \frac{1}{n} + r) \cap \{\frac{1}{n}\} 
+\neq \emptyset$ or $(\frac{1}{n} - r, \frac{1}{n} + r) \cap \{\frac{1}{n}\} 
+\neq \{\frac{1}{n}\}$, that is $\exists\ n \in Z^{+}$ s.t. $\frac{1}{n} \in 
+(-r, r)$. 
+\vspace{10px}
+
+According to the Archimedean property, we know $nr > 1, n \in Z^{+}$, hence
+$\frac{1}{n} < r$. Since $n > 0$, we know $-r < \frac{1}{n} < r$ is true. 
+Therefore, $0$ is the limit point of $E = \{\frac{1}{n} \ | \ n \in Z^{+}\}$.
+\vspace{10px}
+
+Define a set $E_k = \{\frac{1}{n} + k \ | \ n \in Z^{+}, k \in Z^{+}\}$. Since
+we know $-r < \frac{1}{n} < r$ is true, $-r + k < \frac{1}{n} + k < r + k$ is 
+also true. That is, $\forall\ r > 0$, $\exists\ n \in Z^{+}$ s.t. 
+$\frac{1}{n} + k \in (-r + k, r + k)$ if n is infinite, k is finite. 
+Therefore, $k$ is the limit point of $E_k$.
+\vspace{10px}
+
+Let's define three sets $E_{c_1}$, $E_{c_2}$ and $E_{c_3}$ \\
+$E_{c_1} = \{\frac{1}{n} + c_1 \ | \ n \in Z^{+}, c_1 \in Z^{+}\}$ \\
+$E_{c_2} = \{\frac{1}{n} + c_2 \ | \ n \in Z^{+}, c_2 \in Z^{+}\}$ \\
+$E_{c_3} = \{\frac{1}{n} + c_3 \ | \ n \in Z^{+}, c_3 \in Z^{+}\}$ \\
+\vspace{10px}
+
+We know the limit point of corresponding set are $c_1$, $c_2$ and $c_3$, 
+if $E = E_{c_1} \cup E_{c_2} \cup E_{c_3}$ and $c_1 \neq c_2 \neq c_3$,
+it's a bounded set of real numbers with exactly three limit points which are
+$c_1 \neq c_2 \neq c_3$. Q.E.D.
+
+\end{flushleft}
