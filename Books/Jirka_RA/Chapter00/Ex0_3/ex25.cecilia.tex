@@ -1,0 +1,36 @@
+\subsubsection*{Exercise 0.3.25. (Cecilia)}
+
+From the problem, we know that there exists a bijective mapping $ f $ from $ \mathbb{N} \to S_N \subseteq S $. ( $ S_N $ stands for the natural numbers on the $ S $ side).
+
+Decomposing $ N $ into the odd natural numbers $ O $ and the even natural number $ E $ $ f $ will map the odd natural numbers $ O $ to $ S_O $ and $ E $ to $ S_E $ respectively. 
+
+Define $ A = S_O $, denote $ R $ ($ R $ stands for the rest) to be $ S \setminus S_N $, we claim the following mapping $ h $ from $ S \setminus A $ to $ S $ is bijective.
+
+$ h(x) = f(f^{-1}(x)/2) $ if $ x \in S_E $, otherwise $ x \in R $ and we set $ h(x) = x $.
+
+Again, the mapping $ h $ can be decomposed into two pieces, it maps $ S_E $ to $ S_N $ and $ R $ to $ R $.
+
+It is evident that the identity mapping between $ R $ and $ R $ is bijective.
+
+The mapping from $ S_E $ to $ S_N $ is surjective because for all $ x \in S_N $, 
+
+\begin{eqnarray*}
+  & & h(f(2f^{-1}(x))) \\
+  &=& f(f^{-1}(f(2f^{-1}(x)))/2) \\
+  &=& f(2f^{-1}(x)/2) \\
+  &=& f(f^{-1}(x)) \\
+  &=& x
+\end{eqnarray*}
+
+For any $ x, y \in S_E $ such that $ h(x) = h(y) $ , we have:
+\begin{eqnarray*}
+              h(x) &=& h(y) \\
+    f(f^{-1}(x)/2) &=& f(f^{-1}(y)/2) \\
+       f^{-1}(x)/2 &=& f^{-1}(y)/2 \\
+         f^{-1}(x) &=& f^{-1}(y) \\
+                x &=& y 
+  \end{eqnarray*}
+
+  Therefore $ h(x) $ restricted to $ S_N $ is injective as well.
+
+  Together, we have $ h(x) $ is a bijective mapping from $ S \setminus A \to S $.
