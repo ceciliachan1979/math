@@ -1,0 +1,54 @@
+\subsection*{Exercise 1.4 (Cecilia)}
+
+\subsubsection*{Part a}
+Checking that these defintion works out is routine.
+
+\begin{table}[h]
+\centering
+\begin{minipage}{0.3\linewidth}
+\centering
+\begin{tabular}{c|c}
+\textbf{Input} & \textbf{Output} \\ \hline
+$a$ & $a$ \\
+$b$ & $a$ \\
+$c$ & $c$
+\end{tabular}
+\caption{Function \(e\) mappings}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\centering
+\begin{tabular}{c|c}
+\textbf{Input} & \textbf{Output} \\ \hline
+$a$ & $c$ \\
+$b$ & $c$ \\
+$c$ & $a$
+\end{tabular}
+\caption{Function \(g\) mappings}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\centering
+\begin{tabular}{c|cc}
+$\times$ & $e$ & $g$ \\ \hline
+$e$ & $e$ & $g$ \\
+$g$ & $g$ & $e$ \\
+\end{tabular}
+\caption{Multiplication table for $e$ and $g$}
+\end{minipage}
+\end{table}
+
+\subsubsection*{Part b}
+
+We will first prove that the identity $e$ of a group with an injective mapping $f$ must be the identity function. Assume the contrary, then there exists $g$ such that $ e(g) = h \ne g$.
+
+\begin{align*}
+     & ef [g]  \\
+    =& f(e(g)) \\
+    =& f(h)    \\
+  \ne& f(g)    && \text{(} f \text{ is injective)}
+\end{align*}
+
+Then we conclude $ef \ne f$ is a contradiction. $e$ must be the identity function.
+
+With that, every element in $G$ must have an inverse that when composed produced the identity function. Now we conclude $ G \subseteq \text{Sym}(X) $.

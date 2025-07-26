@@ -1,0 +1,141 @@
+\subsection*{Exercise 1.2 (Cecilia)}
+
+To start with, we prove that $R$ is a permutation group by showing it satisfy all the conditions listed in definition 1.3
+
+We show that $R \subseteq \text{Sym}(G)$
+
+For every $ r_x \in R$, we have:
+
+\begin{align*}
+   & r_x r_{x^{-1}} [t] \\
+  =& txx^{-1}           \\
+  =& t
+\end{align*}
+
+and also
+
+\begin{align*}
+   & r_{x^{-1}} r_x [t] \\
+  =& tx^{-1}x           \\
+  =& t
+\end{align*}
+
+Therefore $r_{x^{-1}}$ is the inverse of $r_x$ and therefore $r_x$ is a bijection on $G$ for all $x$.
+
+With that. we also proved that for all $r_x$ in $R$, $(r_x)^{-1} = r_{x^{-1}} $ exists in $R$.
+
+Now considering function composition, we have:
+
+\begin{align*}
+   & r_x r_y [t] \\
+  =& (tx)y       \\
+  =& t(xy)       \\
+  =& r_{xy} [t]
+\end{align*}
+
+Therefore $R$ is closed under function composition. 
+
+With all these, we conclude $ R $ is a permutation group.
+
+Then, we will show that the map $f: x \mapsto r_x$ is an isomorphism from $G$ to $R$.
+
+$f$ is a homomorphism because for any $t$ in $G$, we have
+
+\begin{align*}
+   & f(xy)[t]       \\
+  =& r_{xy}[t]      \\
+  =& txy            \\
+  =& (tx)y          \\
+  =& r_y [r_x[t]]   \\
+  =& (r_x r_y)[t]   \\
+  =& (f(x) f(y))[t]
+\end{align*}
+
+To show $f$ is a bijection, we define $f^{-1}: r_x \mapsto x$.
+
+It is obvious that $f^{-1}$ is both a left and right inverse, so $f$ is both a homomorphism and a bijection, and therefore an isomorphism.
+
+For $L$, everything is similar.
+
+We prove that $L$ is a permutation group by showing it satisfy all the conditions listed in definition 1.3
+
+We show that $L \subseteq \text{Sym}(G)$
+
+For every $ l_x \in L$, we have:
+
+\begin{align*}
+   & l_x l_{x^{-1}} [t] \\
+  =& x^{-1}xt           \\
+  =& t
+\end{align*}
+
+and also
+
+\begin{align*}
+   & l_{x^{-1}} l_x [t] \\
+  =& xx^{-1}t           \\
+  =& t
+\end{align*}
+
+Therefore $l_{x^{-1}}$ is the inverse of $l_x$ and therefore $l_x$ is a bijection on $G$ for all $x$.
+
+With that. we also proved that for all $l_x$ in $L$, $(l_x)^{-1} = l_{x^{-1}} $ exists in $L$.
+
+Now considering function composition, we have:
+
+\begin{align*}
+   & l_x l_y [t] \\
+  =& y(xt)       \\
+  =& (yx)t       \\
+  =& l_{yx} [t]
+\end{align*}
+
+Therefore $L$ is closed under function composition. 
+
+With all these, we conclude $ L $ is a permutation group.
+
+Then, we will show that the map $g: x \mapsto l_{x^{-1}}$ is an isomorphism from $G$ to $L$.
+
+$g$ is a homomorphism because for any $t$ in $G$, we have
+
+\begin{align*}
+   & g(xy)[t]                   \\
+  =& l_{(xy)^{-1}}[t]           \\
+  =& (xy)^{-1}t                 \\
+  =& y^{-1}x^{-1}t              \\
+  =& l_{y^{-1}}[l_{x^{-1}}[t]]  \\
+  =& (l_{x^{-1}} l_{y^{-1}})[t] \\
+  =& (g(x) g(y))[t]             \\
+\end{align*}
+
+To show $g$ is a bijection, we define $g^{-1}: l_x \mapsto x^{-1}$.
+
+It is obvious that $g^{-1}$ is both a left and right inverse, so $g$ is both a homomorphism and a bijection, and therefore an isomorphism.
+
+% 
+% Suppose f is in L, i.e. f = lx
+% 
+% for any r = ry
+% 
+% fr[t] = f[r[t]] = x(gy) = xgy
+% 
+% rf[t] = r[f[t]] = (xg)y = xgy
+% 
+% Therefore L superset given set
+% 
+% Suppose f in given set, for any t, consider r = rt inverse
+% 
+% fr = rf
+% fr[t] = rf[t]
+% r[f[t]] = f[r[t]]
+% f[t] t^{-1} = f[t t^{-1}]
+% f[t] t^{-1} = f[e]          // e is identity
+% f[t] = t f[e]
+% 
+% Therefore f = l_f[e]
+% 
+% Therefore given set superset L
+% 
+% ================================================================================================
+% 
+% 

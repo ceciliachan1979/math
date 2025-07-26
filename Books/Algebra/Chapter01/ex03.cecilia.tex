@@ -1,0 +1,35 @@
+\subsection*{Exercise 1.3 (Cecilia)}
+
+Let $T = \{f \in \text{Sym}(G) | fr = rf \text{for all} r \in R \}$
+
+We will show that $L = T$ by showing $ L \subseteq T $ and then $ T \subseteq L $
+
+Suppose $f$ is in $L$ and for any $r$ in $R$, we have $f = l_x $ and $ r= r_y $, and so
+
+\begin{align*}
+   & fr[t]       \\
+  =& l_x r_y [t] \\
+  =& (xt)y       \\
+  =& xty
+\end{align*}
+
+\begin{align*}
+   & rf[t].      \\
+  =& r_y l_x [t] \\
+  =& x(ty)       \\
+  =& xty
+\end{align*}
+
+Therefore $f$ is in $T$ implying $ L \subseteq T $.
+
+On the other hand, suppose $f$ is in $T$, for any $r$ in $R$ and for any $t$ in $G$, we have $r = r_y$, and
+
+\begin{align*}
+       fr[t] &= rf[t]                                          \\
+       f(ty) &= f(t)y                                          \\
+  f(tt^{-1}) &= f(t)t^{-1} && \text{(Let } y = t^{-1} \text{)} \\
+        f(e) &= f(t)t^{-1}                                     \\
+        f(t) &= f(e)t
+\end{align*}
+
+Therefore $f$ is in $L$ implying $ T \subseteq L$.

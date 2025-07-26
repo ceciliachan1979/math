@@ -1,0 +1,65 @@
+\subsection*{Exercise 1.1 (Cecilia)}
+
+Suppose the group is transitive, Abelian but not regular, for some $x, y$ in $X$, there exists $g_1 \ne g_2$ such that $g_1(x) = y = g_2(x) $.
+
+For any $p$ in $X$, by transitivity, there exists $f$ such that $f(x) = p$
+
+\begin{align*}
+g_1(p) 
+&= g_1(f(x))      && \text{(since } f(x) = p \text{)} \\
+&= f(g_1(x))      && \text{(Abelian property)} \\
+&= f(y)          && \text{(assumption } g_1(x) = y \text{)} \\
+&= f(g_2(x))      && \text{(assumption } g_2(x) = y \text{)} \\
+&= g_2(f(x))      && \text{(Abelian property)} \\
+&= g_2(p)         && \text{(since } f(x) = p \text{)} \,.
+\end{align*}
+
+Therefore $g_1 = g_2$ for all $p$ in $X$ but $g_1 \ne g_2$, that's a contradiction, and so the group must be regular.
+
+% 
+% The map
+% 
+% f: x -> rx is the iso from G to R
+% 
+% f is homo because f(xy)[t] = rxy[t] = txy = (tx)y = ry [rx[t]] = (rx ry)[t] = (f(x) f(y))[t]
+% 
+% define f inverse as rx -> x. 
+% 
+% It is both left and right inverse, therefore f is bijective.
+% 
+% g: x -> lx^{-1} is the iso from G to L
+% 
+% g is homo because g(xy)[t] = l(xy)^{-1}[t] = (xy)^{-1}t = y^{-1}x^{-1}t = ly^{-1}[lx^{-1}[t]] = (lx_{-1} ly_{-1})[t] = (g(x) g(y))[t]
+% 
+% define g inverse as lx -> x^{-1}. 
+% 
+% It is both left and right inverse, therefore f is bijective.
+% 
+% ================================================================================================
+% 
+% Suppose f is in L, i.e. f = lx
+% 
+% for any r = ry
+% 
+% fr[t] = f[r[t]] = x(gy) = xgy
+% 
+% rf[t] = r[f[t]] = (xg)y = xgy
+% 
+% Therefore L superset given set
+% 
+% Suppose f in given set, for any t, consider r = rt inverse
+% 
+% fr = rf
+% fr[t] = rf[t]
+% r[f[t]] = f[r[t]]
+% f[t] t^{-1} = f[t t^{-1}]
+% f[t] t^{-1} = f[e]          // e is identity
+% f[t] = t f[e]
+% 
+% Therefore f = l_f[e]
+% 
+% Therefore given set superset L
+% 
+% ================================================================================================
+% 
+% 

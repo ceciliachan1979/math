@@ -16,6 +16,11 @@ jobs:
         with:
           working_directory: Books/BabyRudin
           root_file: BabyRudin.tex
+      - name: Compile Algebra LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: Books/Algebra
+          root_file: Algebra.tex
       - name: Compile Jirka Real Analysis LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
