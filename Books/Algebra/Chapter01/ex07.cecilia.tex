@@ -1,0 +1,12 @@
+\subsection*{Exercise 1.7 (Cecilia)}
+To count the number of elements in $GL(n, q)$ is the same as counting the number of invertible matrices.
+
+We will do that column by column.
+
+The first column could be anything but the zero vector, so we have $ (q^n - 1) $ choices for the first column.
+
+Suppose we have already determined the first $k$ columns. The $k+1$ column must be linearly independent from them.
+
+There are $q^n$ vectors to choose from, and $q^k$ of them are linearly dependent with the first $k$ columns, leaving us with $(q^n - q^k)$ choices.
+
+That explains all the factors in the given expression!

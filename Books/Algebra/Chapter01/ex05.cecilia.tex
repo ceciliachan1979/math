@@ -1,0 +1,23 @@
+\subsection*{Exercise 1.5 (Cecilia)}
+
+We can argue geometrically that $trt=r^{-1}$. The key is that a flip can be seen as changing the viewpoint.
+
+Suppose we place the polygon on a transparent table, we could look at the shape from the top of the table. By a flip, we can simply view the polygon from the bottom of the table, then we rotate it clockwise (from the viewpoint at the bottom of the table), and then we look at it at the top of the table again.
+
+The polygon would appear rotated anticlockwise just as much, that's why we can claim $trt=r^{-1}$.
+
+The fact that the identity is unique and commute with any element is a property of any abstract group. Here is a proof:
+
+Suppose we have two left identities (i.e. $e_1 g = e_2 g = g$ for all $ g \in G$), we would have two identical rows in the multiplication table. That means at least one column will have duplicated elements. That contradicts exercise 1.2 where we proved left multiplication is a bijection.
+
+Similarly, we can't have two right identities.
+
+Last but not least:
+
+\begin{align*}
+    eg &= g \\
+    gegg^{-1} &= ggg^{-1} \\
+    ge &= g 
+\end{align*}
+
+That proves that $e$ commutes with every group element $g$.
