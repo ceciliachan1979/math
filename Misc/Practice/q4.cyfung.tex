@@ -1,0 +1,80 @@
+\section*{Algebra Problem 4, Solution by CY}
+\subsubsection*{Problem}
+The problems can be found \href{https://www.math.hkust.edu.hk/~makyli/190_2010Sp/problemBk.pdf}{here} on page 7.
+
+\subsubsection*{Solution}
+
+The quadratic functions can be written as $f(x) = \alpha ((x-A)^2 - B)$, $g(x) = \beta ((x-C)^2 - D)$, $h(x) = \gamma ((x-E)^2 - F)$. 
+
+\begin{eqnarray*}
+    f(g(h(x))) =& f(\quad \beta \gamma^2(((x-E)^2-F-\frac{C}{\gamma})^2 - \frac{D}{\gamma^2}) \quad ) \\
+    =& \alpha \beta^2 \gamma^4 [ [ ((x-E)^2-F-\frac{C}{\gamma})^2 - \frac{D}{\gamma^2} - \frac{A}{\beta\gamma^2} ]^2 - \frac{B}{\beta^2\gamma^4} ]. 
+\end{eqnarray*}
+
+Consider the case $\alpha = \beta = \gamma = 1$:
+\begin{equation*}
+    f(g(h(x))) = [((x-E)^2 - F - C)^2 - D - A]^2 - B.
+\end{equation*}
+
+We can see for appropriate transformation, WLOG we can assume a solution of f(g(h(x))) = 0 targetting quadratic polynomials f(x), g(x), h(x) is a set of quadratic polynomials with leading coefficient one.
+
+\hspace{3em}
+
+Solving the equation $ 0 = [((x-E)^2 - F - C)^2 - D - A]^2 - B $, we got eight roots: $E \pm \sqrt{F+C \pm \sqrt{D+A \pm \sqrt{B}}}$.
+
+Assume the parameters are real and no complex roots are involved.
+
+Since square root must be larger than or equal to 0, we can order the eight roots from smallest to largest:
+
+\begin{eqnarray*}
+    E - \sqrt{F+C + \sqrt{D+A + \sqrt{B}}} \\ 
+    E - \sqrt{F+C + \sqrt{D+A - \sqrt{B}}} \\ 
+    E - \sqrt{F+C - \sqrt{D+A - \sqrt{B}}} \\ 
+    E - \sqrt{F+C - \sqrt{D+A + \sqrt{B}}} \\ 
+    E + \sqrt{F+C - \sqrt{D+A + \sqrt{B}}} \\ 
+    E + \sqrt{F+C - \sqrt{D+A - \sqrt{B}}} \\ 
+    E + \sqrt{F+C + \sqrt{D+A - \sqrt{B}}} \\ 
+    E + \sqrt{F+C + \sqrt{D+A + \sqrt{B}}} \\ 
+\end{eqnarray*}
+
+The roots must be corresponding to 1,2,3,4,5,6,7,8. From the sum and difference of root differing by the sign after $E$, we got $E=4.5$, 
+$ \sqrt{F+C + \sqrt{D+A + \sqrt{B}}} = 3.5 $ for the first pair, $ \sqrt{F+C - \sqrt{D+A + \sqrt{B}}} = 0.5 $ for the fourth pair. (I) 
+
+We get $ \sqrt{F+C + \sqrt{D+A - \sqrt{B}}} = 2.5 $ for the second pair, $ \sqrt{F+C - \sqrt{D+A - \sqrt{B}}} = 1.5 $ for the third pair. (II)
+
+From (I) we get $F+C = (12.25+0.25)/2=6.25$ . From (II) we get $F+C = (6.25+2.25)/2 = 4.25 $, which is impossible.
+
+Therefore it is impossible to find quadratic functions $f,g,h$ satisfying the requirement. 
+
+\hspace{3em}
+
+Assume the parameters are complex: we have to pair up 1,2,3,4,5,6,7,8 to the roots and it is only possible to get $E=4.5$ for any consistent pairing. Then we can show $F+C$ is real, then similarly for $D+A$ and $B$.
+Since $B = [((x-E)^2 - F - C)^2 - D - A]^2$ and $x, E, F+C, D+A$ are real, $B \ge 0$. Similarly we get $D+A - \sqrt{B} \ge 0$, etc.. So it goes back to the assumption that the parameters are real and no complex roots are involved.
+\qed
+
+\hspace{5em}
+
+As a bonus, consider the following question from \href{https://math.stackexchange.com/questions/1724410/composition-of-three-quadratic-functions}{Math Stack Exchange}:
+
+\begin{quote}
+Find quadratic functions $f,g,h$ such that $f(g(h(x)))$ has $-6, -5, -4, -2, 1, 3, 4, 5$ as its roots.
+\end{quote}
+
+Using the above method, we obtain $E=-\frac{1}{2}$, $B=810$, $D+A=106$, $F+C=16\frac{1}{4}$.
+
+We can take on infinitely many solutions. For example, let $D=100$, $F=16$, we have 
+
+\begin{eqnarray*}
+    h(x) =& (x-3\frac{1}{2})(x+4\frac{1}{2}) \\
+    g(x) =& (x-10\frac{1}{4})(x+9\frac{3}{4}) \\
+    f(x) =& (x-96)(x+84).
+\end{eqnarray*}
+
+Let $D=196$, $F=2\frac{1}{4}$, we have 
+\begin{eqnarray*}
+    h(x) =& (x+2)(x-1) \\
+    g(x) =& x(x-28) \\
+    f(x) =& x(x+180),
+\end{eqnarray*}
+
+which is the solution given in Stack Exchange.

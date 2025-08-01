@@ -1,0 +1,38 @@
+\section*{Algebra Problem 3}
+\subsubsection*{Problem}
+The problems can be found \href{https://www.math.hkust.edu.hk/~makyli/190_2010Sp/problemBk.pdf}{here} on page 7.
+
+\subsubsection*{Solution}
+The key idea is to use division to decrease the degree.
+
+We can prove the problem by strong induction.
+
+The problem to be proved is trivial for a constant, and it is also vacuously true for linear functions since no linear functions can be always non-negative.
+
+Assume this is true for all polynomial with degree less than $ k $, consider $ p(x) $ to be a polynomial of degree $ k $, let its minimum be $ h $ at $ x = r $. Such a minimum must exists for any non-constant function (i.e. degree $ \ge 2 $). Consider $ f(x) = p(x) - p(r) $, we have these two facts:
+
+\begin{enumerate}
+    \item{ $ r $ is a root of $ f(x) $, and}
+    \item{ $ r $ is a minimum of $ f(x) $, so $ f'(r) = 0 $, in other words, $ r $ is a root of $ f'(x) $ }
+\end{enumerate}
+
+With that, we let $ f(x) = (x - r)g(x) $ and $ f'(x) = (x - r)h(x) $.
+
+\begin{align*}
+    f'(x) =& g(x) + (x - r)g'(x)        \\
+     g(x) =& f'(x) - (x - r)g'(x)       \\
+          =& (x - r)h(x) - (x - r)g'(x) \\
+          =& (x - r)(h(x) - g'(x))      \\
+     f(x) =& (x - r)^2(h(x) - g'(x))
+\end{align*}
+
+Note that by definition $ h(x) $ and $ g'(x) $ has a smaller degree than $ k $, by the induction hypothesis, $ h(x) - g'(x) $ can be written as a sum of polynomial squares.
+
+\begin{align*}
+  f(x) =& (x - r)^2(h(x) - g'(x)) \\
+       =& (x - r)^2(f_1(x)^2 + f_2(x)^2 + \cdots + f_p(x)^2) \\
+       =& ((x - r)f_1(x))^2 + ((x - r)f_2(x))^2 + \cdots + ((x - r)f_p(x))^2 \\
+  p(x) =& ((x - r)f_1(x))^2 + ((x - r)f_2(x))^2 + \cdots + ((x - r)f_p(x))^2 + (\sqrt(p_r))^ 2
+\end{align*}
+
+So $ p(x) $ can be represented as a sum of polynomial squares as well, by the principle of strong induction, the problem is true for all degrees.
