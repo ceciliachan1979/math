@@ -8,6 +8,7 @@
         \foreach \j in \authorname{
             \IfFileExists{\filename\q.\j.tex}{
                 \input{\filename\q.\j.tex}
+                \pagebreak
             }
         }
     }

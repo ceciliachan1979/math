@@ -1,0 +1,77 @@
+\subsection*{Lang Exercise 3 (Cecilia)}
+
+To simplify notations, define $[a ,b]$ to be $aba^{-1}b^{-1}$.
+
+We will solve this problem with a series of lemmas
+
+\subsubsection*{Lemma 1: The inverse of a commutator is a commutator}
+
+Proof: $[a, b]^{-1} = (aba^{-1}b^{-1})^{-1} = bab^{-1}a^{-1} = [b, a] $
+
+\subsubsection*{Lemma 2: An element in a commutator subgroup can be written as a product of commutators}
+
+Proof: By lemma 1.
+
+\subsubsection*{Lemma 3: A simple identity to move a left multiplication to the right}
+
+The identity we wanted to prove is $g[a,b] = [ga,b][b,g]g $
+
+Proof: 
+
+\begin{align*}
+   &g[a,b] \\
+  =& gaba^{-1}b^{-1} \\
+  =& gaba^{-1}g^{-1}gb^{-1} \\
+  =& gaba^{-1}g^{-1}b^{-1}bgb^{-1} \\
+  =& gab(ga)^{-1}b^{-1}bgb^{-1} \\
+  =& [ga,b]bgb^{-1} \\
+  =& [ga,b]bgb^{-1}g^{-1}g \\
+  =& [ga,b][b,g]g
+\end{align*}
+
+\subsubsection*{Lemma 4: $ gG^cg^{-1} \subseteq G^c $}
+
+Note that any $h$ in $gG^cg^{-1}$ can be represented as $gcg^{-1}$ where $ c \in G^c$.
+
+By lemma 2, $c$ is a product of commutators. By lemma 3, we can move the left multiplication by $g$ to the right. We can keep doing it until the $g$ moved to the rightmost position, Then it will cancel with the $g^{-1}$ at the end and the remaining expression will be a product of commutators.
+
+That shows $ gG^cg^{-1} \subseteq G^c $, in other words, $G^c$ is normal in $G$.
+
+\subsubsection*{Lemma 5: $f([a,b]) = e$ for any homomorphism $ f: G \to A $ when $A$ is Abelian}
+
+Proof: 
+
+We first show $ f(ab) = f(ba) $
+
+\begin{align*}
+   & f(ab) \\
+  =& f(a)f(b) \\
+  =& f(b)f(a) \\
+  =& f(ba)
+\end{align*}
+
+And then we have
+
+\begin{align*}
+   & f([a,b]) \\
+  =& f(aba^{-1}b^{-1}) \\
+  =& f(ab)f(a^{-1}b^{-1}) \\
+  =& f(ab)f((ba)^{-1}) \\
+  =& f(ab)f(ba)^{-1} \\
+  =& f(ab)f(ab)^{-1} \\
+  =& e
+\end{align*}
+
+\subsubsection*{Lemma 6: $f(c) = e$ for any $c$ in $G^c$}
+
+Proof: By lemma 2 $c$ is a product of commutators and by lemma 5 all the commutators maps to $e$, so does the product.
+
+Finally we can prove this.
+
+Define $g: G \to G^c/G$ be the canonical homomorphism $g \mapsto gG^c$ and then we can define $h: G^c/G \to A$ to be $ gG^c \mapsto f(g) $.
+
+It is obvious that the composition will factor the given homomorphism. The key challenge is whether $h$ is well defined (i.e. independent of representative).
+
+Indeed, assume $g_1$ and $g_2$ are distinct representative of the same coset, then $g_1 = cg_2$ for some $c$ in $G^c$. Now $ f(g_2) = f(c) f(g_1) = f(g_1) $.
+
+Now we establish the mapping is well-defined because it's value is independent on the coset representative.

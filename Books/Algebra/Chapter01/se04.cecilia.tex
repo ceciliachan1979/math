@@ -1,0 +1,31 @@
+\subsection*{Lang Exercise 4 (Cecilia)}
+
+First, we let $ I = H \cap K $, and we will show $ I $ is normal in $ K $.
+
+For any $ k \in K \subseteq N^{H}$, we know $ kH = Hk $ by the definition of normalizer.
+
+Now $ kI \subseteq kH = Hk $, therefore any elements in $ kI $ can be written as $hk$ where $h$ is an element in $H$.
+
+However, any element in $ kI $ must be in $K$, so in fact $h$ is in $K$ as well. That means $ kI \subseteq Ik $.
+
+Similarly, we have $ Ik \subseteq Hk = kH$, any element in $ Ik $ can be written as $kh$ where $ h $ is an element in $H$.
+
+Any element in $ Ik $ must be in $K$, so in fact $h$ is in $K$ as well. That means $ Ik \subseteq kI $.
+
+Together we proved that $ kI = Ik $ for all $ k $ in $ K $ and therefore $ I $ is normal in $ K $.
+
+Now it is valid to consider the quotient $ K/I $, for each coset, we can pick a representative for it, let $ Q $ be the set of all chosen representatives.
+
+Define a map $ f: H \times Q \to HK $ to be $ (h, q) \mapsto hq $
+
+The mapping is apparently well defined as we have chosen the representatives.
+
+For any element $ hk \in HK $, $ k $ must be lying in a unique coset $ Iq $. Now $ k = iq $ for some $ i $ in $I$. Remember $ I $ is $ H \cap K $ so $ i $ in $ H $ as well. Now $ hi, q $ will map to $ hk $, and the map $ f $ is surjective.
+
+Suppose $ f(h_1, q_1) = f(h_2, q_2) = hk $, now $ h_1 q_1 = h_2 q_2 $ and so $ q_1 = h_1^{-1} h_2 q_2 $.
+
+$ h_1^{-1} h_2 $ is obviously in $ H $, but it is also in $ K $ because $ q_1 $ and $ q_2 $ are, so in fact we have found that $ q_1 $ and $ q_2 $ belongs to the same coset.
+
+In $ Q $, each coset has only one representative, so in fact $ q_1 = q_2 $ and therefore $ h_1 = h_2 $ and the map is injective.
+
+Last but not least, since we have found a bijection between $ H \times Q $ and $ HK $, they must have the same cardinalities, and the proposition is proved.
