@@ -1,0 +1,18 @@
+\subsection*{Exercise 3.1 (Cecilia)}
+Consider the homomorphism $ f: G \to \text{Inn}(G) $ by $ g \mapsto (x \mapsto g^{-1}xg) $. The homomorphism is obviously surjective.
+
+The kernel of this mapping correspond to the elements $k$ such that $ k^{-1}xk = x \implies xk = kx $ for all $ x $ in $ G $.
+
+That kernel is precisely the center $Z(G)$ of $G$.
+
+So by the first isomorphism theorem, $ G/Z(G) \cong \text{Inn}(G) $.
+
+Suppose (for the sake of contradiction) that $\text{Inn}(G) $ is non-trivial cyclic, so is $ G/Z(G) $, and so there exists $ gZ(G) $ that generates $ G/Z(G) $ where $ g \notin Z(G) $.
+
+We could pick the coset representatives as powers of $g$ so $g$ commutes with all coset representatives. By definition it commutes with $Z(G)$ as well. So it commutes with every element in $G$.
+
+It should have been in $Z(G)$ then, but it doesn't. This contradiction shows $\text{Inn}(G) $ cannot be non-trivial cyclic.
+
+
+
+
