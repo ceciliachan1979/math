@@ -1,0 +1,44 @@
+\subsection*{Exercise 2.3 (Cecilia)}
+
+\subsubsection*{Part a}
+For any $ x, y \in G $, we have
+
+\begin{align*}
+   & xy \\
+  =& \sigma(x^{-1}) \sigma(y^{-1}) \\
+  =& \sigma(x^{-1}y^{-1}) \\
+  =& \sigma((yx)^{-1}) \\
+  =& yx \\
+\end{align*}
+
+Therefore the group is Abelian.
+
+\subsubsection*{Part b}
+
+Work on the hint first. Suppose $ x^{-1}\sigma(x) = y^{-1}\sigma(y) $ we have:
+
+\begin{align*}
+   y^{-1}\sigma(y) &= x^{-1}\sigma(x) \\
+           xy^{-1} &= \sigma(x)\sigma(y)^{-1} \\
+           xy^{-1} &= \sigma(xy^{-1})
+\end{align*}
+
+As required, the only value such that $ g = \sigma(g) $ is 1, so $ xy^{-1} = 1 $, in other words, $ x = y $, the mapping is injective.
+
+As $ G $ is finite, an injective map between two identical finite sets must be bijective. 
+
+This is where I am right now.
+
+\subsubsection*{Ideas on part b}
+
+$ a $ can be represented as $ p^{-1} \sigma(p) $
+
+$ b $ can be represented as $ q^{-1} \sigma(q) $
+
+$ ab = p^{-1} \sigma(p) q^{-1} \sigma(q) = r^{-1} \sigma(r) $
+
+$ ba = q^{-1} \sigma(q) p^{-1} \sigma(p) = s^{-1} \sigma(s) $
+
+Why should they be equal?
+
+It is natural to think it might involve part a. Maybe $ \sigma(x) $ must be $ x^{-1} $, maybe we can prove $ f(x) = x^{-1} $ is another isomorphism?
