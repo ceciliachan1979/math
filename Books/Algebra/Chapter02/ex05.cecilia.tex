@@ -1,0 +1,12 @@
+\subsection*{Exercise 2.5 (Cecilia)}
+Suppose the only maximal subgroup is $ H $, since $ H $ is a proper subgroup of $ G $, there exist $ g \in G \notin H $.
+
+Suppose $ \langle g \rangle \ne G $, we could incrementally add elements and generate a new subgroup while it is not the whole group. First, this will always terminate, because $ G $ is finite.
+Second, this will always end up with a group containing $ g $, which is definitely not $ H $, and
+third, it is a maximal group, because the process terminated.
+
+Therefore, $ \langle g \rangle = G $, and the group is cyclic.
+
+A cyclic group with an order having more than one prime factor will always end up having more than one maximal group. Suppose the order is $ pqr $ where $ p $ and $ q $ are two distinct primes. There are two subgroups of size $ pr $ and $ qr $. These subgroups are necessarily distinct because they have different sizes, and these subgroups are necessarily maximal because there is no factor between their sizes and $ pqr $.
+
+Therefore the order of a group having only one maximal subgroup cannot have more than one prime factor, it can't have order equal to 1 as well, as such group don't have any maximal subgroup. So the order of a group having only one maximal subgroup must be a prime power.
