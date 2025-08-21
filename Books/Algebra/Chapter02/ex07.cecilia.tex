@@ -1,0 +1,13 @@
+\subsection*{Exercise 2.7 (Cecilia)}
+
+Denote the set of nongenerators be $ N $. We will prove $ \Phi(G) = N $ by proving $ \overline{\Phi(G)} = \overline{N}$.
+
+$ \overline{\Phi(G)} \subseteq \overline{N} $
+
+Suppose $ g \in \overline{\Phi(G)} $, we know that there exists a maximal subgroup $ H $ such that $ g \notin H $, this means $ \langle H \cup g \rangle = G $ and also $ H \ne G $, so $ g $ is not a nongenerator, $ g \in \overline{N} $.
+
+$ \overline{N} \subseteq \overline{\Phi(G)} $
+
+Suppose $ g \in \overline{N} $, there exists a set $ X $ such that $ \langle X \cup g \rangle = G $ but $ \langle X \rangle \ne G $. Grow $ X $ by adding eligible group elements to it until it is maximal (note that we cannot add $ g $ since adding $ g $ would make the result $ G $.) After the procedure, we will have a maximal group that does not contain $ g $, so $ g \in \overline{\Phi(G)} $.
+
+Since $ \overline{\Phi(G)} = \overline{N}$, we have $ \Phi(G) = N $.
