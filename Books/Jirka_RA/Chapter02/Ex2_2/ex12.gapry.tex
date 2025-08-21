@@ -1,0 +1,44 @@
+\subsubsection*{Exercise 2.2.12. (Gapry)}
+
+\subsubsection*{Part a (Gapry)}
+Because $ a_n $ is bounded, $ \sup\{a_n\} $ and $ \inf \{a_n\} $ exists and satisfy
+
+\begin{align*}
+  \inf \{a_n\} \le a_n \le \sup \{a_n\} 
+\end{align*}
+
+Multiply $ b_n $ on both sides to get: \todo{This operation is invalid because $ b_n $ could be negative.}
+
+\begin{align*}
+  \inf \{a_n\}b_n \le a_n b_n \le \sup \{a_n\} b_n
+\end{align*}
+
+Since both the left and right hand side tends to 0, by the squeezing theorem, $ \lim\limits_{n \to \infty} a_n b_n = 0 $.
+
+\subsubsection*{Part a (Cecilia)}
+If $ a_n $ is the constant sequence such that $ \inf\{a_n\} = \sup\{a_n\} $, the result is trivial, assuming otherwise.
+
+Let $ I = \inf\{a_n\} $ and $ S = \sup\{a_n\} $, define $ c_n = \frac{a_n - I}{S - I} $, it is designed so that its value is between 0 and 1.
+
+\begin{align*}
+  I &\le a_n     \le S     \\
+  0 &\le a_n - I \le S - I \\
+  0 &\le c_n     \le 1
+\end{align*}
+
+For any $ \epsilon > 0 $, there exists $ N $ such that for all $ n \ge N $, $ \left|b_n\right| < \epsilon $
+
+Now we have $ \left|c_nb_n\right| < c_n\epsilon \le \epsilon $
+
+Therefore $ \lim\limits_{n \to \infty} c_n b_n = 0 $
+
+Now $ \lim\limits_{n \to \infty} a_n b_n = (c_n(S - I) + I) b_n = I \lim\limits_{n \to \infty} b_n$ converges.
+
+
+\subsubsection*{Part b (Gapry)}
+The sequence $ a_n = \{1^2, 2^2, \cdots \} $ and $ b_n = \{\frac{1}{1}, \frac{1}{2}, \cdots \} $ will work.
+
+\todo{The original design $ a_n = \{1,2,\cdots,\} $ and $ b_n = \{0, \frac{1}{1}, \frac{1}{2}, \cdots \} $ does not work because it converges to 1.}
+
+\subsubsection*{Part c (Gapry)}
+The sequence $ a_n = \{1, -1, 1, -1, \cdots \} $ and $ b_n = \{x, x, x, \cdots \} $ will work.
