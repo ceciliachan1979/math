@@ -7,32 +7,32 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4
       - name: Compile DoneRight LaTeX document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: Books/DoneRight
           root_file: DoneRight.tex
       - name: Compile BabyRudin LaTeX document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: Books/BabyRudin
           root_file: BabyRudin.tex
       - name: Compile Algebra LaTeX document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: Books/Algebra
           root_file: Algebra.tex
       - name: Compile Jirka Real Analysis LaTeX document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: Books/Jirka_RA
           root_file: jirka_ra.tex
       - name: Compile Neukirch LaTeX document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: Books/Neukirch
           root_file: Neukirch.tex
       - name: Compile English LaTeX documents
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             Books/Neukirch/Notes.tex
@@ -60,13 +60,13 @@ jobs:
             Misc/ProofReviewGuidelines/ProofReviewGuidelines.tex
             Papers/GK/GK.tex
       - name: Compile Chinese LaTeX documents
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           latexmk_use_xelatex: true
           root_file: |
             Misc/Forms/DifferentialForm.tex
       - name: Upload LaTeX document
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: PDF
           path: |
