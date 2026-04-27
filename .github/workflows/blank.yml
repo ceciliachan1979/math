@@ -72,9 +72,9 @@ jobs:
           path: |
             Books/DoneRight/DoneRight.pdf
             Books/BabyRudin/BabyRudin.pdf
+            Books/Algebra/Algebra.pdf
             Books/Jirka_RA/jirka_ra.pdf
             Books/Neukirch/Neukirch.pdf
-            NTU/Calculus1/Calculus1.pdf
             Notes.pdf
             NumberTheory.pdf
             HKALE-1998.pdf
