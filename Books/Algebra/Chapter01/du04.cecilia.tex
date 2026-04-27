@@ -1,0 +1,38 @@
+\subsection*{Dummit Exercise 1.4.10 (Cecilia)}
+
+Let $G$ be the set of matrices $\begin{pmatrix} a & b \\ 0 & c \end{pmatrix}$ where $a \ne 0$ and $c \ne 0$.
+
+\subsubsection*{Part a}
+
+\[
+  \begin{pmatrix} a_1 & b_1 \\ 0 & c_1 \end{pmatrix}
+  \begin{pmatrix} a_2 & b_2 \\ 0 & c_2 \end{pmatrix}
+  =
+  \begin{pmatrix} a_1 a_2 & a_1 b_2 + b_1 c_2 \\ 0 & c_1 c_2 \end{pmatrix}
+\]
+
+Since $a_1 a_2 \ne 0$ and $c_1 c_2 \ne 0$, $G$ is closed under multiplication.
+
+\subsubsection*{Part b}
+
+\[
+  \begin{pmatrix} a & b \\ 0 & c \end{pmatrix}^{-1}
+  =
+  \begin{pmatrix} 1/a & -b/(ac) \\ 0 & 1/c \end{pmatrix}
+\]
+
+Since $a \ne 0$ and $c \ne 0$, we have $1/a \ne 0$ and $1/c \ne 0$, so $G$ is closed under inverse.
+
+\subsubsection*{Part c}
+
+$G$ is closed under multiplication and inverse, the identity matrix is in $G$, and associativity is inherited. Therefore $G$ is a subgroup of $GL_2(F)$.
+
+\subsubsection*{Part d}
+
+Let $H$ be the subset of $G$ where $a = c$.
+
+From part a), if $a_1 = c_1$ and $a_2 = c_2$, then $a_1 a_2 = c_1 c_2$, so $H$ is closed under multiplication.
+
+From part b), if $a = c$, then $1/a = 1/c$, so $H$ is closed under inverse.
+
+Therefore $H$ is a subgroup of $GL_2(F)$.
