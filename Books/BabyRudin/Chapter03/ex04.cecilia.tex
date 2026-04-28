@@ -1,0 +1,51 @@
+\subsection*{Exercise 04 (Cecilia)}
+We will characterize the odd and even subsequences.
+
+\begin{eqnarray*}
+      S_{2m + 1} &=& \frac{1}{2} + S_{2m}             \\
+                 &=& \frac{1}{2} + \frac{S_{2m-1}}{2} \\
+  S_{2m + 1} - 1 &=& \frac{S_{2m-1} - 1}{2}           \\
+                 &=& \frac{S_{2m-3} - 1}{4}           \\
+                 &=& \cdots                           \\
+                 &=& \frac{S_1 - 1}{2^m}              \\
+      S_{2m + 1} &=& 1 - \frac{1}{2^m}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+                S_{2m} &=& \frac{S_{2m-1}}{2}                \\
+                       &=& \frac{\frac{1}{2} + S_{2m-2}}{2}  \\
+                       &=& \frac{1}{4} + \frac{S_{2m-2}}{2}  \\
+  S_{2m} - \frac{1}{2} &=& \frac{S_{2m-2} - \frac{1}{2}}{2}  \\
+                       &=& \frac{S_{2m-4} - \frac{1}{2}}{4}  \\
+                       &=& \cdots                            \\
+                       &=& \frac{S_2 - \frac{1}{2}}{2^{m-2}} \\
+                S_{2m} &=& \frac{1}{2} - \frac{1}{2^{m-1}}
+\end{eqnarray*}
+
+Therefore the odd and even subsequences are increasing and converges to 1 and $\frac{1}{2}$, respectively. We claim that these are the upper and lower limits, respectively.
+
+Observe that since both subsequences are increasing and the larger one converge to 1. There is no terms in the sequence that is larger than 1, therefore there cannot be any subsequence converging to a value larger than 1, and there exists a subsequence that converges to 1. Therefore 1 is the upper limit.
+
+Next, suppose (for the sake of contrary) that there exists a subsequence that converges to a value less than $\frac{1}{2}$, say, $ \left(\frac{1}{2} - 3r\right) $.
+
+Let's start with some simple calculation:
+\begin{eqnarray*}
+                                -2r &<& -r              \\
+                            -3r + r &<& -r              \\
+  \left(\frac{1}{2} - 3r\right) + r &<& \frac{1}{2} - r \\
+                                    &<& 1 - r
+\end{eqnarray*}
+
+So the open intervals $ B_{r}\left(\frac{1}{2} - 3r\right) $ and $ B_{r}(1) $ are disjoint. Same holds for $ B_{r}\left(\frac{1}{2} - 3r\right) $ and $ B_{r}(\frac{1}{2}) $
+
+In the odd subsequence, all but finitely many points satisfy $ | s - 1 | < r $. So there are only finitely many points in the odd subsequence
+such that $ | s - \left(\frac{1}{2} - 3r\right) | < r $ as $ B_{r}\left(\frac{1}{2} - 3r\right) $ and $ B_{r}(1) $ are disjoint.
+
+In the even subsequence, all but finitely many points satisfy $ | s - \frac{1}{2} | < r $. So there are only finitely many points in the even subsequence
+such that $ | s - \left(\frac{1}{2} - 3r\right) | < r $ as $ B_{r}\left(\frac{1}{2} - 3r\right) $ and $ B_{r}(\frac{1}{2}) $ are disjoint
+
+A point can only be in one of the subsequences, so there are only finitely many points satisfying $ | s - \left(\frac{1}{2} - 3r\right) | < r $ in the entire sequence.
+
+In order for a subsequence to converge to $ \left(\frac{1}{2} - 3r\right) $, there must be infinitely many points that satisfy $ | s - \left(\frac{1}{2} - 3r\right) | < r $, but there only finitely many of them, so this is a contradiction.
+
+Therefore $\frac{1}{2}$ is the lower limit because there is no subsequence that converges to a value less than $\frac{1}{2}$. and the even subsequence converges to $\frac{1}{2}$.
