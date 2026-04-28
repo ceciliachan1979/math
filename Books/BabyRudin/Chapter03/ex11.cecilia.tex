@@ -1,0 +1,124 @@
+\subsection*{Exercise 11 (Cecilia)}
+
+\subsubsection*{Part a}
+We consider the case where $ a_n \ge 1 $, in that case, we have:
+
+\begin{eqnarray*}
+                    1 &\le& a_n \\
+              1 + a_n &\le& a_n + a_n \\
+    \frac{1}{1 + a_n} &\ge& \frac{1}{a_n + a_n} \\
+  \frac{a_n}{1 + a_n} &\ge& \frac{a_n}{a_n + a_n} \\
+                      &\ge& \frac{1}{2} \\
+                      & = & \min(\frac{a_n}{2}, \frac{1}{2})
+\end{eqnarray*}
+
+Otherwise if $ a_n < 1 $, we have:
+
+\begin{eqnarray*}
+                  a_n & < & 1 \\
+              1 + a_n & < & 1 + 1 \\
+    \frac{1}{1 + a_n} & > & \frac{1}{1 + 1} \\  
+  \frac{a_n}{1 + a_n} & > & \frac{a_n}{1 + 1} \\
+                      & > & \frac{a_n}{2} \\
+                      & = & \min(\frac{a_n}{2}, \frac{1}{2})
+\end{eqnarray*}
+
+Therefore $ \frac{a_n}{1 + a_n} \ge \min(\frac{a_n}{2}, \frac{1}{2}) $.
+
+Let $ b_n = \min(\frac{a_n}{2}, \frac{1}{2}) $, we would like to show the series $ \sum\limits_{n=1}^{\infty} b_n $ diverges.
+
+Let $ B $ be the set of all $ n $ such that $ \frac{1}{2} < \frac{a_n}{2} $. $ B $ is either infinite or finite.
+
+Case 1: $ B $ is infinite. In this case, for any $ L $ in $ \mathbb{R} $, we can advance the sequence until we see $ \lceil 2L \rceil + 1 $ number of elements of $ B $. Now the partial sum is greater than $ L $, say $ L + 2\epsilon $, where $ \epsilon > 0 $, and any further terms in the partial sum is greater than that value because $ b_n > 0 $, so it is impossible for us to have a $ N \in \mathbf{Z^+} $ such that $ n > N $ implies $ |\sum\limits_{n=1}^{N} b_n - L| < \epsilon $. In other words, $ \sum\limits_{n=1}^{\infty} b_n $ does not converge to $ L $, but $ L $ is arbitrary, so the series diverges.
+
+Case 2: $ B $ is finite. In this case, the partial sum of $ \sum\limits_{n=1}^{N} b_n + C \ge \frac{a_n}{2} $, where $ C $ is the sum of all $ \frac{a_n}{2} - \frac{1}{2} $ for all $ n \in B $. But $  \sum\limits_{n=1}^{\infty} a_n $ diverge, so $  \sum\limits_{n=1}^{\infty} \frac{a_n}{2} $ also diverge, and $ \sum\limits_{n=1}^{\infty} b_n $ diverges.
+
+In any case, we have shown that $ \sum\limits_{n=1}^{\infty} b_n $ diverges, and therefore $ \sum\limits_{n=1}^{\infty} \frac{a_n}{1 + a_n} $ also diverges.
+
+\subsubsection*{Part b}
+\begin{eqnarray*}
+  &   & \frac{a_{N+1}}{s_{N+1}} + \frac{a_{N+2}}{s_{N+2}} + \cdots + \frac{a_{N+k}}{s_{N+k}} \\
+  &\ge& \frac{a_{N+1}}{s_{N+k}} + \frac{a_{N+2}}{s_{N+k}} + \cdots + \frac{a_{N+k}}{s_{N+k}} \\
+  & = & \frac{a_{N+1} + a_{N+2} + \cdots + a_{N+k}}{s_{N+k}} \\
+  & = & \frac{s_{N+k} - s_N}{s_{N+k}} \\
+  & = & 1 - \frac{s_N}{s_{N+k}}
+\end{eqnarray*}
+
+Note that this implies the partial sums $ \sum\limits_{n=1}^{N} \frac{a_n}{s_n} $ is not Cauchy. For example, with $ \epsilon = \frac{1}{2} $, for any $ N $, we have:
+
+\begin{eqnarray*}
+  &   & \sum\limits_{n=1}^{N + k } \frac{a_n}{s_n} - \sum\limits_{n=1}^{N} \frac{a_n}{s_n} \\
+  & = & \frac{a_{N+1}}{s_{N+1}} + \frac{a_{N+2}}{s_{N+2}} + \cdots + \frac{a_{N+k}}{s_{N+k}} \\
+  &\ge& 1 - \frac{s_N}{s_{N+k}}
+\end{eqnarray*}
+
+As $ \sum\limits_{n=1}^{\infty} a_n $ diverges, we can increase $ s_{N+k} $ arbitrary by increasing $ k $, so we can find $ k $ such that $ 1 - \frac{s_N}{s_{N+k}} > \frac{1}{2} $. In other words, it is impossible for us to find an $ N $ such that $ n > N $ implies $ |\sum\limits_{n=1}^{N + k } \frac{a_n}{s_n} - \sum\limits_{n=1}^{N} \frac{a_n}{s_n}| < \frac{1}{2} $, which means the partial sums is not Cauchy.
+
+With that, the series $ \sum\limits_{n=1}^{\infty} \frac{a_n}{s_n} $ diverges.
+
+\subsubsection*{Part c}
+For $ n > 1 $, we have:
+
+\begin{eqnarray*}
+  &   & \frac{1}{s_{n-1}} - \frac{1}{s_n} \\
+  & = & \frac{s_n}{s_{n-1}s_n} - \frac{s_{n-1}}{s_{n-1}s_n} \\
+  & = & \frac{s_n - s_{n-1}}{s_{n-1}s_n} \\
+  & = & \frac{a_n}{s_{n-1}s_n} \\
+  &\ge& \frac{a_n}{s_n^2}
+\end{eqnarray*}
+
+Denote $ c_n = \frac{1}{s_{n-1}} - \frac{1}{s_n} $ for $ n > 1 $ and $ c_1 = \frac{a_1}{s_1^2} $.
+
+We have $ c_n \ge \frac{a_n}{s_n^2} $ for all $ n $, and $ c_n \ge 0 $ for all $ n $.
+
+Also, we have $ \sum\limits_{n=1}^{N} c_n = \frac{a_1}{s_1^2} + \frac{1}{s_1} - \frac{1}{s_N} $, as $ s_N \to \infty $, $ \sum\limits_{n=1}^{N} c_n \to 1 $, so the series $ \sum\limits_{n=1}^{\infty} c_n $ converges.
+
+By the comparison test, $ \sum\limits_{n=1}^{\infty} \frac{a_n}{s_n^2} $ also converges.
+
+\subsubsection*{Part d}
+
+For the case of $ \frac{a_n}{1 + na_n} $, we can use the same argument as in part a.
+
+We consider the case where $ na_n \ge 1 $, in that case, we have:
+
+\begin{eqnarray*}
+                     1 &\le& na_n \\
+              1 + na_n &\le& na_n + na_n \\
+    \frac{1}{1 + na_n} &\ge& \frac{1}{na_n + na_n} \\
+  \frac{a_n}{1 + na_n} &\ge& \frac{a_n}{na_n + na_n} \\
+                       & = & \frac{1}{2n} \\
+                       & = & \min(\frac{na_n}{2n}, \frac{1}{2n})
+\end{eqnarray*}
+
+Otherwise if $ na_n < 1 $, we have:
+
+\begin{eqnarray*}
+                  na_n &\le& 1 \\
+              1 + na_n &\le& 1 + 1 \\
+    \frac{1}{1 + na_n} &\ge& \frac{1}{1 + 1} \\
+  \frac{a_n}{1 + na_n} &\ge& \frac{a_n}{1 + 1} \\
+                       & = & \frac{a_n}{2} \\
+                       & = & \min(\frac{na_n}{2n}, \frac{1}{2n})
+\end{eqnarray*}
+
+Therefore $ \frac{a_n}{1 + na_n} \ge \min(\frac{na_n}{2n}, \frac{1}{2n}) $.
+
+Let $ b_n = \min(\frac{na_n}{2n}, \frac{1}{2n}) $, we would like to show the series $ \sum\limits_{n=1}^{\infty} b_n $ diverges.
+
+Let $ B $ be the set of all $ n $ such that $ \frac{1}{2n} < \frac{na_n}{2n} $. $ B $ is either infinite or finite.
+
+Case 1: $ B $ is infinite. In this case, for any $ L $ in $ \mathbb{R} $, we can advance the sequence until we see the partial sum is greater than $ L $, say $ L + 2\epsilon $, where $ \epsilon > 0 $, we can do that because there are infinitely many terms of greater than or equal to $ \frac{1}{2n} $, and $ \sum \frac{1}{2n} $ is unbounded. Any further terms in the partial sum is greater than that value because $ b_n > 0 $, so it is impossible for us to have a $ N \in \mathbf{Z^+} $ such that $ n > N $ implies $ |\sum\limits_{n=1}^{N} b_n - L| < \epsilon $. In other words, $ \sum\limits_{n=1}^{\infty} b_n $ does not converge to $ L $, but $ L $ is arbitrary, so the series diverges.
+
+Case 2: $ B $ is finite. In this case, the partial sum of $ \sum\limits_{n=1}^{N} b_n + C \ge \frac{a_n}{2} $, where $ C $ is the sum of all $ \frac{na_n}{2n} - \frac{1}{2n} $ for all $ n \in B $. But $  \sum\limits_{n=1}^{\infty} a_n $ diverge, so $  \sum\limits_{n=1}^{\infty} \frac{a_n}{2} $ also diverge, and $ \sum\limits_{n=1}^{\infty} b_n $ diverges.
+
+In any case, we have shown that $ \sum\limits_{n=1}^{\infty} b_n $ diverges, and therefore $ \sum\limits_{n=1}^{\infty} \frac{a_n}{1 + na_n} $ also diverges.
+
+For the case of $ \frac{a_n}{1 + n^2 a_n} $, we can use the comparison test:
+
+\begin{eqnarray*}
+  &   & \frac{a_n}{1 + n^2 a_n} \\
+  & = & \frac{1}{\frac{1}{a_n} + n^2} \\
+  &\le& \frac{1}{n^2}
+\end{eqnarray*}
+
+Therefore $ \sum\limits_{n=1}^{\infty} \frac{a_n}{1 + n^2 a_n} $ converges.
